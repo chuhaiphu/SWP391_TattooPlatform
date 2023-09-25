@@ -5703,36 +5703,4 @@ table tr td {
     .footer-bottom .policy-links a:hover {
         text-decoration: underline;
     }
-    .login {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-        color: white;
-        text-decoration: none;
-        transition: color 0.01s;
-        font-size: xx-large;
-
-    }
-
-    .login:hover {
-        color: #C4B087;
-
-    }
-    .desk-only:hover{
-        color: #C4B087;
-    }
-    .search-input {
-        border-radius: 20px;
-        border: 1px solid #C4B087 !important;
-    }
-    .search-input::placeholder {
-        color: #C4B087;
-    }
-    .search-input:not(:placeholder-shown) {
-        color: #C4B087;
-    }
-    .search-input {
-        padding-right: 30px!important;
-    }
 }
