@@ -70,7 +70,6 @@ CREATE TABLE [dbo].[Booking](
 	[customer_phone_number] [varchar](20) NOT NULL,
 
 )
-drop table Booking
 
 alter table Booking 
 add constraint PK_Booking
