@@ -261,7 +261,6 @@ CREATE TABLE [dbo].[Studio_Tattoo_Manager](
 	[full_name] [nvarchar](20) NOT NULL,
 	[phone_number] [varchar](20) NOT NULL,
 	[address] [nvarchar](50) NOT NULL,
-	[roleID] [varchar](10) NOT NULL,
 	[System_Staff_email] [varchar](50) NOT NULL,
 	[username] [varchar](20) NOT NULL,
 	[password] [varchar](20) NOT NULL,
