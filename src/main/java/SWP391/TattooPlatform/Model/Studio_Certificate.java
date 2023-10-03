@@ -1,9 +1,6 @@
 package SWP391.TattooPlatform.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
+@Table(name = "Studio_Certificate")
 public class Studio_Certificate {
+
     @Id
     private String studio_Certificate_ID;
 
@@ -21,10 +20,9 @@ public class Studio_Certificate {
 
     private String description;
 
-    private String studio_Manager_email;
+    private String studio_Manager_Email;
 
     @ManyToOne
-    @JoinColumn(name = "studio_Manager_email")
-
+    @JoinColumn(name = "studio_Manager_email", insertable = false, updatable = false)
     private Studio_Tattoo_Manager studio_Tattoo_Manager;
 }

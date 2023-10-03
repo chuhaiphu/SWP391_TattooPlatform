@@ -1,9 +1,6 @@
 package SWP391.TattooPlatform.Model;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +12,8 @@ import java.util.Collection;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
+@Table(name = "Studio_Tattoo_Manager")
 public class Studio_Tattoo_Manager {
 
     @Id
@@ -36,4 +35,10 @@ public class Studio_Tattoo_Manager {
 
     @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
     private Collection<Studio_Certificate> certificates;
+
+//    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
+//    private Collection<Artist> artists;
+
+//    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
+//    private Collection<Service> services;
 }
