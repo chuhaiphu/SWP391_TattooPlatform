@@ -18,9 +18,12 @@ public interface RoleRepository extends JpaRepository<Roles,Long> {
         // view
         List<Roles> findAll();
 
+        Roles findRolesByRoleID(String id);
         //search
-        @Query("Select r.roleID, r.roleName from Roles r where r.roleID = :roleID")
-        Roles searchRolesByID(@Param("roleID") String roleID) ;
+//        @Query(value = "Select r.roleID, r.roleName from Roles r where r.roleID = :roleID ")
+//        Roles searchRolesByID(@Param("roleID") String roleID) ;
+
+
 
         //UPDATE
         @Modifying
@@ -29,9 +32,10 @@ public interface RoleRepository extends JpaRepository<Roles,Long> {
         void updateRole(@Param("roleID") String roleID, @Param("name") String name);
 
         //DELETE
+        @Modifying
         @Transactional
-        @Query("delete Roles r where r.roleID =: roleID")
-        void deleteRolesByID(String roleID);
+        @Query(value = "delete from Roles r where r.roleID = :roleID")
+        void deleteRolesByID(@Param("roleID") String roleID);
 
         //INSERT
         @Transactional

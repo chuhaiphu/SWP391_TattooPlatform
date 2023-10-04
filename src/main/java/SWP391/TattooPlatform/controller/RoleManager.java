@@ -1,6 +1,7 @@
 package SWP391.TattooPlatform.controller;
 
 import SWP391.TattooPlatform.config.ResponseUtils;
+import SWP391.TattooPlatform.models.ResponseDTO;
 import SWP391.TattooPlatform.models.Roles;
 import SWP391.TattooPlatform.service.RoleService;
 
@@ -42,10 +43,10 @@ public class RoleManager {
     public ResponseEntity<?> updateRole(@RequestParam String name, @PathVariable String roleID) throws Exception {
         return ResponseUtils.get(roleService.updateRole(roleID,name),HttpStatus.OK);
     }
-//
-//    @DeleteMapping("/deleteRole/{roleID}")
-//    public void deleteRole(@PathVariable("roleID") String roleID) {
-//        roleService.deleteRole(roleID);
-//
-//    }
+
+    @DeleteMapping("/deleteRole/{roleID}")
+    public ResponseEntity<?> deleteRole(@PathVariable("roleID") String roleID) throws Exception {
+        return ResponseUtils.get(roleService.deleteRole(roleID), HttpStatus.OK);
+
+    }
 }

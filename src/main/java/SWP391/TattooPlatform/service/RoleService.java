@@ -35,11 +35,17 @@ public class RoleService {
             , String name ) throws Exception {
 
          roleRepository.updateRole(roleID, name);
-        return roleRepository.searchRolesByID(roleID);
+        return roleRepository.findRolesByRoleID(roleID);
     }
 
-    public void deleteRole(String id) {
+    public Roles deleteRole(String id) throws Exception{
         roleRepository.deleteRolesByID(id);
+        Roles roles = roleRepository.findRolesByRoleID(id);
+        if(roles == null) {
+            return null;
+        }else {
+            throw new Exception();
+        }
     }
 }
 
