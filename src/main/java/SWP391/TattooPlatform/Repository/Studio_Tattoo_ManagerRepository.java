@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 @EnableJpaRepositories
 
-public interface Studio_Tattoo_ManagerDAO
+public interface Studio_Tattoo_ManagerRepository
                 extends JpaRepository<Studio_Tattoo_Manager, Long>{
     List<Studio_Tattoo_Manager> findAll();
 
