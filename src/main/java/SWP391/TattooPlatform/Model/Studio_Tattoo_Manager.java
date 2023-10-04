@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.Collection;
 
-
 @Entity
 @Data
 @AllArgsConstructor
@@ -35,6 +34,13 @@ public class Studio_Tattoo_Manager {
 
     @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
     private Collection<Studio_Certificate> certificates;
+
+    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
+    private Collection<Service> services;
+
+    @ManyToOne
+    @JoinColumn(name = "System_Staff_email")
+    private SystemStaff systemStaff;
 
 //    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
 //    private Collection<Artist> artists;
