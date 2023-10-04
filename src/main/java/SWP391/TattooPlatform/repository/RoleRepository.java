@@ -1,36 +1,41 @@
 package SWP391.TattooPlatform.repository;
 
 import SWP391.TattooPlatform.models.Roles;
-import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@Repository("roleRepository")
+@Repository
 @EnableJpaRepositories
 public interface RoleRepository extends JpaRepository<Roles,Long> {
         // view
-        List<Roles> getAllRole();
+        List<Roles> findAll();
 
-        @Transactional
-        void saveRole(Roles role);
+        //search
+        @Query("Select r.roleID, r.roleName from Roles r where r.roleID = :roleID")
+        Roles searchRolesByID(@Param("roleID") String roleID) ;
 
         //UPDATE
         @Modifying
         @Transactional
-        @Query("UPDATE Roles r SET r.roleID = :roleID WHERE r.roleName = :newRoleName")
-        void updateRoleById(@Param("roleID") String roleID, @Param("newRoleName") String newRoleName);
+        @Query(value = "UPDATE Roles r SET r.roleName = :name WHERE r.roleID = :roleID ")
+        void updateRole(@Param("roleID") String roleID, @Param("name") String name);
 
+        //DELETE
         @Transactional
-        void deleteByRoleID(String roleID);
+        @Query("delete Roles r where r.roleID =: roleID")
+        void deleteRolesByID(String roleID);
 
-        Roles getRolesByRoleID(String roleID);
-
+        //INSERT
+        @Transactional
+        Roles save(Roles roles);
 
 
 }
