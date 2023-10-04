@@ -1,8 +1,7 @@
 package SWP391.TattooPlatform.controller;
 
 import SWP391.TattooPlatform.config.ResponseUtils;
-import SWP391.TattooPlatform.models.ResponseDTO;
-import SWP391.TattooPlatform.models.Roles;
+import SWP391.TattooPlatform.model.Roles;
 import SWP391.TattooPlatform.service.RoleService;
 
 import org.springframework.beans.factory.annotation.Autowired;

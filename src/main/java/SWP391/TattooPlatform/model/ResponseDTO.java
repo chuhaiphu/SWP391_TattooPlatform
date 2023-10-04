@@ -1,4 +1,4 @@
-package SWP391.TattooPlatform.models;
+package SWP391.TattooPlatform.model;
 
 import lombok.Builder;
 import lombok.Getter;

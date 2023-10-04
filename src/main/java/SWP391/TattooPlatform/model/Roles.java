@@ -1,11 +1,8 @@
-package SWP391.TattooPlatform.models;
+package SWP391.TattooPlatform.model;
 
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.io.Serializable;
-import java.util.Collection;
 
 
 import javax.validation.constraints.Size;

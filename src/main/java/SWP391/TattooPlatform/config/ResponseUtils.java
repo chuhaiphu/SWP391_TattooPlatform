@@ -1,7 +1,7 @@
 package SWP391.TattooPlatform.config;
 
 
-import SWP391.TattooPlatform.models.ResponseDTO;
+import SWP391.TattooPlatform.model.ResponseDTO;
 import lombok.experimental.UtilityClass;
 
 

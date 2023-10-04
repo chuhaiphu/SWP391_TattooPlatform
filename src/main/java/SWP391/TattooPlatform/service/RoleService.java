@@ -1,10 +1,8 @@
 package SWP391.TattooPlatform.service;
 
-import SWP391.TattooPlatform.models.Roles;
+import SWP391.TattooPlatform.model.Roles;
 import SWP391.TattooPlatform.repository.RoleRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 

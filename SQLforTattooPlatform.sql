@@ -29,7 +29,6 @@ CREATE TABLE [dbo].[Artist](
 	[phone_number] [varchar](50) NOT NULL,
 	[address] [nvarchar](50) NOT NULL,
 	[rate] [float] NOT NULL,
-	[roleID] [varchar](10) NOT NULL,
 	[studio_Manager_email] [varchar](50) NOT NULL,
 	[username] [varchar](20) NOT NULL,
 	[password] [varchar](20) NOT NULL,
@@ -302,7 +301,6 @@ CREATE TABLE [dbo].[TattooLovers](
 	[full_name] [nvarchar](100) NOT NULL,
 	[phone_number] [nvarchar](20) NOT NULL,
 	[address] [nvarchar](100) NOT NULL,
-	[roleID] [nvarchar](20) NOT NULL,
 	[system_Staff_email] [varchar](50) NOT NULL,
  CONSTRAINT [PK_TattooLovers] PRIMARY KEY CLUSTERED 
 (
