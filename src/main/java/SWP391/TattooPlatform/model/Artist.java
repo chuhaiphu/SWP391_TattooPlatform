@@ -9,21 +9,22 @@ import jakarta.persistence.Table;
 @Table (name = "Artist")
 public class Artist {
     @Id
-    @Column
-    private String artist_email;
-    @Column
-    private String full_name;
-    @Column
-    private String phone_number;
-    @Column
+    @Column (name = "artist_email")
+    private String email;
+    @Column (name = "full_name")
+    private String fullName;
+    @Column(name = "phone_number")
+    private String phoneNumber;
+    @Column(name = "address")
     private String address;
-    @Column
+    @Column(name = "rate")
     private String rate;
-    @Column
-    private String studio_Manager_email;
-    @Column
+    @Column(name = "studio_Manager_email")
+    private String studioManagerEmail;
+    @Column(name = "username")
     private String username;
-    @Column
+    @Column(name = "password")
     private String password;
+
 
 }
