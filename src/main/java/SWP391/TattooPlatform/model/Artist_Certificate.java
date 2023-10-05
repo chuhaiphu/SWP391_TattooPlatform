@@ -9,17 +9,20 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Table (name = "Artist_Certificate")
 public class Artist_Certificate {
     @Id
-    private String certificate_ID;
+    @Column(name = "certificate_ID")
+    private String certificateID;
 
-    private String certificate_name;
+    @Column(name = "certificate_name")
+    private String certificateName;
 
-    private String artist_email;
+    @Column(name = "artist_email")
+    private String artistEmail;
 
     @ManyToOne
     @JoinColumn(name = "artist_email")
 
-    private Artist Artist;
+    private Artist artist;
 }

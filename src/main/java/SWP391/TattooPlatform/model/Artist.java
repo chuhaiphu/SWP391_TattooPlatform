@@ -11,27 +11,35 @@ import java.util.Collection;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table (name = "Artist")
 
 public class Artist {
     @Id
-    private String artist_email;
+    @Column(name = "artist_email")
+    private String artistEmail;
 
-    private String full_name;
+    @Column(name = "full_name")
+    private String fullName;
 
-    private String phone_number;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
+    @Column(name = "address")
     private String address;
 
+    @Column(name = "rate")
     private float rate;
 
-    private String roleID;
+    @Column(name = "studio_Manager_email")
+    private String studioManagerEmail;
 
-    private String studio_Manager_email;
-
+    @Column(name = "username")
     private String username;
 
+    @Column(name = "password")
     private String password;
-    @OneToMany(mappedBy = "Artist", cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)
 
     private Collection<Artist_Certificate> artist_Certificates;
 }
