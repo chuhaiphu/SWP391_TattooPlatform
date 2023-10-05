@@ -1,7 +1,7 @@
 package SWP391.TattooPlatform.controller;
 
 import SWP391.TattooPlatform.config.ResponseUtils;
-import SWP391.TattooPlatform.model.Roles;
+import SWP391.TattooPlatform.model.Role;
 import SWP391.TattooPlatform.service.RoleService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +34,8 @@ public class RoleManager {
     }
 
     @PostMapping("/addRole")
-    public ResponseEntity<?> saveRole(@RequestBody Roles roles) {
-        return ResponseUtils.get(roleService.addRole(roles), HttpStatus.CREATED);
+    public ResponseEntity<?> saveRole(@RequestBody Role role) {
+        return ResponseUtils.get(roleService.addRole(role), HttpStatus.CREATED);
     }
 
     @PutMapping("/updateRole/{roleID}")
