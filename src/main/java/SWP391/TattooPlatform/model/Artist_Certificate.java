@@ -1,4 +1,4 @@
-package SWP391.TattooPlatform.Model;
+package SWP391.TattooPlatform.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
