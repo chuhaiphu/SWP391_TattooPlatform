@@ -33,12 +33,12 @@ public class RoleService {
             , String name ) throws Exception {
 
          roleRepository.updateRole(roleID, name);
-        return roleRepository.findRolesByRoleID(roleID);
+        return roleRepository.findRoleByRoleID(roleID);
     }
 
     public Role deleteRole(String id) throws Exception{
-        roleRepository.deleteRolesByID(id);
-        Role role = roleRepository.findRolesByRoleID(id);
+        roleRepository.deleteRoleByID(id);
+        Role role = roleRepository.findRoleByRoleID(id);
         if(role == null) {
             return null;
         }else {

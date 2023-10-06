@@ -18,7 +18,7 @@ public interface RoleRepository extends JpaRepository<Role,Long> {
         List<Role> findAll();
 
         //SEARCH
-        Role findRolesByRoleID(String id);
+        Role findRoleByRoleID(String id);
 
 
 
@@ -32,7 +32,7 @@ public interface RoleRepository extends JpaRepository<Role,Long> {
         @Modifying
         @Transactional
         @Query(value = "delete from Role r where r.roleID = :roleID")
-        void deleteRolesByID(@Param("roleID") String roleID);
+        void deleteRoleByID(@Param("roleID") String roleID);
 
         //INSERT
         @Transactional
