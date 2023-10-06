@@ -35,10 +35,10 @@ public class Service {
 
     @Size(min = 1, max = 250, message = "Image link must have length between {min} and {max}")
     @Column(name = "link_image")
-    private String link_image;
+    private String linkImage;
 
     @Column(name = "tattoo_Manager_email")
-    private String tattoo_Manager_email;
+    private String tattooManagerEmail;
 
     // @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
     //    @EqualsAndHashCode.Exclude

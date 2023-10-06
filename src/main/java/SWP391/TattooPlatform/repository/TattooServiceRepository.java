@@ -24,8 +24,8 @@ public interface TattooServiceRepository extends JpaRepository<Service, Long> {
     @Modifying
     @Transactional
     @Query(value = "UPDATE Service s SET s.serviceName = :serviceName, s.description = :description" +
-            ", s.price = :price , s.link_image = :linkImage WHERE s.serviceID = :serviceID and" +
-            " s.tattoo_Manager_email = :StudioManagerEmail ")
+            ", s.price = :price , s.linkImage = :linkImage WHERE s.serviceID = :serviceID and" +
+            " s.tattooManagerEmail = :StudioManagerEmail ")
     void updateService(@Param("serviceID") String serviceID, @Param("serviceName") String serviceName, @Param("description") String description
                          ,@Param("price") float price, @Param("linkImage") String linkImage, @Param("StudioManagerEmail") String email  );
 
