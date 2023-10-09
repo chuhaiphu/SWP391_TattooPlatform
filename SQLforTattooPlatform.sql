@@ -7,7 +7,7 @@ CREATE TABLE [dbo].[Admin](
 	[full_name] [nvarchar](100) NOT NULL,
 	[phone_number] [nvarchar](20) NOT NULL,
 	[address] [nvarchar](100) NOT NULL,
-	
+	[roleID] [varchar](20) NOT NULL,
  CONSTRAINT [PK_Admin] PRIMARY KEY CLUSTERED 
 (
 	[admin_email] ASC
@@ -56,19 +56,35 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Booking](
-	[tattoo_Lover_email] [varchar](50)NOT NULL,
-	[service_ID] [varchar](20) NOT NULL,
-	[artist_email] [varchar](50) NOT NULL,
+	[tattoo_Lover_email] [varchar](20)NOT NULL,
+	artist_email varchar(20) not null,
+	Booking_ID varchar(20) primary key,
 	[time] [time](7) NOT NULL,
 	[date] [date] NOT NULL,
 	[customer_name] [varchar](100) NOT NULL,
 	[customer_phone_number] [varchar](20) NOT NULL,
 
 )
+create table Booking_Service (
+	service_ID varchar(20) not null,
+	Booking_ID varchar(20) not null
+)
 
-alter table Booking 
-add constraint PK_Booking
-Primary key (tattoo_lover_email, service_ID, artist_email)
+alter table Booking_Service 
+add constraint PK_Booking_Service
+Primary key (Booking_ID, service_ID)
+
+
+
+ALTER TABLE [dbo].[Booking_Service]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Service_Booking] FOREIGN KEY([Booking_ID])
+REFERENCES [dbo].[Booking] ([Booking_ID])
+GO
+
+ALTER TABLE [dbo].[Booking_Service]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Service_Service] FOREIGN KEY([service_ID])
+REFERENCES [dbo].[Service] ([service_ID])
+GO
+
+
 
 
 /****** Object:  Table [dbo].[Booking_Detail]    Script Date: 10/2/2023 10:02:52 AM ******/
@@ -77,7 +93,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Booking_Detail](
-	[booking_Detail_ID] [varchar](20) NOT NULL,
+	[booking_Detail_ID] [varchar](20)  not null,
 	[booking_ID] [varchar](20) NOT NULL,
 	[statusID] [varchar](20) NOT NULL,
 	[description] [text] NULL,
@@ -226,7 +242,7 @@ CREATE TABLE [dbo].[SystemStaff](
 	[full_name] [nvarchar](100) NOT NULL,
 	[phone_number] [nvarchar](20) NOT NULL,
 	[address] [nvarchar](100) NOT NULL,
-	
+	[roleID] [varchar](20) NOT NULL,
 	[admin_email] [varchar](50) NOT NULL,
  CONSTRAINT [PK_SystemStaff] PRIMARY KEY CLUSTERED 
 (
@@ -240,7 +256,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[TattooLovers](
-	[tattoo_Lover_email] [varchar](50) NOT NULL,
+	[tattoo_Lover_email] [varchar](20) NOT NULL,
 	[username] [nvarchar](20) NOT NULL,
 	[password] [nvarchar](20) NOT NULL,
 	[full_name] [nvarchar](100) NOT NULL,
@@ -278,6 +294,9 @@ GO
 ALTER TABLE [dbo].[Artist] CHECK CONSTRAINT [fk_Artist_Studio_Tattoo_Manager]
 GO
 
+Alter table [dbo].[Studio_Certificate]  WITH CHECK ADD  CONSTRAINT  [fk_Studio_Certificate_Studio_Manager] FOREIGN KEY ([studio_Manager_email])
+references [dbo].[Studio_Tattoo_Manager] ([studio_Manager_email])
+
 
 ALTER TABLE [dbo].[Artist_Certificate]  WITH CHECK ADD  CONSTRAINT [fk_Artist_Certificate_Artist] FOREIGN KEY([artist_email])
 REFERENCES [dbo].[Artist] ([artist_email])
@@ -285,31 +304,12 @@ GO
 ALTER TABLE [dbo].[Artist_Certificate] CHECK CONSTRAINT [fk_Artist_Certificate_Artist]
 GO
 
-
-ALTER TABLE [dbo].[Booking]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Artist] FOREIGN KEY([artist_email])
-REFERENCES [dbo].[Artist] ([artist_email])
-GO
-ALTER TABLE [dbo].[Booking] CHECK CONSTRAINT [FK_Booking_Artist]
+ALTER TABLE [dbo].[Booking]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Tattoo_Lover] FOREIGN KEY(tattoo_lover_email)
+REFERENCES [dbo].[tattooLovers] (tattoo_lover_email)
 GO
 
-
-ALTER TABLE [dbo].[Booking]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Service] FOREIGN KEY([service_ID])
-REFERENCES [dbo].[Service] ([service_ID])
-GO
-ALTER TABLE [dbo].[Booking] CHECK CONSTRAINT [FK_Booking_Service]
-GO
-
-
-
-ALTER TABLE [dbo].[Booking]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Tattoo_Lover] FOREIGN KEY([tattoo_Lover_email])
-REFERENCES [dbo].[TattooLovers] ([tattoo_Lover_email])
-GO
-ALTER TABLE [dbo].[Booking] CHECK CONSTRAINT [FK_Booking_Tattoo_Lover]
-GO
-
-
-ALTER TABLE [dbo].[Booking_Detail]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Detail_Booking] FOREIGN KEY(tattoo_lover_email, service_ID, artist_email)
-REFERENCES [dbo].[Booking] (tattoo_lover_email, service_ID, artist_email)
+ALTER TABLE [dbo].[Booking_Detail]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Detail_Booking] FOREIGN KEY(booking_ID)
+REFERENCES [dbo].[Booking] (Booking_ID)
 GO
 ALTER TABLE [dbo].[Booking_Detail] CHECK CONSTRAINT [FK_Booking_Detail_Booking]
 GO
