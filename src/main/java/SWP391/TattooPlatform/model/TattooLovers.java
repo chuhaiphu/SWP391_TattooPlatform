@@ -23,10 +23,10 @@ public class TattooLovers {
     @Column(name = "tattoo_Lover_email")
     private String tattooLoveremail;
     @Column(name = "username")
-    @Size(min = 4, max = 20, message = "Role ID must have length between {min} and {max}")
+    @Size(min = 1, max = 50, message = "Username must have length between {min} and {max}")
     private String username;
     @Column(name = "password")
-    @Size(min = 4, max = 20, message = "Role ID must have length between {min} and {max}")
+    @Size(min = 6, max = 30, message = "Password must have length between {min} and {max}")
     private String password;
     @Column(name = "full_name")
     private String fullname;

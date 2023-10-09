@@ -30,7 +30,12 @@ public class TattooLoversController {
                                                 @RequestParam String phonenumber,
                                                  @RequestParam String address,
                                                  @PathVariable String tattooloversemail)    throws Exception {
-        return ResponseUtils.get(tattooLoversService.updateTattooLovers(tattooloversemail,password,phonenumber,address)),HttpStatus.OK);
+        return ResponseUtils.get(tattooLoversService.updateTattooLovers(tattooloversemail,password,phonenumber,address),HttpStatus.OK);
+    }
+    @DeleteMapping("/delete/{tattooloversemail}")
+    public ResponseEntity<?> deleteRole(@PathVariable("tattooloversemail") String tattooloversemail) throws Exception {
+        return ResponseUtils.get(tattooLoversService.deteleTattooLovers(tattooloversemail), HttpStatus.OK);
+
     }
 
 
