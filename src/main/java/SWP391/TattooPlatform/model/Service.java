@@ -1,5 +1,6 @@
 package SWP391.TattooPlatform.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -43,11 +44,13 @@ public class Service {
     // @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
     //    @EqualsAndHashCode.Exclude
     //    @ToString.Exclude
+    //  @JsonIgnore
     //    private Collection<Booking> booking;
 
     //  @ManyToOne
     //    @JoinColumn(name = "tattoo_Manager_email")
     //    @EqualsAndHashCode.Exclude
     //    @ToString.Exclude
+    //    @JsonIgnore
     //    private StudioTattooManager  studioTattooManager;
 }
