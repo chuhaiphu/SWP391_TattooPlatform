@@ -29,11 +29,5 @@ public class Artist {
     @Column(name = "password")
     private String password;
 
-    // mappedBy trỏ tới tên biến artist ở trong Role.
-    @ManyToMany(mappedBy = "artist")
-    // LAZY để tránh việc truy xuất dữ liệu không cần thiết. Lúc nào cần thì mới query
-    @EqualsAndHashCode.Exclude
-
-    private Collection<Role> role;
 
 }
