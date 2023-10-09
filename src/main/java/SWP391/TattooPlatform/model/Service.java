@@ -1,12 +1,7 @@
 package SWP391.TattooPlatform.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 import javax.validation.constraints.Size;
 
@@ -45,9 +40,7 @@ public class Service {
     //    @ToString.Exclude
     //    private Collection<Booking> booking;
 
-    //  @ManyToOne
-    //    @JoinColumn(name = "tattoo_Manager_email")
-    //    @EqualsAndHashCode.Exclude
-    //    @ToString.Exclude
-    //    private StudioTattooManager  studioTattooManager;
+    @ManyToOne
+    @JoinColumn(name = "tattoo_Manager_email", insertable=false, updatable=false)
+    private Studio_Tattoo_Manager  studio_Tattoo_Manager;
 }

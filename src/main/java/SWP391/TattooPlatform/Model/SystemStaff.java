@@ -1,4 +1,4 @@
-package SWP391.TattooPlatform.Model;
+package SWP391.TattooPlatform.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -14,21 +14,25 @@ import java.util.Collection;
 public class SystemStaff {
 
     @Id
-    private String system_Staff_email;
+    @Column(name = "system_Staff_email")
+    private String systemStaffEmail;
 
     private String username;
 
     private String password;
 
-    private String full_name;
+    @Column(name = "full_name")
+    private String fullName;
 
-    private String phone_number;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
     private String address;
 
     private String roleID;
 
-    private String admin_email;
+    @Column(name = "admin_email")
+    private String adminEmail;
 
     @OneToMany(mappedBy = "systemStaff", cascade = CascadeType.ALL)
     private Collection<Studio_Tattoo_Manager> studioTattooManagers;

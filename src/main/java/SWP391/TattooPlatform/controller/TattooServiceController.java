@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/service")
-public class TattooServiceManager {
+public class TattooServiceController {
     final TattooServiceService tattooService;
     @Autowired
-    public TattooServiceManager(TattooServiceService tattooServiceService) {
+    public TattooServiceController(TattooServiceService tattooServiceService) {
         this.tattooService = tattooServiceService;
     }
     @GetMapping()

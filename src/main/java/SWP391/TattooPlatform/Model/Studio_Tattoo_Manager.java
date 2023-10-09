@@ -1,5 +1,6 @@
-package SWP391.TattooPlatform.Model;
+package SWP391.TattooPlatform.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,30 +17,38 @@ import java.util.Collection;
 public class Studio_Tattoo_Manager {
 
     @Id
-    private String studio_Manager_email;
+    @Column(name = "studio_Manager_email")
+    private String studioManagerEmail;
 
-    private String full_name;
+    @Column(name = "full_name")
+    private String fullName;
 
-    private String phone_number;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
+    @Column(name = "address")
     private String address;
 
-    private String roleID;
+    @Column(name = "System_Staff_email")
+    private String SystemStaffEmail;
 
-    private String System_Staff_email;
-
+    @Column(name = "username")
     private String username;
 
+    @Column(name = "password")
     private String password;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
     private Collection<Studio_Certificate> certificates;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
     private Collection<Service> services;
 
+    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "System_Staff_email")
+    @JoinColumn(name = "System_Staff_email", insertable=false, updatable=false)
     private SystemStaff systemStaff;
 
 //    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)

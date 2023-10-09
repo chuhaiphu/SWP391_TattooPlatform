@@ -161,7 +161,7 @@ alter table Role_Artist
 add constraint PK_Role_Artist
 primary key (role_ID, artist_email)
 GO
-/****** Object:  Table [dbo].[Role_StudioTattooManager]    Script Date: 10/2/2023 10:02:52 AM ******/
+/****** Object:  Table [dbo].[Role_StudioTattooManagerRepository]    Script Date: 10/2/2023 10:02:52 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

@@ -67,5 +67,17 @@ public class ResponseUtils {
                 , status
         );
     }
+
+    public static ResponseEntity<ResponseDTO> returnResult(HttpStatus status) {
+        return new ResponseEntity<> (
+                ResponseDTO.builder()
+                        .hasErrors(false)
+                        .errors(Collections.emptyList())
+                        .timestamp(DateTimeUtils.now())
+                        .status(status.value())
+                        .build()
+                ,status
+        );
+    }
 }
 
