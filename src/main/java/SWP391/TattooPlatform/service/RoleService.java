@@ -1,6 +1,6 @@
 package SWP391.TattooPlatform.service;
 
-import SWP391.TattooPlatform.model.Roles;
+import SWP391.TattooPlatform.model.Role;
 import SWP391.TattooPlatform.repository.RoleRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,28 +17,28 @@ public class RoleService {
 
 
 
-    public List<Roles> getListRole() {
+    public List<Role> getListRole() {
         if(roleRepository.findAll().isEmpty()) {
             return null;
         }
         return roleRepository.findAll();
     }
 
-    public Roles addRole(Roles roles)
+    public Role addRole(Role roles)
     {
         return roleRepository.save(roles);
     }
 
-    public Roles updateRole( String roleID
+    public Role updateRole(String roleID
             , String name ) throws Exception {
 
          roleRepository.updateRole(roleID, name);
         return roleRepository.findRolesByRoleID(roleID);
     }
 
-    public Roles deleteRole(String id) throws Exception{
+    public Role deleteRole(String id) throws Exception{
         roleRepository.deleteRolesByID(id);
-        Roles roles = roleRepository.findRolesByRoleID(id);
+        Role roles = roleRepository.findRolesByRoleID(id);
         if(roles == null) {
             return null;
         }else {

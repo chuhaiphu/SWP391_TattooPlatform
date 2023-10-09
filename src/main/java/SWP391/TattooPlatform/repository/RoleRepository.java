@@ -1,6 +1,6 @@
 package SWP391.TattooPlatform.repository;
 
-import SWP391.TattooPlatform.model.Roles;
+import SWP391.TattooPlatform.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -13,11 +13,11 @@ import java.util.List;
 
 @Repository
 @EnableJpaRepositories
-public interface RoleRepository extends JpaRepository<Roles,Long> {
+public interface RoleRepository extends JpaRepository<Role,Long> {
         // view
-        List<Roles> findAll();
+        List<Role> findAll();
 
-        Roles findRolesByRoleID(String id);
+        Role findRolesByRoleID(String id);
         //search
 //        @Query(value = "Select r.roleID, r.roleName from Roles r where r.roleID = :roleID ")
 //        Roles searchRolesByID(@Param("roleID") String roleID) ;
@@ -27,18 +27,18 @@ public interface RoleRepository extends JpaRepository<Roles,Long> {
         //UPDATE
         @Modifying
         @Transactional
-        @Query(value = "UPDATE Roles r SET r.roleName = :name WHERE r.roleID = :roleID ")
+        @Query(value = "UPDATE Role r SET r.roleName = :name WHERE r.roleID = :roleID ")
         void updateRole(@Param("roleID") String roleID, @Param("name") String name);
 
         //DELETE
         @Modifying
         @Transactional
-        @Query(value = "delete from Roles r where r.roleID = :roleID")
+        @Query(value = "delete from Role r where r.roleID = :roleID")
         void deleteRolesByID(@Param("roleID") String roleID);
 
         //INSERT
         @Transactional
-        Roles save(Roles roles);
+        Role save(Role roles);
 
 
 }
