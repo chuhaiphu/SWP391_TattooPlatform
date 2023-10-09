@@ -7,7 +7,7 @@ CREATE TABLE [dbo].[Admin](
 	[full_name] [nvarchar](100) NOT NULL,
 	[phone_number] [nvarchar](20) NOT NULL,
 	[address] [nvarchar](100) NOT NULL,
-	[roleID] [varchar](20) NOT NULL,
+	
  CONSTRAINT [PK_Admin] PRIMARY KEY CLUSTERED 
 (
 	[admin_email] ASC
@@ -226,7 +226,7 @@ CREATE TABLE [dbo].[SystemStaff](
 	[full_name] [nvarchar](100) NOT NULL,
 	[phone_number] [nvarchar](20) NOT NULL,
 	[address] [nvarchar](100) NOT NULL,
-	[roleID] [varchar](20) NOT NULL,
+	
 	[admin_email] [varchar](50) NOT NULL,
  CONSTRAINT [PK_SystemStaff] PRIMARY KEY CLUSTERED 
 (
