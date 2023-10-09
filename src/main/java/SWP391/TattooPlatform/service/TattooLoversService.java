@@ -1,9 +1,11 @@
 package SWP391.TattooPlatform.service;
 import SWP391.TattooPlatform.model.TattooLovers;
 import SWP391.TattooPlatform.repository.TattooLoversRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TattooLoversService {
     final TattooLoversRepository tattooLoversRepository;
 

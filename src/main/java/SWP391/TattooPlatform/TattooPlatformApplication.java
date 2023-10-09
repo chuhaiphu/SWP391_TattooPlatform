@@ -1,6 +1,6 @@
 package SWP391.TattooPlatform;
 
-import SWP391.TattooPlatform.repository.RoleRepository;
+import SWP391.TattooPlatform.repository.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -12,7 +12,7 @@ public class TattooPlatformApplication {
 
 	public static void main(String[] args) {
 
-			SpringApplication.run(TattooPlatformApplication.class, args);
+		ApplicationContext context = SpringApplication.run(TattooPlatformApplication.class, args);
 
 	}
 
