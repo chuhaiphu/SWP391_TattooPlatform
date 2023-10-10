@@ -51,8 +51,9 @@ public class Studio_Tattoo_Manager {
     @JoinColumn(name = "System_Staff_email", insertable=false, updatable=false)
     private SystemStaff systemStaff;
 
-//    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
-//    private Collection<Artist> artists;
+    @JsonIgnore //bỏ qua query
+    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
+    private Collection<Artist> artists;
 
 //    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
 //    private Collection<Service> services;

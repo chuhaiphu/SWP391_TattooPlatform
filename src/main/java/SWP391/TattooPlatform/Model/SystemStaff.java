@@ -28,9 +28,6 @@ public class SystemStaff {
     private String phoneNumber;
 
     private String address;
-
-    private String roleID;
-
     @Column(name = "admin_email")
     private String adminEmail;
 

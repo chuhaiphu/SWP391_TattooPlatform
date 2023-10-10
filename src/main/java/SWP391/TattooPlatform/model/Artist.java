@@ -1,5 +1,6 @@
 package SWP391.TattooPlatform.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -29,5 +30,9 @@ public class Artist {
     @Column(name = "password")
     private String password;
 
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "studio_Manager_email", insertable = false, updatable = false)
+    private Studio_Tattoo_Manager studio_Tattoo_Manager;
 
 }
