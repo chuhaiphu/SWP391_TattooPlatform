@@ -11,4 +11,6 @@ public class TattooPlatformApplication {
 			SpringApplication.run(TattooPlatformApplication.class, args);
 
 	}
+
+
 }
