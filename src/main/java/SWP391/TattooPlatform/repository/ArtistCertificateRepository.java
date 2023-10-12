@@ -1,6 +1,5 @@
 package SWP391.TattooPlatform.repository;
 
-
 import SWP391.TattooPlatform.model.Artist_Certificate;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -17,7 +16,10 @@ import java.util.List;
 public interface ArtistCertificateRepository extends JpaRepository<Artist_Certificate, Long>{
 
     //VIEW
-    List<Artist_Certificate> findAllBy();
+    List<Artist_Certificate> findAll();
+
+    //SEARCH
+    Artist_Certificate findCertificatesByCertificateID(String id);
 
     //UPDATE
     @Modifying
