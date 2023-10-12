@@ -19,7 +19,7 @@ public interface ArtistCertificateRepository extends JpaRepository<Artist_Certif
     List<Artist_Certificate> findAll();
 
     //SEARCH
-    Artist_Certificate findCertificatesByCertificateID(String id);
+    Artist_Certificate findCertificatesByCertificateID(String certificateID);
 
     //UPDATE
     @Modifying

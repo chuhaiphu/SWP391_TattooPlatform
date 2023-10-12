@@ -36,7 +36,7 @@ public class ArtistCertificateService {
 
     public Artist_Certificate deleteArtistCertificates(String certificateID) throws Exception{
         artistCertificateRepository.deleteCertificatesByID(certificateID);
-        Artist_Certificate artistCertificate = artistCertificateRepository.findCertificatesByCertificateID(id);
+        Artist_Certificate artistCertificate = artistCertificateRepository.findCertificatesByCertificateID(certificateID);
         if(artistCertificate == null) {
             return null;
         }else {
