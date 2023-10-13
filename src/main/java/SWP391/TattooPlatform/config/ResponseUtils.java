@@ -28,6 +28,7 @@ public class ResponseUtils {
     }
 
 
+
     public static ResponseEntity<ResponseDTO> error(
             ConstraintViolationException exception, HttpStatus status){
         return new ResponseEntity<>(
