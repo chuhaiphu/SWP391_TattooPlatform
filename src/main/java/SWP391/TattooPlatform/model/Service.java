@@ -1,46 +1,36 @@
-package SWP391.TattooPlatform.model;
+package SWP391.TattooPlatform.Model;
 
+import SWP391.TattooPlatform.model.Studio_Tattoo_Manager;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.Size;
+import java.util.Collection;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
 @Table(name = "Service")
 public class Service {
+
     @Id
-    @Column(name = "service_ID")
-    @Size(min = 1, max = 20, message = "Service ID must have length between {min} and {max}")
-    private String serviceID;
+    private String service_ID;
 
-    @Column(name = "service_name")
-    @Size(min = 1, max = 20, message = "Service must have length between {min} and {max}")
-    private String serviceName;
+    private String service_name;
 
-    @Size(min = 1, max = 500, message = "Description must have length between {min} and {max}")
-    @Column(name = "description")
-    private String description ;
+    private String description;
 
+    private String price;
 
-    @Column(name = "price")
-    private float price;
+    private String link_image;
 
-    @Size(min = 1, max = 250, message = "Image link must have length between {min} and {max}")
-    @Column(name = "link_image")
-    private String linkImage;
-
-    @Column(name = "tattoo_Manager_email")
-    private String tattooManagerEmail;
-
-    // @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
-    //    @EqualsAndHashCode.Exclude
-    //    @ToString.Exclude
-    //    private Collection<Booking> booking;
+    private String tattoo_Manager_email;
 
     @ManyToOne
-    @JoinColumn(name = "tattoo_Manager_email", insertable=false, updatable=false)
-    private Studio_Tattoo_Manager  studio_Tattoo_Manager;
+    @JoinColumn(name = "tattoo_Manager_email")
+    private Studio_Tattoo_Manager studio_Tattoo_Manager;
 }

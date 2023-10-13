@@ -44,7 +44,7 @@ public class Studio_Tattoo_Manager {
 
     @JsonIgnore
     @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
-    private Collection<Service> services;
+    private Collection<SWP391.TattooPlatform.Model.Service> services;
 
     @JsonIgnore
     @ManyToOne
