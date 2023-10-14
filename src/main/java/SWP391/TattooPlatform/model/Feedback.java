@@ -1,9 +1,7 @@
 package SWP391.TattooPlatform.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +14,9 @@ import lombok.NoArgsConstructor;
 @Table (name = "Feedback")
 public class Feedback {
     @Id
-    @Column (name = "booking_Detail_ID")
+    @Column (name = "feedback_ID")
+    private String feedbackID;
+    @Column
     private String bookingDetailID;
     @Column (name = "description")
     private String description;
@@ -30,4 +30,9 @@ public class Feedback {
     private String serviceID;
     @Column (name = "artist_email")
     private String artistEmail;
+
+//    @JsonIgnore
+//    @OneToOne
+//    @JoinColumn(name = "booking_Detail_ID") // Liên kết với nhau qua khóa ngoại person_id
+//    private BookingDetail bookingDetail;
 }

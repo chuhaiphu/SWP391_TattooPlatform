@@ -11,6 +11,7 @@ import java.util.Collection;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "SystemStaff")
 public class SystemStaff {
 
     @Id
@@ -31,6 +32,6 @@ public class SystemStaff {
     @Column(name = "admin_email")
     private String adminEmail;
 
-    @OneToMany(mappedBy = "systemStaff", cascade = CascadeType.ALL)
-    private Collection<Studio_Tattoo_Manager> studioTattooManagers;
+//    @OneToMany(mappedBy = "systemStaff", cascade = CascadeType.ALL)
+//    private Collection<Studio_Tattoo_Manager> studioTattooManagers;
 }

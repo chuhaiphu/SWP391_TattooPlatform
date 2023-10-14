@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/artist")
-public class ArtistManager {
+public class ArtistController {
 
 
 
     final ArtistService artistService;
 
     @Autowired
-    public ArtistManager(ArtistService artistService) {
+    public ArtistController(ArtistService artistService) {
         this.artistService = artistService;
     }
 
