@@ -40,6 +40,12 @@ public class FeedbackService {
         }
         return feedbackRepository.findAllByTattooLoverEmail(email);
     }
+    public Feedback getFeedbackByBookingDetailID(String id){
+        if(feedbackRepository.findByBookingDetailID(id) == null) {
+            return null;
+        }
+        return feedbackRepository.findByBookingDetailID(id);
+    }
     //    public Artist updateArtistRating(String email) {
 //
 //        if (email != null) {

@@ -17,6 +17,7 @@ public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
     List<Feedback> findAll();
     List<Feedback> findAllByArtistEmail(String email);
     List<Feedback> findAllByTattooLoverEmail(String email);
+    Feedback findByBookingDetailID(String id);
 //    @Query(value = "SELECT f.feedbackID, stm.studioManagerEmail, f.rating, f.description FROM Feedback f JOIN BookingDetail bd ON f.bookingDetailID = bd.bookingDetailID " +
 //                                            "JOIN Booking b ON bd.bookingID = b.bookingID " +
 //                                            "JOIN Service s ON b.serviceID = s.serviceID " +

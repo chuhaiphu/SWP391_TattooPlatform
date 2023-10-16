@@ -37,6 +37,10 @@ public class FeedbackController {
     public Object getAllFeedbackByTattooLoverEmail (@PathVariable String email) {
         return  ResponseUtils.get(feedbackService.getFeedbackListByTattooLoverEmail(email), HttpStatus.OK);
     }
+    @GetMapping("/allFeedback/BookingDetailID/{id}")
+    public Object getFeedbackByDetailID (@PathVariable String id) {
+        return  ResponseUtils.get(feedbackService.getFeedbackByBookingDetailID(id), HttpStatus.OK);
+    }
 
     //-------------------------------POST/ADD-------------------------------
     @PostMapping("/addFeedback")
