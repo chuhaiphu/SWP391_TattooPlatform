@@ -23,19 +23,30 @@ public interface Studio_Tattoo_ManagerRepository
     //Search
     Studio_Tattoo_Manager findStudio_Tattoo_ManagerByStudioManagerEmail(String email);
 
+    //Add
+    Studio_Tattoo_Manager save(Studio_Tattoo_Manager manager);
+
     //Update
     @Modifying
     @Transactional
     @Query("UPDATE Studio_Tattoo_Manager s SET s.fullName = :newFullName, " +
             "s.phoneNumber = :newPhoneNumber, " +
             "s.address = :newAddress, " +
+            "s.SystemStaffEmail = :newSystemStaffEmail, " +
+            "s.username = :newUsername, " +
             "s.password = :newPassword " +
             "WHERE s.studioManagerEmail = :managerEmail")
     void updateStudio_Tattoo_ManagerInfo(@Param("managerEmail") String managerEmail,
                                          @Param("newFullName") String newFullName,
                                          @Param("newPhoneNumber") String newPhoneNumber,
                                          @Param("newAddress") String newAddress,
+                                         @Param("newSystemStaffEmail") String newSystemStaffEmail,
+                                         @Param("newUsername") String newUsername,
                                          @Param("newPassword") String newPassword);
 
+    //Delete
+    @Modifying
+    @Transactional
+    void deleteStudio_Tattoo_ManagerByStudioManagerEmail(String email);
 
 }

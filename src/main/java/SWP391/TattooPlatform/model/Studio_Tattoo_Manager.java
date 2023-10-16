@@ -42,9 +42,9 @@ public class Studio_Tattoo_Manager {
     @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
     private Collection<Studio_Certificate> certificates;
 
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
-//    private Collection<Service> services;
+    @JsonIgnore
+    @OneToMany(mappedBy = "studioTattooManager", cascade = CascadeType.ALL)
+    private Collection<Service> services;
 
     @JsonIgnore
     @ManyToOne

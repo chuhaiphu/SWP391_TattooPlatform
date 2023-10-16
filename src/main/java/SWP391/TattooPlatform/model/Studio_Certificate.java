@@ -1,5 +1,6 @@
 package SWP391.TattooPlatform.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,6 +26,7 @@ public class Studio_Certificate {
     @Column(name = "studio_Manager_Email")
     private String studioManagerEmail;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "studio_Manager_email", insertable = false, updatable = false)
     private Studio_Tattoo_Manager studio_Tattoo_Manager;
