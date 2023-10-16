@@ -30,8 +30,6 @@ public class SystemStaff {
 
     private String address;
 
-    private String roleID;
-
     @Column(name = "admin_email")
     private String adminEmail;
 
@@ -47,6 +45,5 @@ public class SystemStaff {
     @ManyToOne
     @JoinColumn(name = "admin_email", insertable = false, updatable = false)
     private Admin admin;
-
 
 }

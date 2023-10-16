@@ -13,7 +13,7 @@ import java.util.Collection;
 @NoArgsConstructor
 
 @Table(name = "Post")
-public class Post {
+public class   Post {
 
     @Id
     @Column(name = "postID")
