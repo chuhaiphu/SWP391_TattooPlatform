@@ -1,5 +1,6 @@
 package SWP391.TattooPlatform.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,12 +28,11 @@ public class BookingStatus {
     @Column(name = "status_date")
     private String statusDate;
 
-//    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    @EqualsAndHashCode.Exclude
-//    @ToString.Exclude
-//    @JoinTable(name = "Booking_Detail_Status",
-//            joinColumns = @JoinColumn(name = "status_ID"),
-//            inverseJoinColumns = @JoinColumn(name = "booking_Detail_ID")
-//    )
-//    private Set<BookingDetail> BookingDetails;
+
+    @ManyToMany(mappedBy = "BookingStatuses")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonIgnore
+    private Set<BookingDetail> bookingDetails;
+
 }

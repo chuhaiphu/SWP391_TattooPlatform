@@ -1,6 +1,7 @@
 package SWP391.TattooPlatform.repository;
 
 import SWP391.TattooPlatform.model.Booking;
+import SWP391.TattooPlatform.model.Service;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -38,16 +39,18 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
             "b.date = :date," +
             "b.customerName = :customerName," +
             "b.customerPhoneNumber = :customerPhoneNumber," +
-            "b.totalPrice = :totalPrice where " +
+            "b.totalPrice = :totalPrice" +
+            " where " +
             " b.bookingID = :bookingID" )
     void updateBooking(@Param("bookingID") String bookingID,
-                @Param("artistEmail") String artistEmail,
-                @Param("tattooLoverEmail") String tattooLoverEmail,
-                @Param("time") String time,
-                @Param("date") String date,
-                @Param("customerName") String customerName,
-                @Param("customerPhoneNumber") String customerPhoneNumber,
-                       @Param("totalPrice") float totalPrice);
+                       @Param("artistEmail") String artistEmail,
+                       @Param("tattooLoverEmail") String tattooLoverEmail,
+                       @Param("time") String time,
+                       @Param("date") String date,
+                       @Param("customerName") String customerName,
+                       @Param("customerPhoneNumber") String customerPhoneNumber,
+                       @Param("totalPrice") float totalPrice
+                   );
 
 
     @Modifying

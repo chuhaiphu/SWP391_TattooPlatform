@@ -27,7 +27,7 @@ public class Booking {
     private String tattooLoverEmail ;
 
     @Column(name = "artist_email")
-    @Email(message = "invalid Email format")
+   // @Email(message = "invalid Email format")
     private String artistEmail;
 
     @Column (name = "time")
@@ -45,13 +45,9 @@ public class Booking {
     private String customerPhoneNumber;
 
     @Column(name = "total_price")
-    private float totalPrice;
+    private Float totalPrice;
 
-//    @ManyToMany(mappedBy = "bookings")
-//    @EqualsAndHashCode.Exclude
-//    @ToString.Exclude
-//    @JsonIgnore
-//    private Set<Service> services;
+
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @EqualsAndHashCode.Exclude
@@ -61,6 +57,12 @@ public class Booking {
             inverseJoinColumns = @JoinColumn(name = "service_ID")
     )
     private Set<Service> services;
+
+    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonIgnore
+    private Collection<BookingDetail> bookingDetails;
 
 
 }

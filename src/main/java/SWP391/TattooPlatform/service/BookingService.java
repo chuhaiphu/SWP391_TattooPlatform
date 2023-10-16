@@ -46,7 +46,7 @@ public class BookingService {
     public Booking updateBooking(String bookingID, String artistEmail,
                                  String tattooLoverEmail, String time, String date,
                                  String customerName, String customerPhoneNumber, float totalPrice) {
-        bookingRepository.updateBooking(bookingID,artistEmail,tattooLoverEmail,time,date,customerName,customerPhoneNumber,totalPrice);
+        bookingRepository.updateBooking(bookingID,artistEmail.trim(),tattooLoverEmail.trim(),time,date,customerName,customerPhoneNumber,totalPrice);
         return bookingRepository.findBookingByBookingID(bookingID);
     }
 
