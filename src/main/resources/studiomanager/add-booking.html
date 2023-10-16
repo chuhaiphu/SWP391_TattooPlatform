@@ -12,7 +12,7 @@
       sizes="16x16"
       href="plugins/images/favicon.png"
     />
-    <title>Pixel Admin</title>
+    <title>Studiomanager</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Menu CSS -->
@@ -52,7 +52,7 @@
             <i class="fa fa-bars"></i>
           </a>
           <div class="top-left-part">
-            <a class="logo" href="index.html">
+            <a class="logo" href="artist.html">
               <b>
                 <img src="plugins/images/pixeladmin-logo.png" alt="home" />
               </b>
@@ -91,7 +91,7 @@
                     width="36"
                     class="img-circle"
                   />
-                  <b class="hidden-xs">Studio manager</b>
+                  <b class="hidden-xs">Studiomanager</b>
                 </a>
                 <ul class="dropdown-menu">
                   
@@ -201,30 +201,47 @@
                     <div class="col-md-12">
                       <input
                         type="text"
-                        id="phone"
-                        placeholder="customerPhoneNumber"
+                        id="customerPhoneNumber"
+                        placeholder="Phone"
                         class="form-control form-control-line"
                         required
 
                       />
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label class="col-md-12">Address</label>
-                    <div class="col-md-12">
-                      <input
-                        type="text"
-                        id="addressCustomer"
-                        placeholder="Adress"
-                        class="form-control form-control-line"
-                        required
-                      />
+                    <div class="form-group">
+                      <label class="col-md-12">Time</label>
+                      <div class="col-md-12">
+                        <input
+                                type="time"
+                                id="timeBooking"
+                                placeholder="Time"
+                                class="form-control form-control-line"
+                                required
+
+
+                        />
+                      </div>
                     </div>
+                    <div class="form-group">
+                      <label class="col-md-12">Date</label>
+                      <div class="col-md-12">
+                        <input
+                                type="text"
+                                id="dateBooking"
+                                placeholder="dd/MM/yyyy"
+                                class="form-control form-control-line"
+                                required
+
+                        />
+                      </div>
+                    </div>
+
                   </div>
                   <div class="form-group">
                     <div class="col-sm-12">
                       <button class="btn btn-success" id="btn-save-user">
-                        Add User
+                        Add booking
                       </button>
                       <a href="artist.html" class="btn btn-primary"
                         >Back</a

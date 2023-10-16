@@ -12,7 +12,7 @@
       sizes="16x16"
       href="plugins/images/favicon.png"
     />
-    <title>Pixel Admin</title>
+    <title>Admin</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Menu CSS -->
@@ -52,7 +52,7 @@
             <i class="fa fa-bars"></i>
           </a>
           <div class="top-left-part">
-            <a class="logo" href="index.html">
+            <a class="logo" href="staff.html">
               <b>
                 <img src="plugins/images/pixeladmin-logo.png" alt="home" />
               </b>
@@ -89,11 +89,11 @@
                     width="36"
                     class="img-circle"
                   />
-                  <b class="hidden-xs">Cybersoft</b>
+                  <b class="hidden-xs">Admin</b>
                 </a>
                 <ul class="dropdown-menu">
                   <li class="divider"></li>
-                  <li><a href="#">Đăng xuất</a></li>
+                  <li><a href="#">Log out</a></li>
                 </ul>
               </div>
             </li>
@@ -107,31 +107,23 @@
       <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse slimscrollsidebar">
           <ul class="nav" id="side-menu">
+            <li style="padding: 10px 0 0">
             <li>
-              <a href="artist.html" class="waves-effect"
-              ><i class="fa fa-user fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu">Artist</span></a
+              <a href="staff.html" class="waves-effect"
+                ><i class="fa fa-user fa-fw" aria-hidden="true"></i
+                ><span class="hide-menu">System staff</span></a
               >
             </li>
-            <li>
-              <a href="service.html" class="waves-effect"
-              ><i class="fa fa-modx fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu">Service </span></a
-              >
-            </li>
-            <li>
-              <a href="booking.html" class="waves-effect"
-              ><i class="fa fa-table fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu">Booking </span></a
-              >
-            </li>
-            <li>
-              <a href="voucher.html" class="waves-effect"
-              ><i class="fa fa-ticket fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu">Voucher </span></a
-              >
-            </li>
+            
 
+            <li>
+              <a href="post.html" class="waves-effect"
+                ><i class="fa fa-modx fa-fw" aria-hidden="true"></i
+                ><span class="hide-menu">Post</span></a
+              >
+            </li>
+           
+            
           </ul>
         </div>
       </div>
@@ -141,7 +133,7 @@
         <div class="container-fluid">
           <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-              <h4 class="page-title">Add service</h4>
+              <h4 class="page-title">Update staff</h4>
             </div>
           </div>
           <!-- /.row -->
@@ -151,56 +143,49 @@
             <div class="col-md-8 col-xs-12">
               <div class="white-box">
                 <div class="form-horizontal form-material">
+
+                  </div>
                   <div class="form-group">
-                    <label class="col-md-12">Name</label>
+                    <label class="col-md-12">Full Name</label>
                     <div class="col-md-12">
                       <input
                         type="text"
-                        placeholder="Name"
-                        id="serviceName"
+                        id="staffName"
+                        placeholder="Johnathan Doe"
+                        class="form-control form-control-line"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label class="col-md-12">Username</label>
+                    <div class="col-md-12">
+                      <input
+                        type="text"
+                        id="userName"
+                        placeholder="Username"
                         class="form-control form-control-line"
                       />
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-md-12">Description</label>
+                    <label class="col-md-12">Password</label>
                     <div class="col-md-12">
                       <input
-                        type="text"
-                        placeholder="Description"
-                        id="description"
+                        type="password"
+                        value="password"
+                        id="password"
                         class="form-control form-control-line"
                       />
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label class="col-md-12">Price</label>
-                    <div class="col-md-12">
-                      <input
-                              type="text"
-                              placeholder="Mô tả"
-                              id="price"
-                              class="form-control form-control-line"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-12">Image</label>
-                    <div class="col-md-12">
-                      <input
-                              type="text"
-                              placeholder="URL"
-                              id="image"
-                              class="form-control form-control-line"
-                      />
-                    </div>
-                  </div>
+                  
                   <div class="form-group">
                     <div class="col-sm-12">
-                      <button id="btn-save-role" class="btn btn-success">
-                        Add service
+                      <button class="btn btn-success" id="btn-save-user">
+                        Update staff
                       </button>
-                      <a href="service.html" class="btn btn-primary"
+                      <a href="staff.html" class="btn btn-primary"
                         >Back</a
                       >
                     </div>
@@ -223,7 +208,6 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-
     <!-- Menu Plugin JavaScript -->
     <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
     <!--slimscroll JavaScript -->
@@ -232,6 +216,6 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
-    <script src="js/role.js"></script>
+    <script src="js/user.js"></script>
   </body>
 </html>

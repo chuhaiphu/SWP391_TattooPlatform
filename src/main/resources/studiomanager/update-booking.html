@@ -12,7 +12,7 @@
             sizes="16x16"
             href="plugins/images/favicon.png"
     />
-    <title>Pixel Admin</title>
+    <title>Studiomanager</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Menu CSS -->
@@ -52,7 +52,7 @@
                 <i class="fa fa-bars"></i>
             </a>
             <div class="top-left-part">
-                <a class="logo" href="index.html">
+                <a class="logo" href="artist.html">
                     <b>
                         <img src="plugins/images/pixeladmin-logo.png" alt="home" />
                     </b>
@@ -89,11 +89,12 @@
                                     width="36"
                                     class="img-circle"
                             />
-                            <b class="hidden-xs">Cybersoft</b>
+                            <b class="hidden-xs">System staff</b>
                         </a>
                         <ul class="dropdown-menu">
+
                             <li class="divider"></li>
-                            <li><a href="#">Đăng xuất</a></li>
+                            <li><a href="#">Logout</a></li>
                         </ul>
                     </div>
                 </li>
@@ -141,7 +142,7 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Update service</h4>
+                    <h4 class="page-title">Update booking</h4>
                 </div>
             </div>
             <!-- /.row -->
@@ -151,58 +152,41 @@
                 <div class="col-md-8 col-xs-12">
                     <div class="white-box">
                         <div class="form-horizontal form-material">
+
+
+
+
                             <div class="form-group">
-                                <label class="col-md-12">Name</label>
+                                <label class="col-md-12">Date</label>
                                 <div class="col-md-12">
                                     <input
                                             type="text"
-                                            placeholder="Tên quyền"
-                                            id="serviceName"
+                                            id="dateBooking"
+                                            placeholder="dd/MM/yyyy"
                                             class="form-control form-control-line"
+
                                     />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Description</label>
+                                <label class="col-md-12">Time</label>
                                 <div class="col-md-12">
                                     <input
-                                            type="text"
-                                            placeholder="Description"
-                                            id="description"
+                                            type="time"
+                                            id="timeBooking"
+                                            placeholder=""
                                             class="form-control form-control-line"
+
                                     />
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Price</label>
-                                <div class="col-md-12">
-                                    <input
-                                            type="text"
-                                            placeholder="Mô tả"
-                                            id="price"
-                                            class="form-control form-control-line"
-                                    />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Image</label>
-                                <div class="col-md-12">
-                                    <input
-                                            type="text"
-                                            placeholder="URL"
-                                            id="image"
-                                            class="form-control form-control-line"
-                                    />
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <button id="btn-save-role" class="btn btn-success">
-                                        Update service
+                                    <button class="btn btn-success" id="btn-save-task">
+                                        Update
                                     </button>
-                                    <a href="service.html" class="btn btn-primary"
-                                    >Back</a
-                                    >
+                                    <a href="voucher.html" class="btn btn-primary">Back</a>
                                 </div>
                             </div>
                         </div>
@@ -223,7 +207,6 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-
 <!-- Menu Plugin JavaScript -->
 <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
 <!--slimscroll JavaScript -->
@@ -232,6 +215,6 @@
 <script src="js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="js/custom.min.js"></script>
-<script src="js/role.js"></script>
+<script src="js/task.js"></script>
 </body>
 </html>
