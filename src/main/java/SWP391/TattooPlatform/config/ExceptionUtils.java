@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @UtilityClass
 public class ExceptionUtils {
     public static final String DEFAULT_UNEXPECTED_MESSAGE = "Ops! Something wrong happens...";
-
+    public static final String DUPLICATE_MESSAGE = "NOT ALLOW DUPLICATED";
     public List<String> getErrors(ConstraintViolationException exception){
         return exception.getConstraintViolations()
                 .stream()
@@ -31,5 +31,9 @@ public class ExceptionUtils {
                 .stream()
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
                 .collect(Collectors.toList());
+    }
+
+    public static List<String> getError() {
+        return List.of(DUPLICATE_MESSAGE);
     }
 }

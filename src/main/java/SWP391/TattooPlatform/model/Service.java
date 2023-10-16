@@ -1,15 +1,13 @@
 package SWP391.TattooPlatform.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 import javax.validation.constraints.Size;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -41,16 +39,23 @@ public class Service {
     @Column(name = "tattoo_Manager_email")
     private String tattooManagerEmail;
 
-    // @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
-    //    @EqualsAndHashCode.Exclude
-    //    @ToString.Exclude
-    //  @JsonIgnore
-    //    private Collection<Booking> booking;
 
-    //  @ManyToOne
-    //    @JoinColumn(name = "tattoo_Manager_email")
-    //    @EqualsAndHashCode.Exclude
-    //    @ToString.Exclude
-    //    @JsonIgnore
-    //    private StudioTattooManager  studioTattooManager;
+//    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @EqualsAndHashCode.Exclude
+//    @ToString.Exclude
+//    @JoinTable(name = "Booking_Service",
+//            joinColumns = @JoinColumn(name = "service_ID"),
+//            inverseJoinColumns = @JoinColumn(name = "Booking_ID")
+//    )
+//    private Set<Booking> bookings;
+
+    @ManyToMany(mappedBy = "services")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonIgnore
+    private Set<Booking> bookings;
+
+
+
+
 }
