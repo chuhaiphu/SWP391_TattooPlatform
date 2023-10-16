@@ -1,5 +1,4 @@
 package SWP391.TattooPlatform.model;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,14 +11,17 @@ import java.util.Collection;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SystemStaff {
 
+@Table(name = "Admin")
+public class Admin {
     @Id
-    @Column(name = "system_Staff_email")
-    private String systemStaffEmail;
+    @Column(name = "admin_email")
+    private String adminEmail;
 
+    @Column(name = "username")
     private String username;
 
+    @Column(name = "password")
     private String password;
 
     @Column(name = "full_name")
@@ -28,25 +30,17 @@ public class SystemStaff {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @Column(name = "address")
     private String address;
 
+    @Column(name = "roleID")
     private String roleID;
 
-    @Column(name = "admin_email")
-    private String adminEmail;
+    @JsonIgnore
+    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
+    private Collection<SystemStaff> systemStaffs;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "systemStaff", cascade = CascadeType.ALL)
-    private Collection<Studio_Tattoo_Manager> studioTattooManagers;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "systemStaff", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
     private Collection<Post> posts;
-
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "admin_email", insertable = false, updatable = false)
-    private Admin admin;
-
-
 }
