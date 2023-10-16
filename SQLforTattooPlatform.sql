@@ -1,7 +1,5 @@
 
 
-
-
 CREATE TABLE [dbo].[Admin](
 	[admin_email] [varchar](50) NOT NULL,
 	[username] [nvarchar](20) NOT NULL,
@@ -58,19 +56,35 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Booking](
-	[tattoo_Lover_email] [varchar](50)NOT NULL,
-	[service_ID] [varchar](20) NOT NULL,
-	[artist_email] [varchar](50) NOT NULL,
+	[tattoo_Lover_email] [varchar](20)NOT NULL,
+	artist_email varchar(20) not null,
+	Booking_ID varchar(20) primary key,
 	[time] [time](7) NOT NULL,
 	[date] [date] NOT NULL,
 	[customer_name] [varchar](100) NOT NULL,
 	[customer_phone_number] [varchar](20) NOT NULL,
 
 )
+create table Booking_Service (
+	service_ID varchar(20) not null,
+	Booking_ID varchar(20) not null
+)
 
-alter table Booking 
-add constraint PK_Booking
-Primary key (tattoo_lover_email, service_ID, artist_email)
+alter table Booking_Service 
+add constraint PK_Booking_Service
+Primary key (Booking_ID, service_ID)
+
+
+
+ALTER TABLE [dbo].[Booking_Service]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Service_Booking] FOREIGN KEY([Booking_ID])
+REFERENCES [dbo].[Booking] ([Booking_ID])
+GO
+
+ALTER TABLE [dbo].[Booking_Service]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Service_Service] FOREIGN KEY([service_ID])
+REFERENCES [dbo].[Service] ([service_ID])
+GO
+
+
 
 
 /****** Object:  Table [dbo].[Booking_Detail]    Script Date: 10/2/2023 10:02:52 AM ******/
@@ -79,7 +93,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Booking_Detail](
-	[booking_Detail_ID] [varchar](20) NOT NULL,
+	[booking_Detail_ID] [varchar](20)  not null,
 	[booking_ID] [varchar](20) NOT NULL,
 	[statusID] [varchar](20) NOT NULL,
 	[description] [text] NULL,
@@ -100,7 +114,8 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Feedback](
-	[booking_Detail_ID] [varchar](20) primary key,
+	feedback_ID varchar(20) primary key, 
+	[booking_Detail_ID] [varchar](20) Not null,
 	[description] [text] NULL,
 	[tattoo_Lover_email] [varchar](50)NOT NULL,
 	[service_ID] [varchar](20) NOT NULL,
@@ -138,62 +153,10 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [dbo].[Role](
-	[role_ID] [varchar](20) NOT NULL,
-	[role_name] [varchar](20) NOT NULL,
- CONSTRAINT [role_ID] PRIMARY KEY CLUSTERED 
-(
-	[role_ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
+
 /****** Object:  Table [dbo].[Role_Artist]    Script Date: 10/2/2023 10:02:52 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Role_Artist](
-	[role_ID] [varchar](20) NOT NULL,
-	[artist_email] [varchar](50)NOT NULL,
-) 
 
-alter table Role_Artist
-add constraint PK_Role_Artist
-primary key (role_ID, artist_email)
-GO
-/****** Object:  Table [dbo].[Role_StudioTattooManager]    Script Date: 10/2/2023 10:02:52 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Role_StudioTattooManager](
-	[role_ID] [varchar](20)NOT NULL,
-	[studio_Manager_email] [varchar](50)NOT NULL,
-) 
 
-alter table Role_StudioTattooManager
-add constraint PK_Role_StudioTattooManager
-primary key (role_ID, studio_Manager_email)
-GO
-/****** Object:  Table [dbo].[Role_TattooLovers]    Script Date: 10/2/2023 10:02:53 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Role_TattooLovers](
-	[role_ID] [varchar](20) NOT NULL,
-	[tattoo_Lover_email] [varchar](50) NOT NULL,
-) 
-alter table Role_TattooLovers
-add constraint PK_Role_TattooLovers
-primary key (role_ID, tattoo_lover_email)
-
-GO
-/****** Object:  Table [dbo].[Service]    Script Date: 10/2/2023 10:02:53 AM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
 CREATE TABLE [dbo].[Service](
 	[service_ID] [varchar](20) NOT NULL,
 	[service_name] [varchar](20) NOT NULL,
@@ -225,6 +188,7 @@ CREATE TABLE [dbo].[Status](
 	[statusID] [varchar](20) NOT NULL,
 	[status_Name] [varchar](20) NOT NULL,
 	[description] [text] NULL,
+	status_date date
 PRIMARY KEY CLUSTERED 
 (
 	[statusID] ASC
@@ -292,7 +256,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[TattooLovers](
-	[tattoo_Lover_email] [varchar](50) NOT NULL,
+	[tattoo_Lover_email] [varchar](20) NOT NULL,
 	[username] [nvarchar](20) NOT NULL,
 	[password] [nvarchar](20) NOT NULL,
 	[full_name] [nvarchar](100) NOT NULL,
@@ -330,6 +294,9 @@ GO
 ALTER TABLE [dbo].[Artist] CHECK CONSTRAINT [fk_Artist_Studio_Tattoo_Manager]
 GO
 
+Alter table [dbo].[Studio_Certificate]  WITH CHECK ADD  CONSTRAINT  [fk_Studio_Certificate_Studio_Manager] FOREIGN KEY ([studio_Manager_email])
+references [dbo].[Studio_Tattoo_Manager] ([studio_Manager_email])
+
 
 ALTER TABLE [dbo].[Artist_Certificate]  WITH CHECK ADD  CONSTRAINT [fk_Artist_Certificate_Artist] FOREIGN KEY([artist_email])
 REFERENCES [dbo].[Artist] ([artist_email])
@@ -337,31 +304,12 @@ GO
 ALTER TABLE [dbo].[Artist_Certificate] CHECK CONSTRAINT [fk_Artist_Certificate_Artist]
 GO
 
-
-ALTER TABLE [dbo].[Booking]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Artist] FOREIGN KEY([artist_email])
-REFERENCES [dbo].[Artist] ([artist_email])
-GO
-ALTER TABLE [dbo].[Booking] CHECK CONSTRAINT [FK_Booking_Artist]
+ALTER TABLE [dbo].[Booking]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Tattoo_Lover] FOREIGN KEY(tattoo_lover_email)
+REFERENCES [dbo].[tattooLovers] (tattoo_lover_email)
 GO
 
-
-ALTER TABLE [dbo].[Booking]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Service] FOREIGN KEY([service_ID])
-REFERENCES [dbo].[Service] ([service_ID])
-GO
-ALTER TABLE [dbo].[Booking] CHECK CONSTRAINT [FK_Booking_Service]
-GO
-
-
-
-ALTER TABLE [dbo].[Booking]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Tattoo_Lover] FOREIGN KEY([tattoo_Lover_email])
-REFERENCES [dbo].[TattooLovers] ([tattoo_Lover_email])
-GO
-ALTER TABLE [dbo].[Booking] CHECK CONSTRAINT [FK_Booking_Tattoo_Lover]
-GO
-
-
-ALTER TABLE [dbo].[Booking_Detail]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Detail_Booking] FOREIGN KEY(tattoo_lover_email, service_ID, artist_email)
-REFERENCES [dbo].[Booking] (tattoo_lover_email, service_ID, artist_email)
+ALTER TABLE [dbo].[Booking_Detail]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Detail_Booking] FOREIGN KEY(booking_ID)
+REFERENCES [dbo].[Booking] (Booking_ID)
 GO
 ALTER TABLE [dbo].[Booking_Detail] CHECK CONSTRAINT [FK_Booking_Detail_Booking]
 GO
@@ -405,51 +353,19 @@ ALTER TABLE [dbo].[Post] CHECK CONSTRAINT [FK_Post_SystemStaff]
 GO
 
 /*--------------------------------------------------------------------------------------------------------------------*/
-ALTER TABLE [dbo].[Role_Artist]  WITH CHECK ADD  CONSTRAINT [FK_Artist_Role] FOREIGN KEY ([artist_email])
-REFERENCES [dbo].[Artist] ([artist_email])
-GO
-ALTER TABLE [dbo].[Role_Artist] CHECK CONSTRAINT [FK_Artist_Role]
-GO
 
 
-ALTER TABLE [dbo].[Role_Artist]  WITH CHECK ADD  CONSTRAINT [FK_Role_Artist] FOREIGN KEY([role_ID])
-REFERENCES [dbo].[Role] ([role_ID])
-GO
-ALTER TABLE [dbo].[Role_Artist] CHECK CONSTRAINT [FK_Role_Artist]
-GO
-
-Alter table [dbo].[SystemStaff]  WITH CHECK ADD  CONSTRAINT [FK_SystemStaff_Role] FOREIGN KEY ([roleID])
-REFERENCES [dbo].[Role] ([role_ID])
-
-Alter table [dbo].[Admin]  WITH CHECK ADD  CONSTRAINT [FK_Admin_Role] FOREIGN KEY ([roleID])
-REFERENCES [dbo].[Role] ([role_ID])
-
-ALTER TABLE [dbo].[Role_StudioTattooManager]  WITH CHECK ADD  CONSTRAINT [FK_Role_StudioTattooManager] FOREIGN KEY([role_ID])
-REFERENCES [dbo].[Role] ([role_ID])
-GO
-ALTER TABLE [dbo].[Role_StudioTattooManager] CHECK CONSTRAINT [FK_Role_StudioTattooManager]
-GO
 
 
-ALTER TABLE [dbo].[Role_StudioTattooManager]  WITH CHECK ADD  CONSTRAINT [FK_StudioTattooManager_Role] FOREIGN KEY([studio_Manager_email])
-REFERENCES [dbo].[Studio_Tattoo_Manager] ([studio_Manager_email])
-GO
-ALTER TABLE [dbo].[Role_StudioTattooManager] CHECK CONSTRAINT [FK_StudioTattooManager_Role]
-GO
 
 
-ALTER TABLE [dbo].[Role_TattooLovers]  WITH CHECK ADD  CONSTRAINT [FK_Role_TattooLovers] FOREIGN KEY([role_ID])
-REFERENCES [dbo].[Role] ([role_ID])
-GO
-ALTER TABLE [dbo].[Role_TattooLovers] CHECK CONSTRAINT [FK_Role_TattooLovers]
-GO
 
 
-ALTER TABLE [dbo].[Role_TattooLovers]  WITH CHECK ADD  CONSTRAINT [FK_TattooLovers_Role] FOREIGN KEY([tattoo_Lover_email])
-REFERENCES [dbo].[TattooLovers] ([tattoo_Lover_email])
-GO
-ALTER TABLE [dbo].[Role_TattooLovers] CHECK CONSTRAINT [FK_TattooLovers_Role]
-GO
+
+
+
+
+
 
 /*------------------------------------------------------------------------------------------------------------------------------------*/
 ALTER TABLE [dbo].[Service]  WITH CHECK ADD  CONSTRAINT [fk_Service_Studio_Tattoo_Manager] FOREIGN KEY([tattoo_Manager_email])
