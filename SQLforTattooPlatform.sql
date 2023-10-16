@@ -1,8 +1,6 @@
 
 
 
-Create database TattooPlatform
-use TattooPlatform
 
 CREATE TABLE [dbo].[Admin](
 	[admin_email] [varchar](50) NOT NULL,
@@ -11,7 +9,7 @@ CREATE TABLE [dbo].[Admin](
 	[full_name] [nvarchar](100) NOT NULL,
 	[phone_number] [nvarchar](20) NOT NULL,
 	[address] [nvarchar](100) NOT NULL,
-	[roleID] [nvarchar](20) NOT NULL,
+	[roleID] [varchar](20) NOT NULL,
  CONSTRAINT [PK_Admin] PRIMARY KEY CLUSTERED 
 (
 	[admin_email] ASC
@@ -102,16 +100,15 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Feedback](
-	[booking_Detail_ID] [varchar](20) NOT NULL,
+	[booking_Detail_ID] [varchar](20) primary key,
 	[description] [text] NULL,
 	[tattoo_Lover_email] [varchar](50)NOT NULL,
 	[service_ID] [varchar](20) NOT NULL,
 	[artist_email] [varchar](50)NOT NULL,
+	rating int,
+	booking_date date not null
 
 ) 
-alter table Feedback
-add constraint PK_Feedback
-primary key (tattoo_lover_email, service_ID, artist_email)
 
 GO
 /****** Object:  Table [dbo].[Post]    Script Date: 10/2/2023 10:02:52 AM ******/
@@ -157,12 +154,12 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Role_Artist](
 	[role_ID] [varchar](20) NOT NULL,
-	[tattoo_Lover_email] [varchar](50)NOT NULL,
+	[artist_email] [varchar](50)NOT NULL,
 ) 
 
 alter table Role_Artist
 add constraint PK_Role_Artist
-primary key (role_ID, tattoo_Lover_email)
+primary key (role_ID, artist_email)
 GO
 /****** Object:  Table [dbo].[Role_StudioTattooManager]    Script Date: 10/2/2023 10:02:52 AM ******/
 SET ANSI_NULLS ON
@@ -203,7 +200,7 @@ CREATE TABLE [dbo].[Service](
 	[description] [text] NOT NULL,
 	[price] [float] NOT NULL,
 	[link_image] [varchar](250) NOT NULL,
-	[tattoo_Manager_email] [varchar](50) NULL,
+	[tattoo_Manager_email] [varchar](50)Not NULL,
  CONSTRAINT [PK_Service] PRIMARY KEY CLUSTERED 
 (
 	[service_ID] ASC
@@ -281,7 +278,7 @@ CREATE TABLE [dbo].[SystemStaff](
 	[full_name] [nvarchar](100) NOT NULL,
 	[phone_number] [nvarchar](20) NOT NULL,
 	[address] [nvarchar](100) NOT NULL,
-	[roleID] [nvarchar](20) NOT NULL,
+	[roleID] [varchar](20) NOT NULL,
 	[admin_email] [varchar](50) NOT NULL,
  CONSTRAINT [PK_SystemStaff] PRIMARY KEY CLUSTERED 
 (
@@ -387,8 +384,8 @@ ALTER TABLE [dbo].[Booking_Detail] CHECK CONSTRAINT [FK_Booking_Detail_Voucher]
 GO
 
 
-ALTER TABLE [dbo].[Booking_Detail]  WITH CHECK ADD  CONSTRAINT [FK_Feedback_Booking_Detail] FOREIGN KEY(tattoo_lover_email, service_ID, artist_email)
-REFERENCES [dbo].[Feedback] (tattoo_lover_email, service_ID, artist_email)
+ALTER TABLE [dbo].[Feedback]  WITH CHECK ADD  CONSTRAINT [FK_Feedback_Booking_Detail] FOREIGN KEY(Booking_Detail_ID)
+REFERENCES [dbo].[Booking_Detail] (Booking_Detail_ID)
 GO
 ALTER TABLE [dbo].[Feedback] CHECK CONSTRAINT [FK_Feedback_Booking_Detail]
 GO
@@ -408,8 +405,8 @@ ALTER TABLE [dbo].[Post] CHECK CONSTRAINT [FK_Post_SystemStaff]
 GO
 
 /*--------------------------------------------------------------------------------------------------------------------*/
-ALTER TABLE [dbo].[Role_Artist]  WITH CHECK ADD  CONSTRAINT [FK_Artist_Role] FOREIGN KEY([tattoo_Lover_email])
-REFERENCES [dbo].[TattooLovers] ([tattoo_Lover_email])
+ALTER TABLE [dbo].[Role_Artist]  WITH CHECK ADD  CONSTRAINT [FK_Artist_Role] FOREIGN KEY ([artist_email])
+REFERENCES [dbo].[Artist] ([artist_email])
 GO
 ALTER TABLE [dbo].[Role_Artist] CHECK CONSTRAINT [FK_Artist_Role]
 GO
@@ -421,6 +418,11 @@ GO
 ALTER TABLE [dbo].[Role_Artist] CHECK CONSTRAINT [FK_Role_Artist]
 GO
 
+Alter table [dbo].[SystemStaff]  WITH CHECK ADD  CONSTRAINT [FK_SystemStaff_Role] FOREIGN KEY ([roleID])
+REFERENCES [dbo].[Role] ([role_ID])
+
+Alter table [dbo].[Admin]  WITH CHECK ADD  CONSTRAINT [FK_Admin_Role] FOREIGN KEY ([roleID])
+REFERENCES [dbo].[Role] ([role_ID])
 
 ALTER TABLE [dbo].[Role_StudioTattooManager]  WITH CHECK ADD  CONSTRAINT [FK_Role_StudioTattooManager] FOREIGN KEY([role_ID])
 REFERENCES [dbo].[Role] ([role_ID])
