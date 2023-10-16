@@ -2,7 +2,6 @@ package SWP391.TattooPlatform.controller;
 
 import SWP391.TattooPlatform.config.ResponseUtils;
 import SWP391.TattooPlatform.model.Booking;
-import SWP391.TattooPlatform.model.Service;
 import SWP391.TattooPlatform.service.BookingService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

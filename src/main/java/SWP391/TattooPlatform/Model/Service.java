@@ -1,35 +1,59 @@
-package SWP391.TattooPlatform.Model;
+package SWP391.TattooPlatform.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.util.Collection;
+import javax.validation.constraints.Size;
+import java.util.Set;
 
-
-@Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-
+@AllArgsConstructor
+@Entity
 @Table(name = "Service")
 public class Service {
-
     @Id
-    private String service_ID;
+    @Column(name = "service_ID")
+    @Size(min = 1, max = 20, message = "Service ID must have length between {min} and {max}")
+    private String serviceID;
 
-    private String service_name;
+    @Column(name = "service_name")
+    @Size(min = 1, max = 20, message = "Service must have length between {min} and {max}")
+    private String serviceName;
 
-    private String description;
+    @Size(min = 1, max = 500, message = "Description must have length between {min} and {max}")
+    @Column(name = "description")
+    private String description ;
 
-    private String price;
 
-    private String link_image;
+    @Column(name = "price")
+    private float price;
 
-    private String tattoo_Manager_email;
+    @Size(min = 1, max = 250, message = "Image link must have length between {min} and {max}")
+    @Column(name = "link_image")
+    private String linkImage;
 
-    @ManyToOne
-    @JoinColumn(name = "tattoo_Manager_email")
-    private Studio_Tattoo_Manager studio_Tattoo_Manager;
+    @Column(name = "tattoo_Manager_email")
+    private String tattooManagerEmail;
+
+
+//    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    @EqualsAndHashCode.Exclude
+//    @ToString.Exclude
+//    @JoinTable(name = "Booking_Service",
+//            joinColumns = @JoinColumn(name = "service_ID"),
+//            inverseJoinColumns = @JoinColumn(name = "Booking_ID")
+//    )
+//    private Set<Booking> bookings;
+
+    @ManyToMany(mappedBy = "services")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonIgnore
+    private Set<Booking> bookings;
+
+
+
+
 }
