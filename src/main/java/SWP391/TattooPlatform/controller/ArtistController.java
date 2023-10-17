@@ -40,19 +40,19 @@ public class ArtistController {
     }
 
     //-------------------------------UPDATE/PUT-------------------------------
-    @PutMapping("/updateArtistInfomation/{email}")
-    public ResponseEntity<?> updateRole(@PathVariable String email, @RequestParam String fullName,
+    @PutMapping("/updateArtistInfomation/")
+    public ResponseEntity<?> updateRole(@RequestParam String email, @RequestParam String fullName,
                                         @RequestParam String phoneNumber, @RequestParam String address) throws Exception {
         return ResponseUtils.get(artistService.updateArtistInformation(email, fullName, phoneNumber, address),HttpStatus.OK);
     }
-    @PutMapping("/updateArtistAccount/{email}")
-    public ResponseEntity<?> updateRole(@PathVariable String email, @RequestParam String username, @RequestParam String password  ) throws Exception {
+    @PutMapping("/updateArtistAccount/")
+    public ResponseEntity<?> updateRole(@RequestParam String email, @RequestParam String username, @RequestParam String password  ) throws Exception {
         return ResponseUtils.get(artistService.updateArtistAccount(email, username, password),HttpStatus.OK);
     }
 
     //-------------------------------DELETE-------------------------------
-    @DeleteMapping("/deleteArtist/{email}")
-    public ResponseEntity<?> deleteRole(@PathVariable("email") String email) throws Exception {
+    @DeleteMapping("/deleteArtist/")
+    public ResponseEntity<?> deleteRole(@RequestParam String email) throws Exception {
         return ResponseUtils.get(artistService.deleteArtist(email), HttpStatus.OK);
 
     }
