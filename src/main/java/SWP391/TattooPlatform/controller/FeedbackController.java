@@ -28,17 +28,17 @@ public class FeedbackController {
         return  ResponseUtils.get(feedbackService.getFeedbackList(), HttpStatus.OK);
     }
 
-    @GetMapping("/allFeedback/Artist/{artistEmail}")
-    public Object getAllFeedbackByArtistEmail (@PathVariable String email) {
+    @GetMapping("/allFeedback/Artist")
+    public Object getAllFeedbackByArtistEmail (@RequestParam String email) {
         return  ResponseUtils.get(feedbackService.getFeedbackListByArtistEmail(email), HttpStatus.OK);
     }
 
-    @GetMapping("/allFeedback/TattooLovers/{tattooLoverEmail}")
-    public Object getAllFeedbackByTattooLoverEmail (@PathVariable String email) {
+    @GetMapping("/allFeedback/TattooLovers")
+    public Object getAllFeedbackByTattooLoverEmail (@RequestParam String email) {
         return  ResponseUtils.get(feedbackService.getFeedbackListByTattooLoverEmail(email), HttpStatus.OK);
     }
-    @GetMapping("/allFeedback/BookingDetailID/{id}")
-    public Object getFeedbackByDetailID (@PathVariable String id) {
+    @GetMapping("/allFeedback/BookingDetailID/")
+    public Object getFeedbackByDetailID (@RequestParam String id) {
         return  ResponseUtils.get(feedbackService.getFeedbackByBookingDetailID(id), HttpStatus.OK);
     }
 

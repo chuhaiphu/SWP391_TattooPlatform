@@ -5,6 +5,7 @@ import SWP391.TattooPlatform.model.Feedback;
 import SWP391.TattooPlatform.repository.ArtistRepository;
 import SWP391.TattooPlatform.repository.FeedbackRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -27,7 +28,10 @@ public class ArtistService {
 
     public Artist addArtist(Artist artist)
     {
-        return artistRepository.save(artist);
+        if(artistRepository.findArtistByEmail(artist.getEmail()) == null){
+            return artistRepository.save(artist);
+        }
+        return null;
     }
 
     public Artist updateArtistInformation(String email

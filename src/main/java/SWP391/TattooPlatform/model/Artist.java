@@ -29,6 +29,8 @@ public class Artist {
     private String username;
     @Column(name = "password")
     private String password;
+    @Column(name = "status_ID")
+    private String statusID;
 
     @JsonIgnore
     @ManyToOne

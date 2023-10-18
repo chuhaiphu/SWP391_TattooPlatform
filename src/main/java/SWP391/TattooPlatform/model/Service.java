@@ -18,19 +18,18 @@ import java.util.Collection;
 public class Service {
 
     @Id
-    private String service_ID;
-
-    private String service_name;
-
+    @Column(name = "service_ID")
+    private String serviceID;
+    @Column(name = "service_name")
+    private String serviceName;
+    @Column
     private String description;
-
-    private String price;
-
-    private String link_image;
-
-    private String tattoo_Manager_email;
+    @Column(name = "link_image")
+    private String linkImage;
+    @Column(name = "tattoo_Manager_email")
+    private String studioTattooManager;
 
     @ManyToOne
-    @JoinColumn(name = "tattoo_Manager_email")
+    @JoinColumn(name = "tattoo_Manager_email", insertable=false, updatable=false)
     private Studio_Tattoo_Manager studio_Tattoo_Manager;
 }

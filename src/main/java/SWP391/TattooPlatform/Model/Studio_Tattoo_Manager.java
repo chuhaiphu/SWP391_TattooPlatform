@@ -37,23 +37,24 @@ public class Studio_Tattoo_Manager {
 
     @Column(name = "password")
     private String password;
-
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
-//    private Collection<Studio_Certificate> certificates;
+    @Column(name = "status_ID")
+    private String statusID;
+    @JsonIgnore
+    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
+    private Collection<Studio_Certificate> certificates;
 //
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
-//    private Collection<Service> services;
+    @JsonIgnore
+    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
+    private Collection<Service> services;
 //
-//    @JsonIgnore
-//    @ManyToOne
-//    @JoinColumn(name = "System_Staff_email", insertable=false, updatable=false)
-//    private SystemStaff systemStaff;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "System_Staff_email", insertable=false, updatable=false)
+    private SystemStaff systemStaff;
 //
-//    @JsonIgnore //bỏ qua query
-//    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
-//    private Collection<Artist> artists;
+    @JsonIgnore //bỏ qua query
+    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
+    private Collection<Artist> artists;
 
 //    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
 //    private Collection<Service> services;
