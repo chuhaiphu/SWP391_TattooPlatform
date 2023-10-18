@@ -33,14 +33,12 @@ public class Admin {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "roleID")
-    private String roleID;
 
     @JsonIgnore
     @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
     private Collection<SystemStaff> systemStaffs;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
-    private Collection<Post> posts;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
+//    private Collection<Post> posts;
 }

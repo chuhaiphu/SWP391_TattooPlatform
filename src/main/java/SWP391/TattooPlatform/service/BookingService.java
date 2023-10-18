@@ -1,18 +1,32 @@
 package SWP391.TattooPlatform.service;
 
+import SWP391.TattooPlatform.config.ResponseUtils;
+import SWP391.TattooPlatform.model.BookingDetail;
+import SWP391.TattooPlatform.model.BookingStatus;
+import SWP391.TattooPlatform.repository.BookingDetailRepository;
 import SWP391.TattooPlatform.repository.BookingRepository;
 import SWP391.TattooPlatform.model.Booking;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 
 @Service
 public class BookingService {
 
     final BookingRepository bookingRepository;
+    final BookingDetailRepository bookingDetailRepository;
 
-    public BookingService(BookingRepository bookingRepository) {
+    final BookingDetailService bookingDetailService;
+
+    public BookingService(BookingRepository bookingRepository, BookingDetailRepository bookingDetailRepository, BookingDetailService bookingDetailService) {
         this.bookingRepository = bookingRepository;
+        this.bookingDetailRepository = bookingDetailRepository;
+        this.bookingDetailService = bookingDetailService;
     }
 
     public Booking getBookingByID(String bookingID) {
@@ -31,22 +45,34 @@ public class BookingService {
     public Booking findBookingByBookingIDAndArtistEmailAndTattooLoverEmail ( String bookingID,
                                                                            String artistEmail,
                                                                              String tattooLoverEmail) {
-        if(bookingRepository.findBookingByBookingIDAndArtistEmailAndTattooLoverEmail(bookingID,artistEmail,tattooLoverEmail) == null) {
+        if(bookingRepository.findBookingByBookingIDAndTattooLoverEmail(bookingID,tattooLoverEmail) == null) {
             return  null;
 
         }
-        return bookingRepository.findBookingByBookingIDAndArtistEmailAndTattooLoverEmail(bookingID,artistEmail,tattooLoverEmail);
+        return bookingRepository.findBookingByBookingIDAndTattooLoverEmail(bookingID,tattooLoverEmail);
 
     }
 
-    public Booking addBooking(Booking b) {
-        return bookingRepository.save(b);
+
+    public ResponseEntity<?> addBooking(Booking b, BookingDetail bd) {
+
+        if(bookingRepository.findBookingByBookingID(b.getBookingID()) != null) {
+            return ResponseUtils.error("not allow duplicate ID", HttpStatus.BAD_REQUEST);
+        }else {
+            bookingRepository.save(b);
+            bd.setBookingID("1");
+            bookingDetailRepository.save(bd);
+            bookingDetailRepository.updateBookingDetail(b.getBookingID(), "1");
+
+            return ResponseUtils.get(bookingRepository.findBookingByBookingID(b.getBookingID()),HttpStatus.CREATED);
+        }
+
     }
 
-    public Booking updateBooking(String bookingID, String artistEmail,
+    public Booking updateBooking(String bookingID,
                                  String tattooLoverEmail, String time, String date,
                                  String customerName, String customerPhoneNumber, float totalPrice) {
-        bookingRepository.updateBooking(bookingID,artistEmail.trim(),tattooLoverEmail.trim(),time,date,customerName,customerPhoneNumber,totalPrice);
+        bookingRepository.updateBooking(bookingID,tattooLoverEmail.trim(),time,date,customerName,customerPhoneNumber,totalPrice);
         return bookingRepository.findBookingByBookingID(bookingID);
     }
 

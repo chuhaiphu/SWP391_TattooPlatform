@@ -30,7 +30,6 @@ public class SystemStaff {
 
     private String address;
 
-    private String roleID;
 
     @Column(name = "admin_email")
     private String adminEmail;
@@ -39,9 +38,9 @@ public class SystemStaff {
     @OneToMany(mappedBy = "systemStaff", cascade = CascadeType.ALL)
     private Collection<Studio_Tattoo_Manager> studioTattooManagers;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "systemStaff", cascade = CascadeType.ALL)
-    private Collection<Post> posts;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "systemStaff", cascade = CascadeType.ALL)
+//    private Collection<Post> posts;
 
     @JsonIgnore
     @ManyToOne

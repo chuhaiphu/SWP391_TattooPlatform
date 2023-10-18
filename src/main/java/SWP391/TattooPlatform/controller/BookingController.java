@@ -2,6 +2,7 @@ package SWP391.TattooPlatform.controller;
 
 import SWP391.TattooPlatform.config.ResponseUtils;
 import SWP391.TattooPlatform.model.Booking;
+import SWP391.TattooPlatform.model.BookingDetail;
 import SWP391.TattooPlatform.service.BookingService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,17 +38,17 @@ public class BookingController {
 
 
     @PostMapping()
-    public ResponseEntity<?> addBooking(@RequestBody Booking booking) {
-        return ResponseUtils.get(bookingService.addBooking(booking) , HttpStatus.CREATED);
+    public ResponseEntity<?> addBooking(@RequestBody Booking booking, @RequestBody BookingDetail bookingDetail) {
+        return ResponseUtils.get(bookingService.addBooking(booking,bookingDetail) , HttpStatus.CREATED);
     }
 
     @PutMapping("/{bookingID}")
-    public  ResponseEntity<?> updateBooking(@PathVariable (name = "bookingID") String bookingID, @RequestParam String artistEmail,
+    public  ResponseEntity<?> updateBooking(@PathVariable (name = "bookingID") String bookingID,
                                             @RequestParam String tattooLoverEmail, @RequestParam String time ,
                                             @RequestParam String date,  @RequestParam String customerName,
                                             @RequestParam String customerPhoneNumber, @RequestParam float totalPrice){
         return ResponseUtils.get(bookingService.
-                updateBooking(bookingID,artistEmail,tattooLoverEmail,time,date,customerName,customerPhoneNumber,totalPrice),HttpStatus.OK);
+                updateBooking(bookingID,tattooLoverEmail,time,date,customerName,customerPhoneNumber,totalPrice),HttpStatus.OK);
     }
 
     @DeleteMapping("/{bookingID}")

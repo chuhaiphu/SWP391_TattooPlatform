@@ -23,8 +23,7 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
 
 
 
-    Booking findBookingByBookingIDAndArtistEmailAndTattooLoverEmail (@Param("bookingID") String bookingID,
-                                                                     @Param("artistEmail") String artistEmail,
+    Booking findBookingByBookingIDAndTattooLoverEmail (@Param("bookingID") String bookingID,
                                                                      @Param("tattooLoverEmail") String tattooLoverEmail);
 
 
@@ -32,7 +31,7 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
 
     @Modifying
     @Transactional
-    @Query("UPDATE  Booking b set b.artistEmail = :artistEmail," +
+    @Query("UPDATE  Booking b set " +
             "b.tattooLoverEmail = :tattooLoverEmail," +
             "b.time = :time," +
             "b.date = :date," +
@@ -42,7 +41,6 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
             " where " +
             " b.bookingID = :bookingID" )
     void updateBooking(@Param("bookingID") String bookingID,
-                       @Param("artistEmail") String artistEmail,
                        @Param("tattooLoverEmail") String tattooLoverEmail,
                        @Param("time") String time,
                        @Param("date") String date,

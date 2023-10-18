@@ -3,6 +3,7 @@ package SWP391.TattooPlatform.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.util.Set;
 
@@ -13,8 +14,15 @@ import java.util.Set;
 @Table(name = "Booking_Detail")
 public class BookingDetail {
     @Id
-    @Column(name = "booking_Detail_ID")
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "SWP391.TattooPlatform.model.CustomUUIDGenerator"
+    )
+    @Column(name = "booking_Detail_ID",length = 15,updatable = false,nullable = false)
     private String bookingDetailID;
+
+
 
     @Column(name = "booking_ID")
     private String bookingID;
@@ -37,14 +45,16 @@ public class BookingDetail {
     @Column(name = "price")
     private float price;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Column(name = "statusID")
+    private String statusID;
+
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "statusID",insertable = false,updatable = false   )
     @EqualsAndHashCode.Exclude
+    @JsonIgnore
     @ToString.Exclude
-    @JoinTable(name = "Booking_Detail_Status",
-            joinColumns = @JoinColumn(name = "booking_Detail_ID"),
-            inverseJoinColumns = @JoinColumn(name = "statusID")
-    )
-    private Set<BookingStatus> BookingStatuses;
+    private BookingStatus bookingStatus;
 
     @ManyToOne
     @JoinColumn(name = "booking_ID",insertable = false,updatable = false   )
@@ -52,4 +62,15 @@ public class BookingDetail {
     @JsonIgnore
     @ToString.Exclude
     private Booking booking;
+
+    @ManyToOne
+    @JoinColumn(name = "service_ID", insertable = false,updatable = false)
+    @EqualsAndHashCode.Exclude
+    @JsonIgnore
+    @ToString.Exclude
+    private Service services;
+
+
+
+
 }

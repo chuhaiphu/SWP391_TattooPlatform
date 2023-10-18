@@ -3,6 +3,7 @@ package SWP391.TattooPlatform.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.validation.constraints.Size;
 import java.util.Collection;
@@ -16,9 +17,17 @@ import java.util.Set;
 @Table(name = "Service")
 public class Service {
     @Id
-    @Column(name = "service_ID")
-    @Size(min = 1, max = 20, message = "Service ID must have length between {min} and {max}")
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "SWP391.TattooPlatform.model.CustomUUIDGenerator"
+    )
+    @Column(name = "service_ID",length = 15,updatable = false,nullable = false )
     private String serviceID;
+
+
+
+
 
     @Column(name = "service_name")
     @Size(min = 1, max = 20, message = "Service must have length between {min} and {max}")
@@ -40,20 +49,17 @@ public class Service {
     private String tattooManagerEmail;
 
 
-//    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    @EqualsAndHashCode.Exclude
-//    @ToString.Exclude
-//    @JoinTable(name = "Booking_Service",
-//            joinColumns = @JoinColumn(name = "service_ID"),
-//            inverseJoinColumns = @JoinColumn(name = "Booking_ID")
-//    )
-//    private Set<Booking> bookings;
 
-    @ManyToMany(mappedBy = "services")
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "tattoo_Manager_email", insertable=false, updatable=false)
+    private Studio_Tattoo_Manager studioTattooManager;
+
+    @OneToMany(mappedBy = "services")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @JsonIgnore
-    private Set<Booking> bookings;
+    private Set<BookingDetail> bookingDetails;
 
 
 

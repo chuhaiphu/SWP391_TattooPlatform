@@ -29,7 +29,7 @@ public class BookingStatus {
     private String statusDate;
 
 
-    @ManyToMany(mappedBy = "BookingStatuses")
+    @OneToMany(mappedBy = "bookingStatus")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @JsonIgnore
