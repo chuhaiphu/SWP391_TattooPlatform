@@ -54,6 +54,5 @@ public class ArtistController {
     @DeleteMapping("/deleteArtist/")
     public ResponseEntity<?> deleteRole(@RequestParam String email) throws Exception {
         return ResponseUtils.get(artistService.deleteArtist(email), HttpStatus.OK);
-
     }
 }

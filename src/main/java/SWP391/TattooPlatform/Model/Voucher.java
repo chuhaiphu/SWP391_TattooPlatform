@@ -23,4 +23,6 @@ public class Voucher {
     private String endDate;
     @Column(name = "description")
     private String description;
+    @Column(name = "manager_email")
+    private String managerEmail;
 }

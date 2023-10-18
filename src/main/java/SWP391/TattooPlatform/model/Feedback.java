@@ -16,12 +16,14 @@ public class Feedback {
     @Id
     @Column (name = "feedback_ID")
     private String feedbackID;
-    @Column
+    @Column(name = "booking_Detail_ID")
     private String bookingDetailID;
     @Column (name = "description")
     private String description;
-    @Column (name = "rating")
-    private float rating;
+    @Column (name = "artist_rating")
+    private float artistRating;
+    @Column (name = "service_rating")
+    private float serviceRating;
     @Column (name = "booking_date")
     private String bookingDate;
     @Column (name = "tattoo_Lover_Email")

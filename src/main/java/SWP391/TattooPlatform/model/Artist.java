@@ -23,6 +23,8 @@ public class Artist {
     private String address;
     @Column(name = "rate")
     private float rate;
+    @Column(name = "number_of_ratings")
+    private int numberOfRatings;
     @Column(name = "studio_Manager_email")
     private String studioManagerEmail;
     @Column(name = "username")

@@ -45,21 +45,6 @@ public class ArtistService {
         artistRepository.updateArtistByUsernameAndPassword(email, username, password);
         return artistRepository.findArtistByEmail(email);
     }
-    public Artist updateArtistRating(String email, FeedbackRepository feedbackRepository) {
-
-        if (email != null) {
-            List<Feedback> feedbackList = feedbackRepository.findAllByArtistEmail(email);
-
-            if (!feedbackList.isEmpty()) {
-                double totalRating = feedbackList.stream().mapToDouble(Feedback::getRating).sum();
-                double averageRating = totalRating / feedbackList.size();
-                artistRepository.updateArtistByRate(email, (float) averageRating);
-            }
-        } else {
-            return null;
-        }
-        return artistRepository.findArtistByEmail(email);
-    }
     public Artist deleteArtist(String email) throws Exception{
         artistRepository.deleteArtistByEmail(email);
         Artist artist = artistRepository.findArtistByEmail(email);

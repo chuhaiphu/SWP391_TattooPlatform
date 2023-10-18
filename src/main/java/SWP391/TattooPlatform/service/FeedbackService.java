@@ -2,6 +2,7 @@ package SWP391.TattooPlatform.service;
 
 import SWP391.TattooPlatform.model.Artist;
 import SWP391.TattooPlatform.model.Feedback;
+import SWP391.TattooPlatform.repository.ArtistRepository;
 import SWP391.TattooPlatform.repository.FeedbackRepository;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +10,11 @@ import java.util.List;
 
 @Service
 public class FeedbackService {
+    final ArtistRepository artistRepository;
     final FeedbackRepository feedbackRepository;
 
-    public FeedbackService(FeedbackRepository feedbackRepository) {
+    public FeedbackService(ArtistRepository artistRepository, FeedbackRepository feedbackRepository) {
+        this.artistRepository = artistRepository;
         this.feedbackRepository = feedbackRepository;
     }
 
@@ -25,6 +28,14 @@ public class FeedbackService {
 
     public Feedback addFeedback(Feedback feedback)
     {
+        Artist artist = artistRepository.findArtistByEmail(feedback.getArtistEmail());
+        float newRating = feedback.getArtistRating();
+        float totalRatings = artist.getRate() + newRating;
+        int numberOfRatings = artist.getNumberOfRatings() + 1;
+        float averageRating = totalRatings / numberOfRatings;
+        artist.setRate(averageRating);
+        artist.setNumberOfRatings(numberOfRatings);
+        artistRepository.save(artist);
         return feedbackRepository.save(feedback);
     }
 
@@ -40,35 +51,11 @@ public class FeedbackService {
         }
         return feedbackRepository.findAllByTattooLoverEmail(email);
     }
-    public Feedback getFeedbackByBookingDetailID(String id){
-        if(feedbackRepository.findByBookingDetailID(id) == null) {
+    public Feedback getFeedbackByBookingDetailID(String id) {
+        if (feedbackRepository.findByBookingDetailID(id) == null) {
             return null;
         }
         return feedbackRepository.findByBookingDetailID(id);
     }
-    //    public Artist updateArtistRating(String email) {
-//
-//        if (email != null) {
-//            List<Feedback> feedbackList = feedbackRepository.findAllByArtistEmail(email);
-//
-//            if (!feedbackList.isEmpty()) {
-//                float totalRating = feedbackList.stream().mapToDouble(Feedback::getRating).sum();
-//                float averageRating = totalRating / feedbackList.size();
-//                artistRepository.updateArtistByRate(email, averageRating);
-//            }
-//        } else {
-//            return null;
-//        }
-//        return artistRepository.findArtistByEmail(email);
-//    }
-//    public Feedback deleteArtist(String email) throws Exception{
-//        artistRepository.deleteArtistByEmail(email);
-//        Artist artist = artistRepository.findArtistByEmail(email);
-//        if(artist == null) {
-//            return null;
-//        }else {
-//            throw new Exception();
-//        }
-//    }
 
 }
