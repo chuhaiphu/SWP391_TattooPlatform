@@ -3,10 +3,14 @@ package SWP391.TattooPlatform.controller;
 import SWP391.TattooPlatform.config.ResponseUtils;
 import SWP391.TattooPlatform.model.Booking;
 import SWP391.TattooPlatform.model.BookingDetail;
+import SWP391.TattooPlatform.model.BookingRequest;
 import SWP391.TattooPlatform.service.BookingService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @RestController
@@ -27,19 +31,23 @@ public class BookingController {
         return ResponseUtils.get(bookingService.findall(), HttpStatus.OK);
     }
 
-
-    @GetMapping(" /{bookingID}&{tattooLoverEmail}&{artistEmail} ")
-    public ResponseEntity<?> getBookingByAll(@PathVariable(name = "tattooLovetEmail")  String tattooLoverEmail,
-                                             @PathVariable(name = "artistEmail") String artistEmail ,
-                                             @PathVariable (name = "bookingID") String bookingID) {
-        return ResponseUtils.get(bookingService.
-                findBookingByBookingIDAndArtistEmailAndTattooLoverEmail(bookingID,artistEmail,tattooLoverEmail),HttpStatus.OK);
+    @PostMapping()
+    public ResponseEntity<?> addBooking(@RequestBody BookingRequest bookingRequest ) {
+        Booking booking = bookingRequest.getBooking();
+        bookingService.addBooking(booking);
+        String id = booking.getBookingID();
+        addBookingDetail(bookingRequest.getBookingDetails(),id);
+       return  new ResponseEntity<>("Bookings created successfully", HttpStatus.CREATED);
     }
 
 
-    @PostMapping()
-    public ResponseEntity<?> addBooking(@RequestBody Booking booking, @RequestBody BookingDetail bookingDetail) {
-        return ResponseUtils.get(bookingService.addBooking(booking,bookingDetail) , HttpStatus.CREATED);
+    public void addBookingDetail(@RequestBody List<BookingDetail> bookingDetails, String id ) {
+    for(BookingDetail bookingDetail : bookingDetails) {
+        bookingDetail.setBookingID(id);
+        bookingService.addBookingDetail(bookingDetail);
+    }
+
+
     }
 
     @PutMapping("/{bookingID}")

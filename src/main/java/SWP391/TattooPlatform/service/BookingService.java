@@ -54,18 +54,13 @@ public class BookingService {
     }
 
 
-    public ResponseEntity<?> addBooking(Booking b, BookingDetail bd) {
-
-        if(bookingRepository.findBookingByBookingID(b.getBookingID()) != null) {
-            return ResponseUtils.error("not allow duplicate ID", HttpStatus.BAD_REQUEST);
-        }else {
-            bookingRepository.save(b);
-            bd.setBookingID("1");
-            bookingDetailRepository.save(bd);
-            bookingDetailRepository.updateBookingDetail(b.getBookingID(), "1");
-
-            return ResponseUtils.get(bookingRepository.findBookingByBookingID(b.getBookingID()),HttpStatus.CREATED);
+    public Booking addBooking(Booking b) {
+             bookingRepository.save(b);
+            return b;
         }
+    public BookingDetail addBookingDetail( BookingDetail bd) {
+          bookingDetailRepository.save(bd);
+            return bd;
 
     }
 
