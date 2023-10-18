@@ -1,6 +1,7 @@
 package SWP391.TattooPlatform.controller;
 
 import SWP391.TattooPlatform.config.ResponseUtils;
+import SWP391.TattooPlatform.model.Studio_Tattoo_Manager;
 import SWP391.TattooPlatform.service.Studio_Tattoo_ManagerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,9 +20,29 @@ public class Studio_Tattoo_ManagerController {
         this.studioTattooManagerService = studioTattooManagerService;
     }
 
-    @GetMapping
+    @GetMapping()
     public Object getAllManagers () {
         return ResponseUtils.get(studioTattooManagerService.managerList(), HttpStatus.OK);
     }
 
+    @PostMapping()
+    public ResponseEntity<?> addStudioTattooManager(@RequestBody Studio_Tattoo_Manager manager){
+        return ResponseUtils.get(studioTattooManagerService.addStudioTattooManager(manager),HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{managerEmail}")
+    public ResponseEntity<?> updateStudioTattooManager(@PathVariable String managerEmail,
+                                                       @RequestParam String newFullName,
+                                                       @RequestParam String newPhoneNumber,
+                                                       @RequestParam String newAddress,
+                                                       @RequestParam String newSystemStaffEmail,
+                                                       @RequestParam String newUsername,
+                                                       @RequestParam String newPassword)throws Exception{
+        return ResponseUtils.get(studioTattooManagerService.updateStudioTattooManager(managerEmail, newFullName,newPhoneNumber, newAddress, newSystemStaffEmail, newUsername, newPassword), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{managerEmail}")
+    public ResponseEntity<?> deleteStudioTattooManager(@PathVariable String managerEmail)throws Exception{
+        return ResponseUtils.get(studioTattooManagerService.deleteStudioTattooManager(managerEmail),HttpStatus.OK);
+    }
 }
