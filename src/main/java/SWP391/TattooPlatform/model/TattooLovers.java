@@ -47,6 +47,12 @@ public class TattooLovers {
     private String statusID;
 
 
+    @ManyToOne
+    @JoinColumn(name = "status_ID",insertable = false,updatable = false   )
+    @EqualsAndHashCode.Exclude
+    @JsonIgnore
+    @ToString.Exclude
+    private UserStatus userStatus;
 
 
 

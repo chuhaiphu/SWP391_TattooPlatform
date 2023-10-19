@@ -56,6 +56,13 @@ public class Booking {
     @JsonIgnore
     private List<BookingDetail> bookingDetails;
 
+    @JsonIgnore
+    @OneToOne
+    @JoinColumn(name = "tattoo_Lover_email", insertable = false,updatable = false)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private TattooLovers tattooLovers;
+
 
 
 

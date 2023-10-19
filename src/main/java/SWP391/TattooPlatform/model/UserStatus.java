@@ -6,6 +6,7 @@ import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -48,4 +49,10 @@ public class UserStatus {
     @JsonIgnore
     @OneToMany(mappedBy = "userStatus", cascade = CascadeType.ALL)
     private Collection<SystemStaff> systemStaffs;
+
+    @OneToMany(mappedBy = "userStatus", cascade = CascadeType.ALL)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JsonIgnore
+    private List<TattooLovers> tattooLoversList;
 }
