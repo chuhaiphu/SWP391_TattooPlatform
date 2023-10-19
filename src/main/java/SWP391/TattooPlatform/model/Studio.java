@@ -28,6 +28,9 @@ public class Studio {
     @Column(name = "address")
     private String address;
 
+    @Column(name = "district")
+    private String district;
+
     @Column(name = "bannerImg")
     private String bannerImg;
 
