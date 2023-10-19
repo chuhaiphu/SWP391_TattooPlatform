@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 
 @Data
@@ -14,7 +15,12 @@ import lombok.NoArgsConstructor;
 @Table (name = "Feedback")
 public class Feedback {
     @Id
-    @Column (name = "feedback_ID")
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "SWP391.TattooPlatform.model.CustomUUIDGenerator"
+    )
+    @Column (name = "feedback_ID",length = 15,updatable = false,nullable = false)
     private String feedbackID;
     @Column(name = "booking_Detail_ID")
     private String bookingDetailID;
@@ -33,8 +39,8 @@ public class Feedback {
     @Column (name = "artist_email")
     private String artistEmail;
 
-//    @JsonIgnore
-//    @OneToOne
-//    @JoinColumn(name = "booking_Detail_ID") // Liên kết với nhau qua khóa ngoại person_id
-//    private BookingDetail bookingDetail;
+    @JsonIgnore
+    @OneToOne
+    @JoinColumn(name = "booking_Detail_ID")
+    private BookingDetail bookingDetail;
 }
