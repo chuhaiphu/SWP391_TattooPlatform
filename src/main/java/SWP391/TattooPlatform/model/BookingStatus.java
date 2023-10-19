@@ -12,7 +12,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Status")
+@Table(name = "Booking_Status")
 public class BookingStatus {
     @Id
     @Column(name = "statusID")
@@ -23,10 +23,6 @@ public class BookingStatus {
 
     @Column(name = "description")
     private String description;
-
-    @FutureOrPresent(message = "Date should be future or present")
-    @Column(name = "status_date")
-    private String statusDate;
 
 
     @OneToMany(mappedBy = "bookingStatus")

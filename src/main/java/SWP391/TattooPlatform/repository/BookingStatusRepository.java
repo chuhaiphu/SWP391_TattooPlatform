@@ -16,12 +16,7 @@ public interface BookingStatusRepository extends JpaRepository<BookingStatus, Lo
 
     BookingStatus save(BookingStatus bookingStatus);
 
-    @Modifying
-    @Transactional
-    @Query("update BookingStatus bs set bs.statusDate = :statusDate , " +
-            "bs.description = :description where bs.statusID = :statusID")
-    void update(@Param("statusID") String statusID ,
-                @Param("description") String description , @Param("statusDate") String statusDate);
+
 
 
 }

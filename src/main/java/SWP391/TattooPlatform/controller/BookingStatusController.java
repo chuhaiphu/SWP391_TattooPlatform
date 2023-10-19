@@ -32,11 +32,6 @@ public class BookingStatusController {
         return bookingStatusService.addStatusForBooking(bookingStatus);
     }
 
-    @PutMapping("/{statusID}")
-    public ResponseEntity<?> updateBookingStatus(@PathVariable(name = "statusID") String statusID,
-                                                 @Param("description") String description,
-                                                 @Param("statusDate") String statusDate) {
-        return ResponseUtils.get(bookingStatusService.updateStatusForBooking(statusID,description,statusDate),HttpStatus.OK);
-    }
+
 
 }
