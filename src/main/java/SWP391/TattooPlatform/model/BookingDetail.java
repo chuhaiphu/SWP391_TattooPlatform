@@ -30,9 +30,6 @@ public class BookingDetail {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "tattoo_Lover_email")
-    private String tattooLoverEmail;
-
     @Column(name = "service_ID")
     private String serviceID;
 

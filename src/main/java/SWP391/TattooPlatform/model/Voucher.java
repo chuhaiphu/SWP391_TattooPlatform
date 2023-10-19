@@ -23,6 +23,9 @@ public class Voucher {
     private String voucherID;
     @Column(name = "voucher_Name")
     private String voucherName;
+
+    @Column(name = "discount")
+    private int discount;
     @Column(name = "star_date")
     private String startDate;
     @Column(name = "end_date")

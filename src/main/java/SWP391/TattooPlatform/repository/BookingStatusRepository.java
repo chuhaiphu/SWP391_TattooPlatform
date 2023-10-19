@@ -17,6 +17,9 @@ public interface BookingStatusRepository extends JpaRepository<BookingStatus, Lo
     BookingStatus save(BookingStatus bookingStatus);
 
 
+    BookingStatus findBookingStatusByStatusName(String statusName);
+
+
 
 
 }

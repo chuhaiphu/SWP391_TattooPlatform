@@ -3,9 +3,12 @@ package SWP391.TattooPlatform.service;
 import SWP391.TattooPlatform.config.ResponseUtils;
 import SWP391.TattooPlatform.model.BookingDetail;
 import SWP391.TattooPlatform.model.BookingStatus;
+import SWP391.TattooPlatform.model.Voucher;
 import SWP391.TattooPlatform.repository.BookingDetailRepository;
 import SWP391.TattooPlatform.repository.BookingRepository;
 import SWP391.TattooPlatform.model.Booking;
+import SWP391.TattooPlatform.repository.BookingStatusRepository;
+import SWP391.TattooPlatform.repository.VoucherRepository;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,12 +24,16 @@ public class BookingService {
     final BookingRepository bookingRepository;
     final BookingDetailRepository bookingDetailRepository;
 
-    final BookingDetailService bookingDetailService;
+    final BookingStatusRepository bookingStatusRepository;
 
-    public BookingService(BookingRepository bookingRepository, BookingDetailRepository bookingDetailRepository, BookingDetailService bookingDetailService) {
+    final VoucherRepository voucherRepository;
+
+    public BookingService(BookingRepository bookingRepository, BookingDetailRepository bookingDetailRepository,
+                           BookingStatusRepository bookingStatusRepository, VoucherRepository voucherRepository) {
         this.bookingRepository = bookingRepository;
         this.bookingDetailRepository = bookingDetailRepository;
-        this.bookingDetailService = bookingDetailService;
+        this.bookingStatusRepository = bookingStatusRepository;
+        this.voucherRepository = voucherRepository;
     }
 
     public Booking getBookingByID(String bookingID) {
@@ -55,12 +62,28 @@ public class BookingService {
 
 
     public Booking addBooking(Booking b) {
+            b.setTotalPrice((float) 0);
              bookingRepository.save(b);
             return b;
         }
-    public BookingDetail addBookingDetail( BookingDetail bd) {
-          bookingDetailRepository.save(bd);
-            return bd;
+    public void addBookingDetail( List<BookingDetail> bookingDetails , String id) {
+        float totalPrice = 0;
+        BookingStatus status = bookingStatusRepository.findBookingStatusByStatusName("IN PROCESS");
+        for(BookingDetail bookingDetail : bookingDetails) {
+
+            bookingDetail.setBookingID(id);
+            bookingDetail.setStatusID(status.getStatusID());
+
+            if(bookingDetail.getVoucherID()!=null) {
+                Voucher voucher = voucherRepository.findVoucherByVoucherID(bookingDetail.getVoucherID());
+                float actualPrice = (bookingDetail.getPrice()*voucher.getDiscount())/100;
+                bookingDetail.setPrice(actualPrice);
+            }
+            bookingDetailRepository.save(bookingDetail);
+            totalPrice += bookingDetail.getPrice();
+        }
+        Booking booking = bookingRepository.findBookingByBookingID(id);
+        booking.setTotalPrice(totalPrice);
 
     }
 

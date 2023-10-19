@@ -42,10 +42,8 @@ public class BookingController {
 
 
     public void addBookingDetail(@RequestBody List<BookingDetail> bookingDetails, String id ) {
-    for(BookingDetail bookingDetail : bookingDetails) {
-        bookingDetail.setBookingID(id);
-        bookingService.addBookingDetail(bookingDetail);
-    }
+        bookingService.addBookingDetail(bookingDetails,id);
+
 
 
     }
