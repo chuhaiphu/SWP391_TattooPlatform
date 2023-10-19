@@ -1,5 +1,6 @@
 package SWP391.TattooPlatform.controller;
 
+import SWP391.TattooPlatform.model.Admin;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,11 @@ import java.nio.file.Paths;
 @RequestMapping("/login")
 
 public class LoginController {
+    final AdminService adminService;
+
+    public LoginController(AdminService adminService) {
+        this.adminService = adminService;
+    }
 
     @GetMapping()
     public String loadLoginHtml() throws IOException {
@@ -26,15 +32,21 @@ public class LoginController {
     }
 
     @PostMapping()
-    public ResponseEntity<String> login(@RequestParam String email, @RequestParam String password) {
-        if ("user@example.com".equals(email) && "userpassword".equals(password)) {
-            return ResponseEntity.ok("UserLogin");
-        } else if ("admin@example.com".equals(email) && "adminpassword".equals(password)) {
-            // Admin login successful
-            return ResponseEntity.ok("AdminLogin");
-        } else {
-            // Invalid credentials
-            return ResponseEntity.badRequest().body("Invalid credentials");
+    public ResponseEntity<String> login(@RequestParam String email, @RequestParam String password) throws IOException {
+        try {
+            Admin admin = adminService.getAdminFromJsonFile();
+            if ("user@example.com".equals(email) && "userpassword".equals(password)) {
+                return ResponseEntity.ok("UserLogin");
+            } else if (admin.getAdminEmail().equals(email) && admin.getPassword().equals(password)) {
+                // Admin login successful
+                return ResponseEntity.ok("AdminLogin");
+            } else {
+                // Invalid credentials
+
+                throw new IOException("Invalid credentials");
+            }
+        }catch (IOException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 }

@@ -1724,6 +1724,18 @@ form .row [class*="col-"] {
 .form-group {
     margin-bottom: 15px;
 }
+/* Style for the container div */
+.checkbox-container {
+    display: inline-block; /* Use flexbox to arrange elements horizontally */
+    margin-bottom: 10px; /* Add some space between the pairs */
+    font-size: 14px;
+    font-weight: 500;
+}
+.checkbox-container label{
+    display: inline-block;
+    padding-left: 10px;
+}
+
 .form-group label {
     display: inline-block;
     margin-bottom: 10px;
@@ -1910,6 +1922,7 @@ body.no-scroll {
     padding-bottom: 80px;
 }
 .section-title {
+    flex: 1;
     margin-bottom: 26px;
 }
 .sub-title {
@@ -3515,16 +3528,42 @@ del {
     font-size: 16px;
     color: var(--white);
 }
-/* ser-detail-main  */
-.ser-detail-main {
+.service-row{
     display: flex;
+    /*justify-content: space-between;*/
     justify-content: space-between;
+    flex-direction: column;
     flex-wrap: wrap;
-    gap: 20px;
+    /*gap: 30%;*/
     padding-bottom: 30px;
     border-bottom: 1px solid var(--second-color);
 }
-.service-deatail-section .ser-name {
+.service-row .btn {
+    background-color: var(--second-color);
+    color: var(--theme-color);
+
+    padding: 15px 0;
+    margin: 15px 0;
+    margin-left: 15px;
+}
+.service-row .btn:hover {
+    border: 1px solid var(--second-color);
+    background-color: transparent;
+    color: var(--second-color);
+}
+
+/* ser-detail-main  */
+.ser-detail-main {
+    display: flex;
+    /*justify-content: space-between;*/
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /*gap: 30%;*/
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--second-color);
+}
+.service-detail-section .ser-name {
     flex: 0 0 315px;
 }
 .ser-detail-main>*:not(:first-child) {
@@ -3540,7 +3579,10 @@ del {
 .ser-detail-main .btn {
     background-color: var(--second-color);
     color: var(--theme-color);
+
     padding: 15px 0;
+    margin: 15px 0;
+    margin-left: 15px;
 }
 .ser-detail-main .btn:hover {
     border: 1px solid var(--second-color);
@@ -3549,6 +3591,12 @@ del {
 }
 .ser-detail-main input[type="date"]::-webkit-calendar-picker-indicator,
 .ser-detail-main input[type="time"]::-webkit-calendar-picker-indicator {
+    background: none;
+    color: transparent;
+    opacity: 0;
+}
+.form-group input[type="date"]::-webkit-calendar-picker-indicator,
+.form-group input[type="time"]::-webkit-calendar-picker-indicator {
     background: none;
     color: transparent;
     opacity: 0;
