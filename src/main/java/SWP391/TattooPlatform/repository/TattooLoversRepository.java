@@ -19,6 +19,13 @@ public interface TattooLoversRepository extends JpaRepository<TattooLovers,Long>
                             @Param("password") String password,
                             @Param("phonenumber") String phonenumber,
                             @Param("address") String address);
+
+    @Modifying
+    @Transactional
+    @Query("update  TattooLovers  t set t.statusID = :statusID where t.tattooLoveremail = :tattooLoveremail" )
+    void updateStatusForLover(@Param("tattooLoveremail") String tattoo_Lover_email,
+                              @Param("statusID") String statusID);
+
     //DELETE
     @Modifying
     @Transactional
