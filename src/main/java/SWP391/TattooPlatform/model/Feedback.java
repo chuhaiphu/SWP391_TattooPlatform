@@ -2,9 +2,7 @@ package SWP391.TattooPlatform.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 
@@ -20,7 +18,7 @@ public class Feedback {
             name = "UUID",
             strategy = "SWP391.TattooPlatform.model.CustomUUIDGenerator"
     )
-    @Column (name = "feedback_ID",length = 15,updatable = false,nullable = false)
+    @Column (name = "feedback_ID",length = 15)
     private String feedbackID;
     @Column(name = "booking_Detail_ID")
     private String bookingDetailID;
@@ -41,6 +39,8 @@ public class Feedback {
 
     @JsonIgnore
     @OneToOne
-    @JoinColumn(name = "booking_Detail_ID")
+    @JoinColumn(name = "booking_Detail_ID", insertable = false,updatable = false)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private BookingDetail bookingDetail;
 }
