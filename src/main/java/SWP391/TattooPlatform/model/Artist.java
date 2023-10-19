@@ -37,6 +37,6 @@ public class Artist {
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "studio_Manager_email", insertable = false, updatable = false)
-    private Studio_Tattoo_Manager studio_Tattoo_Manager;
+    private Studio_Tattoo_Manager studioTattooManager;
 
 }
