@@ -40,11 +40,11 @@ public class Studio {
     @Column(name = "manager_email")
     private String managerEmail;
 
-    @ManyToOne
-    @JoinColumn(name = "manager_email",insertable = false,updatable = false   )
+    @OneToOne
+    @JoinColumn(name = "manager_email",insertable = false,updatable = false)
     @EqualsAndHashCode.Exclude
-    @JsonIgnore
     @ToString.Exclude
+    @JsonIgnore
     private Studio_Tattoo_Manager studioTattooManager;
 
     @OneToMany(mappedBy = "studio")

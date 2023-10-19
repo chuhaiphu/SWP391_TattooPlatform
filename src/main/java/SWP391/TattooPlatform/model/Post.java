@@ -49,13 +49,13 @@ public class   Post {
     @Column(name = "system_Staff_email")
     private String systemStaffEmail;
 
-    @Column(name = "admin_email")
-    private String adminEmail;
+    @Column(name = "manager_email")
+    private String managerEmail;
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "system_Staff_email", insertable = false, updatable = false)
-    private Admin admin;
+    @JoinColumn(name = "manager_email", insertable = false, updatable = false)
+    private Studio_Tattoo_Manager studioTattooManager;
 
     @JsonIgnore
     @ManyToOne

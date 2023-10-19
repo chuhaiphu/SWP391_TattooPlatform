@@ -43,7 +43,11 @@ public class SystemStaff {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "admin_email", insertable = false, updatable = false)
-    private Admin admin;
+    @JoinColumn(name = "status_ID", insertable = false, updatable = false)
+    private UserStatus userStatus;
+
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "")
+//    private Collection<TattooLover>
 
 }

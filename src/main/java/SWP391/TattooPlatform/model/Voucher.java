@@ -1,10 +1,13 @@
 package SWP391.TattooPlatform.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
+
+import java.util.Collection;
 
 
 @Entity
@@ -31,4 +34,13 @@ public class Voucher {
     private String description;
     @Column(name = "manager_email")
     private String managerEmail;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "manager_email", insertable = false, updatable = false)
+    private Studio_Tattoo_Manager studioTattooManager;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "voucher", cascade = CascadeType.ALL)
+    private Collection<BookingDetail> bookingDetails;
 }

@@ -28,7 +28,7 @@ public class Slot {
     @Column(name = "start_time")
     private String startTime;
 
-    @OneToMany(mappedBy = "slot")
+    @OneToMany(mappedBy = "slot", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @JsonIgnore

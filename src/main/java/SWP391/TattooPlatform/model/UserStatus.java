@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.Collection;
 import java.util.Set;
 
 @Data
@@ -34,11 +35,17 @@ public class UserStatus {
     @Column(name = "end_date")
     private String endDate;
 
-    @OneToMany(mappedBy = "userStatus")
+    @OneToMany(mappedBy = "userStatus", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @JsonIgnore
     private Set<Studio_Tattoo_Manager> studioTattooManagers ;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "userStatus", cascade = CascadeType.ALL)
+    private Collection<Artist> artists;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "userStatus", cascade = CascadeType.ALL)
+    private Collection<SystemStaff> systemStaffs;
 }
