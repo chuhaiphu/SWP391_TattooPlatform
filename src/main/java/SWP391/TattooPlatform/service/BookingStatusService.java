@@ -35,9 +35,5 @@ public class BookingStatusService {
 
     }
 
-    public BookingStatus updateStatusForBooking(String statusID, String description, String statusDate) {
-        bookingStatusRepository.update(statusID,description,statusDate);
-        return findStatusByStatusID(statusID);
-    }
 
 }

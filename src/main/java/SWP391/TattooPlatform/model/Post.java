@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.util.Collection;
 
@@ -16,6 +17,11 @@ import java.util.Collection;
 public class   Post {
 
     @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "SWP391.TattooPlatform.model.CustomUUIDGenerator"
+    )
     @Column(name = "postID")
     private String postID;
 

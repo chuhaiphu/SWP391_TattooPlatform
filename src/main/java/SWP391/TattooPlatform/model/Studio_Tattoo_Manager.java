@@ -2,9 +2,7 @@ package SWP391.TattooPlatform.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Collection;
 
@@ -26,8 +24,8 @@ public class Studio_Tattoo_Manager {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(name = "address")
-    private String address;
+    @Column(name = "status_ID")
+    private String statusID;
 
     @Column(name = "System_Staff_email")
     private String SystemStaffEmail;
@@ -51,9 +49,11 @@ public class Studio_Tattoo_Manager {
     @JoinColumn(name = "System_Staff_email", insertable=false, updatable=false)
     private SystemStaff systemStaff;
 
-//    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
-//    private Collection<Artist> artists;
 
-//    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
-//    private Collection<Service> services;
+    @ManyToOne
+    @JoinColumn(name = "status_ID",insertable = false,updatable = false   )
+    @EqualsAndHashCode.Exclude
+    @JsonIgnore
+    @ToString.Exclude
+    private UserStatus userStatus;
 }

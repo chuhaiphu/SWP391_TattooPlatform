@@ -3,6 +3,7 @@ package SWP391.TattooPlatform.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotNull;
@@ -12,9 +13,14 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Status")
+@Table(name = "Booking_Status")
 public class BookingStatus {
     @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "SWP391.TattooPlatform.model.CustomUUIDGenerator"
+    )
     @Column(name = "statusID")
     private String statusID;
 
@@ -23,10 +29,6 @@ public class BookingStatus {
 
     @Column(name = "description")
     private String description;
-
-    @FutureOrPresent(message = "Date should be future or present")
-    @Column(name = "status_date")
-    private String statusDate;
 
 
     @OneToMany(mappedBy = "bookingStatus")

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 
 @Entity
@@ -13,6 +14,11 @@ import lombok.NoArgsConstructor;
 @Table(name = "Voucher")
 public class Voucher {
     @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "SWP391.TattooPlatform.model.CustomUUIDGenerator"
+    )
     @Column(name = "voucher_ID")
     private String voucherID;
     @Column(name = "voucher_Name")
