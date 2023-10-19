@@ -11,33 +11,24 @@ import java.util.Collection;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-@Table(name = "Admin")
+@Table(name = "admin")
 public class Admin {
     @Id
-    @Column(name = "admin_email")
     private String adminEmail;
 
-    @Column(name = "username")
+
     private String username;
 
-    @Column(name = "password")
+
     private String password;
 
-    @Column(name = "full_name")
-    private String fullName;
 
-    @Column(name = "phone_number")
-    private String phoneNumber;
-
-    @Column(name = "address")
-    private String address;
 
     @JsonIgnore
     @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
     private Collection<SystemStaff> systemStaffs;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
-    private Collection<Post> posts;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
+//    private Collection<Post> posts;
 }
