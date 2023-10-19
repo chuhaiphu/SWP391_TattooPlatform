@@ -37,7 +37,7 @@ public class Studio_Tattoo_Manager {
     private String password;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "studio_Tattoo_Manager", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "studioTattooManager", cascade = CascadeType.ALL)
     private Collection<Studio_Certificate> certificates;
 
     @JsonIgnore
@@ -45,10 +45,17 @@ public class Studio_Tattoo_Manager {
     private Collection<Service> services;
 
     @JsonIgnore
+    @OneToMany(mappedBy = "studioTattooManager", cascade = CascadeType.ALL)
+    private Collection<Post> posts;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "studioTattooManager", cascade = CascadeType.ALL)
+    private Collection<Artist> artists;
+
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "System_Staff_email", insertable=false, updatable=false)
     private SystemStaff systemStaff;
-
 
     @ManyToOne
     @JoinColumn(name = "status_ID",insertable = false,updatable = false   )
@@ -56,4 +63,8 @@ public class Studio_Tattoo_Manager {
     @JsonIgnore
     @ToString.Exclude
     private UserStatus userStatus;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "studioTattooManager", cascade = CascadeType.ALL)
+    private Collection<Voucher> vouchers;
 }

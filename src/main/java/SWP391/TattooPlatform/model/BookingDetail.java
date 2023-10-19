@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.Collection;
 import java.util.Set;
 
 @Data
@@ -75,9 +76,19 @@ public class BookingDetail {
     @EqualsAndHashCode.Exclude
     @JsonIgnore
     @ToString.Exclude
-    private Service services;
+    private Service service;
 
+    @JsonIgnore
+    @ManyToOne
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JoinColumn(name = "artist_email", insertable = false, updatable = false)
+    private Artist artist;
 
-
-
+    @JsonIgnore
+    @ManyToOne
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JoinColumn(name = "voucherID", insertable = false, updatable = false)
+    private Voucher voucher;
 }

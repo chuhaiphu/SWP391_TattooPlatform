@@ -55,7 +55,7 @@ public class Service {
     @JoinColumn(name = "tattoo_Manager_email", insertable=false, updatable=false)
     private Studio_Tattoo_Manager studioTattooManager;
 
-    @OneToMany(mappedBy = "services")
+    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @JsonIgnore

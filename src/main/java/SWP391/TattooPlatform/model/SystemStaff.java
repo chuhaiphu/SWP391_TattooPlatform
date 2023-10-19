@@ -30,7 +30,6 @@ public class SystemStaff {
 
     private String address;
 
-
     @Column(name = "admin_email")
     private String adminEmail;
 
@@ -38,14 +37,17 @@ public class SystemStaff {
     @OneToMany(mappedBy = "systemStaff", cascade = CascadeType.ALL)
     private Collection<Studio_Tattoo_Manager> studioTattooManagers;
 
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "systemStaff", cascade = CascadeType.ALL)
-//    private Collection<Post> posts;
+    @JsonIgnore
+    @OneToMany(mappedBy = "systemStaff", cascade = CascadeType.ALL)
+    private Collection<Post> posts;
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "admin_email", insertable = false, updatable = false)
-    private Admin admin;
+    @JoinColumn(name = "status_ID", insertable = false, updatable = false)
+    private UserStatus userStatus;
 
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "")
+//    private Collection<TattooLover>
 
 }
