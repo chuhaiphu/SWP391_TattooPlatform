@@ -36,7 +36,7 @@ public class SystemStaff {
     @Column(name = "admin_email")
     private String adminEmail;
 
-    @Column(name = "statusID")
+    @Column(name = "status_ID")
     private String statusID;
 
     @JsonIgnore
