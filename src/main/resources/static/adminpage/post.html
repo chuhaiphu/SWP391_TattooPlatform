@@ -12,7 +12,7 @@
       sizes="16x16"
       href="plugins/images/favicon.png"
     />
-    <title>Studiomanager</title>
+    <title>Admin</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Menu CSS -->
@@ -30,7 +30,7 @@
     <link href="css/style.css" rel="stylesheet" />
     <!-- color CSS -->
     <link href="css/colors/blue-dark.css" id="theme" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/custom.css" />
+    <link rel="stylesheet" href="css/custom.css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -57,7 +57,7 @@
             <i class="fa fa-bars"></i>
           </a>
           <div class="top-left-part">
-            <a class="logo" href="artist.html">
+            <a class="logo" href="staff.html">
               <b>
                 <img src="plugins/images/pixeladmin-logo.png" alt="home" />
               </b>
@@ -94,7 +94,7 @@
                     width="36"
                     class="img-circle"
                   />
-                  <b class="hidden-xs">Manager</b>
+                  <b class="hidden-xs">Admin</b>
                 </a>
                 <ul class="dropdown-menu">
                   <li class="divider"></li>
@@ -112,30 +112,22 @@
       <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse slimscrollsidebar">
           <ul class="nav" id="side-menu">
+            <li style="padding: 10px 0 0">
             <li>
-              <a href="artist.html" class="waves-effect"
+              <a href="staff.html" class="waves-effect"
                 ><i class="fa fa-user fa-fw" aria-hidden="true"></i
-                ><span class="hide-menu">Artist</span></a
+                ><span class="hide-menu">System staff</span></a
               >
             </li>
+            
+
             <li>
-              <a href="service.html" class="waves-effect"
+              <a href="post.html" class="waves-effect"
                 ><i class="fa fa-modx fa-fw" aria-hidden="true"></i
-                ><span class="hide-menu">Service </span></a
+                ><span class="hide-menu">Post</span></a
               >
             </li>
-            <li>
-              <a href="booking.html" class="waves-effect"
-                ><i class="fa fa-table fa-fw" aria-hidden="true"></i
-                ><span class="hide-menu">Booking </span></a
-              >
-            </li>
-            <li>
-              <a href="voucher.html" class="waves-effect"
-                ><i class="fa fa-ticket fa-fw" aria-hidden="true"></i
-                ><span class="hide-menu">Voucher </span></a
-              >
-            </li>
+           
             
           </ul>
         </div>
@@ -146,11 +138,11 @@
         <div class="container-fluid">
           <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-              <h4 class="page-title">Artist list</h4>
+              <h4 class="page-title">Studio list</h4>
             </div>
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12 text-right">
-              <a href="add-artist.html" class="btn btn-sm btn-success"
-                >Add</a
+              <a href="user-add.html" class="btn btn-sm btn-success"
+                >Thêm mới</a
               >
             </div>
             <!-- /.col-lg-12 -->
@@ -160,18 +152,15 @@
             <div class="col-sm-12">
               <div class="white-box">
                 <div class="table-responsive">
-                  <table class="table" id="artistList">
+                  <table class="table" id="example-user">
                     <thead>
                       <tr>
-                        <th>Email</th>
-                        <th>Name</th>
-                        <th>Username</th>
-                        <th>Password</th>                      
-                        <th>Phone</th>
-                        <th>Address</th>
-                        <th>Rate</th>
-                        <th>Update</th>
-                        <th>Delete</th>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Date</th>
+                        <th>Thumbnail link</th>
+                        <th>Description</th>
                       </tr>
                     </thead>
                     <tbody></tbody>

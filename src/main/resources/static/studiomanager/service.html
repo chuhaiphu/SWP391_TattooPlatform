@@ -12,7 +12,7 @@
       sizes="16x16"
       href="plugins/images/favicon.png"
     />
-    <title>Admin</title>
+    <title>Studiomanager</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Menu CSS -->
@@ -30,7 +30,7 @@
     <link href="css/style.css" rel="stylesheet" />
     <!-- color CSS -->
     <link href="css/colors/blue-dark.css" id="theme" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/custom.css" />
+    <link rel="stylesheet" href="css/custom.css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -57,7 +57,7 @@
             <i class="fa fa-bars"></i>
           </a>
           <div class="top-left-part">
-            <a class="logo" href="index.html">
+            <a class="logo" href="artist.html">
               <b>
                 <img src="plugins/images/pixeladmin-logo.png" alt="home" />
               </b>
@@ -94,11 +94,11 @@
                     width="36"
                     class="img-circle"
                   />
-                  <b class="hidden-xs">Admin</b>
+                  <b class="hidden-xs">admin</b>
                 </a>
                 <ul class="dropdown-menu">
                   <li class="divider"></li>
-                  <li><a href="#">Log out</a></li>
+                  <li><a href="#">Logout</a></li>
                 </ul>
               </div>
             </li>
@@ -112,23 +112,31 @@
       <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse slimscrollsidebar">
           <ul class="nav" id="side-menu">
-            <li style="padding: 10px 0 0">
             <li>
-              <a href="staff.html" class="waves-effect"
-                ><i class="fa fa-user fa-fw" aria-hidden="true"></i
-                ><span class="hide-menu">System staff</span></a
+              <a href="artist.html" class="waves-effect"
+              ><i class="fa fa-user fa-fw" aria-hidden="true"></i
+              ><span class="hide-menu">Artist</span></a
               >
             </li>
-            
+            <li>
+              <a href="service.html" class="waves-effect"
+              ><i class="fa fa-modx fa-fw" aria-hidden="true"></i
+              ><span class="hide-menu">Service </span></a
+              >
+            </li>
+            <li>
+              <a href="booking.html" class="waves-effect"
+              ><i class="fa fa-table fa-fw" aria-hidden="true"></i
+              ><span class="hide-menu">Booking </span></a
+              >
+            </li>
+            <li>
+              <a href="voucher.html" class="waves-effect"
+              ><i class="fa fa-ticket fa-fw" aria-hidden="true"></i
+              ><span class="hide-menu">Voucher </span></a
+              >
+            </li>
 
-            <li>
-              <a href="post.html" class="waves-effect"
-                ><i class="fa fa-modx fa-fw" aria-hidden="true"></i
-                ><span class="hide-menu">Post</span></a
-              >
-            </li>
-           
-            
           </ul>
         </div>
       </div>
@@ -138,10 +146,10 @@
         <div class="container-fluid">
           <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-              <h4 class="page-title">Staff list</h4>
+              <h4 class="page-title">Service list</h4>
             </div>
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12 text-right">
-              <a href="add-staff.html" class="btn btn-sm btn-success"
+              <a href="add-service.html" class="btn btn-sm btn-success"
                 >Add</a
               >
             </div>
@@ -152,20 +160,38 @@
             <div class="col-sm-12">
               <div class="white-box">
                 <div class="table-responsive">
-                  <table class="table" id="example-user">
+                  <table class="table" id="example">
                     <thead>
                       <tr>
-                        <th>Email</th>
-                        <th>Usename</th>
-                        <th>Password</th>
+                        <th>ID</th>
                         <th>Name</th>
-                        <th>Address</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Image</th>
                         <th>Update</th>
                         <th>Delete</th>
-
                       </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                      <!-- <tr>
+                                            <td>1</td>
+                                            <td>ROLE_ADMIN</td>
+                                            <td>Quản trị hệ thống</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>ROLE_USER</td>
+                                            <td>Nhân viên</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>
+                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+                                            </td>
+                                        </tr> -->
+                    </tbody>
                   </table>
                 </div>
               </div>
@@ -178,13 +204,18 @@
       </div>
       <!-- /#page-wrapper -->
     </div>
+    <!-- Toastr -->
+    <div id="toastrS1"></div>
+    <div id="toastrF1"></div>
     <!-- /#wrapper -->
     <!-- jQuery -->
+
     <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+
     <!-- Bootstrap Core JavaScript -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Menu Plugin JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
     <!--slimscroll JavaScript -->
     <script src="js/jquery.slimscroll.js"></script>
@@ -192,13 +223,20 @@
     <!--Wave Effects -->
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
+    <script src="js/role.js"></script>
     <script src="js/custom.min.js"></script>
+
     <script>
       $(document).ready(function () {
         $("#example").DataTable();
       });
     </script>
-    <script src="js/showUser.js"></script>
-    <script src="js/user.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+      integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </body>
 </html>

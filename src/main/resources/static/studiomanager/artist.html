@@ -12,7 +12,7 @@
       sizes="16x16"
       href="plugins/images/favicon.png"
     />
-    <title>Admin</title>
+    <title>Studiomanager</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Menu CSS -->
@@ -20,12 +20,17 @@
       href="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"
+    />
     <!-- animation CSS -->
     <link href="css/animate.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet" />
     <!-- color CSS -->
     <link href="css/colors/blue-dark.css" id="theme" rel="stylesheet" />
+    <link rel="stylesheet" href="css/custom.css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -52,7 +57,7 @@
             <i class="fa fa-bars"></i>
           </a>
           <div class="top-left-part">
-            <a class="logo" href="staff.html">
+            <a class="logo" href="artist.html">
               <b>
                 <img src="plugins/images/pixeladmin-logo.png" alt="home" />
               </b>
@@ -89,7 +94,7 @@
                     width="36"
                     class="img-circle"
                   />
-                  <b class="hidden-xs">Admin</b>
+                  <b class="hidden-xs">Manager</b>
                 </a>
                 <ul class="dropdown-menu">
                   <li class="divider"></li>
@@ -107,22 +112,30 @@
       <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse slimscrollsidebar">
           <ul class="nav" id="side-menu">
-            <li style="padding: 10px 0 0">
             <li>
-              <a href="staff.html" class="waves-effect"
+              <a href="artist.html" class="waves-effect"
                 ><i class="fa fa-user fa-fw" aria-hidden="true"></i
-                ><span class="hide-menu">System staff</span></a
+                ><span class="hide-menu">Artist</span></a
               >
             </li>
-            
-
             <li>
-              <a href="post.html" class="waves-effect"
+              <a href="service.html" class="waves-effect"
                 ><i class="fa fa-modx fa-fw" aria-hidden="true"></i
-                ><span class="hide-menu">Post</span></a
+                ><span class="hide-menu">Service </span></a
               >
             </li>
-           
+            <li>
+              <a href="booking.html" class="waves-effect"
+                ><i class="fa fa-table fa-fw" aria-hidden="true"></i
+                ><span class="hide-menu">Booking </span></a
+              >
+            </li>
+            <li>
+              <a href="voucher.html" class="waves-effect"
+                ><i class="fa fa-ticket fa-fw" aria-hidden="true"></i
+                ><span class="hide-menu">Voucher </span></a
+              >
+            </li>
             
           </ul>
         </div>
@@ -133,77 +146,39 @@
         <div class="container-fluid">
           <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-              <h4 class="page-title">Add new staff</h4>
+              <h4 class="page-title">Artist list</h4>
             </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12 text-right">
+              <a href="add-artist.html" class="btn btn-sm btn-success"
+                >Add</a
+              >
+            </div>
+            <!-- /.col-lg-12 -->
           </div>
-          <!-- /.row -->
-          <!-- .row -->
+          <!-- /row -->
           <div class="row">
-            <div class="col-md-2 col-12"></div>
-            <div class="col-md-8 col-xs-12">
+            <div class="col-sm-12">
               <div class="white-box">
-                <div class="form-horizontal form-material">
-                  <div class="form-group">
-                    <label for="emailStaff" class="col-md-12">Email</label>
-                    <div class="col-md-12">
-                      <input
-                        type="email"
-                        placeholder="johnathan@admin.com"
-                        class="form-control form-control-line"
-                        name="example-email"
-                        id="emailStaff"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-12">Full Name</label>
-                    <div class="col-md-12">
-                      <input
-                        type="text"
-                        id="staffName"
-                        placeholder="Johnathan Doe"
-                        class="form-control form-control-line"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div class="form-group">
-                    <label class="col-md-12">Username</label>
-                    <div class="col-md-12">
-                      <input
-                        type="text"
-                        id="userName"
-                        placeholder="Username"
-                        class="form-control form-control-line"
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-12">Password</label>
-                    <div class="col-md-12">
-                      <input
-                        type="password"
-                        value="password"
-                        id="password"
-                        class="form-control form-control-line"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div class="form-group">
-                    <div class="col-sm-12">
-                      <button class="btn btn-success" id="btn-save-user">
-                        Add staff
-                      </button>
-                      <a href="staff.html" class="btn btn-primary"
-                        >Back</a
-                      >
-                    </div>
-                  </div>
+                <div class="table-responsive">
+                  <table class="table" id="artistList">
+                    <thead>
+                      <tr>
+                        <th>Email</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Password</th>                      
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Rate</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
                 </div>
               </div>
             </div>
-            <div class="col-md-2 col-12"></div>
           </div>
           <!-- /.row -->
         </div>
@@ -222,10 +197,17 @@
     <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
     <!--slimscroll JavaScript -->
     <script src="js/jquery.slimscroll.js"></script>
+    <script src="js/jquery.dataTables.js"></script>
     <!--Wave Effects -->
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#example").DataTable();
+      });
+    </script>
+    <script src="js/showUser.js"></script>
     <script src="js/user.js"></script>
   </body>
 </html>
