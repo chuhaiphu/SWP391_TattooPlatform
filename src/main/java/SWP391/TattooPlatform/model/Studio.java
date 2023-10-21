@@ -31,10 +31,10 @@ public class Studio {
     @Column(name = "district")
     private String district;
 
-    @Column(name = "bannerImg")
+    @Column(name = "banner_Img")
     private String bannerImg;
 
-    @Column(name = "briefInfo")
+    @Column(name = "brief_Info")
     private String briefInfo;
 
     @Column(name = "content")

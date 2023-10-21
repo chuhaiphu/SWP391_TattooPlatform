@@ -33,8 +33,6 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     @Transactional
     @Query("UPDATE  Booking b set " +
             "b.tattooLoverEmail = :tattooLoverEmail," +
-            "b.time = :time," +
-            "b.date = :date," +
             "b.customerName = :customerName," +
             "b.customerPhoneNumber = :customerPhoneNumber," +
             "b.totalPrice = :totalPrice" +
@@ -42,8 +40,6 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
             " b.bookingID = :bookingID" )
     void updateBooking(@Param("bookingID") String bookingID,
                        @Param("tattooLoverEmail") String tattooLoverEmail,
-                       @Param("time") String time,
-                       @Param("date") String date,
                        @Param("customerName") String customerName,
                        @Param("customerPhoneNumber") String customerPhoneNumber,
                        @Param("totalPrice") float totalPrice

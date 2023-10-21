@@ -50,11 +50,11 @@ public class BookingController {
 
     @PutMapping("/{bookingID}")
     public  ResponseEntity<?> updateBooking(@PathVariable (name = "bookingID") String bookingID,
-                                            @RequestParam String tattooLoverEmail, @RequestParam String time ,
-                                            @RequestParam String date,  @RequestParam String customerName,
+                                            @RequestParam String tattooLoverEmail
+                                           ,  @RequestParam String customerName,
                                             @RequestParam String customerPhoneNumber, @RequestParam float totalPrice){
         return ResponseUtils.get(bookingService.
-                updateBooking(bookingID,tattooLoverEmail,time,date,customerName,customerPhoneNumber,totalPrice),HttpStatus.OK);
+                updateBooking(bookingID,tattooLoverEmail,customerName,customerPhoneNumber,totalPrice),HttpStatus.OK);
     }
 
     @DeleteMapping("/{bookingID}")
