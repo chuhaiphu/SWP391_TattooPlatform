@@ -25,7 +25,7 @@ public class LoginController {
     @GetMapping()
     public String loadLoginHtml() throws IOException {
         // Load the HTML file as a string
-        Resource resource = new ClassPathResource("static/login.html");
+        Resource resource = new ClassPathResource("static/platform/login.html");
         String htmlContent = new String(Files.readAllBytes(Paths.get(resource.getURI())));
 
         return htmlContent;
