@@ -31,8 +31,9 @@ public class Studio_Tattoo_ManagerService {
                                                            String newStatusID,
                                                            String newSystemStaffEmail,
                                                            String newUsername,
-                                                           String newPassword)throws Exception{
-        studioTattooManagerRepository.updateStudio_Tattoo_ManagerInfo(managerEmail, newFullName, newPhoneNumber, newStatusID, newSystemStaffEmail, newUsername, newPassword);
+                                                           String newPassword,
+                                                           String statusID)throws Exception{
+        studioTattooManagerRepository.updateStudio_Tattoo_ManagerInfo(managerEmail, newFullName, newPhoneNumber, newStatusID, newSystemStaffEmail, newUsername, newPassword,statusID);
         return studioTattooManagerRepository.findStudio_Tattoo_ManagerByStudioManagerEmail(managerEmail);
     }
 

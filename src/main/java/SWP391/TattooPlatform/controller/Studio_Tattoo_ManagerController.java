@@ -37,8 +37,9 @@ public class Studio_Tattoo_ManagerController {
                                                        @RequestParam String newStatusID,
                                                        @RequestParam String newSystemStaffEmail,
                                                        @RequestParam String newUsername,
-                                                       @RequestParam String newPassword)throws Exception{
-        return ResponseUtils.get(studioTattooManagerService.updateStudioTattooManager(managerEmail, newFullName,newPhoneNumber, newStatusID, newSystemStaffEmail, newUsername, newPassword), HttpStatus.OK);
+                                                       @RequestParam String newPassword,
+                                                       @RequestParam String statusID)throws Exception{
+        return ResponseUtils.get(studioTattooManagerService.updateStudioTattooManager(managerEmail, newFullName,newPhoneNumber, newStatusID, newSystemStaffEmail, newUsername, newPassword,statusID), HttpStatus.OK);
     }
 
     @DeleteMapping("/{managerEmail}")

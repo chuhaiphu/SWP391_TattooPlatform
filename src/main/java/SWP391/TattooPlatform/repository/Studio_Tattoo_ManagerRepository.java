@@ -34,7 +34,8 @@ public interface Studio_Tattoo_ManagerRepository
             "s.statusID = :newStatusID, " +
             "s.SystemStaffEmail = :newSystemStaffEmail, " +
             "s.username = :newUsername, " +
-            "s.password = :newPassword " +
+            "s.password = :newPassword ," +
+            "s.statusID = :statusID " +
             "WHERE s.studioManagerEmail = :managerEmail")
     void updateStudio_Tattoo_ManagerInfo(@Param("managerEmail") String managerEmail,
                                          @Param("newFullName") String newFullName,
@@ -42,7 +43,8 @@ public interface Studio_Tattoo_ManagerRepository
                                          @Param("newStatusID") String newStatusID,
                                          @Param("newSystemStaffEmail") String newSystemStaffEmail,
                                          @Param("newUsername") String newUsername,
-                                         @Param("newPassword") String newPassword);
+                                         @Param("newPassword") String newPassword,
+                                         @Param("statusID") String statusID);
 
     //Delete
     @Modifying

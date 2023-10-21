@@ -33,19 +33,16 @@ public class Booking {
     @Email(message = "invalid Email format")
     private String tattooLoverEmail ;
 
-    @Column (name = "time")
-    private String time ;
 
-    @FutureOrPresent(message = "Date should be future or present")
-    @NotNull(message = "not allow emptys")
-    @Column (name = "date")
-    private String date;
 
     @Column(name = "customer_name")
     private String customerName;
 
     @Column(name = "customer_phone_number")
     private String customerPhoneNumber;
+
+    @Column(name = "address")
+    private String address;
 
     @Column(name = "total_price")
     private Float totalPrice;

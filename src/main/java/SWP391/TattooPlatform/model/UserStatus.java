@@ -33,7 +33,7 @@ public class UserStatus {
     @Column(name = "start_date")
     private String startDate;
 
-    @Column(name = "end_date")
+    @Column(name = "end-date")
     private String endDate;
 
     @OneToMany(mappedBy = "userStatus", cascade = CascadeType.ALL)
