@@ -31,18 +31,20 @@ public interface Studio_Tattoo_ManagerRepository
     @Transactional
     @Query("UPDATE Studio_Tattoo_Manager s SET s.fullName = :newFullName, " +
             "s.phoneNumber = :newPhoneNumber, " +
-            "s.address = :newAddress, " +
+            "s.statusID = :newStatusID, " +
             "s.SystemStaffEmail = :newSystemStaffEmail, " +
             "s.username = :newUsername, " +
-            "s.password = :newPassword " +
+            "s.password = :newPassword ," +
+            "s.statusID = :statusID " +
             "WHERE s.studioManagerEmail = :managerEmail")
     void updateStudio_Tattoo_ManagerInfo(@Param("managerEmail") String managerEmail,
                                          @Param("newFullName") String newFullName,
                                          @Param("newPhoneNumber") String newPhoneNumber,
-                                         @Param("newAddress") String newAddress,
+                                         @Param("newStatusID") String newStatusID,
                                          @Param("newSystemStaffEmail") String newSystemStaffEmail,
                                          @Param("newUsername") String newUsername,
-                                         @Param("newPassword") String newPassword);
+                                         @Param("newPassword") String newPassword,
+                                         @Param("statusID") String statusID);
 
     //Delete
     @Modifying

@@ -34,11 +34,12 @@ public class Studio_Tattoo_ManagerController {
     public ResponseEntity<?> updateStudioTattooManager(@PathVariable String managerEmail,
                                                        @RequestParam String newFullName,
                                                        @RequestParam String newPhoneNumber,
-                                                       @RequestParam String newAddress,
+                                                       @RequestParam String newStatusID,
                                                        @RequestParam String newSystemStaffEmail,
                                                        @RequestParam String newUsername,
-                                                       @RequestParam String newPassword)throws Exception{
-        return ResponseUtils.get(studioTattooManagerService.updateStudioTattooManager(managerEmail, newFullName,newPhoneNumber, newAddress, newSystemStaffEmail, newUsername, newPassword), HttpStatus.OK);
+                                                       @RequestParam String newPassword,
+                                                       @RequestParam String statusID)throws Exception{
+        return ResponseUtils.get(studioTattooManagerService.updateStudioTattooManager(managerEmail, newFullName,newPhoneNumber, newStatusID, newSystemStaffEmail, newUsername, newPassword,statusID), HttpStatus.OK);
     }
 
     @DeleteMapping("/{managerEmail}")

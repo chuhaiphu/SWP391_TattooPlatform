@@ -18,5 +18,7 @@ public interface VoucherRepository extends JpaRepository<Voucher, Long> {
     //INSERT
     Voucher save(Voucher voucher);
 
+    Voucher findVoucherByVoucherID(String voucherID);
+
 
 }

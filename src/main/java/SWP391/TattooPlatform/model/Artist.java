@@ -35,10 +35,21 @@ public class Artist {
     private String statusID;
 
     @JsonIgnore
+    @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)
+    private Collection<BookingDetail> bookingDetails;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL)
+    private Collection<Artist_Certificate> artist_certificates;
+
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "studio_Manager_email", insertable = false, updatable = false)
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
     private Studio_Tattoo_Manager studioTattooManager;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "status_ID", insertable = false, updatable = false)
+    private UserStatus userStatus;
 
 }

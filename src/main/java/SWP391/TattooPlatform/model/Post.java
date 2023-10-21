@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.util.Collection;
 
@@ -13,9 +14,14 @@ import java.util.Collection;
 @NoArgsConstructor
 
 @Table(name = "Post")
-public class Post {
+public class   Post {
 
     @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "SWP391.TattooPlatform.model.CustomUUIDGenerator"
+    )
     @Column(name = "postID")
     private String postID;
 
@@ -43,13 +49,13 @@ public class Post {
     @Column(name = "system_Staff_email")
     private String systemStaffEmail;
 
-    @Column(name = "admin_email")
-    private String adminEmail;
+    @Column(name = "manager_email")
+    private String managerEmail;
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "system_Staff_email", insertable = false, updatable = false)
-    private Admin admin;
+    @JoinColumn(name = "manager_email", insertable = false, updatable = false)
+    private Studio_Tattoo_Manager studioTattooManager;
 
     @JsonIgnore
     @ManyToOne

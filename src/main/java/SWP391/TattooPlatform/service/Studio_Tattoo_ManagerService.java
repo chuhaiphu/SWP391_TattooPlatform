@@ -28,11 +28,12 @@ public class Studio_Tattoo_ManagerService {
     public Studio_Tattoo_Manager updateStudioTattooManager(String managerEmail,
                                                            String newFullName,
                                                            String newPhoneNumber,
-                                                           String newAddress,
+                                                           String newStatusID,
                                                            String newSystemStaffEmail,
                                                            String newUsername,
-                                                           String newPassword)throws Exception{
-        studioTattooManagerRepository.updateStudio_Tattoo_ManagerInfo(managerEmail, newFullName, newPhoneNumber, newAddress, newSystemStaffEmail, newUsername, newPassword);
+                                                           String newPassword,
+                                                           String statusID)throws Exception{
+        studioTattooManagerRepository.updateStudio_Tattoo_ManagerInfo(managerEmail, newFullName, newPhoneNumber, newStatusID, newSystemStaffEmail, newUsername, newPassword,statusID);
         return studioTattooManagerRepository.findStudio_Tattoo_ManagerByStudioManagerEmail(managerEmail);
     }
 

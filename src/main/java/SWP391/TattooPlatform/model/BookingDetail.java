@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.Collection;
 import java.util.Set;
 
 @Data
@@ -30,9 +31,6 @@ public class BookingDetail {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "tattoo_Lover_email")
-    private String tattooLoverEmail;
-
     @Column(name = "service_ID")
     private String serviceID;
 
@@ -45,16 +43,26 @@ public class BookingDetail {
     @Column(name = "price")
     private float price;
 
-    @Column(name = "statusID")
+    @Column(name = "status_ID")
     private String statusID;
+
+    @Column(name = "slot_ID")
+    private String slotID;
 
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "statusID",insertable = false,updatable = false   )
+    @JoinColumn(name = "status_ID",insertable = false,updatable = false   )
     @EqualsAndHashCode.Exclude
     @JsonIgnore
     @ToString.Exclude
     private BookingStatus bookingStatus;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "slot_ID",insertable = false,updatable = false   )
+    @EqualsAndHashCode.Exclude
+    @JsonIgnore
+    @ToString.Exclude
+    private Slot slot;
 
     @ManyToOne
     @JoinColumn(name = "booking_ID",insertable = false,updatable = false   )
@@ -68,9 +76,19 @@ public class BookingDetail {
     @EqualsAndHashCode.Exclude
     @JsonIgnore
     @ToString.Exclude
-    private Service services;
+    private Service service;
 
+    @JsonIgnore
+    @ManyToOne
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JoinColumn(name = "artist_email", insertable = false, updatable = false)
+    private Artist artist;
 
-
-
+    @JsonIgnore
+    @ManyToOne
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @JoinColumn(name = "voucherID", insertable = false, updatable = false)
+    private Voucher voucher;
 }

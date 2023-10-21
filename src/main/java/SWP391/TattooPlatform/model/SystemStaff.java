@@ -18,8 +18,10 @@ public class SystemStaff {
     @Column(name = "system_Staff_email")
     private String systemStaffEmail;
 
+    @Column(name = "username")
     private String username;
 
+    @Column(name = "password")
     private String password;
 
     @Column(name = "full_name")
@@ -28,24 +30,27 @@ public class SystemStaff {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    @Column(name = "address")
     private String address;
-
 
     @Column(name = "admin_email")
     private String adminEmail;
+
+    @Column(name = "status_ID")
+    private String statusID;
 
     @JsonIgnore
     @OneToMany(mappedBy = "systemStaff", cascade = CascadeType.ALL)
     private Collection<Studio_Tattoo_Manager> studioTattooManagers;
 
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "systemStaff", cascade = CascadeType.ALL)
-//    private Collection<Post> posts;
+    @JsonIgnore
+    @OneToMany(mappedBy = "systemStaff", cascade = CascadeType.ALL)
+    private Collection<Post> posts;
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "admin_email", insertable = false, updatable = false)
-    private Admin admin;
+    @JoinColumn(name = "status_ID", insertable = false, updatable = false)
+    private UserStatus userStatus;
 
 
 }

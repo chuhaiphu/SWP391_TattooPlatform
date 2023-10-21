@@ -24,9 +24,6 @@ public class Admin {
 
 
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
-    private Collection<SystemStaff> systemStaffs;
 
 //    @JsonIgnore
 //    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
