@@ -494,3 +494,4 @@ $(".step-container").on("click", ".back", function() {
   $('.right-slider').slick('refresh');
 }); 
 /******  STEPPY FORM  CSS  End******/
+

@@ -37,6 +37,8 @@ public class Artist {
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "studio_Manager_email", insertable = false, updatable = false)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private Studio_Tattoo_Manager studioTattooManager;
 
 }
