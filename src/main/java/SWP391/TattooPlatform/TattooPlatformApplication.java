@@ -7,7 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TattooPlatformApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TattooPlatformApplication.class, args);
+
+			SpringApplication.run(TattooPlatformApplication.class, args);
+
 	}
+
 
 }
