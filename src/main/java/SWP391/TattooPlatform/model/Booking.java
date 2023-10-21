@@ -60,7 +60,4 @@ public class Booking {
     @ToString.Exclude
     private TattooLovers tattooLovers;
 
-
-
-
 }

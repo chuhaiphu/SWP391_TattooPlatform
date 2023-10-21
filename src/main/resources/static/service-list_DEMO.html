@@ -203,18 +203,18 @@
                     </div>
                 </div>
                 <div class="product-filter-right-column col-lg-9 col-md-8 col-12">
-                    <div class="row">
+                    <div id="service-card_template" class="row" style="display: none">
 
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12 product-card pro-light theme-colored-card">
                             <div class="product-card-inner">
                                 <div class="product-card-image">
                                     <a href="studio-list.html">
-                                        <img src="https://m.media-amazon.com/images/I/51f+9NAOzPL._AC_UF1000,1000_QL80_.jpg" class="default-img">
+                                        <img src="{{imgSrc}}" class="default-img">
                                     </a>
                                 </div>
                                 <div class="product-card-content">
                                     <div class="sub-heading">
-                                        Tattoo
+                                        {{serviceName}}
                                     </div>
                                     <h4>
                                         <a href="studio-list.html">
@@ -223,7 +223,7 @@
                                     </h4>
                                     <br>
                                     <h8 style="font-size: medium; font-style: italic">
-                                        <a href="view-studio.html">Morgan Studio</a>
+                                        <a href="view-studio.html">{{tattooManagerEmail}}</a>
                                     </h8>
 
 
@@ -253,6 +253,9 @@
 
 
 
+                    </div>
+
+                    <div id="service-card" class="row">
                     </div>
                 </div>
             </div>
@@ -596,6 +599,8 @@
 <script src="assets/js/slick.min.js" defer="defer"></script>
 <script src='assets/js/custom.js' defer="defer"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src='assets/js/service_DEMO.js' defer="defer"></script>
+
 <script>
     // Range slider - gravity forms
     $(function () {

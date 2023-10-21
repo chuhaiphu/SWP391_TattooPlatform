@@ -18,7 +18,7 @@
                     // You can redirect the user or show a success message
                     //console.log('Login successful');
                     if (response === "UserLogin") {
-                        window.location.href = "/service-list.html";
+                        window.location.href = "/service";
                     } else if (response === "AdminLogin") {
                         window.location.href = "/admin-page.html";
                     } else {
