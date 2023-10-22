@@ -33,6 +33,10 @@ public class TattooServiceController {
     public List<Service> getAllService () {
         return tattooService.tattooServiceList();
     }
+    @GetMapping("/list-name-distinct")
+    public List<Service> getServiceNameDinstinctList () {
+        return tattooService.findServiceByNameDistinctList();
+    }
 
     @GetMapping("")
     public String loadServiceHtml() throws IOException {

@@ -21,6 +21,12 @@ public class TattooServiceService {
         }
         return tattooServiceRepository.findAll();
     }
+    public List<Service> findServiceByNameDistinctList() {
+        if(tattooServiceRepository.findDistinctByServiceName().isEmpty()) {
+            return null;
+        }
+        return tattooServiceRepository.findDistinctByServiceName();
+    }
 
     public Service addService(Service s) {
         return tattooServiceRepository.save(s);

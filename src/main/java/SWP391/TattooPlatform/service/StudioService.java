@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -27,15 +28,7 @@ public class StudioService {
         this.tattooServiceRepository  =  tattooServiceRepository;
         this.studioTattooManagerRepository = studioTattooManagerRepository;
     }
-    public Studio findStudioByEmail(String email) {
-        return studioRepository.findStudioByManagerEmail(email);
-    }
-    public Studio findStudioByName(String name) {
-        return studioRepository.findStudioByStudioName(name);
-    }
-//    public Studio findStudioByID(String name) {
-//        return studioRepository.findStudioByStudioID(name);
-//    }
+
     public ResponseEntity<?> findAllStudio() {
         List<Studio> studioList = studioRepository.findAll();
         if(studioList.isEmpty()) {
@@ -55,6 +48,25 @@ public class StudioService {
         return ResponseUtils.get(studio,HttpStatus.OK);
     }
 
+    public List<Studio> getStudioByServiceNameList(String name) {
+
+        List<Studio> allStudio = studioRepository.findAll();
+
+        List<Studio> studioList = new ArrayList<>();
+
+
+        for(Studio studio : allStudio) {
+            for(SWP391.TattooPlatform.model.Service service : studio.getStudioTattooManager().getServices()) {
+                if(service.getServiceName().trim().contains(name.trim())) {
+                    studioList.add(studio);
+                }
+            }
+        }
+        if(studioList.isEmpty()) {
+            return Collections.emptyList();
+        }
+        return studioList;
+    }
     public ResponseEntity<?> findStudioByServiceName(String name) {
 
         List<Studio> allStudio = studioRepository.findAll();
