@@ -10,27 +10,22 @@
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="assets/plugins/images/favicon.png"
+      href="studiomanager/assets/plugins/images/favicon.png"
     />
     <title>Studiomanager</title>
     <!-- Bootstrap Core CSS -->
-    <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="studiomanager/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Menu CSS -->
     <link
-      href="assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
+      href="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
       rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"
     />
     <!-- animation CSS -->
-    <link href="assets/css/animate.css" rel="stylesheet" />
+    <link href="studiomanager/assets/css/animate.css" rel="stylesheet" />
     <!-- Custom CSS -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="studiomanager/assets/css/style.css" rel="stylesheet" />
     <!-- color CSS -->
-    <link href="assets/css/colors/blue-dark.css" id="theme" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/custom.css" />
+    <link href="studiomanager/assets/css/colors/blue-dark.css" id="theme" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -59,10 +54,10 @@
           <div class="top-left-part">
             <a class="logo" href="artist.html">
               <b>
-                <img src="assets/plugins/images/pixeladmin-logo.png" alt="home" />
+                <img src="studiomanager/assets/plugins/images/pixeladmin-logo.png" alt="home" />
               </b>
               <span class="hidden-xs">
-                <img src="assets/plugins/images/pixeladmin-text.png" alt="home" />
+                <img src="studiomanager/assets/plugins/images/pixeladmin-text.png" alt="home" />
               </span>
             </a>
           </div>
@@ -89,17 +84,17 @@
                   href="#"
                 >
                   <img
-                    src="assets/plugins/images/users/varun.jpg"
+                    src="studiomanager/assets/plugins/images/users/varun.jpg"
                     alt="user-img"
                     width="36"
                     class="img-circle"
                   />
-                  <b class="hidden-xs">Studio manager</b>
+                  <b class="hidden-xs">Studiomanager</b>
                 </a>
                 <ul class="dropdown-menu">
-                
+
                   <li class="divider"></li>
-                  <li><a href="#">Log out</a></li>
+                  <li><a href="#">Logout</a></li>
                 </ul>
               </div>
             </li>
@@ -147,40 +142,76 @@
         <div class="container-fluid">
           <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-              <h4 class="page-title">Booking list</h4>
+              <h4 class="page-title">Sửa Thông Tin</h4>
             </div>
-            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12 text-right">
-              <a href="add-booking.html" class="btn btn-sm btn-success"
-                >Add</a
-              >
-            </div>
-            <!-- /.col-lg-12 -->
           </div>
-          <!-- /row -->
+          <!-- /.row -->
+          <!-- .row -->
           <div class="row">
-            <div class="col-sm-12">
+            <div class="col-md-2 col-12"></div>
+            <div class="col-md-8 col-xs-12">
               <div class="white-box">
-                <div class="table-responsive">
-                  <table class="table" id="example-task">
-                    <thead>
-                      <tr>
-                        <th>Booking ID</th>
-                        <th>Customer name</th>
-                        <th>Customer email</th>
-                        <th>Customer phone</th>
-                        <th>Service</th>
-                        <th>Artist</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Update</th>
-                        <th>Cancel</th>
-                      </tr>
-                    </thead>
-                    <tbody></tbody>
-                  </table>
+                <div class="form-horizontal form-material">
+                  <div class="form-group">
+                    <label class="col-md-12">Full Name</label>
+                    <div class="col-md-12">
+                      <input
+                        type="text"
+                        id="nameArtist"
+                        placeholder="Johnathan Doe"
+                        class="form-control form-control-line"
+                      />
+                    </div>
+                  </div>
+                  
+                
+                  <div class="form-group">
+                    <label class="col-md-12">Password</label>
+                    <div class="col-md-12">
+                      <input
+                        type="password"
+                        value="password"
+                        id="password"
+                        class="form-control form-control-line"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-12">Phone</label>
+                    <div class="col-md-12">
+                      <input
+                        type="text"
+                        id="phone"
+                        placeholder="Phonenumber"
+                        class="form-control form-control-line"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-12">Address</label>
+                    <div class="col-md-12">
+                      <input
+                        type="text"
+                        id="address"
+                        placeholder="Adress"
+                        class="form-control form-control-line"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-12">
+                      <button class="btn btn-success" id="updateUser">
+                        Update User
+                      </button>
+                      <a href="artist.html" class="btn btn-primary"
+                        >Quay lại</a
+                      >
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="col-md-2 col-12"></div>
           </div>
           <!-- /.row -->
         </div>
@@ -191,25 +222,18 @@
     </div>
     <!-- /#wrapper -->
     <!-- jQuery -->
-    <script src="assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="studiomanager/assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="studiomanager/assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Menu Plugin JavaScript -->
-    <script src="assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <script src="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
     <!--slimscroll JavaScript -->
-    <script src="assets/js/jquery.slimscroll.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="studiomanager/assets/js/jquery.slimscroll.js"></script>
     <!--Wave Effects -->
-    <script src="assets/js/waves.js"></script>
+    <script src="studiomanager/assets/js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
-
-    <script src="assets/js/custom.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        $("#example").DataTable();
-      });
-    </script>
-    <script src="assets/js/task.js"></script>
+    <script src="studiomanager/assets/js/custom.min.js"></script>
+    <script src="js/user.js"></script>
   </body>
 </html>

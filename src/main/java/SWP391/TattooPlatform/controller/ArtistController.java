@@ -5,12 +5,17 @@ import SWP391.TattooPlatform.model.Artist;
 import SWP391.TattooPlatform.service.ArtistService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
 
-
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 
 @RestController
@@ -28,10 +33,25 @@ public class ArtistController {
 
 
     //-------------------------------GET-------------------------------
-    @GetMapping("/allArtist")
-    public Object getAllRoles () {
-        return  ResponseUtils.get(artistService.getListArtist(),HttpStatus.OK);
+//    @GetMapping("/allArtist")
+//    public Object getAllRoles () {
+//        return  ResponseUtils.get(artistService.getListArtist(),HttpStatus.OK);
+//    }
+
+    @GetMapping("/list")
+    public List<Artist> getArtists(){
+        return artistService.getListArtist();
     }
+    @GetMapping("")
+    public String loadServiceHtml() throws IOException {
+        // Load the HTML file as a string
+        Resource resource = new ClassPathResource("static/artist.html");
+        String htmlContent = new String(Files.readAllBytes(Paths.get(resource.getURI())));
+
+        return htmlContent;
+    }
+
+
 
     //-------------------------------POST/ADD-------------------------------
     @PostMapping("/addArtist")
@@ -56,3 +76,4 @@ public class ArtistController {
         return ResponseUtils.get(artistService.deleteArtist(email), HttpStatus.OK);
     }
 }
+

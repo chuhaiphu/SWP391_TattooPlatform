@@ -5,11 +5,15 @@ import SWP391.TattooPlatform.model.Booking;
 import SWP391.TattooPlatform.model.BookingDetail;
 import SWP391.TattooPlatform.model.BookingRequest;
 import SWP391.TattooPlatform.service.BookingService;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 
@@ -22,13 +26,25 @@ public class BookingController {
         this.bookingService = bookingService;
     }
 
-    @GetMapping("/{bookingID}")
-    public ResponseEntity<?> getBookingByID(@PathVariable(name = "bookingID") String bookingID) {
-        return ResponseUtils.get(bookingService.getBookingByID(bookingID), HttpStatus.OK);
-    }
-    @GetMapping()
-    public ResponseEntity<?> getBooking() {
-        return ResponseUtils.get(bookingService.findall(), HttpStatus.OK);
+//    @GetMapping("/{bookingID}")
+//    public ResponseEntity<?> getBookingByID(@PathVariable(name = "bookingID") String bookingID) {
+//        return ResponseUtils.get(bookingService.getBookingByID(bookingID), HttpStatus.OK);
+//    }
+//    @GetMapping()
+//    public ResponseEntity<?> getBooking() {
+//        return ResponseUtils.get(bookingService.findall(), HttpStatus.OK);
+//    }
+@GetMapping("/list")
+public List<Booking> getBookingList(){
+    return bookingService.findall();
+}
+    @GetMapping("")
+    public String loadServiceHtml() throws IOException {
+        // Load the HTML file as a string
+        Resource resource = new ClassPathResource("static/booking.html");
+        String htmlContent = new String(Files.readAllBytes(Paths.get(resource.getURI())));
+
+        return htmlContent;
     }
 
     @PostMapping()

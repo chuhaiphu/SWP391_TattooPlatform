@@ -6,9 +6,16 @@ import SWP391.TattooPlatform.model.Voucher;
 import SWP391.TattooPlatform.service.FeedbackService;
 import SWP391.TattooPlatform.service.VoucherService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 
 @RestController
 @RequestMapping( "/vouchers")
@@ -22,9 +29,21 @@ public class VoucherController {
 
 
     //-------------------------------GET-------------------------------
-    @GetMapping("/allVoucher")
-    public Object getAllFeedback () {
-        return  ResponseUtils.get(voucherService.getVoucherList(), HttpStatus.OK);
+//    @GetMapping("/allVoucher")
+//    public Object getAllFeedback () {
+//        return  ResponseUtils.get(voucherService.getVoucherList(), HttpStatus.OK);
+//    }
+    @GetMapping("/list")
+    public List <Voucher> voucherList(){
+        return voucherService.getVoucherList();
+    }
+    @GetMapping("")
+    public String loadServiceHtml() throws IOException {
+        // Load the HTML file as a string
+        Resource resource = new ClassPathResource("static/voucher.html");
+        String htmlContent = new String(Files.readAllBytes(Paths.get(resource.getURI())));
+
+        return htmlContent;
     }
 
     @GetMapping("/allVoucher/startDate/{date}")

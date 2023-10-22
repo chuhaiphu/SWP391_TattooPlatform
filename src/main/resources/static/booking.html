@@ -10,22 +10,27 @@
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="assets/plugins/images/favicon.png"
+      href="studiomanager/assets/plugins/images/favicon.png"
     />
     <title>Studiomanager</title>
     <!-- Bootstrap Core CSS -->
-    <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="studiomanager/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Menu CSS -->
     <link
-      href="assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
+      href="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"
+    />
     <!-- animation CSS -->
-    <link href="assets/css/animate.css" rel="stylesheet" />
+    <link href="studiomanager/assets/css/animate.css" rel="stylesheet" />
     <!-- Custom CSS -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="studiomanager/assets/css/style.css" rel="stylesheet" />
     <!-- color CSS -->
-    <link href="assets/css/colors/blue-dark.css" id="theme" rel="stylesheet" />
+    <link href="studiomanager/assets/css/colors/blue-dark.css" id="theme" rel="stylesheet" />
+    <link rel="stylesheet" href="studiomanager/assets/css/custom.css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -54,10 +59,10 @@
           <div class="top-left-part">
             <a class="logo" href="artist.html">
               <b>
-                <img src="assets/plugins/images/pixeladmin-logo.png" alt="home" />
+                <img src="studiomanager/assets/plugins/images/pixeladmin-logo.png" alt="home" />
               </b>
               <span class="hidden-xs">
-                <img src="assets/plugins/images/pixeladmin-text.png" alt="home" />
+                <img src="studiomanager/assets/plugins/images/pixeladmin-text.png" alt="home" />
               </span>
             </a>
           </div>
@@ -84,17 +89,17 @@
                   href="#"
                 >
                   <img
-                    src="assets/plugins/images/users/varun.jpg"
+                    src="studiomanager/assets/plugins/images/users/varun.jpg"
                     alt="user-img"
                     width="36"
                     class="img-circle"
                   />
-                  <b class="hidden-xs">Studiomanager</b>
+                  <b class="hidden-xs">Studio manager</b>
                 </a>
                 <ul class="dropdown-menu">
-
+                
                   <li class="divider"></li>
-                  <li><a href="#">Logout</a></li>
+                  <li><a href="#">Log out</a></li>
                 </ul>
               </div>
             </li>
@@ -110,29 +115,29 @@
           <ul class="nav" id="side-menu">
             <li>
               <a href="artist.html" class="waves-effect"
-              ><i class="fa fa-user fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu">Artist</span></a
+                ><i class="fa fa-user fa-fw" aria-hidden="true"></i
+                ><span class="hide-menu">Artist</span></a
               >
             </li>
             <li>
               <a href="service.html" class="waves-effect"
-              ><i class="fa fa-modx fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu">Service </span></a
+                ><i class="fa fa-modx fa-fw" aria-hidden="true"></i
+                ><span class="hide-menu">Service </span></a
               >
             </li>
             <li>
               <a href="booking.html" class="waves-effect"
-              ><i class="fa fa-table fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu">Booking </span></a
+                ><i class="fa fa-table fa-fw" aria-hidden="true"></i
+                ><span class="hide-menu">Booking </span></a
               >
             </li>
             <li>
               <a href="voucher.html" class="waves-effect"
-              ><i class="fa fa-ticket fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu">Voucher </span></a
+                ><i class="fa fa-ticket fa-fw" aria-hidden="true"></i
+                ><span class="hide-menu">Voucher </span></a
               >
             </li>
-
+            
           </ul>
         </div>
       </div>
@@ -142,78 +147,53 @@
         <div class="container-fluid">
           <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-              <h4 class="page-title">Add voucher</h4>
+              <h4 class="page-title">Booking list</h4>
             </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12 text-right">
+              <a href="add-booking.html" class="btn btn-sm btn-success"
+                >Add</a
+              >
+            </div>
+            <!-- /.col-lg-12 -->
           </div>
-          <!-- /.row -->
-          <!-- .row -->
+          <!-- /row -->
           <div class="row">
-            <div class="col-md-2 col-12"></div>
-            <div class="col-md-8 col-xs-12">
+            <div class="col-sm-12">
               <div class="white-box">
-                <div class="form-horizontal form-material">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Booking ID</th>
+                        <th>Customer name</th>
+                        <th>Customer email</th>
+                        <th>Customer phone</th>
+                        <th>Address</th>
+                        <th>Price</th>
+                        <th>Update</th>
+                        <th>Cancel</th>
+                      </tr>
+                    </thead>
+                    <tbody id="bookingList_template" style="display: none">
+                    <tr>
+                      <td>{{bookingID}}</td>
+                      <td>{{customerName}}</td>
+                      <td>{{tattooLoverEmail}}</td>
+                      <td>{{customerPhoneNumber}}</td>
+                      <td>{{address}}</td>
+                      <td>{{totalPrice}}</td>
+                      <td><button >Update</button></td>
+                      <td><button>Cancel</button></td>
 
-                  <div class="form-group">
-                    <label class="col-md-12">Name</label>
-                    <div class="col-md-12">
-                      <input
-                        type="text"
-                        id="nameVoucher"
-                        placeholder="Name"
-                        class="form-control form-control-line"
-                        required
-                      />
-                    </div>
-                  </div>
+                    </tr>
 
-                  <div class="form-group">
-                    <label class="col-md-12">Start</label>
-                    <div class="col-md-12">
-                      <input
-                        type="text"
-                        id="addStartDateVoucher"
-                        placeholder="dd/MM/yyyy"
-                        class="form-control form-control-line"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-12">End</label>
-                    <div class="col-md-12">
-                      <input
-                        type="text"
-                        id="addEndDateVoucher"
-                        placeholder="dd/MM/yyyy"
-                        class="form-control form-control-line"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-12">Description</label>
-                    <div class="col-md-12">
-                      <input
-                              type="text"
-                              id="descriptionVoucher"
-                              placeholder="Description"
-                              class="form-control form-control-line"
-
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-12">
-                      <button class="btn btn-success" id="btn-save-voucher">
-                        Add
-                      </button>
-                      <a href="voucher.html" class="btn btn-primary">Back</a>
-                    </div>
-                  </div>
+                    </tbody>
+                    <tbody id = "booking">
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
-            <div class="col-md-2 col-12"></div>
           </div>
           <!-- /.row -->
         </div>
@@ -224,18 +204,26 @@
     </div>
     <!-- /#wrapper -->
     <!-- jQuery -->
-    <script src="assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="studiomanager/assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="studiomanager/assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Menu Plugin JavaScript -->
-    <script src="assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <script src="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
     <!--slimscroll JavaScript -->
-    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="studiomanager/assets/js/jquery.slimscroll.js"></script>
+    <script src="studiomanager/assets/js/booking.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <!--Wave Effects -->
-    <script src="assets/js/waves.js"></script>
+    <script src="studiomanager/assets/js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
-    <script src="assets/js/custom.min.js"></script>
-    <script src="assets/js/task.js"></script>
+
+    <script src="studiomanager/assets/js/custom.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#example").DataTable();
+      });
+    </script>
+    <script src="js/task.js"></script>
   </body>
 </html>
