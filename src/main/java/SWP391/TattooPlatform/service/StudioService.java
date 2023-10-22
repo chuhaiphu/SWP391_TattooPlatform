@@ -27,7 +27,15 @@ public class StudioService {
         this.tattooServiceRepository  =  tattooServiceRepository;
         this.studioTattooManagerRepository = studioTattooManagerRepository;
     }
-
+    public Studio findStudioByEmail(String email) {
+        return studioRepository.findStudioByManagerEmail(email);
+    }
+    public Studio findStudioByName(String name) {
+        return studioRepository.findStudioByStudioName(name);
+    }
+//    public Studio findStudioByID(String name) {
+//        return studioRepository.findStudioByStudioID(name);
+//    }
     public ResponseEntity<?> findAllStudio() {
         List<Studio> studioList = studioRepository.findAll();
         if(studioList.isEmpty()) {
@@ -35,7 +43,10 @@ public class StudioService {
         }
         return ResponseUtils.get(studioList,HttpStatus.OK);
     }
-
+    public List<Studio> getStudioList() {
+        if(studioRepository.findAll().isEmpty()) return null;
+        return studioRepository.findAll();
+    }
     public ResponseEntity<?> findStudioByID(String id) {
         Studio studio = studioRepository.findStudioByStudioID(id);
         if(studio == null) {

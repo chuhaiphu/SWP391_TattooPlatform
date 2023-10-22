@@ -37,12 +37,11 @@ public class TattooServiceController {
     @GetMapping("")
     public String loadServiceHtml() throws IOException {
         // Load the HTML file as a string
-        Resource resource = new ClassPathResource("static/service-list_DEMO.html");
+        Resource resource = new ClassPathResource("static/service-list.html");
         String htmlContent = new String(Files.readAllBytes(Paths.get(resource.getURI())));
 
         return htmlContent;
     }
-
     @PostMapping()
     public ResponseEntity<?> saveService(@RequestBody Service ts) {
         return ResponseUtils.get(tattooService.addService(ts),HttpStatus.CREATED);
