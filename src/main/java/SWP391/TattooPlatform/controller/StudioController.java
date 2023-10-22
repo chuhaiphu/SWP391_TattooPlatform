@@ -3,10 +3,7 @@ package SWP391.TattooPlatform.controller;
 import SWP391.TattooPlatform.service.StudioService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RestController
@@ -24,5 +21,10 @@ public class StudioController {
     @GetMapping("/{serviceName}")
     public ResponseEntity<?> getAllStudioByServiceName(@RequestParam String serviceName) {
         return service.findStudioByServiceName(serviceName);
+    }
+
+    @GetMapping("/studioService/{studioID}")
+    public ResponseEntity<?> getServiceByStudioID(@PathVariable String studioID) {
+        return service.findStudioByID(studioID);
     }
 }

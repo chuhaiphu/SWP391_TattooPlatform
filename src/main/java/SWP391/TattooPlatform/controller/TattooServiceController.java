@@ -21,6 +21,12 @@ public class TattooServiceController {
         return  ResponseUtils.get(tattooService.tattooServiceList(), HttpStatus.OK);
     }
 
+
+//    @GetMapping("/{studioID}")
+//    public ResponseEntity<?> findAllServiceByStudioID(@RequestParam String studioID) {
+//        return
+//    }
+
     @PostMapping()
     public ResponseEntity<?> saveService(@RequestBody Service ts) {
         return ResponseUtils.get(tattooService.addService(ts),HttpStatus.CREATED);
