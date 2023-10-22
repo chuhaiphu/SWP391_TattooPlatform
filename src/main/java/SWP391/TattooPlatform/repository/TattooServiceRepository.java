@@ -18,8 +18,6 @@ public interface TattooServiceRepository extends JpaRepository<Service, Long> {
 
     Service findServiceByServiceID(String service_ID);
 
-    @Query("SELECT DISTINCT s FROM Service s")
-    List<Service> findDistinctByServiceName();
 
     Service save(Service service);
 
