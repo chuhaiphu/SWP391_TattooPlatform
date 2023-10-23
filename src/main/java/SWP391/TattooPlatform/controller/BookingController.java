@@ -5,16 +5,10 @@ import SWP391.TattooPlatform.model.Booking;
 import SWP391.TattooPlatform.model.BookingDetail;
 import SWP391.TattooPlatform.model.BookingRequest;
 import SWP391.TattooPlatform.service.BookingService;
-import SWP391.TattooPlatform.service.SlotService;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 

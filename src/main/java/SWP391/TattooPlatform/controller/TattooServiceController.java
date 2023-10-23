@@ -23,7 +23,6 @@ public class TattooServiceController {
     public TattooServiceController(TattooServiceService tattooServiceService) {
         this.tattooService = tattooServiceService;
     }
-
     @GetMapping("")
     public String loadServiceHtml() throws IOException {
         // Load the HTML file as a string

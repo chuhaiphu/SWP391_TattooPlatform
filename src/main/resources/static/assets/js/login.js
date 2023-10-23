@@ -17,7 +17,7 @@
                     // Handle a successful response from the server
                     // You can redirect the user or show a success message
                     //console.log('Login successful');
-                    if (response === "lovers") {
+                    if (response === "UserLogin") {
                         window.location.href = "/service";
                     } else if (response === "AdminLogin") {
                         window.location.href = "/admin-page.html";
@@ -33,6 +33,4 @@
             });
         });
     });
-
-
 
