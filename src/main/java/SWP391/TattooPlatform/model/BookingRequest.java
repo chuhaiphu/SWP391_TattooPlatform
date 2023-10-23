@@ -12,6 +12,4 @@ import java.util.List;
 public class BookingRequest {
     private Booking booking;
     private List<BookingDetail> bookingDetails;
-
-
 }

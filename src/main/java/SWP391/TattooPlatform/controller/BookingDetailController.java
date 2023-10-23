@@ -21,10 +21,7 @@ public class BookingDetailController {
 
 
 
-    @GetMapping("/{bookingID}")
-    public ResponseEntity<?> getBookingDetailByBookingID(@PathVariable String bookingID) {
-        return bookingDetailService.getBookingDetailByBookingID(bookingID);
-    }
+
     @GetMapping()
     public ResponseEntity<?> listOfDetail() {
         return bookingDetailService.getAllDetail();

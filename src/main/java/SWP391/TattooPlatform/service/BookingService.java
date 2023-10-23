@@ -1,11 +1,17 @@
 package SWP391.TattooPlatform.service;
 
 import SWP391.TattooPlatform.config.ResponseUtils;
-import SWP391.TattooPlatform.model.*;
+import SWP391.TattooPlatform.model.BookingDetail;
+import SWP391.TattooPlatform.model.BookingStatus;
+import SWP391.TattooPlatform.model.Voucher;
 import SWP391.TattooPlatform.repository.BookingDetailRepository;
 import SWP391.TattooPlatform.repository.BookingRepository;
+import SWP391.TattooPlatform.model.Booking;
 import SWP391.TattooPlatform.repository.BookingStatusRepository;
 import SWP391.TattooPlatform.repository.VoucherRepository;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -30,38 +36,54 @@ public class BookingService {
         this.voucherRepository = voucherRepository;
     }
 
+    public Booking getBookingByID(String bookingID) {
+        if(bookingRepository.findBookingByBookingID(bookingID) == null) {
+            return null;
+        }
+        return bookingRepository.findBookingByBookingID(bookingID);
+    }
+
+    public List<Booking> findall() {
+        return bookingRepository.findAll();
+    }
+
+
+
+    public Booking findBookingByBookingIDAndArtistEmailAndTattooLoverEmail ( String bookingID,
+                                                                           String artistEmail,
+                                                                             String tattooLoverEmail) {
+        if(bookingRepository.findBookingByBookingIDAndTattooLoverEmail(bookingID,tattooLoverEmail) == null) {
+            return  null;
+
+        }
+        return bookingRepository.findBookingByBookingIDAndTattooLoverEmail(bookingID,tattooLoverEmail);
+
+    }
+
 
     public Booking addBooking(Booking b) {
             b.setTotalPrice((float) 0);
              bookingRepository.save(b);
             return b;
         }
-
-        public List<Booking> findall() {
-        return bookingRepository.findAll();
-        }
     public void addBookingDetail( List<BookingDetail> bookingDetails , String id) {
         float totalPrice = 0;
-        BookingStatus status = bookingStatusRepository.findBookingStatusByStatusName("Confirmed");
+        BookingStatus status = bookingStatusRepository.findBookingStatusByStatusName("IN PROCESS");
         for(BookingDetail bookingDetail : bookingDetails) {
 
             bookingDetail.setBookingID(id);
-            Booking booking = bookingRepository.findBookingByBookingID(id);
             bookingDetail.setStatusID(status.getStatusID());
 
             if(bookingDetail.getVoucherID()!=null) {
                 Voucher voucher = voucherRepository.findVoucherByVoucherID(bookingDetail.getVoucherID());
-                float actualPrice = (bookingDetail.getPrice()*(100 - voucher.getDiscount()))/100;
+                float actualPrice = (bookingDetail.getPrice()*voucher.getDiscount())/100;
                 bookingDetail.setPrice(actualPrice);
             }
             bookingDetailRepository.save(bookingDetail);
             totalPrice += bookingDetail.getPrice();
-
         }
         Booking booking = bookingRepository.findBookingByBookingID(id);
-        bookingRepository.updatePrice(totalPrice,id);
-        bookingRepository.deleteWhenPrice0();
-
+        booking.setTotalPrice(totalPrice);
 
     }
 
@@ -79,31 +101,6 @@ public class BookingService {
         }else {
             throw new Exception();
         }
-    }
-
-
-    public ResponseEntity<?> getBookingData(String id) {
-        Booking booking = bookingRepository.findBookingByBookingID(id);
-        List<BookingDetail> bookingDetails = new ArrayList<>();
-        for(BookingDetail b : bookingDetailRepository.findAll()) {
-            if(b.getBookingID().equals(id)) {
-                bookingDetails.add(b);
-            }
-        }
-        return ResponseUtils.get(new BookingRequest(booking,bookingDetails),HttpStatus.OK);
-
-    }
-
-
-
-
-
-    public ResponseEntity<?> getBookingByTattooLoverEmail(String email) {
-        List<Booking> bookingList = bookingRepository.findBookingByTattooLoverEmail(email);
-        if(bookingList.isEmpty()) {
-            return ResponseUtils.error(new RuntimeException(),HttpStatus.BAD_REQUEST);
-        }
-        return ResponseUtils.get(bookingList,HttpStatus.OK);
     }
 
 

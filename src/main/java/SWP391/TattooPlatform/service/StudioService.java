@@ -1,8 +1,8 @@
 package SWP391.TattooPlatform.service;
 
 import SWP391.TattooPlatform.config.ResponseUtils;
-import SWP391.TattooPlatform.model.ResponseStudioService;
 import SWP391.TattooPlatform.model.Studio;
+import SWP391.TattooPlatform.model.Studio_Tattoo_Manager;
 import SWP391.TattooPlatform.repository.StudioRepository;
 import SWP391.TattooPlatform.repository.Studio_Tattoo_ManagerRepository;
 import SWP391.TattooPlatform.repository.TattooServiceRepository;
@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.awt.font.ShapeGraphicAttribute;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -43,13 +42,10 @@ public class StudioService {
     }
     public ResponseEntity<?> findStudioByID(String id) {
         Studio studio = studioRepository.findStudioByStudioID(id);
-        List<SWP391.TattooPlatform.model.Service> list = new ArrayList<>();
-
-        for(SWP391.TattooPlatform.model.Service service : studio.getStudioTattooManager().getServices()) {
-                list.add(service);
+        if(studio == null) {
+            return ResponseUtils.error("not any studio here", HttpStatus.OK);
         }
-
-        return ResponseUtils.get(new ResponseStudioService(studio,list),HttpStatus.OK);
+        return ResponseUtils.get(studio,HttpStatus.OK);
     }
 
     public List<Studio> getStudioByServiceNameList(String name) {
@@ -90,8 +86,6 @@ public class StudioService {
         }
         return ResponseUtils.get(studioList,HttpStatus.OK);
     }
-
-
 
 
 
