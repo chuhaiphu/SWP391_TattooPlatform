@@ -34,7 +34,7 @@ public class TattooServiceController {
     @GetMapping("")
     public String loadServiceHtml() throws IOException {
         // Load the HTML file as a string
-        Resource resource = new ClassPathResource("static/service.html");
+        Resource resource = new ClassPathResource("static/view-service.html");
         String htmlContent = new String(Files.readAllBytes(Paths.get(resource.getURI())));
 
         return htmlContent;
@@ -48,8 +48,8 @@ public class TattooServiceController {
     @PutMapping("/{serviceID}")
     public ResponseEntity<?> updateService(@PathVariable String serviceID,
                                            @RequestParam String serviceName, @RequestParam String description,
-                                           @RequestParam float price, @RequestParam String linkImage,  @RequestParam String StudioManagerEmail) throws Exception {
-        return ResponseUtils.get(tattooService.updateService(serviceID,serviceName ,description,price,linkImage,StudioManagerEmail), HttpStatus.OK);
+                                           @RequestParam float price, @RequestParam String linkImage) throws Exception {
+        return ResponseUtils.get(tattooService.updateService(serviceID,serviceName ,description,price,linkImage), HttpStatus.OK);
     }
 
     @DeleteMapping("/{serviceID}")

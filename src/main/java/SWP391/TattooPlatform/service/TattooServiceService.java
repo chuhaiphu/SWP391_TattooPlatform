@@ -26,9 +26,9 @@ public class TattooServiceService {
     }
 
     public Service updateService(String serviceID
-            , String name , String description, float price, String linkImage, String email) throws Exception {
+            , String name , String description, float price, String linkImage) throws Exception {
 
-       tattooServiceRepository.updateService(serviceID,name,description,linkImage,email);
+       tattooServiceRepository.updateService(serviceID,name,description,linkImage);
         return tattooServiceRepository.findServiceByServiceID(serviceID);
     }
 

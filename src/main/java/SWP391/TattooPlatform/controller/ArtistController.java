@@ -45,7 +45,7 @@ public class ArtistController {
     @GetMapping("")
     public String loadServiceHtml() throws IOException {
         // Load the HTML file as a string
-        Resource resource = new ClassPathResource("static/artist.html");
+        Resource resource = new ClassPathResource("static/view-artist.html");
         String htmlContent = new String(Files.readAllBytes(Paths.get(resource.getURI())));
 
         return htmlContent;
