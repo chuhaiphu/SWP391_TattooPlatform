@@ -12,10 +12,12 @@ import java.util.List;
 @Service
 public class ArtistService {
     final ArtistRepository artistRepository;
+    final FeedbackRepository feedbackRepository;
 
 
-    public ArtistService(ArtistRepository artistRepository) {
+    public ArtistService(ArtistRepository artistRepository, FeedbackRepository feedbackRepository) {
         this.artistRepository = artistRepository;
+        this.feedbackRepository = feedbackRepository;
     }
 
 
@@ -23,12 +25,15 @@ public class ArtistService {
         if(artistRepository.findAll().isEmpty()) {
             return null;
         }
+
+
         return artistRepository.findAll();
     }
 
     public Artist addArtist(Artist artist)
     {
         if(artistRepository.findArtistByEmail(artist.getEmail()) == null){
+            artist.setStatusID("1");
             return artistRepository.save(artist);
         }
         return null;

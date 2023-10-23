@@ -7,11 +7,10 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class BookingRequest {
-    private Booking booking;
-    private List<BookingDetail> bookingDetails;
+@NoArgsConstructor
 
-
+public class ResponseStudioService {
+    private Studio studio;
+    private List<Service> service;
 }

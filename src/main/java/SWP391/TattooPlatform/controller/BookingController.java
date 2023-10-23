@@ -4,7 +4,9 @@ import SWP391.TattooPlatform.config.ResponseUtils;
 import SWP391.TattooPlatform.model.Booking;
 import SWP391.TattooPlatform.model.BookingDetail;
 import SWP391.TattooPlatform.model.BookingRequest;
+import SWP391.TattooPlatform.model.Slot;
 import SWP391.TattooPlatform.service.BookingService;
+import SWP391.TattooPlatform.service.SlotService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,18 +19,26 @@ import java.util.List;
 @RequestMapping("/booking")
 public class BookingController {
     final BookingService bookingService;
+    final SlotService slotService;
 
-    public BookingController(BookingService bookingService) {
+    public BookingController(BookingService bookingService , SlotService slotService) {
         this.bookingService = bookingService;
+        this.slotService = slotService;
     }
 
     @GetMapping("/{bookingID}")
     public ResponseEntity<?> getBookingByID(@PathVariable(name = "bookingID") String bookingID) {
-        return ResponseUtils.get(bookingService.getBookingByID(bookingID), HttpStatus.OK);
+        return bookingService.getBookingData(bookingID);
     }
+
+
     @GetMapping()
     public ResponseEntity<?> getBooking() {
         return ResponseUtils.get(bookingService.findall(), HttpStatus.OK);
+    }
+    @GetMapping("get/{tattooLoverEmail}")
+    public ResponseEntity<?> getBookingByTattooLoverEmail(@PathVariable String tattooLoverEmail) {
+        return bookingService.getBookingByTattooLoverEmail(tattooLoverEmail);
     }
 
     @PostMapping()
@@ -37,14 +47,15 @@ public class BookingController {
         bookingService.addBooking(booking);
         String id = booking.getBookingID();
         addBookingDetail(bookingRequest.getBookingDetails(),id);
+
+    //    setSlotForBookingDetail(bookingRequest.getDate(), bookingRequest.getStart_time(),"check");
+
        return  new ResponseEntity<>("Bookings created successfully", HttpStatus.CREATED);
     }
 
 
     public void addBookingDetail(@RequestBody List<BookingDetail> bookingDetails, String id ) {
         bookingService.addBookingDetail(bookingDetails,id);
-
-
 
     }
 

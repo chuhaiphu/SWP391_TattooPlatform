@@ -29,7 +29,7 @@ public class Voucher {
 
     @Column(name = "discount")
     private int discount;
-    @Column(name = "star_date")
+    @Column(name = "start_date")
     private String startDate;
     @Column(name = "end_date")
     private String endDate;
