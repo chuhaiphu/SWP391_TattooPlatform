@@ -29,3 +29,22 @@ function renderserviceData(serviceData) {
     $(serviceTable).appendTo(added_service);
 
 }
+
+function deleteService(serviceID) {
+    if (confirm("Are you sure you want to delete this service?")) {
+        $.ajax({
+            type: "DELETE",
+            url: "/service/" + serviceID, // Replace with the actual API endpoint
+            success: function (data) {
+                console.log("Service deleted:", data);
+                // Handle success, e.g., remove the service row from the table
+                $(`#${serviceID}`).remove();
+                // Optionally, you can display a success message to the user.
+            },
+            error: function (xhr, status, error) {
+                console.error("Error deleting service: " + error);
+                // Handle the error, e.g., display an error message to the user.
+            }
+        });
+    }
+}

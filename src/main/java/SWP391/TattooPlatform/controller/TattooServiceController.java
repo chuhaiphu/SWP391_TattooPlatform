@@ -40,19 +40,19 @@ public class TattooServiceController {
         return htmlContent;
     }
 
-    @PostMapping()
+    @PostMapping("/addService")
     public ResponseEntity<?> saveService(@RequestBody Service ts) {
         return ResponseUtils.get(tattooService.addService(ts),HttpStatus.CREATED);
     }
 
-    @PutMapping("/{ID}")
+    @PutMapping("/{serviceID}")
     public ResponseEntity<?> updateService(@PathVariable String serviceID,
                                            @RequestParam String serviceName, @RequestParam String description,
                                            @RequestParam float price, @RequestParam String linkImage,  @RequestParam String StudioManagerEmail) throws Exception {
         return ResponseUtils.get(tattooService.updateService(serviceID,serviceName ,description,price,linkImage,StudioManagerEmail), HttpStatus.OK);
     }
 
-    @DeleteMapping("/{ID}")
+    @DeleteMapping("/{serviceID}")
     public ResponseEntity<?> deleteService(@PathVariable String serviceID) throws Exception {
         return ResponseUtils.get(tattooService.deleteService(serviceID),HttpStatus.OK);
     }

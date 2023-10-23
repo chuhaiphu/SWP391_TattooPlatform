@@ -8,12 +8,9 @@
     <title>Tattoo Lover</title>
     <meta name="description" content="spa and beauty - Workdo.">
     <meta name="keywords" content="spa and beauty - Workdo.">
-    <link rel="shortcut icon" href="assets/images/favicon.png">
-    <link rel="stylesheet" href="assets/css/main-style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
+    <link rel="shortcut icon" href="platform/assets/images/favicon.png">
+    <link rel="stylesheet" href="platform/assets/css/main-style.css">
+    <link rel="stylesheet" href="platform/assets/css/responsive.css">
 </head>
 <body>
     <!--header start here-->
@@ -97,30 +94,130 @@
     </header>
     <!--header start end-->
     <!--wrapper start here-->
-    <div style="height: 57vh" class="wrapper">
-        <section class="order-summery-page padding-bottom padding-top">
+    <div class="wrapper">
+        <section class="cart-page-section padding-bottom">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-7 col-12">
-                        <div class="section-title text-center">
-                            <h2><b>Your order has been placed!</b></h2>
-                            <p><b>Your order has been successfully processed!</b><br>
-                                Please direct any questions you have to the <b>store owner.</b> </p> 
-                            <p>Thanks for shopping with us online!</p>
-                        </div> 
-                        <div class="d-flex justify-content-center backbtn">
-                            <a href="index.html " class="btn-secondary">
-                                <svg viewBox="0 0 10 5">
-                                    <path d="M2.37755e-08 2.57132C-3.38931e-06 2.7911 0.178166 2.96928 0.397953 2.96928L8.17233 2.9694L7.23718 3.87785C7.07954 4.031 7.07589 4.28295 7.22903 4.44059C7.38218 4.59824 7.63413 4.60189 7.79177 4.44874L9.43039 2.85691C9.50753 2.78197 9.55105 2.679 9.55105 2.57146C9.55105 2.46392 9.50753 2.36095 9.43039 2.28602L7.79177 0.69418C7.63413 0.541034 7.38218 0.544682 7.22903 0.702329C7.07589 0.859976 7.07954 1.11192 7.23718 1.26507L8.1723 2.17349L0.397965 2.17336C0.178179 2.17336 3.46059e-06 2.35153 2.37755e-08 2.57132Z">
-                                    </path>
-                                </svg>
-                                Back to dashboard 
-                            </a>
+                <div class="section-title">
+                    <a href="product-list.html" class="back-btn">
+                        <span class="svg-ic">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="5" viewBox="0 0 11 5" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5791 2.28954C10.5791 2.53299 10.3818 2.73035 10.1383 2.73035L1.52698 2.73048L2.5628 3.73673C2.73742 3.90636 2.74146 4.18544 2.57183 4.36005C2.40219 4.53467 2.12312 4.53871 1.9485 4.36908L0.133482 2.60587C0.0480403 2.52287 -0.000171489 2.40882 -0.000171488 2.2897C-0.000171486 2.17058 0.0480403 2.05653 0.133482 1.97353L1.9485 0.210321C2.12312 0.0406877 2.40219 0.044729 2.57183 0.219347C2.74146 0.393966 2.73742 0.673036 2.5628 0.842669L1.52702 1.84888L10.1383 1.84875C10.3817 1.84874 10.5791 2.04609 10.5791 2.28954Z" fill="white"></path>
+                            </svg>
+                        </span>
+                        Back to category
+                    </a> 
+                    <h2> <b>Pending</b> Bookings</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-9 col-12">
+                        <div class="order-historycontent"> 
+                            <table class="cart-tble"> 
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Service</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Price</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td data-label="Product">
+                                        <a href="product.html" class="pro-img-cart">
+                                            <img src="platform/assets/images/cart.png">
+                                        </a>
+                                    </td> 
+                                    <td data-label="Name">
+                                        <a href="product.html">Depilatory gel for women</a>
+                                        <div class="product-option">
+                                            <dt>Size: </dt>
+                                            <dd>S</dd>
+                                        </div>
+                                    </td>
+                                    <td data-label="date">11/08/22</td>
+                                    <td data-label="Price"> 
+                                        $2,100.00
+                                    </td>
+                                  </tr> 
+                                  <tr>
+                                    <td data-label="Product">
+                                        <a href="product.html" class="pro-img-cart">
+                                            <img src="platform/assets/images/cart.png">
+                                        </a>
+                                     </td>
+                                    <td data-label="Name">
+                                        <a href="product.html">Depilatory gel for women</a>
+                                        <div class="product-option">
+                                            <dt>Color: </dt>
+                                            <dd>Blue</dd>
+                                        </div> 
+                                    </td>
+                                    <td data-label="date">11/08/22</td>
+                                    <td data-label="Price"> 
+                                        $2,100.00
+                                    </td>
+                                  </tr> 
+                                </tbody>
+                            </table>
+                            <div class="coupon-table">
+                                <div class="coupon-text">
+                                    <h4>Use Coupon Code</h4>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+                                </div>
+                                <div class="coupon-code">
+                                    <div class="coupon-code-text">
+                                        <h4>code:</h4>
+                                        <p>
+                                            SJG8392SAQT
+                                            <span></span>
+                                        </p>
+                                    </div>
+                                    <div class="coupon-btn">
+                                        <button type="button">
+                                            Confirm
+                                            <svg width="14" height="6" viewBox="0 0 14 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.48504e-08 3.00044C-4.9681e-06 3.32261 0.261158 3.58378 0.583324 3.58378L11.9791 3.58396L10.6083 4.91557C10.3773 5.14006 10.3719 5.50937 10.5964 5.74045C10.8209 5.97153 11.1902 5.97688 11.4213 5.75239L13.8232 3.41906C13.9362 3.30922 14 3.15829 14 3.00065C14 2.84301 13.9362 2.69208 13.8232 2.58224L11.4213 0.24891C11.1902 0.0244262 10.8209 0.0297744 10.5964 0.260855C10.3719 0.491935 10.3773 0.861243 10.6083 1.08573L11.979 2.41729L0.583343 2.41712C0.261176 2.41711 5.07257e-06 2.67827 3.48504e-08 3.00044Z" fill="#ffffff"></path>
+                                                </svg> 
+                                        </button>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-12">
+                        <p>TOTAL COST SUMMARY</p>
+                        <div class="cart-summery">
+                            <ul>
+                                <li>
+                                    <span class="cart-sum-left">1 item</span>
+                                    <span class="cart-sum-right">$48.00</span>
+                                </li> 
+                                <li>
+                                    <span class="cart-sum-left">Shipping</span>
+                                    <span class="cart-sum-right">$7.00</span>
+                                </li>
+                                <li>
+                                    <span class="cart-sum-left">Total (tax excl.)</span>
+                                    <span class="cart-sum-right"> $55.00</span>
+                                </li>
+                                <li>
+                                    <span class="cart-sum-left">Total (tax incl.)</span>
+                                    <span class="cart-sum-right"> $55.00</span>
+                                </li>
+                                <li>
+                                    <span class="cart-sum-left">Taxes: </span>
+                                    <span class="cart-sum-right"> $0.00</span>
+                                </li>
+                            </ul>
+                            <button  class="btn checkout-btn">
+                                Proceed to checkout
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>    
+        </section>  
+
     </div>
     <!---wrapper end here-->
   <!--footer start here-->
@@ -450,9 +547,9 @@
 </div>
 <!-- Mobile menu end here -->
 <!--scripts start here-->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/slick.min.js" defer="defer"></script>
-<script src='assets/js/custom.js' defer="defer"></script>
+<script src="platform/assets/js/jquery.min.js"></script>
+<script src="platform/assets/js/slick.min.js" defer="defer"></script>
+<script src='platform/assets/js/custom.js' defer="defer"></script>
 <!--scripts end here-->
 </body>
 </html>

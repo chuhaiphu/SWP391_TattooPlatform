@@ -152,6 +152,10 @@
               <div class="white-box">
                 <div class="form-horizontal form-material">
                   <div class="form-group">
+                    <div id="successMessage" style="display: none" class="alert alert-success"></div>
+                    <div id="errorMessage" class="alert alert-danger" style="display: none;"></div>
+                  </div>
+                  <div class="form-group">
                     <label class="col-md-12">Name</label>
                     <div class="col-md-12">
                       <input
@@ -168,11 +172,35 @@
                       <input
                         type="text"
                         placeholder="Description"
-                        id="description"
+                        id="descriptionService"
                         class="form-control form-control-line"
                       />
                     </div>
                   </div>
+                  <div class="form-group">
+                    <label class="col-md-12">Image</label>
+                    <div class="col-md-12">
+                      <input
+                              type="text"
+                              placeholder="URL"
+                              id="linkImage"
+                              class="form-control form-control-line"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-12">ManagerEmail</label>
+                    <div class="col-md-12">
+                      <input
+                              type="text"
+                              id="tattooManagerEmail"
+                              placeholder="ManagerEmail"
+                              class="form-control form-control-line"
+
+                      />
+                    </div>
+                  </div>
+
                   <div class="form-group">
                     <label class="col-md-12">Price</label>
                     <div class="col-md-12">
@@ -184,20 +212,10 @@
                       />
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label class="col-md-12">Image</label>
-                    <div class="col-md-12">
-                      <input
-                              type="text"
-                              placeholder="URL"
-                              id="image"
-                              class="form-control form-control-line"
-                      />
-                    </div>
-                  </div>
+
                   <div class="form-group">
                     <div class="col-sm-12">
-                      <button id="btn-save-role" class="btn btn-success">
+                      <button id="add-service" class="btn btn-success">
                         Add service
                       </button>
                       <a href="service.html" class="btn btn-primary"
@@ -228,6 +246,7 @@
     <script src="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
     <!--slimscroll JavaScript -->
     <script src="studiomanager/assets/js/jquery.slimscroll.js"></script>
+    <script src="studiomanager/assets/js/add-service.js"></script>
     <!--Wave Effects -->
     <script src="studiomanager/assets/js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
