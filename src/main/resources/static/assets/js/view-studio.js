@@ -1,10 +1,10 @@
 //Get service list
 $(document).ready(function () {
     // Send an AJAX request
-    var selectStudio = localStorage.getItem('selectedStudio')
+    var selectStudioID = localStorage.getItem('selectedStudio')
     $.ajax({
         type: "GET",
-        url: "/studio/name?studioName=" + studioName, // Replace with the actual URL to your endpoint
+        url: "/studio/studioService/" + studioID, // Replace with the actual URL to your endpoint
         dataType: "json",
         success: function (data) {
             renderStudioPage(data)
@@ -23,9 +23,9 @@ $(document).ready(function () {
 
 
 function renderStudioPage(studio) {
-    var service_template = $("#service-card_template").html();
-    service_template = service_template.replace("{{imgSrc}}", service.linkImage);
-    service_template = service_template.replace("{{serviceName}}", service.serviceName);
+    var studio_template = $("#service-card_template").html();
+    studio_template = studio_template.replace("{{imgSrc}}", studio.bannerImg);
+    studio_template = studio_template.replace("{{serviceName}}", studio.serviceName);
     var added_service = $("#service-card");
     $(service_template).appendTo(added_service);
 }

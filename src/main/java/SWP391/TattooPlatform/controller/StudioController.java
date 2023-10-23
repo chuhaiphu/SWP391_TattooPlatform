@@ -2,10 +2,15 @@ package SWP391.TattooPlatform.controller;
 
 import SWP391.TattooPlatform.model.Studio;
 import SWP391.TattooPlatform.service.StudioService;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 @Controller
@@ -16,7 +21,14 @@ public class StudioController {
     public StudioController (StudioService service) {
         this.service = service;
     }
+    @GetMapping("")
+    public String loadStudioHtml() throws IOException {
+        // Load the HTML file as a string
+        Resource resource = new ClassPathResource("static/studio-list.html");
+        String htmlContent = new String(Files.readAllBytes(Paths.get(resource.getURI())));
 
+        return htmlContent;
+    }
     @GetMapping("/list")
     public List<Studio> getALlStudioList() {
         return service.getStudioList();
@@ -25,10 +37,10 @@ public class StudioController {
     public List<Studio> getStudioByServiceNameList(@RequestParam String serviceName) {
         return service.getStudioByServiceNameList(serviceName);
     }
-    @GetMapping()
-    public ResponseEntity<?> getALlStudio() {
-        return service.findAllStudio();
-    }
+//    @GetMapping()
+//    public ResponseEntity<?> getALlStudio() {
+//        return service.findAllStudio();
+//    }
     @GetMapping("/{serviceName}")
     public ResponseEntity<?> getAllStudioByServiceName(@RequestParam String serviceName) {
         return service.findStudioByServiceName(serviceName);

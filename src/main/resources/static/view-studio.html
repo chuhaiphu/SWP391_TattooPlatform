@@ -316,41 +316,40 @@
                 <div class="pdp-slider-main">
                     <div class="pdp-slider-inner">
                         <div class="pdp-img-wrapper">
-                            <img src="https://morgansinktattoo.com/wp-content/uploads/2023/03/bb-1.jpg" alt="img">
+                            <img src="{{bannerImg}}" alt="img">
                             <div class="ratings">
                                 <span>4.5</span>
                                 <div class="rating-review">
-                                    <img src="https://morgansinktattoo.com/wp-content/uploads/2023/03/tattoo2.jpg" alt="start">
+                                    <!-- <img src="https://morgansinktattoo.com/wp-content/uploads/2023/03/tattoo2.jpg" alt="start"> -->
                                     <p>6,980 reviews from satisfied customers</p>
                                 </div>
                             </div>
                         </div>
                         <div class="pdp-img-wrapper">
-                            <img src="assets/images/pdp-img-1.png" alt="img">
+                            <img src="{{bannerImg}}" alt="img">
                             <div class="ratings">
                                 <span>4.5</span>
                                 <div class="rating-review">
-                                    <img src="assets/images/rating.svg" alt="start">
+                                    <!-- <img src="assets/images/rating.svg" alt="start"> -->
                                     <p>6,980 reviews from satisfied customers</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="slider-controller">
+                    <!-- <div class="slider-controller">
                         <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100"> </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
-            <div class="studio-name">
-                <h2>Morgan's Studio</h2>
+            <div id="studio-name" class="studio-name">
+                <h2>{{studioName}}</h2>
             </div>
         </section>
         <section class="description-section">
             <div class="container">
-                <div class="description-box">
-                    <h3>Description</h3>
-                    <p>Welcome to Morgan's Studio, where creativity meets excellence. Our team of skilled artists is dedicated to bringing your vision to life through stunning and intricate designs. With a focus on precision and customer satisfaction, we ensure a memorable and comfortable experience for every client. Step into our world of artistry and let us create a masterpiece for you.</p>
-                    <p>Whether it's your first tattoo or an addition to your collection, our experts are here to provide professional guidance and top-notch service. Explore our diverse portfolio and let us help you turn your ideas into reality. Join us at Morgan's Studio for a transformative journey of self-expression and creativity.</p>
+                <div id="content" class="description-box">
+                    <h3>ABOUT OUR STUDIO</h3>
+                    <p>{{content}}</p>
                 </div>
             </div>
         </section>

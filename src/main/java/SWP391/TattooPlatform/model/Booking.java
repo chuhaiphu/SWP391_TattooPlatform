@@ -33,8 +33,6 @@ public class Booking {
     @Email(message = "invalid Email format")
     private String tattooLoverEmail ;
 
-
-
     @Column(name = "customer_name")
     private String customerName;
 
