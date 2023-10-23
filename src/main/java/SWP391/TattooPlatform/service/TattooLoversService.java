@@ -19,6 +19,7 @@ public class TattooLoversService {
         return tattooLoversRepository.findAll();
     }
     public TattooLovers addTattooLovers(TattooLovers tattooLovers){
+        tattooLovers.setStatusID("1");
         return tattooLoversRepository.save(tattooLovers);
     }
     public TattooLovers updateTattooLovers  (String tattooLoveremail, String password, String phonenumber, String address )throws Exception{

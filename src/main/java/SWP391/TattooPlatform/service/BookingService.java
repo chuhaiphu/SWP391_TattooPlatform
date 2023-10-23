@@ -33,25 +33,15 @@ public class BookingService {
         this.voucherRepository = voucherRepository;
     }
 
-    public Booking getBookingByID(String bookingID) {
-        if(bookingRepository.findBookingByBookingID(bookingID) == null) {
-            return null;
-        }
-        return bookingRepository.findBookingByBookingID(bookingID);
-    }
-
-    public List<Booking> findall() {
-        return bookingRepository.findAll();
-    }
-
-
-
-
 
     public Booking addBooking(Booking b) {
             b.setTotalPrice((float) 0);
              bookingRepository.save(b);
             return b;
+        }
+
+        public List<Booking> findall() {
+        return bookingRepository.findAll();
         }
     public void addBookingDetail( List<BookingDetail> bookingDetails , String id) {
         float totalPrice = 0;
