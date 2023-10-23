@@ -1,3 +1,4 @@
+USE TattooPlatform
 INSERT INTO [dbo].[User_Status] ([status_ID], [status_name], [description], [start_date], [end_date])
 VALUES
     ('1', 'Active', 'Active status', '2023-01-01', '2023-12-12'),
@@ -5,7 +6,7 @@ VALUES
 
 	INSERT INTO [dbo].[SystemStaff] ([system_Staff_email], [username], [password], [full_name], [phone_number], [address], [admin_email], [status_ID])
 VALUES
-    ('system1@example.com', 'SystemStaff1', '123', 'Duc Anh', '123-456-7890', '123 Main St, City', 'admin1@example.com', '1'),
+    ('system1@example.com', 'SystemStaff1', '123', 'Ha Dinh Duc Anh', '123-456-7890', '123 Main St, City', 'admin1@example.com', '1'),
 	('system2@example.com', 'SystemStaff2', '123', 'Phu Le', '123-456-7890', '123 Main St, City', 'admin2@example.com', '1');
 
 	INSERT INTO [dbo].[Studio_Tattoo_Manager] ([studio_Manager_email], [full_name], [phone_number], [System_Staff_email], [username], [password], [status_ID])
@@ -29,8 +30,8 @@ VALUES
 
 	INSERT INTO [dbo].[Artist] ([artist_email], [full_name], [phone_number], [address], [rate], [studio_Manager_email], [username], [password], [status_ID], [number_of_ratings])
 VALUES
-    ('artist1@example.com', 'Artist 1', '111-111-1111', '123 Artist Lane, District 1', 75.0, 'manager1@example.com', 'artist1', '123', '1', 10),
-    ('artist2@example.com', 'Artist 2', '222-222-2222', '456 Artist Blvd, District 2', 80.0, 'manager2@example.com', 'artist2', '123', '1', 8);
+    ('artist1@example.com', 'Nguyen Thanh Tung', '111-111-1111', '123 Artist Lane, District 1', 75.0, 'manager1@example.com', 'artist1', '123', '1', 10),
+    ('artist2@example.com', 'Nguyen Van Tang', '222-222-2222', '456 Artist Blvd, District 2', 80.0, 'manager2@example.com', 'artist2', '123', '1', 8);
 
 	INSERT INTO [dbo].[Artist_Certificate] ([certificateID], [certificate_name], [artist_email])
 VALUES
@@ -66,8 +67,8 @@ VALUES
 
 	INSERT INTO [dbo].[Booking] ([Booking_ID], [tattoo_Lover_email], [customer_email], [customer_name], [customer_phone_number], [address], [total_price])
 VALUES
-    ('booking1', 'lover1@example.com', 'customer1@example.com', 'Dang Phuc Loc', '999-999-9999', '123 Lover Lane, District 1', 120.0),
-    ('booking2', 'lover2@example.com', 'customer2@example.com', 'Le Vinh Quang', '888-888-8888', '456 Lover Blvd, District 2', 100.0);
+    ('booking1', 'lover1@example.com', 'customer1@example.com', 'Pham Minh', '999-999-9999', '123 Lover Lane, District 1', 120.0),
+    ('booking2', 'lover2@example.com', 'customer2@example.com', 'Hoang Xuan Quang', '888-888-8888', '456 Lover Blvd, District 2', 100.0);
 
 	INSERT INTO [dbo].[Booking_Detail] ([booking_Detail_ID], [booking_ID], [status_ID], [description], [slot_ID], [service_ID], [artist_email], [voucherID], [price])
 VALUES
