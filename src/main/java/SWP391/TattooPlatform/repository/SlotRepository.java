@@ -27,11 +27,11 @@ public interface SlotRepository extends JpaRepository<Slot, Long> {
     @Modifying
     @Transactional
     @Query("UPDATE  Slot s set " +
-            "s.startTime = :startTime," +
-            "s.endTime = :endTime where  s.slotID = :slotID" )
+            "s.startTime = :startTime" +
+            " where  s.slotID = :slotID" )
     void updateSlot(@Param("slotID") String slotID,
-                    @Param("startTime") String startTime,
-                    @Param("endTime") String endTime);
+                    @Param("startTime") String startTime
+                    );
 
 
 }

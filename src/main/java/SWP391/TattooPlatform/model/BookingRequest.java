@@ -12,4 +12,8 @@ import java.util.List;
 public class BookingRequest {
     private Booking booking;
     private List<BookingDetail> bookingDetails;
+
+    private String date;
+    private String start_time;
+    private String end_time;
 }
