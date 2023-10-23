@@ -61,8 +61,8 @@ VALUES
 
 	INSERT INTO [dbo].[TattooLovers] ([tattoo_Lover_email], [username], [password], [full_name], [phone_number], [address], [status_ID])
 VALUES
-    ('lover1@example.com', 'lover1', 'password', 'Tattoo Lover 1', '777-777-7777', '123 Lover Lane, District 1', '1'),
-    ('lover2@example.com', 'lover2', 'password', 'Tattoo Lover 2', '666-666-6666', '456 Lover Blvd, District 2', '1');
+    ('lover1@example.com', 'lover1', 'password', 'Dang Phuc Loc', '777-777-7777', '123 Lover Lane, District 1', '1'),
+    ('lover2@example.com', 'lover2', 'password', 'Le Vinh Quang', '666-666-6666', '456 Lover Blvd, District 2', '1');
 
 	INSERT INTO [dbo].[Booking] ([Booking_ID], [tattoo_Lover_email], [customer_email], [customer_name], [customer_phone_number], [address], [total_price])
 VALUES
