@@ -68,22 +68,26 @@ public class BookingService {
         }
     public void addBookingDetail( List<BookingDetail> bookingDetails , String id) {
         float totalPrice = 0;
-        BookingStatus status = bookingStatusRepository.findBookingStatusByStatusName("IN PROCESS");
+        BookingStatus status = bookingStatusRepository.findBookingStatusByStatusName("Confirmed");
         for(BookingDetail bookingDetail : bookingDetails) {
 
             bookingDetail.setBookingID(id);
+            Booking booking = bookingRepository.findBookingByBookingID(id);
             bookingDetail.setStatusID(status.getStatusID());
 
             if(bookingDetail.getVoucherID()!=null) {
                 Voucher voucher = voucherRepository.findVoucherByVoucherID(bookingDetail.getVoucherID());
-                float actualPrice = (bookingDetail.getPrice()*voucher.getDiscount())/100;
+                float actualPrice = (bookingDetail.getPrice()*(100 - voucher.getDiscount()))/100;
                 bookingDetail.setPrice(actualPrice);
             }
             bookingDetailRepository.save(bookingDetail);
             totalPrice += bookingDetail.getPrice();
+
         }
         Booking booking = bookingRepository.findBookingByBookingID(id);
-        booking.setTotalPrice(totalPrice);
+        bookingRepository.updatePrice(totalPrice,id);
+        bookingRepository.deleteWhenPrice0();
+
 
     }
 
