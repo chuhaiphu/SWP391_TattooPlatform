@@ -52,10 +52,6 @@ public class StudioController {
     @GetMapping("/studioService/{studioID}")
     public ResponseEntity<?> getServiceByStudioID(@PathVariable String studioID) {
         return service.findStudioByID(studioID);
-=========
-    @GetMapping("/service-list")
-    public List<Studio> getAllStudioByServiceNameList(@RequestParam String serviceName) {
-        return service.getStudioByServiceNameList(serviceName);
->>>>>>>>> Temporary merge branch 2
+
     }
 }

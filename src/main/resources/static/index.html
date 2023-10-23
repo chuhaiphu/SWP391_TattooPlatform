@@ -33,6 +33,12 @@
                                     Service
                                 </a>
                             </li>
+                            <script>
+                                document.getElementById('serviceLink').addEventListener('click', function(event) {
+                                    event.preventDefault();
+                                    window.location.href = 'https://example.com';
+                                });
+                            </script>
 
                             <li class="menu-lnk">
                                 <a id="service-list" href="studio-list.html">
