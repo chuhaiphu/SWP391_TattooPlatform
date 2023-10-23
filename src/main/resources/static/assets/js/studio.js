@@ -10,6 +10,12 @@ $(document).ready(function () {
                 for (var studio of data) {
                     renderStudio(studio);
                 }
+                localStorage.removeItem(selectedService);
+                $(document).on('click', '#view-studio-btn', function () {
+                    var studioName = $(this).closest('.product-card-content').find('h4').text().trim();
+                    localStorage.setItem('selectedStudio', studioName);
+                    window.location.href = 'view-studio.html';
+                });
             },
             error: function (xhr, status, error) {
                 console.error("Error fetching service: " + error);
@@ -21,7 +27,6 @@ $(document).ready(function () {
             url: "/studio/service-list?serviceName=" + selectedService, // Replace with the actual URL to your endpoint
             dataType: "json",
             success: function (data) {
-                console.log(data);
                 for (var studio of data) {
                     renderStudio(studio);
                 }
@@ -41,4 +46,12 @@ function renderStudio(studio) {
     studio_template = studio_template.replace("{{briefInfo}}", studio.briefInfo);
     var added_studio = $("#studio-card");
     $(studio_template).appendTo(added_studio);
+}
+function handleViewStudioBtn(){
+    // Add event listeners to each button
+    $(document).on('click', '#view-studio-btn', function () {
+        var studioName = $(this).closest('.product-card-content').find('h4').text().trim();
+        localStorage.setItem('selectedStudio', studioName);
+        window.location.href = 'view-studio.html';
+    });
 }
