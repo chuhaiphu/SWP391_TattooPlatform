@@ -30,9 +30,15 @@ public class BookingController {
     public ResponseEntity<?> getBookingByID(@PathVariable(name = "bookingID") String bookingID) {
         return bookingService.getBookingData(bookingID);
     }
+
+
     @GetMapping()
     public ResponseEntity<?> getBooking() {
         return ResponseUtils.get(bookingService.findall(), HttpStatus.OK);
+    }
+    @GetMapping("get/{tattooLoverEmail}")
+    public ResponseEntity<?> getBookingByTattooLoverEmail(@PathVariable String tattooLoverEmail) {
+        return bookingService.getBookingByTattooLoverEmail(tattooLoverEmail);
     }
 
     @PostMapping()
@@ -46,10 +52,6 @@ public class BookingController {
 
        return  new ResponseEntity<>("Bookings created successfully", HttpStatus.CREATED);
     }
-
-//    public void setSlotForBookingDetail(String date, String startTime, String studioID) {
-//        slotService.addNewSlot(date,startTime,studioID);
-//    }
 
 
     public void addBookingDetail(@RequestBody List<BookingDetail> bookingDetails, String id ) {

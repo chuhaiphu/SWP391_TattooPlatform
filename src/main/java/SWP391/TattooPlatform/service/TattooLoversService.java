@@ -1,6 +1,9 @@
 package SWP391.TattooPlatform.service;
+import SWP391.TattooPlatform.config.ResponseUtils;
 import SWP391.TattooPlatform.model.TattooLovers;
 import SWP391.TattooPlatform.repository.TattooLoversRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +21,22 @@ public class TattooLoversService {
         }
         return tattooLoversRepository.findAll();
     }
+
+    public ResponseEntity<?> getLoverByEmail(String email) {
+        TattooLovers tattooLovers = tattooLoversRepository.findTattooLoversByTattooLoveremail(email);
+        if(tattooLovers == null) {
+            return ResponseUtils.error("not find any lovers",HttpStatus.BAD_REQUEST);
+        }
+        return ResponseUtils.get(tattooLovers,HttpStatus.OK);
+
+    }
+
+    public ResponseEntity<?> changePassword(String password, String email) {
+           tattooLoversRepository.changePassword(password,email);
+           return ResponseUtils.get(tattooLoversRepository.findTattooLoversByTattooLoveremail(email),HttpStatus.OK);
+    }
+
+
     public TattooLovers addTattooLovers(TattooLovers tattooLovers){
         tattooLovers.setStatusID("1");
         return tattooLoversRepository.save(tattooLovers);

@@ -6,9 +6,6 @@ import SWP391.TattooPlatform.repository.BookingDetailRepository;
 import SWP391.TattooPlatform.repository.BookingRepository;
 import SWP391.TattooPlatform.repository.BookingStatusRepository;
 import SWP391.TattooPlatform.repository.VoucherRepository;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -95,6 +92,18 @@ public class BookingService {
         }
         return ResponseUtils.get(new BookingRequest(booking,bookingDetails),HttpStatus.OK);
 
+    }
+
+
+
+
+
+    public ResponseEntity<?> getBookingByTattooLoverEmail(String email) {
+        List<Booking> bookingList = bookingRepository.findBookingByTattooLoverEmail(email);
+        if(bookingList.isEmpty()) {
+            return ResponseUtils.error(new RuntimeException(),HttpStatus.BAD_REQUEST);
+        }
+        return ResponseUtils.get(bookingList,HttpStatus.OK);
     }
 
 

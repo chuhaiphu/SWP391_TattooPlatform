@@ -21,6 +21,17 @@ public class TattooLoversController {
     public Object getAllTattoolovers(){
         return ResponseUtils.get(tattooLoversService.getListLovers(),HttpStatus.OK);
     }
+
+    @GetMapping("/{tattooLoverEmail}")
+    public ResponseEntity<?> getTattooLoverByEmail(@PathVariable String tattooLoverEmail) {
+        return tattooLoversService.getLoverByEmail(tattooLoverEmail);
+    }
+
+    @PutMapping("/changePassword/{tattooLoverEmail}")
+    public ResponseEntity<?> changePassword(@PathVariable String tattooLoverEmail, @RequestParam String password) {
+        return tattooLoversService.changePassword(password,tattooLoverEmail);
+    }
+
     @PostMapping("/add")
     public ResponseEntity<?> saveRole(@RequestBody TattooLovers tattooLovers) {
         return ResponseUtils.get(tattooLoversService.addTattooLovers(tattooLovers), HttpStatus.CREATED);
