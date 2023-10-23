@@ -18,7 +18,7 @@ public class TattooServiceService {
     public List<Service> tattooServiceList() {
             List<Service> list1 = tattooServiceRepository.findAll();
         List<Service> list = new ArrayList<>();
-        boolean check = false;
+        boolean check;
         for(Service service : list1) {
             check = false;
             if(list.isEmpty() ) {
@@ -28,6 +28,7 @@ public class TattooServiceService {
                 for (Service service1 : list) {
                     if (service1.getServiceName().trim().equals(service.getServiceName().trim())) {
                         check = true;
+                        break;
                     }
                 }
                 if (!check) {
@@ -43,9 +44,9 @@ public class TattooServiceService {
     }
 
     public Service updateService(String serviceID
-            , String name , String description, float price, String linkImage, String email) throws Exception {
+            , String name , String description, float price, String linkImage, String email)  {
 
-       tattooServiceRepository.updateService(serviceID,name,description,linkImage,email);
+       tattooServiceRepository.updateService(serviceID,name,description,linkImage,email,price);
         return tattooServiceRepository.findServiceByServiceID(serviceID);
     }
 

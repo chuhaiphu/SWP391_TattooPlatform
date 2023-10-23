@@ -1,12 +1,9 @@
 package SWP391.TattooPlatform.service;
 
 import SWP391.TattooPlatform.config.ResponseUtils;
-import SWP391.TattooPlatform.model.BookingDetail;
-import SWP391.TattooPlatform.model.BookingStatus;
-import SWP391.TattooPlatform.model.Voucher;
+import SWP391.TattooPlatform.model.*;
 import SWP391.TattooPlatform.repository.BookingDetailRepository;
 import SWP391.TattooPlatform.repository.BookingRepository;
-import SWP391.TattooPlatform.model.Booking;
 import SWP391.TattooPlatform.repository.BookingStatusRepository;
 import SWP391.TattooPlatform.repository.VoucherRepository;
 import jakarta.persistence.Column;
@@ -95,6 +92,19 @@ public class BookingService {
         }else {
             throw new Exception();
         }
+    }
+
+
+    public ResponseEntity<?> getBookingData(String id) {
+        Booking booking = bookingRepository.findBookingByBookingID(id);
+        List<BookingDetail> bookingDetails = new ArrayList<>();
+        for(BookingDetail b : bookingDetailRepository.findAll()) {
+            if(b.getBookingID().equals(id)) {
+                bookingDetails.add(b);
+            }
+        }
+        return ResponseUtils.get(new BookingRequest(booking,bookingDetails),HttpStatus.OK);
+
     }
 
 

@@ -28,7 +28,7 @@ public class BookingController {
 
     @GetMapping("/{bookingID}")
     public ResponseEntity<?> getBookingByID(@PathVariable(name = "bookingID") String bookingID) {
-        return ResponseUtils.get(bookingService.getBookingByID(bookingID), HttpStatus.OK);
+        return bookingService.getBookingData(bookingID);
     }
     @GetMapping()
     public ResponseEntity<?> getBooking() {
