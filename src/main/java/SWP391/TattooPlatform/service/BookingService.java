@@ -49,16 +49,6 @@ public class BookingService {
 
 
 
-    public Booking findBookingByBookingIDAndArtistEmailAndTattooLoverEmail ( String bookingID,
-                                                                           String artistEmail,
-                                                                             String tattooLoverEmail) {
-        if(bookingRepository.findBookingByBookingIDAndTattooLoverEmail(bookingID,tattooLoverEmail) == null) {
-            return  null;
-
-        }
-        return bookingRepository.findBookingByBookingIDAndTattooLoverEmail(bookingID,tattooLoverEmail);
-
-    }
 
 
     public Booking addBooking(Booking b) {
