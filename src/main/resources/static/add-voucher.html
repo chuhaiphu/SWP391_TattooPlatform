@@ -1,241 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="studiomanager/assets/plugins/images/favicon.png"
-    />
-    <title>Studiomanager</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="studiomanager/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Menu CSS -->
-    <link
-      href="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
-      rel="stylesheet"
-    />
-    <!-- animation CSS -->
-    <link href="studiomanager/assets/css/animate.css" rel="stylesheet" />
-    <!-- Custom CSS -->
-    <link href="studiomanager/assets/css/style.css" rel="stylesheet" />
-    <!-- color CSS -->
-    <link href="studiomanager/assets/css/colors/blue-dark.css" id="theme" rel="stylesheet" />
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="studiomanager/assets/plugins/images/favicon.png"
+  />
+  <title>Studiomanager</title>
+  <!-- Bootstrap Core CSS -->
+  <link href="studiomanager/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Menu CSS -->
+  <link
+          href="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
+          rel="stylesheet"
+  />
+  <!-- animation CSS -->
+  <link href="studiomanager/assets/css/animate.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link href="studiomanager/assets/css/style.css" rel="stylesheet" />
+  <!-- color CSS -->
+  <link href="studiomanager/assets/css/colors/blue-dark.css" id="theme" rel="stylesheet" />
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
 
-  <body>
-    <!-- Preloader -->
-    <div class="preloader">
-      <div class="cssload-speeding-wheel"></div>
-    </div>
-    <div id="wrapper">
-      <!-- Navigation -->
-      <nav class="navbar navbar-default navbar-static-top m-b-0">
-        <div class="navbar-header">
-          <a
-            class="navbar-toggle hidden-sm hidden-md hidden-lg"
-            href="javascript:void(0)"
-            data-toggle="collapse"
-            data-target=".navbar-collapse"
-          >
-            <i class="fa fa-bars"></i>
-          </a>
-          <div class="top-left-part">
-            <a class="logo" href="artist.html">
-              <b>
-                <img src="studiomanager/assets/plugins/images/pixeladmin-logo.png" alt="home" />
-              </b>
-              <span class="hidden-xs">
+<body>
+<!-- Preloader -->
+<div class="preloader">
+  <div class="cssload-speeding-wheel"></div>
+</div>
+<div id="wrapper">
+  <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-static-top m-b-0">
+    <div class="navbar-header">
+      <a
+              class="navbar-toggle hidden-sm hidden-md hidden-lg"
+              href="javascript:void(0)"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+      >
+        <i class="fa fa-bars"></i>
+      </a>
+      <div class="top-left-part">
+        <a class="logo" href="artist.html">
+          <b>
+            <img src="studiomanager/assets/plugins/images/pixeladmin-logo.png" alt="home" />
+          </b>
+          <span class="hidden-xs">
                 <img src="studiomanager/assets/plugins/images/pixeladmin-text.png" alt="home" />
               </span>
+        </a>
+      </div>
+      <ul class="nav navbar-top-links navbar-left m-l-20 hidden-xs">
+        <li>
+          <form role="search" class="app-search hidden-xs">
+            <input
+                    type="text"
+                    placeholder="Search..."
+                    class="form-control"
+            />
+            <a href="">
+              <i class="fa fa-search"></i>
             </a>
+          </form>
+        </li>
+      </ul>
+      <ul class="nav navbar-top-links navbar-right pull-right">
+        <li>
+          <div class="dropdown">
+            <a
+                    class="profile-pic dropdown-toggle"
+                    data-toggle="dropdown"
+                    href="#"
+            >
+              <img
+                      src="studiomanager/assets/plugins/images/users/varun.jpg"
+                      alt="user-img"
+                      width="36"
+                      class="img-circle"
+              />
+              <b class="hidden-xs">Studiomanager</b>
+            </a>
+            <ul class="dropdown-menu">
+
+              <li class="divider"></li>
+              <li><a href="#">Logout</a></li>
+            </ul>
           </div>
-          <ul class="nav navbar-top-links navbar-left m-l-20 hidden-xs">
-            <li>
-              <form role="search" class="app-search hidden-xs">
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  class="form-control"
-                />
-                <a href="">
-                  <i class="fa fa-search"></i>
-                </a>
-              </form>
-            </li>
-          </ul>
-          <ul class="nav navbar-top-links navbar-right pull-right">
-            <li>
-              <div class="dropdown">
-                <a
-                  class="profile-pic dropdown-toggle"
-                  data-toggle="dropdown"
-                  href="#"
-                >
-                  <img
-                    src="studiomanager/assets/plugins/images/users/varun.jpg"
-                    alt="user-img"
-                    width="36"
-                    class="img-circle"
-                  />
-                  <b class="hidden-xs">Studiomanager</b>
-                </a>
-                <ul class="dropdown-menu">
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-header -->
+    <!-- /.navbar-top-links -->
+    <!-- /.navbar-static-side -->
+  </nav>
+  <!-- Left navbar-header -->
+  <div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+      <ul class="nav" id="side-menu">
+        <li>
+          <a href="artist.html" class="waves-effect"
+          ><i class="fa fa-user fa-fw" aria-hidden="true"></i
+          ><span class="hide-menu">Artist</span></a
+          >
+        </li>
+        <li>
+          <a href="service.html" class="waves-effect"
+          ><i class="fa fa-modx fa-fw" aria-hidden="true"></i
+          ><span class="hide-menu">Service </span></a
+          >
+        </li>
+        <li>
+          <a href="booking.html" class="waves-effect"
+          ><i class="fa fa-table fa-fw" aria-hidden="true"></i
+          ><span class="hide-menu">Booking </span></a
+          >
+        </li>
+        <li>
+          <a href="voucher.html" class="waves-effect"
+          ><i class="fa fa-ticket fa-fw" aria-hidden="true"></i
+          ><span class="hide-menu">Voucher </span></a
+          >
+        </li>
 
-                  <li class="divider"></li>
-                  <li><a href="#">Logout</a></li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <!-- /.navbar-header -->
-        <!-- /.navbar-top-links -->
-        <!-- /.navbar-static-side -->
-      </nav>
-      <!-- Left navbar-header -->
-      <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav navbar-collapse slimscrollsidebar">
-          <ul class="nav" id="side-menu">
-            <li>
-              <a href="artist.html" class="waves-effect"
-              ><i class="fa fa-user fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu">Artist</span></a
-              >
-            </li>
-            <li>
-              <a href="service.html" class="waves-effect"
-              ><i class="fa fa-modx fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu">Service </span></a
-              >
-            </li>
-            <li>
-              <a href="booking.html" class="waves-effect"
-              ><i class="fa fa-table fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu">Booking </span></a
-              >
-            </li>
-            <li>
-              <a href="voucher.html" class="waves-effect"
-              ><i class="fa fa-ticket fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu">Voucher </span></a
-              >
-            </li>
-
-          </ul>
+      </ul>
+    </div>
+  </div>
+  <!-- Left navbar-header end -->
+  <!-- Page Content -->
+  <div id="page-wrapper">
+    <div class="container-fluid">
+      <div class="row bg-title">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+          <h4 class="page-title">Add voucher</h4>
         </div>
       </div>
-      <!-- Left navbar-header end -->
-      <!-- Page Content -->
-      <div id="page-wrapper">
-        <div class="container-fluid">
-          <div class="row bg-title">
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-              <h4 class="page-title">Add voucher</h4>
-            </div>
-          </div>
-          <!-- /.row -->
-          <!-- .row -->
-          <div class="row">
-            <div class="col-md-2 col-12"></div>
-            <div class="col-md-8 col-xs-12">
-              <div class="white-box">
-                <div class="form-horizontal form-material">
+      <!-- /.row -->
+      <!-- .row -->
+      <div class="row">
+        <div class="col-md-2 col-12"></div>
+        <div class="col-md-8 col-xs-12">
+          <div class="white-box">
+            <div class="form-horizontal form-material">
+              <div class="form-group">
+                <div id="successMessage" style="display: none" class="alert alert-success"></div>
+                <div id="errorMessage" class="alert alert-danger" style="display: none;"></div>
+              </div>
 
-                  <div class="form-group">
-                    <label class="col-md-12">Name</label>
-                    <div class="col-md-12">
-                      <input
-                        type="text"
-                        id="nameVoucher"
-                        placeholder="Name"
-                        class="form-control form-control-line"
-                        required
-                      />
-                    </div>
-                  </div>
+              <div class="form-group">
+                <label class="col-md-12">Name</label>
+                <div class="col-md-12">
+                  <input
+                          type="text"
+                          id="nameVoucher"
+                          placeholder="Name"
+                          class="form-control form-control-line"
+                          required
+                  />
+                </div>
+              </div>
 
-                  <div class="form-group">
-                    <label class="col-md-12">Start</label>
-                    <div class="col-md-12">
-                      <input
-                        type="text"
-                        id="addStartDateVoucher"
-                        placeholder="dd/MM/yyyy"
-                        class="form-control form-control-line"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-12">End</label>
-                    <div class="col-md-12">
-                      <input
-                        type="text"
-                        id="addEndDateVoucher"
-                        placeholder="dd/MM/yyyy"
-                        class="form-control form-control-line"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-12">Description</label>
-                    <div class="col-md-12">
-                      <input
-                              type="text"
-                              id="descriptionVoucher"
-                              placeholder="Description"
-                              class="form-control form-control-line"
+              <div class="form-group">
+                <label class="col-md-12">Start</label>
+                <div class="col-md-12">
+                  <input
+                          type="text"
+                          id="addStartDateVoucher"
+                          placeholder="yyyy-MM-dd"
+                          class="form-control form-control-line"
+                          required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-12">End</label>
+                <div class="col-md-12">
+                  <input
+                          type="text"
+                          id="addEndDateVoucher"
+                          placeholder="yyyy-MM-dd"
+                          class="form-control form-control-line"
+                          required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-12">Description</label>
+                <div class="col-md-12">
+                  <input
+                          type="text"
+                          id="descriptionVoucher"
+                          placeholder="Description"
+                          class="form-control form-control-line"
 
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-12">
-                      <button class="btn btn-success" id="btn-save-voucher">
-                        Add
-                      </button>
-                      <a href="voucher.html" class="btn btn-primary">Back</a>
-                    </div>
-                  </div>
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-12">ManagerEmail</label>
+                <div class="col-md-12">
+                  <input
+                          type="text"
+                          id="managerEmail"
+                          placeholder="ManagerEmail"
+                          class="form-control form-control-line"
+
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-12">Discount</label>
+                <div class="col-md-12">
+                  <input
+                          type="text"
+                          id="discount"
+                          placeholder="Discount"
+                          class="form-control form-control-line"
+
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <button class="btn btn-success" id="add-voucher">
+                    Add
+                  </button>
+                  <a href="voucher.html" class="btn btn-primary">Back</a>
                 </div>
               </div>
             </div>
-            <div class="col-md-2 col-12"></div>
           </div>
-          <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
-        <footer class="footer text-center">2018 &copy; myclass.com</footer>
+        <div class="col-md-2 col-12"></div>
       </div>
-      <!-- /#page-wrapper -->
+
+      <!-- /.row -->
     </div>
-    <!-- /#wrapper -->
-    <!-- jQuery -->
-    <script src="studiomanager/assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="studiomanager/assets/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- Menu Plugin JavaScript -->
-    <script src="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
-    <!--slimscroll JavaScript -->
-    <script src="studiomanager/assets/js/jquery.slimscroll.js"></script>
-    <!--Wave Effects -->
-    <script src="studiomanager/assets/js/waves.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="studiomanager/assets/js/custom.min.js"></script>
-    <script src="js/task.js"></script>
-  </body>
+    <!-- /.container-fluid -->
+    <footer class="footer text-center">2018 &copy; myclass.com</footer>
+  </div>
+  <!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- jQuery -->
+<script src="studiomanager/assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="studiomanager/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Menu Plugin JavaScript -->
+<script src="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+<!--slimscroll JavaScript -->
+<script src="studiomanager/assets/js/jquery.slimscroll.js"></script>
+<script src="studiomanager/assets/js/add-voucher.js"></script>
+<!--Wave Effects -->
+<script src="studiomanager/assets/js/waves.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="studiomanager/assets/js/custom.min.js"></script>
+<script src="js/task.js"></script>
+</body>
 </html>
