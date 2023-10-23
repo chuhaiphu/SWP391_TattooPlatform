@@ -25,7 +25,7 @@ $(document).ready(function () {
                 for (var studio of data) {
                     renderStudio(studio);
                 }
-                localStorage.removeItem(selectedService);
+                handleBookingBtn();
             },
             error: function (xhr, status, error) {
                 console.error("Error fetching service: " + error);
@@ -41,4 +41,11 @@ function renderStudio(studio) {
     studio_template = studio_template.replace("{{briefInfo}}", studio.briefInfo);
     var added_studio = $("#studio-card");
     $(studio_template).appendTo(added_studio);
+}
+function handleBookingBtn(){
+    $(document).on('click', '#booking-btn', function () {
+        var studioName = $(this).closest('.product-card-content').find('h4').text().trim();
+        localStorage.setItem('selectedStudioName', studioName);
+        window.location.href = '/appointment-page.html';
+    });
 }

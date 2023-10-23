@@ -15,7 +15,7 @@ $(document).ready(function () {
             $(document).on('click', '#selectServiceBtn', function () {
                 var serviceName = $(this).closest('.product-card-content').find('h4').text().trim();
                 localStorage.setItem('selectedService', serviceName);
-                window.location.href = 'studio-list.html';
+                window.location.href = '/studio';
             });
         },
         error: function (xhr, status, error) {

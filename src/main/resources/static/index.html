@@ -29,9 +29,15 @@
                     <div class="menu-items-col">
                         <ul class="main-nav">
                             <li class="menu-lnk">
-                                <a href="service-list.html">
+                                <a href="#" id="serviceLink">
                                     Service
                                 </a>
+                                <script>
+                                    document.getElementById('serviceLink').addEventListener('click', function(event) {
+                                        event.preventDefault(); // Prevent the default link behavior
+                                        window.location.href = '/service';
+                                    });
+                                </script>
                             </li>
 
                             <li class="menu-lnk">

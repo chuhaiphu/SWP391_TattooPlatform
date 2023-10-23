@@ -29,6 +29,7 @@ public class StudioController {
 
         return htmlContent;
     }
+
     @GetMapping("/list")
     public List<Studio> getALlStudio() {
         return service.getStudioList();
@@ -37,10 +38,17 @@ public class StudioController {
 //    public ResponseEntity<?> getALlStudio() {
 //        return service.findAllStudio();
 //    }
-    @GetMapping("/service")
-    public ResponseEntity<?> getAllStudioByServiceName(@RequestParam String serviceName) {
+
+//    @GetMapping("/service")
+//    public ResponseEntity<?> getAllStudioByServiceName(@RequestParam String serviceName) {
+//        return service.findStudioByServiceName(serviceName);
+//    }
+
+    @GetMapping("/{serviceName}")
+    public ResponseEntity<?> getAllStudioByServiceName(@PathVariable String serviceName) {
         return service.findStudioByServiceName(serviceName);
     }
+
     @GetMapping("/service-list")
     public List<Studio> getAllStudioByServiceNameList(@RequestParam String serviceName) {
         return service.getStudioByServiceNameList(serviceName);
