@@ -14,8 +14,8 @@ $(document).ready(function () {
             // Add event listeners to each button
             $(document).on('click', '#selectServiceBtn', function () {
                 var serviceName = $(this).closest('.product-card-content').find('h4').text().trim();
-                localStorage.setItem('selectedServiceName', serviceName);
-                window.location.href = "/studio";
+                localStorage.setItem('selectedService', serviceName);
+                window.location.href = '/studio';
             });
         },
         error: function (xhr, status, error) {

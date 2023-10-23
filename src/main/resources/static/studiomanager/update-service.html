@@ -10,22 +10,22 @@
             rel="icon"
             type="image/png"
             sizes="16x16"
-            href="studiomanager/assets/plugins/images/favicon.png"
+            href="assets/plugins/images/favicon.png"
     />
     <title>Studiomanager</title>
     <!-- Bootstrap Core CSS -->
-    <link href="studiomanager/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Menu CSS -->
     <link
-            href="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
+            href="assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
             rel="stylesheet"
     />
     <!-- animation CSS -->
-    <link href="studiomanager/assets/css/animate.css" rel="stylesheet" />
+    <link href="assets/css/animate.css" rel="stylesheet" />
     <!-- Custom CSS -->
-    <link href="studiomanager/assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
     <!-- color CSS -->
-    <link href="studiomanager/assets/css/colors/blue-dark.css" id="theme" rel="stylesheet" />
+    <link href="assets/css/colors/blue-dark.css" id="theme" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -54,10 +54,10 @@
             <div class="top-left-part">
                 <a class="logo" href="artist.html">
                     <b>
-                        <img src="studiomanager/assets/plugins/images/pixeladmin-logo.png" alt="home" />
+                        <img src="assets/plugins/images/pixeladmin-logo.png" alt="home" />
                     </b>
                     <span class="hidden-xs">
-                <img src="studiomanager/assets/plugins/images/pixeladmin-text.png" alt="home" />
+                <img src="assets/plugins/images/pixeladmin-text.png" alt="home" />
               </span>
                 </a>
             </div>
@@ -84,15 +84,14 @@
                                 href="#"
                         >
                             <img
-                                    src="studiomanager/assets/plugins/images/users/varun.jpg"
+                                    src="assets/plugins/images/users/varun.jpg"
                                     alt="user-img"
                                     width="36"
                                     class="img-circle"
                             />
-                            <b class="hidden-xs">System staff</b>
+                            <b class="hidden-xs">Studiomanager</b>
                         </a>
                         <ul class="dropdown-menu">
-
                             <li class="divider"></li>
                             <li><a href="#">Logout</a></li>
                         </ul>
@@ -142,7 +141,7 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Update booking</h4>
+                    <h4 class="page-title">Update service</h4>
                 </div>
             </div>
             <!-- /.row -->
@@ -152,41 +151,58 @@
                 <div class="col-md-8 col-xs-12">
                     <div class="white-box">
                         <div class="form-horizontal form-material">
-
-
-
-
                             <div class="form-group">
-                                <label class="col-md-12">Date</label>
+                                <label class="col-md-12">Name</label>
                                 <div class="col-md-12">
                                     <input
                                             type="text"
-                                            id="dateBooking"
-                                            placeholder="dd/MM/yyyy"
+                                            placeholder="Name"
+                                            id="serviceName"
                                             class="form-control form-control-line"
-
                                     />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Time</label>
+                                <label class="col-md-12">Description</label>
                                 <div class="col-md-12">
                                     <input
-                                            type="time"
-                                            id="timeBooking"
-                                            placeholder=""
+                                            type="text"
+                                            placeholder="Description"
+                                            id="descriptionService"
                                             class="form-control form-control-line"
-
                                     />
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                                <label class="col-md-12">Price</label>
+                                <div class="col-md-12">
+                                    <input
+                                            type="text"
+                                            placeholder="Price"
+                                            id="priceService"
+                                            class="form-control form-control-line"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Image</label>
+                                <div class="col-md-12">
+                                    <input
+                                            type="text"
+                                            placeholder="URL"
+                                            id="imageService"
+                                            class="form-control form-control-line"
+                                    />
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <button class="btn btn-success" id="btn-save-task">
-                                        Update
+                                    <button id="btn-save-service" class="btn btn-success">
+                                        Update service
                                     </button>
-                                    <a href="voucher.html" class="btn btn-primary">Back</a>
+                                    <a href="service.html" class="btn btn-primary"
+                                    >Back</a
+                                    >
                                 </div>
                             </div>
                         </div>
@@ -203,18 +219,19 @@
 </div>
 <!-- /#wrapper -->
 <!-- jQuery -->
-<script src="studiomanager/assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="studiomanager/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+
 <!-- Menu Plugin JavaScript -->
-<script src="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+<script src="assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
 <!--slimscroll JavaScript -->
-<script src="studiomanager/assets/js/jquery.slimscroll.js"></script>
+<script src="assets/js/jquery.slimscroll.js"></script>
 <!--Wave Effects -->
-<script src="studiomanager/assets/js/waves.js"></script>
+<script src="assets/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
-<script src="studiomanager/assets/js/custom.min.js"></script>
-<script src="js/task.js"></script>
+<script src="assets/js/custom.min.js"></script>
+<script src="assets/js/role.js"></script>
 </body>
 </html>

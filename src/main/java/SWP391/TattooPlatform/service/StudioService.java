@@ -41,12 +41,6 @@ public class StudioService {
         if(studioRepository.findAll().isEmpty()) return null;
         return studioRepository.findAll();
     }
-    public Studio getStudioByStudioName(String name){
-        if(studioRepository.findStudioByStudioName(name) == null){
-            return null;
-        }
-        return studioRepository.findStudioByStudioName(name);
-    }
     public ResponseEntity<?> findStudioByID(String id) {
         Studio studio = studioRepository.findStudioByStudioID(id);
         List<SWP391.TattooPlatform.model.Service> list = new ArrayList<>();
