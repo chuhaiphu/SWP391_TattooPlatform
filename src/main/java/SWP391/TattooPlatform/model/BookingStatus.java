@@ -21,7 +21,7 @@ public class BookingStatus {
             name = "UUID",
             strategy = "SWP391.TattooPlatform.model.CustomUUIDGenerator"
     )
-    @Column(name = "statusID")
+    @Column(name = "status_ID")
     private String statusID;
 
     @Column(name = "status_name")
