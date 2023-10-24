@@ -1746,6 +1746,7 @@ form .row [class*="col-"] {
 .form-group .form-control {
     border-radius: 0;
 }
+
 sup {
     top: -0.5em;
 }
@@ -5784,3 +5785,4 @@ table tr td {
         padding-right: 30px!important;
     }
 }
+

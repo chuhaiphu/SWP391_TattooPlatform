@@ -88,7 +88,7 @@
                             </li>
                         </ul>
                         <div class="login">
-                            <a href="login.html">Login</a></div>
+                            <a id="loginStatus" href="login.html">Login</a></div>
                         <div class="mobile-menu mobile-only">
                             <button class="mobile-menu-button">
                                 <div class="one"></div>
@@ -3805,6 +3805,17 @@
             </ul>
         </div>
     </div>
+    <script>    document.addEventListener("DOMContentLoaded", function() {
+        const loginStatus = document.getElementById("loginStatus");
+
+        // Check if a user is logged in
+        const tattooLover = JSON.parse(sessionStorage.getItem('tattooLover'));
+        if (tattooLover && tattooLover.content.username) {
+            // User is logged in, update the content to show the user's name
+            loginStatus.innerHTML = `Welcome, ${tattooLover.content.username}`
+            loginStatus.href = "/tattoolovers";
+        }
+    });</script>
     <!-- Mobile menu end here -->
     <!--scripts start here-->
     <script src="assets/js/jquery.min.js"></script>

@@ -371,50 +371,49 @@
                             <div id="tab-2" class="my-acc-right-content">
                                 <div class="section-title">
                                     <h2>Your Personal Details</h2>
+                                    <br>
+                                    <h3 id="email" type="email" style="margin-left: 3%; font-family: 'Playpen Sans', cursive; color: darkred; font-size: large"></h3>
                                 </div>
                                 <div class="form-wrapper">
-                                    <form> 
+                                    <form id="form_info">
                                         <div class="form-container">
                                             <div class="row">
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
-                                                        <label>First Name<sup aria-hidden="true">*</sup>:</label>
-                                                        <input type="text" class="form-control" placeholder="John" required="">
+                                                        <label>Username<sup aria-hidden="true">*</sup>:</label>
+                                                        <input id="username" type="text" class="form-control" readonly required="" style="background-color: #f0f0f0; font-weight: bolder">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
-                                                        <label>Last Name<sup aria-hidden="true">*</sup>:</label>
-                                                        <input type="text" class="form-control" placeholder="Doe" required="">
+                                                        <label>Full Name<sup aria-hidden="true">*</sup>:</label>
+                                                        <input id="full_name" type="text" class="form-control" readonly required="" style="background-color: #f0f0f0; font-weight: bolder">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
-                                                        <label>E-mail<sup aria-hidden="true">*</sup>:</label>
-                                                        <input type="email" class="form-control" placeholder="shop@company.com" required="">
+                                                        <label>Address<sup aria-hidden="true">*</sup>:</label>
+                                                        <input id="address" type="text" class="form-control" readonly required="" style="background-color: #f0f0f0; font-weight: bolder">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
                                                         <label>Telephone<sup aria-hidden="true">*</sup>:</label>
-                                                        <input type="number" class="form-control" placeholder="1234567890" required="">
+                                                        <input id="phone" type="text" class="form-control" readonly required="" style="background-color: #f0f0f0; font-weight: bolder">
                                                     </div>
                                                 </div> 
                                             </div> 
                                         </div> 
                                         <div class="form-container">   
                                             <div class="d-flex acc-back-btn-wrp align-items-center justify-content-end">
-                                                <button class="btn back-btn-acc" type="submit">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="14" viewBox="0 0 35 14" fill="none">
-                                                        <path d="M25.0749 14L35 7L25.0805 0L29.12 6.06667H0V7.93333H29.12L25.0749 14Z"></path>
-                                                    </svg>
-                                                    Back 
-                                                </button> 
-                                                <button class="btn continue-btn" type="submit">
-                                                    Continue
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="14" viewBox="0 0 35 14" fill="none">
-                                                        <path d="M25.0749 14L35 7L25.0805 0L29.12 6.06667H0V7.93333H29.12L25.0749 14Z"></path>
-                                                    </svg>
+                                                <button id="updateButton" class="btn back-btn-acc" type="submit">
+                                                    Update
+                                                </button>
+                                                <button id="confirm_updateButton" class="btn back-btn-acc" type="submit" style="display: none">
+                                                    Confirm Update
+                                                </button>
+                                                <button id="cancelButton" class="btn continue-btn" type="submit" style="display: none">
+                                                    Cancel
                                                 </button> 
                                             </div> 
                                         </div>
@@ -423,39 +422,36 @@
                             </div>
                             <div id="tab-3" class="my-acc-right-content">
                                 <div class="section-title">
-                                    <h2>Change Password</h2>
+                                    <h2>Account Security</h2>
                                 </div>
                                 <div class="form-wrapper">
-                                    <form> 
+                                    <form id="form_password">
                                         <div class="form-container">
                                             <div class="row"> 
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
                                                         <label>Password<sup aria-hidden="true">*</sup>:</label>
-                                                        <input type="text" class="form-control" placeholder="**********" required="">
+                                                        <input id="password" type="text" class="form-control"  readonly placeholder="**********" required="" style="background-color: #f0f0f0; font-weight: bolder">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
                                                         <label>Confirm password<sup aria-hidden="true">*</sup>:</label>
-                                                        <input type="text" class="form-control" placeholder="***********" required="">
+                                                        <input id="confirm_password" type="text" class="form-control" readonly placeholder="***********" required="" style="background-color: #f0f0f0; font-weight: bolder">
                                                     </div>
                                                 </div> 
                                             </div> 
                                         </div> 
                                         <div class="form-container">   
                                             <div class="d-flex acc-back-btn-wrp align-items-center justify-content-end">
-                                                <button class="btn back-btn-acc" type="submit">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="14" viewBox="0 0 35 14" fill="none">
-                                                        <path d="M25.0749 14L35 7L25.0805 0L29.12 6.06667H0V7.93333H29.12L25.0749 14Z"></path>
-                                                    </svg>
-                                                    Back 
-                                                </button> 
-                                                <button class="btn continue-btn" type="submit">
-                                                    Continue
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="14" viewBox="0 0 35 14" fill="none">
-                                                        <path d="M25.0749 14L35 7L25.0805 0L29.12 6.06667H0V7.93333H29.12L25.0749 14Z"></path>
-                                                    </svg>
+                                                <button id="updatePassword_btn" class="btn back-btn-acc" type="submit" >
+                                                    Change Password
+                                                </button>
+                                                    <button id="confirm_updatePassword_btn" class="btn back-btn-acc" type="submit" style="display: none">
+                                                    Confirm Change
+                                                </button>
+                                                <button id="cancelPassword_btn" class="btn continue-btn" type="submit" style="display: none">
+                                                    Cancel
                                                 </button> 
                                             </div> 
                                         </div>
@@ -1153,6 +1149,8 @@
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/slick.min.js" defer="defer"></script>
 <script src='assets/js/custom.js' defer="defer"></script>
+    <script src='assets/js/my-account.js' defer="defer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js" integrity="sha512-emSwuKiMyYedRwflbZB2ghzX8Cw8fmNVgZ6yQNNXXagFzFOaQmbvQ1vmDkddHjm5AITcBIZfC7k4ShQSjgPAmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!--scripts end here-->
 </body>
 </html>

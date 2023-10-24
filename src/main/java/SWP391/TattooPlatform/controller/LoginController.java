@@ -1,6 +1,7 @@
 package SWP391.TattooPlatform.controller;
 
 import SWP391.TattooPlatform.model.Admin;
+import SWP391.TattooPlatform.service.LoginService;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +18,11 @@ import java.nio.file.Paths;
 
 public class LoginController {
     final AdminService adminService;
+    final LoginService loginService;
 
-    public LoginController(AdminService adminService) {
+    public LoginController(AdminService adminService, LoginService loginService) {
         this.adminService = adminService;
+        this.loginService = loginService;
     }
 
     @GetMapping()
@@ -35,19 +38,13 @@ public class LoginController {
     public ResponseEntity<String> login(@RequestParam String email, @RequestParam String password) throws IOException {
         try {
             Admin admin = adminService.getAdminFromJsonFile();
-            if ("user@example.com".equals(email) && "userpassword".equals(password)) {
-                return ResponseEntity.ok("UserLogin");
-            } else if (admin.getAdminEmail().equals(email) && admin.getPassword().equals(password)) {
+            if (admin.getAdminEmail().equals(email) && admin.getPassword().equals(password)) {
                 // Admin login successful
                 return ResponseEntity.ok("AdminLogin");
-            } else {
-                // Invalid credentials
-
-                throw new IOException("Invalid credentials");
             }
-        }catch (IOException e){
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return loginService.login(email, password);
+        }catch (IOException e) {
+            return ResponseEntity.ofNullable("can not find any account");
         }
     }
 }
-
