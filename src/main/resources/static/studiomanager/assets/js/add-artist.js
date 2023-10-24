@@ -1,30 +1,38 @@
 $(document).ready(function () {
-    $("#add-service").click(function () {
+    $("#add-artist").click(function () {
         // Capture form data
-        var serviceData = {
-            serviceName: $("#serviceName").val(),
-            description: $("#descriptionService").val(),
-            linkImage: $("#linkImage").val(),
-            tattooManagerEmail: $("#tattooManagerEmail").val(),
-            price: $("#price").val()
+        var artistData = {
+            email: $("#emailArtist").val(),
+            fullName: $("#nameArtist").val(),
+            phoneNumber: $("#phone").val(),
+            address: $("#artistAddress").val(),
+            studioManagerEmail: $("#studioManagerEmail").val(),
+            username: $("#username").val(),
+            password: $("#password").val(),
+            statusID: $("#statusID").val()
+
         };
 
         // Send an AJAX POST request to add the voucher
         $.ajax({
             type: "POST",
-            url: "/service/addService", // Replace with the actual API endpoint
+            url: "/view-artist/add-artist", // Replace with the actual API endpoint
             contentType: "application/json; charset-utf-8",
-            data: JSON.stringify(serviceData),
+            data: JSON.stringify(artistData),
             success: function (data) {
                 // Handle the success response
-                console.log("Service added successfully:", data);
+                console.log("Artist added successfully:", data);
 
                 // Clear the input fields
-                $("#serviceName").val("");
-                $("#descriptionService").val("");
-                $("#linkImage").val("");
-                $("#tattooManagerEmail").val("");
-                $("#price").val("");
+                $("#emailArtist").val("");
+                $("#nameArtist").val("");
+                $("#phone").val("");
+                $("#artistAddress").val("");
+                $("#studioManagerEmail").val("");
+                $("#username").val("");
+                $("#password").val("");
+                $("#statusID").val("");
+
 
                 // Display a success message (you can customize this part)
                 $("#successMessage").text("Service added successfully!");

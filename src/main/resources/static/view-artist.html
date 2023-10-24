@@ -171,7 +171,6 @@
                         <th>Address</th>
                         <th>Rate</th>
                         <th>Update</th>
-                        <th>Delete</th>
                       </tr>
                     </thead>
                     <tbody  id="artistList_template" style="display: none" >
@@ -183,8 +182,7 @@
                       <td>{{phoneNumber}}</td>
                       <td>{{address}}</td>
                       <td>{{rate}}</td>
-                      <td><button >Update</button></td>
-                      <td><button>Delete</button></td>
+                      <td><a id="update-artist-link" href="update-artist.html">Update</a></td>
 
                     </tr>
                     </tbody>
@@ -222,7 +220,10 @@
       $(document).ready(function () {
         $("#example").DataTable();
       });
+
     </script>
+
+
     <script src="js/showUser.js"></script>
     <script src="js/user.js"></script>
     <script src="studiomanager/assets/js/view-artist.js"></script>

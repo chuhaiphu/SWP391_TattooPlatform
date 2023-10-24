@@ -19,7 +19,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/artist")
+@RequestMapping("/view-artist")
 public class ArtistController {
 
 
@@ -54,14 +54,14 @@ public class ArtistController {
 
 
     //-------------------------------POST/ADD-------------------------------
-    @PostMapping("/addArtist")
+    @PostMapping("/add-artist")
     public ResponseEntity<?> saveRole(@RequestBody Artist email) {
         return ResponseUtils.get(artistService.addArtist(email), HttpStatus.CREATED);
     }
 
     //-------------------------------UPDATE/PUT-------------------------------
-    @PutMapping("/updateArtistInfomation/")
-    public ResponseEntity<?> updateRole(@RequestParam String email, @RequestParam String fullName,
+    @PutMapping("/update-artist/{email}")
+    public ResponseEntity<?> updateRole(@PathVariable String email, @RequestParam String fullName,
                                         @RequestParam String phoneNumber, @RequestParam String address) throws Exception {
         return ResponseUtils.get(artistService.updateArtistInformation(email, fullName, phoneNumber, address),HttpStatus.OK);
     }
