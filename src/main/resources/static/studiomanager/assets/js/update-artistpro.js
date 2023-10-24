@@ -1,9 +1,9 @@
 $(document).ready(function () {
     const Artist = JSON.parse(sessionStorage.getItem('Artist'));
-    document.getElementById('emailArtist').value = Artist.content.email;
-    document.getElementById('updateNameArtist').value = Artist.content.fullname;
-    document.getElementById('updateAddressArtist').value = Artist.content.phonenumber;
-    document.getElementById('updatePhoneArtist').value = Artist.content.address;
+    document.getElementById('emailArtist').value = Artist.email;
+    document.getElementById('updateNameArtist').value = Artist.fullname;
+    document.getElementById('updateAddressArtist').value = Artist.phonenumber;
+    document.getElementById('updatePhoneArtist').value = Artist.address;
     $("#update-artist").click(function () {
 
         // Get the values from input fields

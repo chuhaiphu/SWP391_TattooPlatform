@@ -2,7 +2,7 @@
 class Artist {
     constructor(email, fullName, phoneNumber, address,rate, username,password ) {
         this.email= email;
-        this.fullname = fullname;
+        this.fullname = fullName;
         this.phoneNumber =phoneNumber;
         this.address = address;
         this.rate = rate;
@@ -11,8 +11,24 @@ class Artist {
     }
 }
 
+function handleUpdate() {
+    let email = document.getElementById('email').textContent
+    let fullname = document.getElementById('fullName').textContent
+    let username = document.getElementById('username').textContent
+    let password = document.getElementById('password').textContent
+    let phoneNumber = document.getElementById('phoneNumber').textContent
+    let address = document.getElementById('address').textContent
+    let rate = document.getElementById('rate').textContent
 
-document.getElementById("update-artist").addEventListener("click", function () {
+    let artist = new Artist(email, fullname, phoneNumber, address, rate, username, password );
+
+    sessionStorage.setItem('Artist', JSON.stringify(artist));
+    window.location.href = "/update-artist.html";
+
+}
+
+
+/*document.getElementById("update-artist").addEventListener("click", function () {
     // Enable input fields
     let email = document.getElementById('email').value
     let fullname = document.getElementById('fullName').value
@@ -25,9 +41,8 @@ document.getElementById("update-artist").addEventListener("click", function () {
     let Artist = new Artist(email, fullname, phoneNumber, address, rate, username, password );
 
     sessionStorage.setItem('Artist', JSON.stringify(Artist));
-    window.location.href = "/update-artist.html";
 
-});
+});*/
 
 
 

@@ -16,17 +16,23 @@ $(document).ready(function () {
 });
 
 function renderArtistData(artistData) {
-    var artistTable = $("#artistList_template").html();
-    artistTable = artistTable.replace("{{email}}", artistData.email );
-    artistTable = artistTable.replace("{{fullName}}", artistData.fullName );
-    artistTable = artistTable.replace("{{username}}", artistData.username );
-    artistTable = artistTable.replace("{{password}}", artistData.password );
-    artistTable = artistTable.replace("{{phoneNumber}}", artistData.phoneNumber );
-    artistTable = artistTable.replace("{{address}}", artistData.address );
-    artistTable = artistTable.replace("{{rate}}", artistData.rate );
 
 
-    var added_artist = $("#artist");
-    $(artistTable).appendTo(added_artist);
-
+    var added_artist = document.getElementById("artist");
+    console.log("30" + added_artist.innerHTML);
+    added_artist.innerHTML =
+        added_artist.innerHTML +
+        `
+  <tr>
+  <td id="email">${artistData.email}</td>
+  <td id="fullName">${artistData.fullName}</td>
+  <td id="username">${artistData.username}</td>
+  <td id="password">${artistData.password}</td>
+  <td id="phoneNumber">${artistData.phoneNumber}</td>
+  <td id="address">${artistData.address}</td>
+  <td id="rate">${artistData.rate}</td>
+  <td><button id="update-artist" onClick="handleUpdate()">Update</button></td>
+</tr>
+`
 }
+
