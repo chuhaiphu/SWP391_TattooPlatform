@@ -33,6 +33,11 @@ public class TattooLoversService {
         return tattooLovers;
     }
 
+    public ResponseEntity<?> changePassword(String password, String email) {
+        tattooLoversRepository.changePassword(password,email);
+        return ResponseUtils.get(tattooLoversRepository.findTattooLoversByTattooLoveremail(email),HttpStatus.OK);
+    }
+
     public TattooLovers deteleTattooLovers(String tattooLoveremail ) throws Exception{
         tattooLoversRepository.deleteTattooLoversByTattooLoveremail(tattooLoveremail);
         TattooLovers tattooLovers = tattooLoversRepository.findTattooLoversByTattooLoveremail(tattooLoveremail);

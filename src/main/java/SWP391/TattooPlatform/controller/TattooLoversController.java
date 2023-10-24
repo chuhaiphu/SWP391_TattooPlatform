@@ -58,6 +58,11 @@ public class TattooLoversController {
         return ResponseUtils.get(tattooLoversService.updateTattooLovers(tattooLovers),HttpStatus.OK);
     }
 
+    @PutMapping("/changePassword/{tattooLoverEmail}")
+    public ResponseEntity<?> changePassword(@PathVariable String tattooLoverEmail, @RequestParam String password) {
+        return tattooLoversService.changePassword(password,tattooLoverEmail);
+    }
+
     @GetMapping("/{tattooLoverEmail}")
     public ResponseEntity<?> getTattooLoverByEmail(@PathVariable String tattooLoverEmail) {
         return tattooLoversService.getLoverByEmail(tattooLoverEmail);

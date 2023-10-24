@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('email').innerHTML = `${tattooLover.content.tattooLoveremail}`
         document.getElementById('phone').value = tattooLover.content.phonenumber;
         document.getElementById('address').value = tattooLover.content.address;
+        document.getElementById('password').value = tattooLover.content.password;
+        document.getElementById('confirm_password').value = tattooLover.content.password;
     }
 
 
@@ -79,27 +81,30 @@ document.getElementById("cancelPassword_btn").addEventListener("click", function
 
 document.getElementById("confirm_updatePassword_btn").addEventListener("click", function () {
     const tattooLover = JSON.parse(sessionStorage.getItem('tattooLover'));
-    const updatedData = {
-        tattooLoveremail: tattooLover.content.tattooLoveremail,
-        username: document.getElementById('username').value,
-        fullname: document.getElementById('full_name').value,
-        phonenumber: document.getElementById('phone').value,
-        address: document.getElementById('address').value,
-        statusID: tattooLover.content.statusID
-    };
+    let tattooLoverEmail = tattooLover.content.tattooLoveremail;
+    let password = document.getElementById('password').value;
+    let confirm_password = document.getElementById('confirm_password').value;
+
     let sendRequest = true;
-    if (updatedData.username == "" || updatedData.fullname == "" || updatedData.phonenumber == "" || updatedData.address == ""){
+    if (password == "" || confirm_password == ""){
         alert('Update failed. Please fill all fields.');
+        sendRequest = false;
+    }
+
+    if (password != confirm_password){
+        alert('Update failed. Confirm Password must be the same as Password.');
         sendRequest = false;
     }
 
     event.preventDefault();
     if (sendRequest) {
-        axios({
-            method: 'put',
-            url: `/tattoolovers/update`,
-            data: updatedData,
-        })
+            axios({
+                method: 'put',
+                url: `/tattoolovers/changePassword/${tattooLoverEmail}`,
+                params: {
+                    password: password,
+                },
+            })
             .then(function (response) {
                 // Handle the response if needed
                 if (response.data.hasErrors) {

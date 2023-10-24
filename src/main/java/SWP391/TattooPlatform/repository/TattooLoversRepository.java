@@ -11,6 +11,7 @@ import java.util.List;
 public interface TattooLoversRepository extends JpaRepository<TattooLovers,Long>{
     List<TattooLovers> findAllBy();
     TattooLovers findTattooLoversByTattooLoveremail(String tattooLoveremail);
+
     //UPDATE
     @Modifying
     @Transactional
@@ -31,6 +32,11 @@ public interface TattooLoversRepository extends JpaRepository<TattooLovers,Long>
     @Query("update  TattooLovers  t set t.statusID = :statusID where t.tattooLoveremail = :tattooLoveremail" )
     void updateStatusForLover(@Param("tattooLoveremail") String tattoo_Lover_email,
                               @Param("statusID") String statusID);
+
+    @Modifying
+    @Transactional
+    @Query("update TattooLovers  t set t.password = :password where t.tattooLoveremail = :tattooLoverEmail")
+    void changePassword(@Param("password") String password,@Param("tattooLoverEmail") String tattooLoverEmail);
 
     //DELETE
     @Modifying
