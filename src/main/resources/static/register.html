@@ -116,69 +116,63 @@
                                     <div class="row">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label>First Name<sup aria-hidden="true">*</sup>:</label>
-                                                <input type="text" class="form-control" placeholder="John" required="">
+                                                <label>Name<sup aria-hidden="true">*</sup>:</label>
+                                                <input id="fullNameLover" type="text" class="form-control" placeholder="Your name" required="">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label>Last Name<sup aria-hidden="true">*</sup>:</label>
-                                                <input type="text" class="form-control" placeholder="Doe" required="">
+                                                <label>Address<sup aria-hidden="true">*</sup>:</label>
+                                                <input id="addressLover" type="text" class="form-control" placeholder="Your address" required="">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>E-mail<sup aria-hidden="true">*</sup>:</label>
-                                                <input type="email" class="form-control" placeholder="shop@company.com" required="">
+                                                <input id="emailLover" type="email" class="form-control" placeholder="shop@company.com" required="">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>Telephone<sup aria-hidden="true">*</sup>:</label>
-                                                <input type="number" class="form-control" placeholder="1234567890" required="">
+                                                <input id="phoneNumberLover" type="number" class="form-control" placeholder="1234567890" required="">
                                             </div>
                                         </div> 
                                     </div> 
                                 </div>
                                 <div class="form-container">
-                                    <h4>Your <b>Password</b></h4>
+                                    <h4>Your <b>Account</b></h4>
+                                    <div class="row">
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label>Username<sup aria-hidden="true">*</sup>:</label>
+                                                <input id="username" type="text" class="form-control" placeholder=Username required="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12"  style="display: none">
+                                            <div class="form-group">
+                                                <label>Status<sup aria-hidden="true">*</sup>:</label>
+                                                <input id="status" type="text" class="form-control" value="1" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="row">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>Password<sup aria-hidden="true">*</sup>:</label>
-                                                <input type="password" class="form-control" placeholder="**********" required="">
+                                                <input id="password" type="password" class="form-control" placeholder="**********" required="">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>Confirm password<sup aria-hidden="true">*</sup>:</label>
-                                                <input type="password" class="form-control" placeholder="***********" required="">
+                                                <input id="comfirmPassword" type="password" class="form-control" placeholder="***********" required="">
                                             </div>
                                         </div> 
                                     </div> 
                                 </div>
-                                <div class="form-container"> 
-<!--                                    <div class="row">-->
-<!--                                        <div class="col-sm-6 col-12">-->
-<!--                                            <h4><b>Subscribe</b> our newsletter?</h4>-->
-<!--                                        </div> -->
-<!--                                        <div class="col-sm-6 col-12">-->
-<!--                                            <div class="row">-->
-<!--                                                <div class="col-6">-->
-<!--                                                    <div class="radio-group">-->
-<!--                                                        <input type="radio" id="yes" name="subscribe" checked/>-->
-<!--                                                        <label for="yes">Yes</label>-->
-<!--                                                    </div> -->
-<!--                                                </div>-->
-<!--                                                <div class="col-6">-->
-<!--                                                    <div class="radio-group">-->
-<!--                                                        <input type="radio" id="no" name="subscribe" />-->
-<!--                                                        <label for="no">No</label>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
+                                <div class="form-container">
                                     <div class="row align-items-center form-footer">
                                         <div class="col-lg-8   col-12"> 
                                             <div class="checkbox-custom">
@@ -189,8 +183,8 @@
                                             </div> 
                                         </div>
                                         <div class="col-lg-4 col-12"> 
-                                            <button class="btn submit-btn" type="submit">
-                                                Send message 
+                                            <button class="btn submit-btn" type="submit" id="register-lover">
+                                                Register
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="14" viewBox="0 0 35 14" fill="none">
                                                     <path d="M25.0749 14L35 7L25.0805 0L29.12 6.06667H0V7.93333H29.12L25.0749 14Z"></path>
                                                 </svg>
@@ -537,5 +531,6 @@
 <script src="assets/js/slick.min.js" defer="defer"></script>
 <script src='assets/js/custom.js' defer="defer"></script>
 <!--scripts end here-->
+<script src ="assets/js/register.js"></script>
 </body>
 </html>
