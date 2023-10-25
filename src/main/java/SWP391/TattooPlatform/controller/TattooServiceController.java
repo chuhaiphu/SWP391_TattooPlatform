@@ -17,12 +17,27 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/service")
+
 public class TattooServiceController {
     final TattooServiceService tattooService;
     @Autowired
     public TattooServiceController(TattooServiceService tattooServiceService) {
         this.tattooService = tattooServiceService;
     }
+//    @GetMapping()
+//    public Object getAllService () {
+//        return  ResponseUtils.get(tattooService.tattooServiceList(), HttpStatus.OK);
+//    }
+
+    @GetMapping("/list")
+    public List<Service> getAllService () {
+        return tattooService.tattooServiceList();
+    }
+    @GetMapping("/list-name-distinct")
+    public List<Service> getServiceNameDinstinctList () {
+        return tattooService.findServiceByNameDistinctList();
+    }
+
     @GetMapping("")
     public String loadServiceHtml() throws IOException {
         // Load the HTML file as a string
@@ -31,22 +46,6 @@ public class TattooServiceController {
 
         return htmlContent;
     }
-//    @GetMapping()
-//    public Object getAllService () {
-//        return  ResponseUtils.get(tattooService.tattooServiceList(), HttpStatus.OK);
-//    }
-
-
-//    @GetMapping("/{studioID}")
-//    public ResponseEntity<?> findAllServiceByStudioID(@RequestParam String studioID) {
-//        return
-//    }
-
-    @GetMapping("/list")
-    public List<Service> getAllServiceList () {
-        return  tattooService.tattooServiceList();
-    }
-
     @PostMapping()
     public ResponseEntity<?> saveService(@RequestBody Service ts) {
         return ResponseUtils.get(tattooService.addService(ts),HttpStatus.CREATED);

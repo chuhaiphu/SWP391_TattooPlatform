@@ -6,6 +6,8 @@ import SWP391.TattooPlatform.repository.TattooServiceRepository;
 import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.Collections;
+=========
+>>>>>>>>> Temporary merge branch 2
 import java.util.List;
 
 @org.springframework.stereotype.Service

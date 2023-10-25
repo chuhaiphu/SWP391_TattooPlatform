@@ -13,7 +13,6 @@ public class FeedbackService {
     final ArtistRepository artistRepository;
     final FeedbackRepository feedbackRepository;
 
-
     public FeedbackService(ArtistRepository artistRepository, FeedbackRepository feedbackRepository) {
         this.artistRepository = artistRepository;
         this.feedbackRepository = feedbackRepository;

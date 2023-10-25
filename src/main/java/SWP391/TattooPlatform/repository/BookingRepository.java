@@ -1,7 +1,6 @@
 package SWP391.TattooPlatform.repository;
 
 import SWP391.TattooPlatform.model.Booking;
-import org.hibernate.sql.Update;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -22,10 +21,8 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
 
     Booking findBookingByBookingID(@Param("bookingID") String bookingID);
 
+
     List<Booking> findBookingByTattooLoverEmail(@Param("tattooLoverEmail") String tattooLoverEmail);
-
-
-
     Booking findBookingByBookingIDAndTattooLoverEmail (@Param("bookingID") String bookingID,
                                                                      @Param("tattooLoverEmail") String tattooLoverEmail);
 
@@ -48,21 +45,11 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
                        @Param("totalPrice") float totalPrice
                    );
 
-    @Modifying
-    @Transactional
-    @Query("update Booking b set b.totalPrice = :totalPrice where b.bookingID = :bookingID")
-    void updatePrice(float totalPrice, String bookingID);
-
 
     @Modifying
     @Transactional
     @Query("delete from Booking b where b.bookingID = :bookingID")
     void delete(@Param("bookingID") String bookingID);
-
-    @Modifying
-    @Transactional
-    @Query("delete  from  Booking b where b.totalPrice = 0")
-    void deleteWhenPrice0();
 }
 
 

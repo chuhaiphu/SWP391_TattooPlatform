@@ -12,26 +12,31 @@ public interface TattooLoversRepository extends JpaRepository<TattooLovers,Long>
     List<TattooLovers> findAllBy();
     TattooLovers findTattooLoversByTattooLoveremail(String tattooLoveremail);
 
-
-
     //UPDATE
     @Modifying
     @Transactional
-    @Query("update TattooLovers  t set t.password = :password where t.tattooLoveremail = :tattooLoverEmail")
-    void changePassword(@Param("password") String password,@Param("tattooLoverEmail") String tattooLoverEmail);
-    @Modifying
-    @Transactional
-    @Query(value = "UPDATE TattooLovers TL SET TL.password = :password, TL.phonenumber = :phonenumber, TL.address = :address WHERE TL.tattooLoveremail = :tattooLoveremail ")
+    @Query(value = "UPDATE TattooLovers TL SET TL.username = :username, TL.fullname = :fullname, TL.password = :password, TL.phonenumber = :phonenumber, TL.address = :address WHERE TL.tattooLoveremail = :tattooLoveremail ")
     void updateTattooLovers(@Param("tattooLoveremail") String tattoo_Lover_email,
+                            @Param("username") String username,
+                            @Param("fullname") String fullname,
                             @Param("password") String password,
                             @Param("phonenumber") String phonenumber,
                             @Param("address") String address);
+    @Modifying
+    @Transactional
+    @Query("UPDATE TattooLovers TL SET TL.username = :#{#tattooLovers.username}, TL.fullname = :#{#tattooLovers.fullname}, TL.phonenumber = :#{#tattooLovers.phonenumber}, TL.address = :#{#tattooLovers.address} WHERE TL.tattooLoveremail = :#{#tattooLovers.tattooLoveremail}")
+    void updateTattooLovers(@Param("tattooLovers") TattooLovers tattooLovers);
 
     @Modifying
     @Transactional
     @Query("update  TattooLovers  t set t.statusID = :statusID where t.tattooLoveremail = :tattooLoveremail" )
     void updateStatusForLover(@Param("tattooLoveremail") String tattoo_Lover_email,
                               @Param("statusID") String statusID);
+
+    @Modifying
+    @Transactional
+    @Query("update TattooLovers  t set t.password = :password where t.tattooLoveremail = :tattooLoverEmail")
+    void changePassword(@Param("password") String password,@Param("tattooLoverEmail") String tattooLoverEmail);
 
     //DELETE
     @Modifying

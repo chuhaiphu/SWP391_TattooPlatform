@@ -6,9 +6,12 @@ import SWP391.TattooPlatform.model.BookingDetail;
 import SWP391.TattooPlatform.model.BookingRequest;
 import SWP391.TattooPlatform.model.Slot;
 import SWP391.TattooPlatform.service.BookingService;
-import SWP391.TattooPlatform.service.SlotService;
+<<<<<<<<< Temporary merge branch 1
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+=========
+import SWP391.TattooPlatform.service.SlotService;
+>>>>>>>>> Temporary merge branch 2
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -60,8 +62,14 @@ public class BookingController {
 
         return htmlContent;
     }
-    @GetMapping("get/{tattooLoverEmail}")
-    public ResponseEntity<?> getBookingByTattooLoverEmail(@PathVariable String tattooLoverEmail) {
+
+//    @GetMapping("list/{tattooLoverEmail}")
+//    public ResponseEntity<?> getBookingByTattooLoverEmail(@PathVariable String tattooLoverEmail) {
+//        return bookingService.getBookingByTattooLoverEmail(tattooLoverEmail);
+//    }
+
+    @GetMapping("list/{tattooLoverEmail}")
+    public List<Booking> getBookingByTattooLoverEmail(@PathVariable String tattooLoverEmail) {
         return bookingService.getBookingByTattooLoverEmail(tattooLoverEmail);
     }
 

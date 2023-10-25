@@ -22,7 +22,6 @@ public class Studio_Tattoo_ManagerService {
     }
 
     public Studio_Tattoo_Manager addStudioTattooManager(Studio_Tattoo_Manager manager) {
-        manager.setStatusID("1");
         return studioTattooManagerRepository.save(manager);
     }
 

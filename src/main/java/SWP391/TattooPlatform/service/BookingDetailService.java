@@ -21,16 +21,26 @@ public class BookingDetailService {
         this.bookingRepository = bookingRepository;
     }
 
+//    public ResponseEntity<?> getBookingDetailByBookingID(String id) {
+//        List<BookingDetail> bookingDetails = new ArrayList<>();
+//        for(BookingDetail b : bookingDetailRepository.findAll()) {
+//            if(b.getBookingID().equals(id)) {
+//                bookingDetails.add(b);
+//            }
+//        }
+//        return ResponseUtils.get(bookingDetails,HttpStatus.OK);
+//    }
 
-    public ResponseEntity<?> getBookingDetailByBookingID(String id) {
+    public List<BookingDetail> getBookingDetailByBookingID(String id) {
         List<BookingDetail> bookingDetails = new ArrayList<>();
         for(BookingDetail b : bookingDetailRepository.findAll()) {
             if(b.getBookingID().equals(id)) {
                 bookingDetails.add(b);
             }
         }
-        return ResponseUtils.get(bookingDetails,HttpStatus.OK);
+        return bookingDetails;
     }
+
 
     public ResponseEntity<?> getAllDetail() {
         List<BookingDetail> list = bookingDetailRepository.findAll();
