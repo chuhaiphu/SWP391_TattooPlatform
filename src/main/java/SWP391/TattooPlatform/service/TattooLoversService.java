@@ -37,9 +37,12 @@ public class TattooLoversService {
     }
 
 
-    public TattooLovers addTattooLovers(TattooLovers tattooLovers){
-        tattooLovers.setStatusID("1");
-        return tattooLoversRepository.save(tattooLovers);
+    public ResponseEntity<?> addTattooLovers(TattooLovers tattooLovers){
+        if(tattooLoversRepository.findTattooLoversByTattooLoveremail(tattooLovers.getTattooLoveremail()) == null) {
+            tattooLovers.setStatusID("1");
+            return ResponseUtils.get(tattooLoversRepository.save(tattooLovers),HttpStatus.CREATED);
+        }
+        return ResponseUtils.error("not allow duplicate email",HttpStatus.BAD_REQUEST);
     }
     public TattooLovers updateTattooLovers  (String tattooLoveremail, String password, String phonenumber, String address )throws Exception{
         tattooLoversRepository.updateTattooLovers(tattooLoveremail, password, phonenumber, address);

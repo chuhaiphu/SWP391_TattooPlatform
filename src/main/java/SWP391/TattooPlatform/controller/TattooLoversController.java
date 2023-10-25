@@ -34,7 +34,7 @@ public class TattooLoversController {
 
     @PostMapping("/add")
     public ResponseEntity<?> saveRole(@RequestBody TattooLovers tattooLovers) {
-        return ResponseUtils.get(tattooLoversService.addTattooLovers(tattooLovers), HttpStatus.CREATED);
+        return tattooLoversService.addTattooLovers(tattooLovers);
     }
     @PutMapping("/update/{tattooloversemail}")
     public ResponseEntity<?>  updateTattooLovers(@RequestParam String password,
