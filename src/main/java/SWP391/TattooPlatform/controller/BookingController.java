@@ -26,9 +26,20 @@ public class BookingController {
     public ResponseEntity<?> getBookingByID(@PathVariable(name = "bookingID") String bookingID) {
         return ResponseUtils.get(bookingService.getBookingByID(bookingID), HttpStatus.OK);
     }
+
     @GetMapping()
     public ResponseEntity<?> getBooking() {
         return ResponseUtils.get(bookingService.findall(), HttpStatus.OK);
+    }
+
+//    @GetMapping("list/{tattooLoverEmail}")
+//    public ResponseEntity<?> getBookingByTattooLoverEmail(@PathVariable String tattooLoverEmail) {
+//        return bookingService.getBookingByTattooLoverEmail(tattooLoverEmail);
+//    }
+
+    @GetMapping("list/{tattooLoverEmail}")
+    public List<Booking> getBookingByTattooLoverEmail(@PathVariable String tattooLoverEmail) {
+        return bookingService.getBookingByTattooLoverEmail(tattooLoverEmail);
     }
 
     @PostMapping()
@@ -61,6 +72,5 @@ public class BookingController {
     public  ResponseEntity<?> deleteBooking(@PathVariable (name = "bookingID") String bookingID) throws Exception{
         return ResponseUtils.get(bookingService.deleteBooking(bookingID),HttpStatus.OK);
     }
-
 
 }

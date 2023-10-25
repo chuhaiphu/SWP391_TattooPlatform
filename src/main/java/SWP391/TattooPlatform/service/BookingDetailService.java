@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,7 +21,25 @@ public class BookingDetailService {
         this.bookingRepository = bookingRepository;
     }
 
+//    public ResponseEntity<?> getBookingDetailByBookingID(String id) {
+//        List<BookingDetail> bookingDetails = new ArrayList<>();
+//        for(BookingDetail b : bookingDetailRepository.findAll()) {
+//            if(b.getBookingID().equals(id)) {
+//                bookingDetails.add(b);
+//            }
+//        }
+//        return ResponseUtils.get(bookingDetails,HttpStatus.OK);
+//    }
 
+    public List<BookingDetail> getBookingDetailByBookingID(String id) {
+        List<BookingDetail> bookingDetails = new ArrayList<>();
+        for(BookingDetail b : bookingDetailRepository.findAll()) {
+            if(b.getBookingID().equals(id)) {
+                bookingDetails.add(b);
+            }
+        }
+        return bookingDetails;
+    }
 
 
     public ResponseEntity<?> getAllDetail() {

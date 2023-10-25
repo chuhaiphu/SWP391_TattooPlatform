@@ -66,15 +66,17 @@
                     url: "/tattoolovers/" + tattooLoverEmail
                 });
 
-                const tattooLover = userData;
-                sessionStorage.setItem('tattooLover', JSON.stringify(tattooLover));
+
 
                 if (response === "lovers") {
-                    window.location.href = "/service";
+                    const tattooLover = userData;
+                    sessionStorage.setItem('tattooLover', JSON.stringify(tattooLover));
+                    window.location.href = "/index.html";
                 } else if (response === "AdminLogin") {
                     window.location.href = "/admin-page.html";
                 } else {
-                    // Handle other responses as needed
+                    // Handle the error
+                    alert(JSON.stringify(response));
                 }
             } catch (error) {
                 console.error('Error:', error);
@@ -82,14 +84,3 @@
         });
     });
 
-    document.addEventListener("DOMContentLoaded", function() {
-        const loginStatus = document.getElementById("loginStatus");
-
-        // Check if a user is logged in
-        const tattooLover = JSON.parse(sessionStorage.getItem('tattooLover'));
-        if (tattooLover && tattooLover.content.username) {
-            // User is logged in, update the content to show the user's name
-            loginStatus.innerHTML = `Welcome, ${tattooLover.content.username}`
-            loginStatus.href = "/tattoolovers";
-        }
-    });
