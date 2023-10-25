@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $("#register-lover").click(function () {
-        var artistData = {
+        var loverData = {
             tattooLoveremail: $("#emailLover").val(),
             fullname: $("#fullNameLover").val(),
             phonenumber: $("#phoneNumberLover").val(),
@@ -17,15 +17,15 @@ $(document).ready(function () {
             alert("Password not match");
             return;
         }
+        event.preventDefault();
         $.ajax({
             type: "POST",
             url: "/tattoolovers/add",
             contentType: "application/json; charset-utf-8",
-            data: JSON.stringify(artistData),
-            success: function (response) {
-
+            data: JSON.stringify(loverData),
+            success: function  (data) {
                 alert("Register success!");
-
+                window.location.href = "login.html";
             },
             error: function (xhr, status, error) {
                 alert("Error: " + error);
