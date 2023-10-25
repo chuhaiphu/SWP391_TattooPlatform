@@ -9,11 +9,28 @@
                 </div>
                 <div class="menu-items-col">
                     <ul class="main-nav">
+                        <li class="menu-lnk">
+                            <a href="#" id="serviceLink">
+                                Service
+                            </a>
+                            <script>
+                                document.getElementById('serviceLink').addEventListener('click', function(event) {
+                                    event.preventDefault(); // Prevent the default link behavior
+                                    window.location.href = '/service';
+                                });
+                            </script>
+                        </li>
 
                         <li class="menu-lnk">
-                            <a href="studio-list.html">
+                            <a href="#" id="studioLink">
                                 Studio
                             </a>
+                            <script>
+                                document.getElementById('studioLink').addEventListener('click', function(event) {
+                                    event.preventDefault(); // Prevent the default link behavior
+                                    window.location.href = '/studio';
+                                });
+                            </script>
                         </li>
 
 
@@ -40,7 +57,7 @@
                     <ul class="menu-right d-flex">
 
                         <li class="header-appointment" >
-                            <a href="appointment-page.html">
+                            <a href="/service">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"
                                      fill="none">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -58,7 +75,21 @@
                         </li>
                     </ul>
                     <div class="login">
-                        <a href="">Login</a></div>
+                        <a id="loginStatus" href="login">Login</a>
+                    </div>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const loginStatus = document.getElementById("loginStatus");
+
+                            // Check if a user is logged in
+                            const tattooLover = JSON.parse(sessionStorage.getItem('tattooLover'));
+                            if (tattooLover && tattooLover.content.username) {
+                                // User is logged in, update the content to show the user's name
+                                loginStatus.innerHTML = `Welcome, ${tattooLover.content.username}`
+                                loginStatus.href = "/tattoolovers";
+                            }
+                        });
+                    </script>
                     <div class="mobile-menu mobile-only">
                         <button class="mobile-menu-button">
                             <div class="one"></div>

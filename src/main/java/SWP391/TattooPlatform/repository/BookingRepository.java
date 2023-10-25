@@ -22,7 +22,7 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     Booking findBookingByBookingID(@Param("bookingID") String bookingID);
 
 
-
+    List<Booking> findBookingByTattooLoverEmail(@Param("tattooLoverEmail") String tattooLoverEmail);
     Booking findBookingByBookingIDAndTattooLoverEmail (@Param("bookingID") String bookingID,
                                                                      @Param("tattooLoverEmail") String tattooLoverEmail);
 

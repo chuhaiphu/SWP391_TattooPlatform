@@ -33,7 +33,8 @@ public class Booking {
     @Email(message = "invalid Email format")
     private String tattooLoverEmail ;
 
-
+    @Column(name = "customer_email")
+    private String customerEmail;
 
     @Column(name = "customer_name")
     private String customerName;
@@ -59,5 +60,8 @@ public class Booking {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private TattooLovers tattooLovers;
+
+
+
 
 }

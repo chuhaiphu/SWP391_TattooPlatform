@@ -47,7 +47,18 @@ public class BookingService {
         return bookingRepository.findAll();
     }
 
+//    public ResponseEntity<?> getBookingByTattooLoverEmail(String email) {
+//        List<Booking> bookingList = bookingRepository.findBookingByTattooLoverEmail(email);
+//        if(bookingList.isEmpty()) {
+//            return ResponseUtils.error(new RuntimeException(),HttpStatus.BAD_REQUEST);
+//        }
+//        return ResponseUtils.get(bookingList,HttpStatus.OK);
+//    }
 
+    public List<Booking> getBookingByTattooLoverEmail(String email) {
+        List<Booking> bookingList = bookingRepository.findBookingByTattooLoverEmail(email);
+            return bookingList;
+    }
 
     public Booking findBookingByBookingIDAndArtistEmailAndTattooLoverEmail ( String bookingID,
                                                                            String artistEmail,
