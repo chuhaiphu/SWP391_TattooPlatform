@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Get references to the input and output elements
     const inputDate = document.querySelector('.ser-date');
     const outputDate = document.getElementById('output_date');
-    const inputSlot = document.querySelector('.ser-time');
+    const inputSlot = document.getElementById('input_slot');
     const outputSlot = document.getElementById('output_time');
     const inputName = document.getElementById('input_full_name');
     const outputName = document.getElementById('output_full_name');
@@ -12,47 +12,54 @@ document.addEventListener('DOMContentLoaded', function () {
     const outputPhone = document.getElementById('output_phone');
     const inputAddress = document.getElementById('input_address');
     const outputAddress = document.getElementById('output_address');
+    const inputNote = document.getElementById('input_note');
+    const outputNote = document.getElementById('output_note');
     const outputServiceName = document.getElementById('serviceName');
     const outputStudioName = document.getElementById('studioName');
+    var selectedStudioID = sessionStorage.getItem('selectedStudioID');
+    var selectedServiceID = sessionStorage.getItem('selectedServiceID');
     var selectedServiceName = sessionStorage.getItem('selectedServiceName');
     var selectedStudioName = sessionStorage.getItem('selectedStudioName');
+    var tattooLover = sessionStorage.getItem('tattooLover');
     //Get slot by date of studio
     inputDate.addEventListener('change', function () {
         var selectedDate = $(this).val();
-        fetchSlots(selectedDate); // Call the function to fetch slots for the selected date
+        fetchSlots(selectedDate, selectedStudioID); // Call the function to fetch slots for the selected date
     });
-    function fetchSlots(selectedDate) {
+    function fetchSlots(selectedDate, selectedStudioID) {
         //Perform AJAX request to fetch slots based on the selected date
         //Example:
         $.ajax({
-            url: "/slot/allSlot/" + selectedDate,
+            url: "/slot/" + selectedStudioID + "/" + selectedDate,
             type: "GET",
             data: 'json',
             success: function(data) {
                 // Update the time slots in the UI
+                console.log(data)
                 updateSlotsUI(data);
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log("Error: " + errorThrown);
             }
         });
-        updateSlotsUI(data);
     }
-
     function updateSlotsUI(slots) {
-        timeSlotsSelect.innerHTML = ''; // Clear the existing options
-
         // Add the retrieved slots to the combobox
         slots.forEach(function (slot) {
+            console.log(slot.startTime);
             var option = document.createElement('option');
-            option.text = slot;
-            timeSlotsSelect.add(option);
+            option.value = slot.startTime;
+            option.text = slot.startTime;
+            option.dataset.slotID = slot.slotID;
+            inputSlot.append(option);
+            
         });
     }
+
     // Get reference to the "Next" button
     const nextButton1 = document.getElementById('next_date_hour');
     const nextButton2 = document.getElementById('next_info');
-
+    const submitBtn = document.getElementById('submit-btn');
     // Add a click event listener to the "Next" button
     nextButton1.addEventListener('click', function () {
         outputDate.value = inputDate.value;
@@ -64,8 +71,67 @@ document.addEventListener('DOMContentLoaded', function () {
         outputEmail.value = inputEmail.value;
         outputPhone.value = inputPhone.value;
         outputAddress.value = inputAddress.value;
+        outputNote.value = inputNote.value;
         outputServiceName.value = selectedServiceName;
         outputStudioName.value = selectedStudioName;
     });
+    submitBtn.addEventListener('click', function() {
+        var date = outputDate.value;
+        var slot = outputSlot.value;
+        var name = outputName.value;
+        var email = outputEmail.value;
+        var phone = outputPhone.value;
+        var address = outputAddress.value;
+        var description = outputNote.value;
+        var serviceName = outputServiceName.value;
+        var studioName = outputStudioName.value;
+        var loverEmail = tattooLoverEmail.content.email;
+        var selectedSlotOption = inputSlot.options[inputSlot.selectedIndex];
+        var slotID = selectedSlotOption.dataset.slotID;
+        // Prepare data to be sent
+        var bookingData = {
+            booking: {
+                // Properties of your Booking object
+                // For example:
+                tattooLoverEmail: loverEmail,
+                customerEmail: email,
+                customerName: name,
+                customerPhoneNumber: phone,
+                address: address
+            },
+            bookingDetails: [
+                // List of your BookingDetail objects
+                // For example:
+                {
+                    description: description,
+                    serviceID: serviceID, //service id này thì khó lấy nếu như mình đặt từ service list 
+                    //(do lần trc C nhờ L làm lấy service list nhưng không bị trùng name => cho nên nó sẽ không hiện những serviceID khác trùng tên)
+                    //Tương tự v thì không lấy được cái price luôn, cho nên C commit lên trc rồi tầm 10h tối C về tìm cách fix
+                    artistEmail: artistEmail,
+                    price: price,
+                    slotID: slotID,
+                }
+                // Add more BookingDetail objects as needed
+            ]
+        };
 
+        // Send data using AJAX
+        $.ajax({
+            type: "POST",
+            url: "/add",
+            data: JSON.stringify(bookingData),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                // Handle success
+                console.log("Booking created successfully", response);
+                // Redirect to the order summary page
+                window.location.href = 'order-summery.html';
+            },
+            error: function (error) {
+                // Handle error
+                console.error("Error creating booking", error);
+            }
+        });
+    });
 });

@@ -59,9 +59,9 @@ function handleBookingBtn(){
     // Add event listeners to each button
     $(document).on('click', '#booking-btn', function () {
         var studioName = $(this).closest('.product-card-content').find('h4').text().trim();
-        
+        var studioID = $(this).closest('.product-card-content').find('.studio-id').text().trim();
         sessionStorage.setItem('selectedStudioName', studioName); // Save studioID to localStorage
-        
+        sessionStorage.setItem('selectedStudioID', studioID);
         window.location.href = 'appointment-page.html';
     });
 }

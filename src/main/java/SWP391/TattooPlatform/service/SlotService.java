@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -35,7 +36,12 @@ public class SlotService {
     public ResponseEntity<?> addSlot(Slot slot) {
             return ResponseUtils.get(slotRepository.save(slot),HttpStatus. CREATED);
     }
-
+    public List<Slot> getListSlotByStudioIDAndDate(String id, String date) {
+        if(slotRepository.findSlotsByStudioIDAndDate(id,date).isEmpty()) {
+            return Collections.emptyList();
+        }
+        return slotRepository.findSlotsByStudioIDAndDate(id,date);
+    }
 
 //    public void addNewSlot(String date, String startTime, String studioID) {
 //        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

@@ -184,10 +184,10 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>Time</label>
-
-                                                <select id="input_slot" style="color: white" class="ser-time"></select>
-
-                                                <!-- <input id="input_time" type="time" style="color: white"  class=" ser-time" placeholder=""> -->
+                                                <select id="input_slot" style="color: white;" class="select-slot">
+                                                    <option >Choose a slot</option>
+                                                    
+                                                </select>                       
                                             </div>
                                         </div>
 <!--                                        <div class="col-lg-6 col-12">-->
@@ -308,7 +308,7 @@
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label>Email address:</label>
+                                                <label>Email:</label>
                                                 <input id="input_email" name="input_email" type="email" class="form-control" placeholder="Input your Email">
                                             </div>
                                         </div>
@@ -320,8 +320,14 @@
                                         </div>
                                         <div class="col-md-12 col-12">
                                             <div class="form-group">
-                                                <label>Additional informations:</label>
-                                                <textarea id="input_address" name="input_address" type="text" class="form-control" placeholder="Street / Number, City, Country"></textarea>
+                                                <label>Address:</label>
+                                                <textarea id="input_address" name="input_address" type="text" class="form-control" placeholder="District, City, Country"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-12">
+                                            <div class="form-group">
+                                                <label>Note</label>
+                                                <textarea id="input_note" name="input_note" type="text" class="form-control" placeholder="Give some note to the studio/artist (optional)"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-12">
@@ -385,7 +391,7 @@
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label>Email address:</label>
+                                                <label>Email:</label>
                                                 <input id="output_email" name="output_email" readonly type="email" class="form-control" placeholder="johndoe@domain.com">
                                             </div>
                                         </div>
@@ -397,8 +403,14 @@
                                         </div>
                                         <div class="col-md-12 col-12">
                                             <div class="form-group">
-                                                <label>Additional informations:</label>
-                                                <textarea id="output_address" readonly type="text" class="form-control" placeholder="Street / Number, City, Country"></textarea>
+                                                <label>Address:</label>
+                                                <textarea id="output_address" readonly type="text" class="form-control" placeholder="District, City, Country"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-12">
+                                            <div class="form-group">
+                                                <label>Note:</label>
+                                                <textarea id="output_note" readonly type="text" class="form-control" placeholder="Give some note to the studio/artist (optional)"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
@@ -410,7 +422,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>Time</label>
-                                                <input id="output_time" readonly type="time" style="color: white"  class=" ser-time" placeholder="">
+                                                <input id="output_time" readonly style="color: white"  class=" ser-time" placeholder="">
                                             </div>
                                         </div>
 <!--                                        <div class="col-md-6 col-12">-->
@@ -449,17 +461,13 @@
                                                     Previous step
                                                 </button>
                                                 <!-- Test thử UI chuyển trang-->
-                                                <button type="button" name="SUBMIT" class="submit action-button btn">
+                                                <button id="submit-btn" type="button" name="SUBMIT" class="submit action-button btn">
                                                     Make an appointment
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="8" viewBox="0 0 16 8" fill="none">
                                                         <path d="M15.3536 4.35355C15.5488 4.15829 15.5488 3.84171 15.3536 3.64645L12.1716 0.464467C11.9763 0.269205 11.6597 0.269205 11.4645 0.464467C11.2692 0.659729 11.2692 0.976312 11.4645 1.17157L14.2929 4L11.4645 6.82843C11.2692 7.02369 11.2692 7.34027 11.4645 7.53553C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553L15.3536 4.35355ZM-4.37114e-08 4.5L15 4.5L15 3.5L4.37114e-08 3.5L-4.37114e-08 4.5Z" fill="#30383D"></path>
                                                     </svg>
                                                 </button>
-                                                <script>
-                                                    document.querySelector('.submit').addEventListener('click', function() {
-                                                        window.location.href = 'order-summery.html';
-                                                    });
-                                                </script>
+                                                
                                             </div>
                                         </div> 
                                     </div> 
