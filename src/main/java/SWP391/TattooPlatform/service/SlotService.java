@@ -25,6 +25,13 @@ public class SlotService {
             return ResponseUtils.get(slotRepository.findSlotsByStudioID(id),HttpStatus.FOUND);
         }
 
+        public ResponseEntity<?> getListSlotByStudioIDAndDate(String id, String date) {
+            if(slotRepository.findSlotsByStudioIDAndDate(id,date).isEmpty()) {
+                return ResponseUtils.error("Not found any slot in this Studio", HttpStatus.FOUND);
+            }
+            return ResponseUtils.get(slotRepository.findSlotsByStudioIDAndDate(id,date),HttpStatus.OK);
+        }
+
     public ResponseEntity<?> getSlotByID(String id) {
             if(slotRepository.findSlotBySlotID(id) == null) {
                 return  ResponseUtils.error("Can not found any slot", HttpStatus.FOUND);

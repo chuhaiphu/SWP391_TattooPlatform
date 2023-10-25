@@ -19,6 +19,11 @@ public class SlotController {
         return slotService.getListSlotByID(studioID);
     }
 
+    @GetMapping("/{studioID}/{date}")
+    public ResponseEntity<?> getListSlotByIDAndDate(@PathVariable String studioID, @PathVariable String date) {
+        return slotService.getListSlotByStudioIDAndDate(studioID,date);
+    }
+
     @GetMapping("/{slotID}")
     public ResponseEntity<?> getSlotByID(@PathVariable String slotID) {
         return slotService.getSlotByID(slotID);

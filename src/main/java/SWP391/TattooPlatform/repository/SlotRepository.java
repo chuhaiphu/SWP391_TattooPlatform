@@ -23,6 +23,8 @@ public interface SlotRepository extends JpaRepository<Slot, Long> {
 
     Slot findSlotBySlotID(String slotID);
 
+    List<Slot> findSlotsByStudioIDAndDate(String studioID, String date);
+
 
     @Modifying
     @Transactional
