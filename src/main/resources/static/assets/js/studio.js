@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let selectedServiceName = localStorage.getItem("selectedServiceName")
+    let selectedServiceName = sessionStorage.getItem("selectedServiceName")
     if(!selectedServiceName) {
         // Send an AJAX request
         $.ajax({
@@ -10,7 +10,7 @@ $(document).ready(function () {
                 for (var studio of data) {
                     renderStudio(studio);
                 }
-                localStorage.removeItem("selectedServiceName");
+                sessionStorage.removeItem("selectedServiceName");
                 handleViewStudioBtn();
             },
             error: function (xhr, status, error) {
@@ -48,10 +48,10 @@ function renderStudio(studio) {
 function handleViewStudioBtn(){
     // Add event listeners to each button
     $(document).on('click', '#view-studio-btn', function () {
-        var studioName = $(this).closest('.product-card-content').find('h4').text().trim();
+        //var studioName = $(this).closest('.product-card-content').find('h4').text().trim();
         var studioID = $(this).closest('.product-card-content').find('.studio-id').text().trim(); // Get studioID
-        localStorage.setItem('selectedStudioID', studioID); // Save studioID to localStorage
-        localStorage.setItem('selectedStudioName', studioName);
+        sessionStorage.setItem('selectedStudioID', studioID); // Save studioID to sessionStorage
+        //sessionStorage.setItem('selectedStudioName', studioName);
         window.location.href = 'view-studio.html';
     });
 }
@@ -60,7 +60,7 @@ function handleBookingBtn(){
     $(document).on('click', '#booking-btn', function () {
         var studioName = $(this).closest('.product-card-content').find('h4').text().trim();
         
-        localStorage.setItem('selectedStudioName', studioName); // Save studioID to localStorage
+        sessionStorage.setItem('selectedStudioName', studioName); // Save studioID to localStorage
         
         window.location.href = 'appointment-page.html';
     });

@@ -370,9 +370,6 @@
                                 </span>
                                 <h2 class="h1"><b>TEMPORY </b> TATOO</h2>
                             </div>
-                            <p>
-                               {{description}}
-                            </p>
 
                         </div>
                     </div>
@@ -393,9 +390,7 @@
                             </span>
                             <h2 class="h1"><b>CUSTOMIZED ART </b> TATOO</h2>
                         </div>
-                        <p>
-                            Cong dung
-                        </p>
+
                        
                     </div>
                 </div>
@@ -404,14 +399,15 @@
 
         <br> <br>
         <div class="container">
-            <div id="service-booking-card_template" class="service-row">
+            <div id="service-booking-card_template" style="display: none;" class="service-row">
                 <div class="section-title">
                     <span class="sub-title">Tattoo</span>
-                    <h2>{{serviceName}} </h2>
+                    <h2 class="service-card-name">{{serviceName}} </h2>
                     <p style="float: right; font-size: 18px">{{price}} <span>$</span></p>
+                    <a id="booking-btn" href="#" class="btn"> Book appointment now </a>
                 </div>
-                <a id="booking-btn" href="appointment-page.html" class="btn"> Book appointment now </a>
             </div>
+            <div id="service-booking-card" class="service-row"></div>
         </div>
 
 <!--        <div> -->

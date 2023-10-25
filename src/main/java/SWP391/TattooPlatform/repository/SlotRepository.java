@@ -24,6 +24,8 @@ public interface SlotRepository extends JpaRepository<Slot, Long> {
     Slot findSlotBySlotID(String slotID);
 
 
+    List<Slot> findAllByStudioIDAndAndDate(String id, String date);
+
     @Modifying
     @Transactional
     @Query("UPDATE  Slot s set " +

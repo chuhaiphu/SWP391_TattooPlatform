@@ -13,17 +13,17 @@ import java.util.List;
 
 @Service
 public class SlotService {
-        final SlotRepository slotRepository;
-        public SlotService(SlotRepository slotRepository) {
-            this.slotRepository = slotRepository;
-        }
+    final SlotRepository slotRepository;
+    public SlotService(SlotRepository slotRepository) {
+        this.slotRepository = slotRepository;
+    }
 
-        public ResponseEntity<?> getListSlotByID(String id) {
-            if(slotRepository.findSlotsByStudioID(id).isEmpty()) {
-                return ResponseUtils.error("Not found any slot in this Studio", HttpStatus.FOUND);
-            }
-            return ResponseUtils.get(slotRepository.findSlotsByStudioID(id),HttpStatus.FOUND);
+    public ResponseEntity<?> getListSlotByID(String id) {
+        if(slotRepository.findSlotsByStudioID(id).isEmpty()) {
+            return ResponseUtils.error("Not found any slot in this Studio", HttpStatus.FOUND);
         }
+        return ResponseUtils.get(slotRepository.findSlotsByStudioID(id),HttpStatus.FOUND);
+    }
 
     public ResponseEntity<?> getSlotByID(String id) {
             if(slotRepository.findSlotBySlotID(id) == null) {
@@ -35,6 +35,7 @@ public class SlotService {
     public ResponseEntity<?> addSlot(Slot slot) {
             return ResponseUtils.get(slotRepository.save(slot),HttpStatus. CREATED);
     }
+
 
 //    public void addNewSlot(String date, String startTime, String studioID) {
 //        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

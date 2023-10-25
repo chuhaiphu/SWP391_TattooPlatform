@@ -1,19 +1,20 @@
 //Get service list
 $(document).ready(function () {
     // Send an AJAX request
-    var selectStudioID = localStorage.getItem('selectedStudio')
+    var selectStudioID = sessionStorage.getItem('selectedStudioID')
     $.ajax({
         type: "GET",
-        url: "/studio/studioService/" + studioID, // Replace with the actual URL to your endpoint
+        url: "/studio/studioService/" + selectStudioID, // Replace with the actual URL to your endpoint
         dataType: "json",
         success: function (data) {
-            renderStudioPage(data)
-            // Add event listeners to each button
-            // $(document).on('click', '#selectServiceBtn', function () {
-            //     var studioName = $(this).closest('.product-card-content').find('h4').text().trim();
-            //     localStorage.setItem('selectedService', serviceName);
-            //     window.location.href = 'studio-list.html';
-            // });
+            console.log(data.content.studio.studioName)
+            console.log(data.content.service.price)
+            renderStudioPage(data);
+            var services = data.content.service;
+            services.forEach(function(service) {
+                renderServiceCard(service)
+            });
+            handleBookingBtn(data);
         },
         error: function (xhr, status, error) {
             console.error("Error fetching service: " + error);
@@ -21,13 +22,25 @@ $(document).ready(function () {
     });
 });
 
-
-function renderStudioPage(studio) {
-    var studio_template = $("#service-card_template").html();
-    studio_template = studio_template.replace("{{imgSrc}}", studio.bannerImg);
-    studio_template = studio_template.replace("{{serviceName}}", studio.serviceName);
-    var added_service = $("#service-card");
-    $(service_template).appendTo(added_service);
+function handleBookingBtn(data){
+    $(document).on('click', '#booking-btn', function () {
+        var serviceName = $(this).siblings('h2').text().trim();
+        sessionStorage.setItem('selectedServiceName', serviceName);
+        sessionStorage.setItem('selectedStudioName', data.content.studio.studioName); 
+        
+        window.location.href = 'appointment-page.html ';
+    });
+}
+function renderStudioPage(data) {
+    $('#studio-name').find('h2').text(data.content.studio.studioName);
+    $('#content').find('p').text(data.content.studio.content);
+}
+function renderServiceCard(service){
+    var service_card_template = $("#service-booking-card_template").html();
+    service_card_template = service_card_template.replace("{{serviceName}}", service.serviceName);
+    service_card_template = service_card_template.replace("{{price}}", service.price);
+    var added_service_card = $("#service-booking-card");
+    $(service_card_template).appendTo(added_service_card);
 }
 
 

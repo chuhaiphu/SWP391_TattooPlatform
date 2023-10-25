@@ -13,6 +13,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,9 +53,9 @@ public class BookingController {
         return bookingService.findall();
     }
     @GetMapping("")
-    public String loadServiceHtml() throws IOException {
+    public String loadBookingPageHtml() throws IOException {
         // Load the HTML file as a string
-        Resource resource = new ClassPathResource("static/booking.html");
+        Resource resource = new ClassPathResource("static/appointment-page.html");
         String htmlContent = new String(Files.readAllBytes(Paths.get(resource.getURI())));
 
         return htmlContent;
@@ -62,7 +65,7 @@ public class BookingController {
         return bookingService.getBookingByTattooLoverEmail(tattooLoverEmail);
     }
 
-    @PostMapping()
+    @PostMapping("/add")
     public ResponseEntity<?> addBooking(@RequestBody BookingRequest bookingRequest ) {
         Booking booking = bookingRequest.getBooking();
         bookingService.addBooking(booking);

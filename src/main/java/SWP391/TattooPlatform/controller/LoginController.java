@@ -1,6 +1,7 @@
 package SWP391.TattooPlatform.controller;
 
 import SWP391.TattooPlatform.model.Admin;
+import SWP391.TattooPlatform.model.TattooLovers;
 import SWP391.TattooPlatform.service.LoginService;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
@@ -38,6 +39,7 @@ public class LoginController {
     public ResponseEntity<String> login(@RequestParam String email, @RequestParam String password) throws IOException {
         try {
             Admin admin = adminService.getAdminFromJsonFile();
+
             if (admin.getAdminEmail().equals(email) && admin.getPassword().equals(password)) {
                 // Admin login successful
                 return ResponseEntity.ok("AdminLogin");
