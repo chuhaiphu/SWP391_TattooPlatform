@@ -11,14 +11,14 @@ class Artist {
     }
 }
 
-function handleUpdate() {
-    let email = document.getElementById('email').textContent
-    let fullname = document.getElementById('fullName').textContent
-    let username = document.getElementById('username').textContent
-    let password = document.getElementById('password').textContent
-    let phoneNumber = document.getElementById('phoneNumber').textContent
-    let address = document.getElementById('address').textContent
-    let rate = document.getElementById('rate').textContent
+function handleUpdate(artistId) {
+    let email = document.querySelector(`.email[data-artist-id="${artistId}"]`).textContent;
+    let fullname = document.querySelector(`.fullName[data-artist-id="${artistId}"]`).textContent;
+    let username = document.querySelector(`.username[data-artist-id="${artistId}"]`).textContent;
+    let password = document.querySelector(`.password[data-artist-id="${artistId}"]`).textContent;
+    let phoneNumber = document.querySelector(`.phoneNumber[data-artist-id="${artistId}"]`).textContent;
+    let address = document.querySelector(`.address[data-artist-id="${artistId}"]`).textContent;
+    let rate = document.querySelector(`.rate[data-artist-id="${artistId}"]`).textContent;
 
     let artist = new Artist(email, fullname, phoneNumber, address, rate, username, password );
 
@@ -26,6 +26,7 @@ function handleUpdate() {
     window.location.href = "/update-artist.html";
 
 }
+
 
 
 /*document.getElementById("update-artist").addEventListener("click", function () {
