@@ -28,9 +28,9 @@ public class Slot {
     @Column(name = "start_time")
     private String startTime;
 
-//
-//    @Column(name = "slot_status")
-//    private int slotStatus;
+
+    @Column(name = "slot_status")
+    private int slotStatus;
 
     @Column(name = "date")
     private String date;

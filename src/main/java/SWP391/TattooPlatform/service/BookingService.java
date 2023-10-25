@@ -48,6 +48,7 @@ public class BookingService {
             bookingDetail.setBookingID(id);
             Booking booking = bookingRepository.findBookingByBookingID(id);
             bookingDetail.setStatusID(status.getStatusID());
+            bookingDetail.getSlot().setSlotStatus(1);
 
             if(bookingDetail.getVoucherID()!=null) {
                 Voucher voucher = voucherRepository.findVoucherByVoucherID(bookingDetail.getVoucherID());

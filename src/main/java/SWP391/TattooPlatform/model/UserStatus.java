@@ -30,12 +30,6 @@ public class UserStatus {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "start_date")
-    private String startDate;
-
-    @Column(name = "end_date")
-    private String endDate;
-
     @OneToMany(mappedBy = "userStatus", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
