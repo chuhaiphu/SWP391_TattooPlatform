@@ -2,10 +2,7 @@ package SWP391.TattooPlatform.service;
 
 import SWP391.TattooPlatform.config.ResponseUtils;
 import SWP391.TattooPlatform.model.*;
-import SWP391.TattooPlatform.repository.BookingDetailRepository;
-import SWP391.TattooPlatform.repository.BookingRepository;
-import SWP391.TattooPlatform.repository.BookingStatusRepository;
-import SWP391.TattooPlatform.repository.VoucherRepository;
+import SWP391.TattooPlatform.repository.*;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,13 +21,16 @@ public class BookingService {
     final BookingStatusRepository bookingStatusRepository;
 
     final VoucherRepository voucherRepository;
+    final SlotRepository slotRepository;
 
     public BookingService(BookingRepository bookingRepository, BookingDetailRepository bookingDetailRepository,
-                           BookingStatusRepository bookingStatusRepository, VoucherRepository voucherRepository) {
+                           BookingStatusRepository bookingStatusRepository, VoucherRepository voucherRepository,
+                          SlotRepository slotRepository) {
         this.bookingRepository = bookingRepository;
         this.bookingDetailRepository = bookingDetailRepository;
         this.bookingStatusRepository = bookingStatusRepository;
         this.voucherRepository = voucherRepository;
+        this.slotRepository = slotRepository;
     }
 
 
@@ -85,22 +85,28 @@ public class BookingService {
         }
     public void addBookingDetail( List<BookingDetail> bookingDetails , String id) {
         float totalPrice = 0;
-        BookingStatus status = bookingStatusRepository.findBookingStatusByStatusName("Pending");
+        BookingStatus status = bookingStatusRepository.findBookingStatusByStatusName("Confirmed");
         for(BookingDetail bookingDetail : bookingDetails) {
 
             bookingDetail.setBookingID(id);
+            Booking booking = bookingRepository.findBookingByBookingID(id);
             bookingDetail.setStatusID(status.getStatusID());
+            slotRepository.updateSlotStatus(bookingDetail.getSlotID(),1);
+
 
             if(bookingDetail.getVoucherID()!=null) {
                 Voucher voucher = voucherRepository.findVoucherByVoucherID(bookingDetail.getVoucherID());
-                float actualPrice = (bookingDetail.getPrice()*voucher.getDiscount())/100;
+                float actualPrice = (bookingDetail.getPrice()*(100 - voucher.getDiscount()))/100;
                 bookingDetail.setPrice(actualPrice);
             }
             bookingDetailRepository.save(bookingDetail);
             totalPrice += bookingDetail.getPrice();
+
         }
         Booking booking = bookingRepository.findBookingByBookingID(id);
-        booking.setTotalPrice(totalPrice);
+        bookingRepository.updatePrice(totalPrice,id);
+        bookingRepository.deleteWhenPrice0();
+
 
     }
 

@@ -35,5 +35,8 @@ public interface SlotRepository extends JpaRepository<Slot, Long> {
                     @Param("startTime") String startTime,
                     @Param("slotStatus") String slotStatus);
 
-
+    @Modifying
+    @Transactional
+    @Query("update  Slot s set s.slotStatus = :slotStatus where s.slotID = :slotID")
+    void updateSlotStatus(String slotID, int slotStatus);
 }
