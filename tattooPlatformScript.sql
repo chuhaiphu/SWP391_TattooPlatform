@@ -71,14 +71,14 @@ VALUES
 	('service5', 'Forearm Tattoo', 'Blackwork flower tattoo on forearm', 'https://i.pinimg.com/originals/e9/85/a7/e985a75e5eb0bba1b70feccf87e461e1.jpg', 'manager5@example.com', 100.0),
 	('service6', 'Nose Piercing', 'Gold ring piercing on the nose', 'https://www.matrixbeautyacademy.co.uk/wp-content/uploads/2023/04/il_fullxfull.3679385531_7ecm-scaled-1.webp', 'manager6@example.com', 50.0);
 	
-	INSERT INTO [dbo].[Slot] ([slot_ID], [studio_ID], [start_time], [end_time], [date], [slot_status])
+	INSERT INTO [dbo].[Slot] ([slot_ID], [studio_ID], [start_time], [date], [slot_status])
 VALUES
-    ('slot1', 'S1', '10:00 AM', '11:00 AM', '2023-10-20', '1'),
-    ('slot2', 'S2', '11:00 AM', '12:00 PM', '2023-10-20', '1'),
-    ('slot3', 'S3', '2:00 PM', '3:00 PM', '2023-10-21', '1'),
-    ('slot4', 'S4', '3:00 PM', '4:00 PM', '2023-10-21', '1'),
-	('slot5', 'S5', '4:00 PM', '5:00 PM', '2023-10-21', '1'),
-	('slot6', 'S6', '5:00 PM', '6:00 PM', '2023-10-21', '1');
+    ('slot1', 'S1', '10:00 AM', '2023-10-20', '1'),
+    ('slot2', 'S2', '11:00 AM', '2023-10-20', '1'),
+    ('slot3', 'S3', '2:00 PM', '2023-10-21', '1'),
+    ('slot4', 'S4', '3:00 PM', '2023-10-21', '1'),
+	('slot5', 'S5', '4:00 PM', '2023-10-21', '1'),
+	('slot6', 'S6', '5:00 PM', '2023-10-21', '1');
 	
 	INSERT INTO [dbo].[Booking_Status] ([status_ID], [status_Name], [description])
 VALUES
