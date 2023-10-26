@@ -1,8 +1,8 @@
 USE TattooPlatform
-INSERT INTO [dbo].[User_Status] ([status_ID], [status_name], [description], [start_date], [end_date])
+INSERT INTO [dbo].[User_Status] ([status_ID], [status_name], [description])
 VALUES
-    ('1', 'Active', 'Active status', '2023-01-01', '2023-12-12'),
-    ('0', 'Suspended', 'Suspended status', '2023-01-01', '2023-12-12');
+    ('1', 'Active', 'Active status'),
+    ('0', 'Suspended', 'Suspended status');
 
 	INSERT INTO [dbo].[SystemStaff] ([system_Staff_email], [username], [password], [full_name], [phone_number], [address], [admin_email], [status_ID])
 VALUES
@@ -54,8 +54,8 @@ VALUES
     ('cert4', 'Body Art Piercing Certification', 'artist2@example.com'),
 	('cert5', 'Tattoo Artist License', 'artist3@example.com'),
 	('cert6', 'Body Art Piercing Certification', 'artist3@example.com'),
-	('cert5', 'Tattoo Artist License', 'artist4@example.com'),
-	('cert6', 'Body Art Piercing Certification', 'artist4@example.com'),
+	('cert12', 'Tattoo Artist License', 'artist4@example.com'),
+	('cert13', 'Body Art Piercing Certification', 'artist4@example.com'),
 	('cert7', 'Tattoo Artist License', 'artist5@example.com'),
 	('cert8', 'First Aid Certificate', 'artist5@example.com'),
 	('cert9', 'Body Art Piercing Certification', 'artist6@example.com'),
