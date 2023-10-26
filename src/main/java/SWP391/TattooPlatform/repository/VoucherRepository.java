@@ -14,11 +14,10 @@ public interface VoucherRepository extends JpaRepository<Voucher, Long> {
     List<Voucher> findAll();
     List<Voucher> findAllByStartDate(String date);
     List<Voucher> findAllByEndDate(String date);
+    Voucher findVoucherByVoucherID(String voucherID);
 
     //INSERT
     Voucher save(Voucher voucher);
-
-    Voucher findVoucherByVoucherID(String voucherID);
 
 
 }

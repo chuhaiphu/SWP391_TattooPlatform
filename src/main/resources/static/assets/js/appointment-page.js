@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var selectedServiceID = sessionStorage.getItem('selectedServiceID');
     var selectedServiceName = sessionStorage.getItem('selectedServiceName');
     var selectedStudioName = sessionStorage.getItem('selectedStudioName');
-    var tattooLover = sessionStorage.getItem('tattooLover');
+    var selectedServicePrice = sessionStorage.getItem('selectedServicePrice');
+    var tattooLover = JSON.parse(sessionStorage.getItem('tattooLover'));
     //Get slot by date of studio
     inputDate.addEventListener('change', function () {
         var selectedDate = $(this).val();
@@ -40,21 +41,33 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log("Error: " + errorThrown);
+                // alert("There is no slot available! Please choose another date");
             }
         });
     }
     function updateSlotsUI(slots) {
-        // Add the retrieved slots to the combobox
-        slots.forEach(function (slot) {
-            console.log(slot.startTime);
+        // Clear the options first
+        inputSlot.innerHTML = "";
+    
+        if (slots.length === 0) {
+            // If no slots are available, add a default option with the message "No slots available"
             var option = document.createElement('option');
-            option.value = slot.startTime;
-            option.text = slot.startTime;
-            option.dataset.slotID = slot.slotID;
+            option.value = "";
+            option.text = "No slots available";
             inputSlot.append(option);
-            
-        });
+        } else {
+            // Add the retrieved slots to the combobox
+            slots.forEach(function (slot) {
+                console.log(slot.startTime);
+                var option = document.createElement('option');
+                option.value = slot.startTime;
+                option.text = slot.startTime;
+                option.dataset.slotID = slot.slotID;
+                inputSlot.append(option);
+            });
+        }
     }
+    
 
     // Get reference to the "Next" button
     const nextButton1 = document.getElementById('next_date_hour');
@@ -76,18 +89,18 @@ document.addEventListener('DOMContentLoaded', function () {
         outputStudioName.value = selectedStudioName;
     });
     submitBtn.addEventListener('click', function() {
-        var date = outputDate.value;
-        var slot = outputSlot.value;
         var name = outputName.value;
         var email = outputEmail.value;
         var phone = outputPhone.value;
         var address = outputAddress.value;
         var description = outputNote.value;
-        var serviceName = outputServiceName.value;
-        var studioName = outputStudioName.value;
-        var loverEmail = tattooLoverEmail.content.email;
+        var serviceID = selectedServiceID;
+        var price = selectedServicePrice.replace(/[^\d.-]/g, '');
+        var loverEmail = tattooLover.content.tattooLoveremail;
         var selectedSlotOption = inputSlot.options[inputSlot.selectedIndex];
         var slotID = selectedSlotOption.dataset.slotID;
+        var artistEmail = "artist1@example.com";
+        var statusID = "status1"
         // Prepare data to be sent
         var bookingData = {
             booking: {
@@ -104,12 +117,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 // For example:
                 {
                     description: description,
-                    serviceID: serviceID, //service id này thì khó lấy nếu như mình đặt từ service list 
-                    //(do lần trc C nhờ L làm lấy service list nhưng không bị trùng name => cho nên nó sẽ không hiện những serviceID khác trùng tên)
-                    //Tương tự v thì không lấy được cái price luôn, cho nên C commit lên trc rồi tầm 10h tối C về tìm cách fix
+                    serviceID: serviceID, 
                     artistEmail: artistEmail,
-                    price: price,
                     slotID: slotID,
+                    price: price,
+                    voucherID: null
                 }
                 // Add more BookingDetail objects as needed
             ]
@@ -118,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Send data using AJAX
         $.ajax({
             type: "POST",
-            url: "/add",
+            url: "/booking/add",
             data: JSON.stringify(bookingData),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -131,6 +143,18 @@ document.addEventListener('DOMContentLoaded', function () {
             error: function (error) {
                 // Handle error
                 console.error("Error creating booking", error);
+                if (error.status === 400) {
+                    console.error("Bad request. Please check your inputs.");
+                } else if (error.status === 404) {
+                    console.error("Resource not found. Please check your endpoint.");
+                } else if (error.status === 500) {
+                    console.error("Internal Server Error. Please try again later.");
+                } else {
+                    console.error("An unexpected error occurred. Please try again later.");
+                }
+                if (error.responseJSON) {
+                    console.error("Server responded with:", error.responseJSON);
+                }
             }
         });
     });

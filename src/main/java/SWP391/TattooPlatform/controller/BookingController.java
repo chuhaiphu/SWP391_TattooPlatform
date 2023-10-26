@@ -6,12 +6,9 @@ import SWP391.TattooPlatform.model.BookingDetail;
 import SWP391.TattooPlatform.model.BookingRequest;
 import SWP391.TattooPlatform.model.Slot;
 import SWP391.TattooPlatform.service.BookingService;
-<<<<<<<<< Temporary merge branch 1
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-=========
 import SWP391.TattooPlatform.service.SlotService;
->>>>>>>>> Temporary merge branch 2
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +32,7 @@ public class BookingController {
 
     @GetMapping("/{bookingID}")
     public ResponseEntity<?> getBookingByID(@PathVariable(name = "bookingID") String bookingID) {
-        return bookingService.getBookingData(bookingID);
+        return ResponseUtils.get(bookingService.getBookingByID(bookingID),HttpStatus.OK);
     }
 
 

@@ -6,8 +6,6 @@ import SWP391.TattooPlatform.repository.TattooServiceRepository;
 import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.Collections;
-=========
->>>>>>>>> Temporary merge branch 2
 import java.util.List;
 
 @org.springframework.stereotype.Service
@@ -50,7 +48,7 @@ public class TattooServiceService {
     public Service updateService(String serviceID
             , String name , String description, float price, String linkImage, String email)  {
 
-       tattooServiceRepository.updateService(serviceID,name,description,linkImage,email,price);
+       tattooServiceRepository.updateService(serviceID,name,description, linkImage,email, price);
         return tattooServiceRepository.findServiceByServiceID(serviceID);
     }
 

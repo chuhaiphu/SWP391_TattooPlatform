@@ -48,10 +48,10 @@ function renderStudio(studio) {
 function handleViewStudioBtn(){
     // Add event listeners to each button
     $(document).on('click', '#view-studio-btn', function () {
-        //var studioName = $(this).closest('.product-card-content').find('h4').text().trim();
+        var studioName = $(this).closest('.product-card-content').find('h4').text().trim();
         var studioID = $(this).closest('.product-card-content').find('.studio-id').text().trim(); // Get studioID
         sessionStorage.setItem('selectedStudioID', studioID); // Save studioID to sessionStorage
-        //sessionStorage.setItem('selectedStudioName', studioName);
+        sessionStorage.setItem('selectedStudioName', studioName);
         window.location.href = 'view-studio.html';
     });
 }

@@ -1,6 +1,7 @@
 package SWP391.TattooPlatform.service;
 
 import SWP391.TattooPlatform.config.ResponseUtils;
+import SWP391.TattooPlatform.model.ResponseStudioService;
 import SWP391.TattooPlatform.model.Studio;
 import SWP391.TattooPlatform.model.Studio_Tattoo_Manager;
 import SWP391.TattooPlatform.repository.StudioRepository;
@@ -40,12 +41,18 @@ public class StudioService {
         if(studioRepository.findAll().isEmpty()) return null;
         return studioRepository.findAll();
     }
+    public Studio findStudioByStudioID(String id){
+        return studioRepository.findStudioByStudioID(id);
+    }
     public ResponseEntity<?> findStudioByID(String id) {
         Studio studio = studioRepository.findStudioByStudioID(id);
-        if(studio == null) {
-            return ResponseUtils.error("not any studio here", HttpStatus.OK);
+        List<SWP391.TattooPlatform.model.Service> list = new ArrayList<>();
+
+        for(SWP391.TattooPlatform.model.Service service : studio.getStudioTattooManager().getServices()) {
+            list.add(service);
         }
-        return ResponseUtils.get(studio,HttpStatus.OK);
+
+        return ResponseUtils.get(new ResponseStudioService(studio,list),HttpStatus.OK);
     }
 
     public List<Studio> getStudioByServiceNameList(String name) {

@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class SlotService {
@@ -43,6 +44,18 @@ public class SlotService {
         return slotRepository.findSlotsByStudioIDAndDate(id,date);
     }
 
+    public List<Slot> getListAvailableSlotByStudioIDAndDate(String id, String date) {
+        List<Slot> slotList = slotRepository.findSlotsByStudioIDAndDate(id,date);
+        if(slotList.isEmpty()) {
+            return Collections.emptyList();
+        } else {
+            // Assuming that the Slot class has a getStatus() method.
+            List<Slot> availableSlots = slotList.stream()
+                    .filter(slot -> slot.getSlotStatus() == 1) // Adjust this condition as per your status check
+                    .collect(Collectors.toList());
+            return availableSlots;
+        }
+    }
 //    public void addNewSlot(String date, String startTime, String studioID) {
 //        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 //
