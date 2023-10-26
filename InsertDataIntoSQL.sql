@@ -165,7 +165,7 @@ CREATE TABLE [dbo].[Slot](
     [start_time] [varchar](50) NOT NULL,
     [end_time] [varchar](50) NOT NULL,
     [date] [date] NULL,
-	[slot_status] [varchar](5) NOT NULL,
+	[slot_status] [int] NOT NULL,
     CONSTRAINT [PK_Slot] PRIMARY KEY CLUSTERED
 (
 [slot_ID] ASC
