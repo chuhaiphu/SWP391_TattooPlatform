@@ -316,57 +316,65 @@
                 <div class="pdp-slider-main">
                     <div class="pdp-slider-inner">
                         <div class="pdp-img-wrapper">
-                            <img src="https://morgansinktattoo.com/wp-content/uploads/2023/03/bb-1.jpg" alt="img">
+                            <img src="{{bannerImg}}" alt="img">
                             <div class="ratings">
                                 <span>4.5</span>
                                 <div class="rating-review">
-                                    <img src="https://morgansinktattoo.com/wp-content/uploads/2023/03/tattoo2.jpg" alt="start">
+                                    <!-- <img src="https://morgansinktattoo.com/wp-content/uploads/2023/03/tattoo2.jpg" alt="start"> -->
                                     <p>6,980 reviews from satisfied customers</p>
                                 </div>
                             </div>
                         </div>
                         <div class="pdp-img-wrapper">
-                            <img src="assets/images/pdp-img-1.png" alt="img">
+                            <img src="{{bannerImg}}" alt="img">
                             <div class="ratings">
                                 <span>4.5</span>
                                 <div class="rating-review">
-                                    <img src="assets/images/rating.svg" alt="start">
+                                    <!-- <img src="assets/images/rating.svg" alt="start"> -->
                                     <p>6,980 reviews from satisfied customers</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="slider-controller">
+                    <!-- <div class="slider-controller">
                         <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100"> </div>
-                    </div>
+                    </div> -->
+                </div>
+            </div>
+            <div id="studio-name" class="studio-name">
+                <h2>{{studioName}}</h2>
+            </div>
+        </section>
+        <section class="description-section">
+            <div class="container">
+                <div id="content" class="description-box">
+                    <h3>ABOUT OUR STUDIO</h3>
+                    <p>{{content}}</p>
                 </div>
             </div>
         </section>
 
-
         <section class="best-service-sec">
-            <div class="row no-gutters align-items-center ">
-                <div class="col-md-6 col-12">
-                    <div class="img-wrapper">
-                        <img src="https://r.rp-static.com/r/catalog/public/ce4b88ce4b6d6f4497e9f6e0bf5d00c6cd02d346/420/desktop.jpeg?lang=en" alt="img">
-                        
-                    </div>
-                </div>
-                <div class="col-md-6 col-12">
-                    <div class="banner-content-inner">
-                        <div class="section-title">
-                            <span class="sub-title">
-                                <img src="assets/images/subtitle.png" alt="subtitle">
-                            </span>
-                            <h2 class="h1"><b>TEMPORY </b> TATOO</h2>
+                <div class="row no-gutters align-items-center ">
+                    <div class="col-md-6 col-12">
+                        <div class="img-wrapper">
+                            <img src="https://r.rp-static.com/r/catalog/public/ce4b88ce4b6d6f4497e9f6e0bf5d00c6cd02d346/420/desktop.jpeg?lang=en" alt="img">
+
                         </div>
-                        <p>
-                           Cong dung
-                        </p>
-                        
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="banner-content-inner">
+                            <div class="section-title">
+                                <span class="sub-title">
+                                    <img src="assets/images/subtitle.png" alt="subtitle">
+                                </span>
+                                <h2 class="h1"><b>TEMPORY </b> TATOO</h2>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-            </div>
+
             <div class="row no-gutters align-items-center row-reverse ">
                 <div class="col-md-6 col-12">
                     <div class="img-wrapper">
@@ -382,9 +390,7 @@
                             </span>
                             <h2 class="h1"><b>CUSTOMIZED ART </b> TATOO</h2>
                         </div>
-                        <p>
-                            Cong dung
-                        </p>
+
                        
                     </div>
                 </div>
@@ -393,63 +399,16 @@
 
         <br> <br>
         <div class="container">
-<!--            <section class="booking-section">-->
-<!--            <div class="container">-->
-<!--                <div class="banner-content-inner">-->
-<!--                    <div class="section-title">-->
-<!--                        <span class="sub-title">Tattoo</span>-->
-<!--                        <h2>Tempory Tattoo <b> - 60 min </b></h2>-->
-<!--                    </div>-->
-
-<!--&lt;!&ndash;                    <div class="price-div">&ndash;&gt;-->
-<!--&lt;!&ndash;                        60,00&ndash;&gt;-->
-<!--&lt;!&ndash;                        <span>USD</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                    <div><a href="appointment-page.html" class="btn"> Book </a></div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            </section>-->
-<!--            <section class="service-deatail-section">-->
-<!--            <div class="service-row">-->
-                <div class="service-row">
-<!--                    <div class="ser-name">-->
-<!--                       <input type="text" placeholder="Massage - 60 min">-->
-<!--                    </div>-->
-<!--                    <div class="ser-date">-->
-<!--                       <input type="date" placeholder="01/05/2022">-->
-<!--                    </div>-->
-<!--                    <div class="ser-time">-->
-<!--                        <input type="time" placeholder="09:00 - 10:00">-->
-<!--                    </div>-->
-                    <div class="section-title">
-                        <span class="sub-title">Tattoo</span>
-                        <h2>Tempory Tattoo <b> - 60 min </b></h2>
-                    </div>
-                    <a href="appointment-page.html" class="btn"> Book </a>
+            <div id="service-booking-card_template" style="display: none;" class="service-row">
+                <div class="section-title">
+                    <span class="sub-title">Tattoo</span> <h3 style="display: none;">{{serviceID}}</h3>
+                    <h2 class="service-card-name">{{serviceName}} </h2>
+                
+                    <p style="float: right; font-size: 18px">{{price}} <span>$</span></p>
+                    <a id="booking-btn" href="#" class="btn"> Book appointment now </a>
                 </div>
-<!--            </div>-->
-<!--            </section>-->
-<!--            <section class="service-deatail-section">-->
-<!--            <div class="service-row">-->
-                <div class="service-row">
-
-                    <!--                    <div class="ser-name">-->
-                    <!--                       <input type="text" placeholder="Massage - 60 min">-->
-                    <!--                    </div>-->
-                    <!--                    <div class="ser-date">-->
-                    <!--                       <input type="date" placeholder="01/05/2022">-->
-                    <!--                    </div>-->
-                    <!--                    <div class="ser-time">-->
-                    <!--                        <input type="time" placeholder="09:00 - 10:00">-->
-                    <!--                    </div>-->
-                    <div class="section-title">
-                        <span class="sub-title">Tattoo</span>
-                        <h2>Tattoo Customized (ART) <b> - 60 min </b></h2>
-                    </div>
-                    <a href="appointment-page.html" class="btn"> Book </a>
-                </div>
-<!--            </div>-->
-<!--            </section>-->
+            </div>
+            <div id="service-booking-card" class="service-row"></div>
         </div>
 
 <!--        <div> -->
@@ -900,7 +859,7 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/slick.min.js" defer="defer"></script>
     <script src='assets/js/custom.js' defer="defer"></script>
-    <script src="assets/js/service.js" defer="defer"></script>
+    <script src="assets/js/view-studio.js" defer="defer"></script>
     <!--scripts end here-->
 </body>
 </html>

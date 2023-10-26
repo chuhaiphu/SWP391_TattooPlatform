@@ -78,7 +78,7 @@ $(document).ready(function () {
     }
   });
   /******  Nice Select  ******/
-  $('select').niceSelect();
+  //$('select').niceSelect();
   /*********  Multi-level accordion nav  ********/
   $('.acnav-label').click(function () {
     var label = $(this);

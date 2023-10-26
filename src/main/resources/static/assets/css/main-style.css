@@ -3437,6 +3437,45 @@ del {
     padding-right: 10px;
     font-weight: 400;
 }
+.studio-name {
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+}
+.description-section {
+    background-color: var(--theme-color);
+    padding: 40px 0;
+}
+
+.description-box {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Increased the density of the box shadow */
+}
+
+.description-box h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.description-box p {
+    font-size: 16px;
+    color: #666666;
+    line-height: 1.6;
+}
+.select-slot option{
+    color: black
+}
+.studio-name h2 {
+    font-size: 50px;
+    color: #ffffff;
+    font-weight: bold;
+}
 .pdp-slider-main {
     position: relative;
 }

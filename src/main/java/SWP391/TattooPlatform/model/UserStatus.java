@@ -29,12 +29,7 @@ public class UserStatus {
 
     @Column(name = "description")
     private String description;
-
-    @Column(name = "start_date")
-    private String startDate;
-
-    @Column(name = "end_date")
-    private String endDate;
+    //xóa start end date
 
     @OneToMany(mappedBy = "userStatus", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude

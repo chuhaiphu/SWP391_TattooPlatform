@@ -39,4 +39,7 @@ public class VoucherService {
         }
         return voucherRepository.findAllByEndDate(date);
     }
+    public Voucher getVoucherByVoucherID(String name){
+        return voucherRepository.findVoucherByVoucherID(name);
+    }
 }
