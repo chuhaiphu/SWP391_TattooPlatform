@@ -46,10 +46,22 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
                    );
 
 
+
+    @Modifying
+    @Transactional
+    @Query("update Booking b set b.totalPrice = :totalPrice where b.bookingID = :bookingID")
+    void updatePrice(float totalPrice, String bookingID);
+
+
     @Modifying
     @Transactional
     @Query("delete from Booking b where b.bookingID = :bookingID")
     void delete(@Param("bookingID") String bookingID);
+
+    @Modifying
+    @Transactional
+    @Query("delete  from  Booking b where b.totalPrice = 0")
+    void deleteWhenPrice0();
 }
 
 

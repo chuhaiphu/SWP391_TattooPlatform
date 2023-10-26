@@ -255,6 +255,8 @@ document.getElementById("confirm_updateButton").addEventListener("click", functi
         sendRequest = false;
     }
 
+    const tattooLoverEmail = tattooLover.content.tattooLoveremail;
+
     event.preventDefault();
     if (sendRequest) {
         axios({
@@ -268,6 +270,21 @@ document.getElementById("confirm_updateButton").addEventListener("click", functi
                     alert('Update failed. Please check your input.');
                 } else {
                     alert('Update successful!');
+                    sessionStorage.removeItem('tattooLover');
+                    $.ajax({
+                        type: "GET",
+                        url: "/tattoolovers/" + tattooLoverEmail, // Replace with the actual URL to your endpoint
+                        dataType: "json",
+                        success: function (data) {
+
+                            sessionStorage.setItem('tattooLover',JSON.stringify(data));
+                            console.log(JSON.stringify(data));
+                            location.reload();
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Error fetching service: " + error);
+                        }
+                    });
                 }
                 console.log(response.data);
             })

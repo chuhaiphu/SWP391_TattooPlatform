@@ -121,19 +121,21 @@ document.addEventListener('DOMContentLoaded', function () {
                     artistEmail: artistEmail,
                     slotID: slotID,
                     price: price,
-                    voucherID: null
+                    statusID: statusID
                 }
                 // Add more BookingDetail objects as needed
             ]
         };
 
         // Send data using AJAX
+        event.preventDefault();
         $.ajax({
             type: "POST",
             url: "/booking/add",
             data: JSON.stringify(bookingData),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
+
             success: function (response) {
                 // Handle success
                 console.log("Booking created successfully", response);
@@ -143,6 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
             error: function (error) {
                 // Handle error
                 console.error("Error creating booking", error);
+
                 if (error.status === 400) {
                     console.error("Bad request. Please check your inputs.");
                 } else if (error.status === 404) {

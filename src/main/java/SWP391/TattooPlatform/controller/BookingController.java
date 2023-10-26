@@ -79,7 +79,7 @@ public class BookingController {
 
     //    setSlotForBookingDetail(bookingRequest.getDate(), bookingRequest.getStart_time(),"check");
 
-       return  new ResponseEntity<>("Bookings created successfully", HttpStatus.CREATED);
+       return  ResponseUtils.get(bookingService.getBookingByID(booking.getBookingID()), HttpStatus.CREATED);
     }
 
 
