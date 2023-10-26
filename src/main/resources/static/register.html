@@ -39,8 +39,6 @@
                                     Studio
                                 </a>
                             </li>
-
-
                             <li class="menu-lnk has-item">
                                 <a href="#">
                                     Pages
@@ -129,7 +127,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>E-mail<sup aria-hidden="true">*</sup>:</label>
-                                                <input id="emailLover" type="email" class="form-control" placeholder="shop@company.com" required="">
+                                                <input id="emailLover" type="email"  onkeyup="getEmailName()" class="form-control" placeholder="shop@company.com" required="">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
@@ -146,7 +144,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>Username<sup aria-hidden="true">*</sup>:</label>
-                                                <input id="username" type="text" class="form-control" placeholder=Username required="">
+                                                <input id="username" type="text" class="form-control" placeholder=Username required="" readonly>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12"  style="display: none">
@@ -532,5 +530,17 @@
 <script src='assets/js/custom.js' defer="defer"></script>
 <!--scripts end here-->
 <script src ="assets/js/register.js"></script>
+<script>
+    function getEmailName() {
+        var email = document.getElementById("emailLover").value;
+        var atIndex = email.indexOf("@");
+        if (atIndex != -1) {
+            var username = email.substring(0, atIndex);
+            document.getElementById("username").value = username;
+        } else {
+            document.getElementById("username").value = "";
+        }
+    }
+</script>
 </body>
 </html>

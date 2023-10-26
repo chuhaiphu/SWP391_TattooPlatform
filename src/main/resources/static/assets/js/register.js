@@ -25,7 +25,7 @@ $(document).ready(function () {
             data: JSON.stringify(loverData),
             success: function  (data) {
                 alert("Register success!");
-                window.location.href = "login.html";
+                window.location.href = "/login";
             },
             error: function (xhr, status, error) {
                 alert("Error: " + error);
