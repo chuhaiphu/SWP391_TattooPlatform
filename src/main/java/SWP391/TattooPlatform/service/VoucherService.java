@@ -22,6 +22,10 @@ public class VoucherService {
         return voucherRepository.findAll();
     }
 
+    public Voucher getVoucherByVoucherID(String voucherID) {
+       return voucherRepository.findVoucherByVoucherID(voucherID);
+    }
+
     public Voucher addVoucher(Voucher voucher)
     {
         return voucherRepository.save(voucher);

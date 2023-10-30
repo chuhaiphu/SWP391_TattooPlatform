@@ -1,9 +1,14 @@
 package SWP391.TattooPlatform.service;
 
+import SWP391.TattooPlatform.config.ResponseUtils;
 import SWP391.TattooPlatform.model.Service;
 import SWP391.TattooPlatform.repository.TattooServiceRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @org.springframework.stereotype.Service
@@ -14,9 +19,17 @@ public class TattooServiceService {
         this.tattooServiceRepository = tattooServiceRepository;
     }
 
+    public ResponseEntity<?> findServiceByServiceName(String name) {
+        List<Service> serviceList = tattooServiceRepository.findServicesByServiceName(name);
+        if(name == null) {
+            return   ResponseUtils.get(tattooServiceRepository.findAll(), HttpStatus.OK);
+        }else {
+            return   ResponseUtils.get(serviceList, HttpStatus.OK);
+        }
+    }
 
     public List<Service> tattooServiceList() {
-            List<Service> list1 = tattooServiceRepository.findAll();
+        List<Service> list1 = tattooServiceRepository.findAll();
         List<Service> list = new ArrayList<>();
         boolean check;
         for(Service service : list1) {
@@ -46,7 +59,7 @@ public class TattooServiceService {
     public Service updateService(String serviceID
             , String name , String description, float price, String linkImage, String email)  {
 
-       tattooServiceRepository.updateService(serviceID,name,description,linkImage,email,price);
+        tattooServiceRepository.updateService(serviceID,name,description, linkImage,email, price);
         return tattooServiceRepository.findServiceByServiceID(serviceID);
     }
 

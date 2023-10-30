@@ -17,12 +17,14 @@ public interface StudioRepository extends JpaRepository<Studio, String> {
 
     List<Studio> findAll();
 
-    Studio findStudioByStudioID(String StudioID);
+    Studio findStudioByStudioID(String id);
+
+    List<Studio> findStudiosByStudioName(String studioName);
 
 
     Studio findStudioByManagerEmail(String managerEmail);
 
-
+    Studio findStudioByStudioName(String studioName);
     Studio save(Studio studio);
 
 
@@ -42,7 +44,7 @@ public interface StudioRepository extends JpaRepository<Studio, String> {
                                 @Param("bannerImg") String bannerImg,
                                 @Param("briefInf") String briefInf,
                                 @Param("content") String content
-                              );
+    );
 
 
 
