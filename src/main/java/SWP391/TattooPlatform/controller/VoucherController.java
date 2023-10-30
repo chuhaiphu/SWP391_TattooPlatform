@@ -1,9 +1,7 @@
 package SWP391.TattooPlatform.controller;
 
 import SWP391.TattooPlatform.config.ResponseUtils;
-import SWP391.TattooPlatform.model.Feedback;
 import SWP391.TattooPlatform.model.Voucher;
-import SWP391.TattooPlatform.service.FeedbackService;
 import SWP391.TattooPlatform.service.VoucherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
@@ -40,7 +38,7 @@ public class VoucherController {
     @GetMapping("")
     public String loadServiceHtml() throws IOException {
         // Load the HTML file as a string
-        Resource resource = new ClassPathResource("static/voucher.html");
+        Resource resource = new ClassPathResource("static/view-voucher.html");
         String htmlContent = new String(Files.readAllBytes(Paths.get(resource.getURI())));
 
         return htmlContent;

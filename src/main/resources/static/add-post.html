@@ -89,7 +89,7 @@
                                     width="36"
                                     class="img-circle"
                             />
-                            <b class="hidden-xs">System staff</b>
+                            <b class="hidden-xs">Studiomanager</b>
                         </a>
                         <ul class="dropdown-menu">
 
@@ -149,7 +149,7 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Update booking</h4>
+                    <h4 class="page-title">Add post</h4>
                 </div>
             </div>
             <!-- /.row -->
@@ -159,69 +159,136 @@
                 <div class="col-md-8 col-xs-12">
                     <div class="white-box">
                         <div class="form-horizontal form-material">
-
-
-
-
                             <div class="form-group">
-                                <label class="col-md-12">Date</label>
+                                <label for="emailArtist" class="col-md-12">Email</label>
                                 <div class="col-md-12">
                                     <input
-                                            type="text"
-                                            id="dateBooking"
-                                            placeholder="dd/MM/yyyy"
+                                            type="email"
+                                            placeholder="johnathan@admin.com"
                                             class="form-control form-control-line"
-
+                                            id="emailArtist"
                                     />
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Time</label>
-                                <div class="col-md-12">
-                                    <input
-                                            type="time"
-                                            id="timeBooking"
-                                            placeholder=""
-                                            class="form-control form-control-line"
-
-                                    />
+                                <div class="form-group">
+                                    <label class="col-md-12">Full Name</label>
+                                    <div class="col-md-12">
+                                        <input
+                                                type="text"
+                                                id="nameArtist"
+                                                placeholder="Johnathan Doe"
+                                                class="form-control form-control-line"
+                                        />
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Phone</label>
+                                    <div class="col-md-12">
+                                        <input
+                                                type="text"
+                                                id="phone"
+                                                placeholder="PhoneNumber"
+                                                class="form-control form-control-line"
+                                                required
+                                        />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Address</label>
+                                    <div class="col-md-12">
+                                        <input
+                                                type="text"
+                                                id="artistAddress"
+                                                placeholder="Adress"
+                                                class="form-control form-control-line"
+                                                required
+                                        />
+                                    </div>
+                                </div>
 
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <button class="btn btn-success" id="btn-save-task">
-                                        Update
-                                    </button>
-                                    <a href="view-voucher.html" class="btn btn-primary">Back</a>
+                                <div class="form-group">
+                                    <label for="emailArtist" class="col-md-12">Email Manager</label>
+                                    <div class="col-md-12">
+                                        <input
+                                                type="email"
+                                                placeholder="johnathan@admin.com"
+                                                class="form-control form-control-line"
+                                                id="studioManagerEmail"
+                                        />
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Username</label>
+                                    <div class="col-md-12">
+                                        <input
+                                                type="text"
+                                                id="username"
+                                                placeholder="Username"
+                                                class="form-control form-control-line"
+                                                required
+                                        />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Password</label>
+                                    <div class="col-md-12">
+                                        <input
+                                                type="password"
+                                                id="password"
+                                                class="form-control form-control-line"
+                                                required
+                                        />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">StatusID</label>
+                                    <div class="col-md-12">
+                                        <input
+                                                type="text"
+                                                id="statusID"
+                                                class="form-control form-control-line"
+                                                required
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <button class="btn btn-success" id="add-artist">
+                                            Add artist
+                                        </button>
+                                        <a href="view-artist.html" class="btn btn-primary"
+                                        >Back</a
+                                        >
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-2 col-12"></div>
                 </div>
-                <div class="col-md-2 col-12"></div>
+                <!-- /.row -->
             </div>
-            <!-- /.row -->
+            <!-- /.container-fluid -->
+            <footer class="footer text-center">2018 &copy; myclass.com</footer>
         </div>
-        <!-- /.container-fluid -->
-        <footer class="footer text-center">2018 &copy; myclass.com</footer>
+        <!-- /#page-wrapper -->
     </div>
-    <!-- /#page-wrapper -->
-</div>
-<!-- /#wrapper -->
-<!-- jQuery -->
-<script src="studiomanager/assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="studiomanager/assets/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- Menu Plugin JavaScript -->
-<script src="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
-<!--slimscroll JavaScript -->
-<script src="studiomanager/assets/js/jquery.slimscroll.js"></script>
-<!--Wave Effects -->
-<script src="studiomanager/assets/js/waves.js"></script>
-<!-- Custom Theme JavaScript -->
-<script src="studiomanager/assets/js/custom.min.js"></script>
-<script src="js/task.js"></script>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="studiomanager/assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="studiomanager/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="studiomanager/assets/js/jquery.slimscroll.js"></script>
+    <script src="studiomanager/assets/js/add-artist.js"></script>
+    <!--Wave Effects -->
+    <script src="studiomanager/assets/js/waves.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="studiomanager/assets/js/custom.min.js"></script>
+    <script src="js/user.js"></script>
 </body>
 </html>

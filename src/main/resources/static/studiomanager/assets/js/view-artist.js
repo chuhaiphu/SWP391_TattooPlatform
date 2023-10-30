@@ -20,7 +20,7 @@ function renderArtistData(artistData) {
 
     var added_artist = document.getElementById("artist");
     console.log("30" + added_artist.innerHTML);
-    var artistId = artistData.username;
+    var artistId = artistData.email;
     added_artist.innerHTML =
         added_artist.innerHTML +
         `
