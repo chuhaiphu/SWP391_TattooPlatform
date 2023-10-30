@@ -492,5 +492,8 @@ $(".step-container").on("click", ".back", function() {
   $(".steps li").eq($(this).parents(".step-container").index() - totalSteps).removeClass("active"); 
   $(this).parents(".step-container").removeClass("active").prev().addClass("active"); 
   $('.right-slider').slick('refresh');
-}); 
+});
+$(":radio").change(function() {
+  console.log('New star rating: ' + this.value);
+});
 /******  STEPPY FORM  CSS  End******/
