@@ -169,12 +169,25 @@
                   <th>Name</th>
                   <th>Username</th>
                   <th>Password</th>
-                  <th>Phone</th>
+                  <th>Phone number</th>
                   <th>Address</th>
                   <th>Update</th>
+
                 </tr>
                 </thead>
-                <tbody  id="lover" >
+                <tbody id="loverList_template" style="display: none">
+                <tr>
+                  <td>{{tattooLoveremail}}</td>
+                  <td>{{fullname}}</td>
+                  <td>{{username}}</td>
+                  <td>{{password}}</td>
+                  <td>{{phonenumber}}</td>
+                  <td>{{address}}</td>
+                  <td><button >Update</button></td>
+
+                </tr>
+                </tbody>
+                <tbody id="lover">
 
                 </tbody>
               </table>
@@ -205,8 +218,7 @@
 <script src="studiomanager/assets/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="studiomanager/assets/js/custom.min.js"></script>
-<script src="studiomanager/assets/js/view-artist.js"></script>
-<script src="studiomanager/assets/js/update-artist.js"></script>
+<script src="studiomanager/assets/js/view-lovers.js"></script>
 <script>
   $(document).ready(function () {
     $("#example").DataTable();

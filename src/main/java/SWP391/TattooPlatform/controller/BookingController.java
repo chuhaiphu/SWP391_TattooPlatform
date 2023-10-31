@@ -18,7 +18,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/view-booking")
+@RequestMapping("/booking")
 public class BookingController {
     final BookingService bookingService;
 
@@ -34,7 +34,7 @@ public class BookingController {
 //    public ResponseEntity<?> getBooking() {
 //        return ResponseUtils.get(bookingService.findall(), HttpStatus.OK);
 //    }
-@GetMapping("/list")
+@GetMapping("/view-list")
 public List<Booking> getBookingList(){
     return bookingService.findall();
 }

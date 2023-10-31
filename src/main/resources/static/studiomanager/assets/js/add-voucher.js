@@ -13,7 +13,7 @@ $(document).ready(function () {
         // Send an AJAX POST request to add the voucher
         $.ajax({
             type: "POST",
-            url: "/vouchers/addVoucher", // Replace with the actual API endpoint
+            url: "/vouchers/add-voucher", // Replace with the actual API endpoint
             contentType: "application/json; charset-utf-8",
             data: JSON.stringify(voucherData),
             success: function (data) {

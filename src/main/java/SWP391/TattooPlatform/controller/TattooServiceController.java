@@ -27,7 +27,7 @@ public class TattooServiceController {
 //    public Object getAllService () {
 //        return  ResponseUtils.get(tattooService.tattooServiceList(), HttpStatus.OK);
 //    }
-    @GetMapping("/list")
+    @GetMapping("/view-list")
     public List<Service> getServiceList(){
         return tattooService.tattooServiceList();
     }
@@ -40,7 +40,7 @@ public class TattooServiceController {
         return htmlContent;
     }
 
-    @PostMapping("/addService")
+    @PostMapping("/add-service")
     public ResponseEntity<?> saveService(@RequestBody Service ts) {
         return ResponseUtils.get(tattooService.addService(ts),HttpStatus.CREATED);
     }

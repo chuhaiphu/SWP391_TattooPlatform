@@ -17,14 +17,14 @@ import java.nio.file.Paths;
 import java.util.List;
 
 @RestController
-@RequestMapping("/view-tattoolovers")
+@RequestMapping("/tattoolovers")
 public class TattooLoversController {
     final TattooLoversService tattooLoversService;
     @Autowired
     public TattooLoversController (TattooLoversService tattooLoversService) {
         this.tattooLoversService = tattooLoversService;
     }
-    @GetMapping("/list")
+    @GetMapping("/view-list")
     public Object getAllTattoolovers(){
         return ResponseUtils.get(tattooLoversService.getListLovers(),HttpStatus.OK);
     }

@@ -19,7 +19,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/view-artist")
+@RequestMapping("/artist")
 public class ArtistController {
 
 
@@ -38,7 +38,7 @@ public class ArtistController {
 //        return  ResponseUtils.get(artistService.getListArtist(),HttpStatus.OK);
 //    }
 
-    @GetMapping("/list")
+    @GetMapping("/view-list")
     public List<Artist> getArtists(){
         return artistService.getListArtist();
     }
