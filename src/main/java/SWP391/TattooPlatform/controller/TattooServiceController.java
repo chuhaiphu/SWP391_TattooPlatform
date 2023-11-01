@@ -24,15 +24,15 @@ public class TattooServiceController {
     public TattooServiceController(TattooServiceService tattooServiceService) {
         this.tattooService = tattooServiceService;
     }
-//    @GetMapping()
-//    public Object getAllService () {
-//        return  ResponseUtils.get(tattooService.tattooServiceList(), HttpStatus.OK);
-//    }
-
     @GetMapping("/list")
-    public List<Service> getAllService () {
-        return tattooService.tattooServiceList();
+    public Object getAllService () {
+        return  ResponseUtils.get(tattooService.tattooServiceList(), HttpStatus.OK);
     }
+
+//    @GetMapping("/list")
+//    public List<Service> getAllService () {
+//        return tattooService.tattooServiceList();
+//    }
 
     @GetMapping("")
     public String loadServiceHtml() throws IOException {

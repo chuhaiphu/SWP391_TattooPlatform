@@ -18,6 +18,8 @@ public interface ArtistRepository extends JpaRepository<Artist,Long> {
     //READ
     List<Artist> findAll();
     Artist findArtistByEmail(String email);
+    @Query("SELECT a FROM Artist a JOIN Studio s ON a.studioManagerEmail = s.managerEmail WHERE a.email NOT IN (SELECT bd.artist.email FROM BookingDetail bd WHERE bd.slotID = :slotID) AND s.studioID = :studioID")
+    List<Artist> findAvailableArtistsBySlotIDAndStudioID(@Param("slotID") String slotID, @Param("studioID") String studioID);
     //INSERT
     Artist save(Artist artist);
     //UPDATE

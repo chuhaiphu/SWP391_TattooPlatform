@@ -14,7 +14,7 @@ public class Studio_Tattoo_ManagerService {
         this.studioTattooManagerRepository = studioTattooManagerRepository;
     }
 
-    public List<Studio_Tattoo_Manager> managerList() {
+    public List<Studio_Tattoo_Manager> getManagerList() {
         if(studioTattooManagerRepository.findAll().isEmpty()) {
             return null;
         }

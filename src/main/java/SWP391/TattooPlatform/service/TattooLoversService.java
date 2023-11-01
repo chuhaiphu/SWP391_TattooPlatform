@@ -20,6 +20,16 @@ public class TattooLoversService {
         }
         return tattooLoversRepository.findAll();
     }
+    public TattooLovers loginCustomer(String email, String password) {
+        List<TattooLovers> loverList = getListLovers();
+        for (TattooLovers lover: loverList) {
+            if (lover.getTattooLoveremail().equals(email) && lover.getPassword().equals(password)) {
+                // Simulated customer data; replace with your actual customer retrieval logic
+                return lover;
+            }else return null; // If customer not found or credentials are incorrect
+        }
+        return null;
+    }
     public TattooLovers addTattooLovers(TattooLovers tattooLovers){
         return tattooLoversRepository.save(tattooLovers);
     }

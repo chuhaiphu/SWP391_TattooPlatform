@@ -55,25 +55,25 @@ public class StudioService {
         return ResponseUtils.get(new ResponseStudioService(studio,list),HttpStatus.OK);
     }
 
-    public List<Studio> getStudioByServiceNameList(String name) {
-
-        List<Studio> allStudio = studioRepository.findAll();
-
-        List<Studio> studioList = new ArrayList<>();
-
-
-        for(Studio studio : allStudio) {
-            for(SWP391.TattooPlatform.model.Service service : studio.getStudioTattooManager().getServices()) {
-                if(service.getServiceName().trim().contains(name.trim())) {
-                    studioList.add(studio);
-                }
-            }
-        }
-        if(studioList.isEmpty()) {
-            return Collections.emptyList();
-        }
-        return studioList;
-    }
+//    public List<Studio> getStudioByServiceNameList(String name) {
+//
+//        List<Studio> allStudio = studioRepository.findAll();
+//
+//        List<Studio> studioList = new ArrayList<>();
+//
+//
+//        for(Studio studio : allStudio) {
+//            for(SWP391.TattooPlatform.model.Service service : studio.getStudioTattooManager().getServices()) {
+//                if(service.getServiceName().trim().contains(name.trim())) {
+//                    studioList.add(studio);
+//                }
+//            }
+//        }
+//        if(studioList.isEmpty()) {
+//            return Collections.emptyList();
+//        }
+//        return studioList;
+//    }
     public ResponseEntity<?> findStudioByServiceName(String name) {
 
         List<Studio> allStudio = studioRepository.findAll();

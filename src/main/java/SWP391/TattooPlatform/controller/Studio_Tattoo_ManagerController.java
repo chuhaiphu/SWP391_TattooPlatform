@@ -22,7 +22,7 @@ public class Studio_Tattoo_ManagerController {
 
     @GetMapping()
     public Object getAllManagers () {
-        return ResponseUtils.get(studioTattooManagerService.managerList(), HttpStatus.OK);
+        return ResponseUtils.get(studioTattooManagerService.getManagerList(), HttpStatus.OK);
     }
 
     @PostMapping()

@@ -17,6 +17,7 @@
 </head>
 <body>
     <!--header start here-->
+    <!--header start here-->
     <header class="site-header header-style-one style-two">
         <div class="main-navigationbar">
             <div class="container">
@@ -33,7 +34,6 @@
                                     Service
                                 </a>
                             </li>
-
 
                             <li class="menu-lnk">
                                 <a href="studio-list.html">
@@ -62,7 +62,7 @@
                             <li><i class="fas fa-search"></i></li>
 
                         </ul>
-                        <ul class="menu-right d-flex">
+                        <ul class="menu-right d-flex justify-content-around">
 
                             <li class="header-appointment" >
                                 <a href="appointment-page.html">
@@ -82,8 +82,37 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="login">
-                            <a href="/login">Login</a></div>
+                        <ul class="main-nav">
+                            <li class="menu-lnk has-item">
+                                <a href="#">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>
+                                <div class="menu-dropdown">
+                                    <ul>
+                                        <li><a href="my-account.html">Setting</a></li>
+                                        <li><a href="index.html" id="logout">Logout</a></li>
+                                        <script>
+                                            document.addEventListener("DOMContentLoaded", function() {
+                                                // Get the "Logout" link by its ID
+                                                var logoutLink = document.getElementById("logout");
+
+                                                // Add a click event listener to the link
+                                                logoutLink.addEventListener("click", function(event) {
+                                                    // Prevent the default behavior of the link (navigating to "index.html")
+                                                    event.preventDefault();
+
+                                                    sessionStorage.removeItem('tattooLover');
+
+                                                    // Optionally, you can also redirect the user to another page (e.g., a login page)
+                                                    window.location.href = 'index.html'; // Replace 'login.html' with your desired URL
+                                                });
+                                            });
+                                        </script>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
                         <div class="mobile-menu mobile-only">
                             <button class="mobile-menu-button">
                                 <div class="one"></div>
@@ -96,6 +125,7 @@
             </div>
         </div>
     </header>
+    <!--header start end-->
     <!--header end here-->
     <!--wrapper start here-->
     <div class="wrapper">   
@@ -171,8 +201,12 @@
                                 <form class="appoint-form-common">
                                     <div class="section-title">
 <!--                                        <div class="sub-title">Step 1</div>-->
-                                        <h2>Select Date and Hour</h2>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry been the industry's standard dummy text ever since the 1500s, when an unknown.</p>
+                                        <h2>Select Date, Slot and Artist</h2>
+                                        <p>
+                                                Welcome to our booking platform! Here, you can easily select your preferred date, time slot, and artist for your upcoming appointment. 
+                                            Our team of talented professionals is dedicated to providing you with an exceptional experience that caters to your unique needs. 
+                                            Take the first step towards your next beauty or wellness session with us. We look forward to serving you!
+                                        </p>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6 col-12">
@@ -185,78 +219,20 @@
                                             <div class="form-group">
                                                 <label>Time</label>
                                                 <select id="input_slot" style="color: white;" class="select-slot">
-                                                    <option >Choose a slot</option>
+                                                    <option value="" disabled selected >Please choose a date</option>
                                                 </select>              
                                             </div>
                                         </div>
-<!--                                        <div class="col-lg-6 col-12">-->
-<!--                                            <div class="form-group">-->
-<!--                                                <div class="year-lbl-wrp d-flex align-items-center justify-content-between">-->
-<!--                                                    <label>Date:</label>-->
-<!--                                                    <div class="date-years d-flex align-items-center">-->
-<!--                                                        <div class="prev-year">-->
-<!--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">-->
-<!--                                                                <path d="M6 9L2 5L6 1" stroke="#C4B087" stroke-width="1.5" stroke-linecap="round"/>-->
-<!--                                                            </svg>-->
-<!--                                                        </div>-->
-<!--                                                        <div class="years-wrp">-->
-<!--                                                            30 Mar, 2022 - 30 Apr, 2022-->
-<!--                                                        </div>-->
-<!--                                                        <div class="next-year">-->
-<!--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">-->
-<!--                                                                <path d="M1 9L5 5L1 1" stroke="#C4B087" stroke-width="1.5" stroke-linecap="round"/>-->
-<!--                                                            </svg>-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                                <ul class="date-labls d-flex">-->
-<!--                                                    <li class="active">12 May</li>-->
-<!--                                                    <li>13 May</li>-->
-<!--                                                    <li>14 May</li>-->
-<!--                                                    <li>15 May</li>-->
-<!--                                                    <li>16 May</li>-->
-<!--                                                    <li>17 May</li>-->
-<!--                                                    <li>18 May</li>-->
-<!--                                                    <li>19 May</li>-->
-<!--                                                    <li>20 May</li>-->
-<!--                                                    <li>21 May</li>-->
-<!--                                                    <li>22 May</li>-->
-<!--                                                    <li>23 May</li>-->
-<!--                                                    <li>24 May</li>-->
-<!--                                                    <li>25 May</li>-->
-<!--                                                    <li>26 May</li>-->
-<!--                                                    <li>27 May</li>-->
-<!--                                                    <li>28 May</li>-->
-<!--                                                    <li>29 May</li>-->
-<!--                                                    <li>30 May</li>-->
-<!--                                                </ul>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-lg-6 col-12">-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label>Delivery hour:</label>-->
-<!--                                                <ul class="time-labls d-flex">-->
-<!--                                                    <li class="active">11:00-12:00</li>-->
-<!--                                                    <li>09:00-10:00</li>-->
-<!--                                                    <li>11:00-12:00</li>-->
-<!--                                                    <li>11:00-12:00</li>-->
-<!--                                                    <li>11:00-12:00</li>-->
-<!--                                                    <li>11:00-12:00</li>-->
-<!--                                                    <li>11:00-12:00</li>-->
-<!--                                                    <li>11:00-12:00</li>-->
-<!--                                                    <li>11:00-12:00</li>-->
-<!--                                                    <li>11:00-12:00</li>-->
-<!--                                                </ul>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
+                                        <div class="col-md-12 col-12">
+                                            <div class="form-group">
+                                                <label>Artist</label>
+                                                <select id="input_artist" style="color: white;" class="select-slot">
+                                                    <option value="" disabled selected ></option>
+                                                </select>              
+                                            </div>
+                                        </div>
                                         <div class="col-md-12 col-12">
                                             <div class="form-group d-flex step-btns">
-<!--                                                <button type="button" name="BACK" class="action-button back btn">-->
-<!--                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="8" viewBox="0 0 16 8" fill="none">-->
-<!--                                                        <path d="M15.3536 4.35355C15.5488 4.15829 15.5488 3.84171 15.3536 3.64645L12.1716 0.464467C11.9763 0.269205 11.6597 0.269205 11.4645 0.464467C11.2692 0.659729 11.2692 0.976312 11.4645 1.17157L14.2929 4L11.4645 6.82843C11.2692 7.02369 11.2692 7.34027 11.4645 7.53553C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553L15.3536 4.35355ZM-4.37114e-08 4.5L15 4.5L15 3.5L4.37114e-08 3.5L-4.37114e-08 4.5Z" fill="#30383D"></path>-->
-<!--                                                    </svg>-->
-<!--                                                    Previous step-->
-<!--                                                </button>-->
                                                 <button id="next_date_hour" type="button" name="next" class="next action-button btn">
                                                     Next step
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="8" viewBox="0 0 16 8" fill="none">
@@ -294,8 +270,6 @@
                                             <div class="checkbox-container">
                                                 <input type="checkbox" id="myCheckbox1" name="myCheckbox1">
                                                 <label for="myCheckbox1">Use your personal information:</label>
-
-
                                             </div>
                                         </div>
 
@@ -372,14 +346,20 @@
                                     <div class="row">
                                         <div class="col-md-12 col-12">
                                             <div class="form-group">
-                                                <label>Service:</label>
+                                                <label>Service(s):</label>
                                                 <input id="serviceName" readonly style="display: inline-block" type="text" class="form-control" placeholder="Service name">
                                             </div>
                                         </div>
-                                        <div class="col-md-12 col-12">
+                                        <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>Studio:</label>
                                                 <input id="studioName" readonly style="display: inline-block" type="text" class="form-control" placeholder="Studio name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label>Artist:</label>
+                                                <input id="output_artist" readonly style="display: inline-block" type="text" class="form-control" placeholder="Artist name">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">

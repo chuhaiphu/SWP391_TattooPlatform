@@ -6,8 +6,8 @@ $(document).ready(function () {
             type: "GET",
             url: "/studio/list", // Replace with the actual URL to your endpoint
             dataType: "json",
-            success: function (data) {
-                for (var studio of data) {
+            success: function (response) {
+                for (var studio of response.content) {
                     renderStudio(studio);
                 }
                 sessionStorage.removeItem("selectedServiceName");
@@ -20,13 +20,12 @@ $(document).ready(function () {
     }else{
         $.ajax({
             type: "GET",
-            url: "/studio/service-list?serviceName=" + selectedServiceName, // Replace with the actual URL to your endpoint
+            url: "/studio/list/" + selectedServiceName, // Replace with the actual URL to your endpoint
             dataType: "json",
-            success: function (data) {
-                for (var studio of data) {
+            success: function (response) {
+                for (var studio of response.content) {
                     renderStudio(studio);
                 }
-                handleBookingBtn();
                 handleViewStudioBtn();
             },
             error: function (xhr, status, error) {

@@ -58,7 +58,7 @@
                             <li><i class="fas fa-search"></i></li>
 
                         </ul>
-                        <ul class="menu-right d-flex">
+                        <ul class="menu-right d-flex justify-content-around">
 
                             <li class="header-appointment" >
                                 <a href="appointment-page.html">
@@ -78,8 +78,37 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="login">
-                            <a href="login.html">Login</a></div>
+                        <ul class="main-nav">
+                            <li class="menu-lnk has-item">
+                                <a href="#">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>
+                                <div class="menu-dropdown">
+                                    <ul>
+                                        <li><a href="my-account.html">Setting</a></li>
+                                        <li><a href="index.html" id="logout">Logout</a></li>
+                                        <script>
+                                            document.addEventListener("DOMContentLoaded", function() {
+                                                // Get the "Logout" link by its ID
+                                                var logoutLink = document.getElementById("logout");
+
+                                                // Add a click event listener to the link
+                                                logoutLink.addEventListener("click", function(event) {
+                                                    // Prevent the default behavior of the link (navigating to "index.html")
+                                                    event.preventDefault();
+
+                                                    sessionStorage.removeItem('tattooLover');
+
+                                                    // Optionally, you can also redirect the user to another page (e.g., a login page)
+                                                    window.location.href = 'index.html'; // Replace 'login.html' with your desired URL
+                                                });
+                                            });
+                                        </script>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
                         <div class="mobile-menu mobile-only">
                             <button class="mobile-menu-button">
                                 <div class="one"></div>
@@ -106,7 +135,7 @@
                         </span>
                         Back to category
                     </a> 
-                    <h2> <b>Pending</b> Bookings</h2>
+                    <h2> <b>Pending</b> Services</h2>
                 </div>
                 <div class="row">
                     <div class="col-lg-9 col-12">
@@ -114,62 +143,27 @@
                             <table class="cart-tble"> 
                                 <thead>
                                   <tr>
-                                    <th scope="col">Service</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Date</th>
+                                    <th scope=""></th>
+                                    <th scope="col">Image</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Studio</th>
                                     <th scope="col">Price</th>
+                                    
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <tr>
-                                    <td data-label="Product">
-                                        <a href="product.html" class="pro-img-cart">
-                                            <img src="assets/images/cart.png">
-                                        </a>
-                                    </td> 
-                                    <td data-label="Name">
-                                        <a href="product.html">Depilatory gel for women</a>
-                                        <div class="product-option">
-                                            <dt>Size: </dt>
-                                            <dd>S</dd>
-                                        </div>
-                                    </td>
-                                    <td data-label="date">11/08/22</td>
-                                    <td data-label="Price"> 
-                                        $2,100.00
-                                    </td>
-                                  </tr> 
-                                  <tr>
-                                    <td data-label="Product">
-                                        <a href="product.html" class="pro-img-cart">
-                                            <img src="assets/images/cart.png">
-                                        </a>
-                                     </td>
-                                    <td data-label="Name">
-                                        <a href="product.html">Depilatory gel for women</a>
-                                        <div class="product-option">
-                                            <dt>Color: </dt>
-                                            <dd>Blue</dd>
-                                        </div> 
-                                    </td>
-                                    <td data-label="date">11/08/22</td>
-                                    <td data-label="Price"> 
-                                        $2,100.00
-                                    </td>
-                                  </tr> 
+                                    <!-- show cart -->
                                 </tbody>
                             </table>
                             <div class="coupon-table">
                                 <div class="coupon-text">
                                     <h4>Use Coupon Code</h4>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
+                                    
                                 </div>
                                 <div class="coupon-code">
                                     <div class="coupon-code-text">
                                         <h4>code:</h4>
                                         <p>
-                                            SJG8392SAQT
-                                            <span></span>
                                         </p>
                                     </div>
                                     <div class="coupon-btn">
@@ -187,37 +181,28 @@
                     <div class="col-lg-3 col-12">
                         <p>TOTAL COST SUMMARY</p>
                         <div class="cart-summery">
-                            <ul>
+                            <ul>    
                                 <li>
-                                    <span class="cart-sum-left">1 item</span>
-                                    <span class="cart-sum-right">$48.00</span>
+                                    <span class="cart-sum-left">Total:</span>   
+                                    <span class="cart-sum-right" id="total-price"></span>
                                 </li> 
-                                <li>
-                                    <span class="cart-sum-left">Shipping</span>
-                                    <span class="cart-sum-right">$7.00</span>
+                                <!-- <li>
+                                     <span class="cart-sum-left">Discount:</span>
+                                     <span class="cart-sum-right" id="discount-percent"></span>
                                 </li>
                                 <li>
-                                    <span class="cart-sum-left">Total (tax excl.)</span>
-                                    <span class="cart-sum-right"> $55.00</span>
-                                </li>
-                                <li>
-                                    <span class="cart-sum-left">Total (tax incl.)</span>
-                                    <span class="cart-sum-right"> $55.00</span>
-                                </li>
-                                <li>
-                                    <span class="cart-sum-left">Taxes: </span>
-                                    <span class="cart-sum-right"> $0.00</span>
-                                </li>
+                                    <span class="cart-sum-left">Total(discount incl.):</span>
+                                    <span class="cart-sum-right" id="total-discountincl"></span>
+                                </li>                            -->
                             </ul>
-                            <button  class="btn checkout-btn">
-                                Proceed to checkout
+                            <button class="btn appointment-btn">
+                                Proceed to appointment
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>  
-
     </div>
     <!---wrapper end here-->
   <!--footer start here-->
@@ -550,6 +535,7 @@
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/slick.min.js" defer="defer"></script>
 <script src='assets/js/custom.js' defer="defer"></script>
+<script src="assets/js/cart.js" defer="defer"></script>
 <!--scripts end here-->
 </body>
 </html>

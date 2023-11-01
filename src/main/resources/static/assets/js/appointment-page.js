@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const cart = JSON.parse(localStorage.getItem('cart'));
     // Get references to the input and output elements
     const inputDate = document.querySelector('.ser-date');
     const outputDate = document.getElementById('output_date');
     const inputSlot = document.getElementById('input_slot');
     const outputSlot = document.getElementById('output_time');
+    const inputArtist = document.getElementById('input_artist');
+    const outputArtist = document.getElementById('output_artist');
     const inputName = document.getElementById('input_full_name');
     const outputName = document.getElementById('output_full_name');
     const inputEmail = document.getElementById('input_email');
@@ -16,17 +19,78 @@ document.addEventListener('DOMContentLoaded', function () {
     const outputNote = document.getElementById('output_note');
     const outputServiceName = document.getElementById('serviceName');
     const outputStudioName = document.getElementById('studioName');
-    var selectedStudioID = sessionStorage.getItem('selectedStudioID');
-    var selectedServiceID = sessionStorage.getItem('selectedServiceID');
-    var selectedServiceName = sessionStorage.getItem('selectedServiceName');
-    var selectedStudioName = sessionStorage.getItem('selectedStudioName');
-    var selectedServicePrice = sessionStorage.getItem('selectedServicePrice');
+    var selectedStudioID = cart[0].studioID;
+    // var selectedServiceID = sessionStorage.getItem('selectedServiceID');
+    // var selectedServiceName = sessionStorage.getItem('selectedServiceName');
+    // var selectedStudioName = sessionStorage.getItem('selectedStudioName');
+    // var selectedServicePrice = sessionStorage.getItem('selectedServicePrice');
+    var serviceNames = cart.map(function(service) {
+        return service.serviceName;
+    }).join(", ");
+    var studioName = cart[0].studioName;
     var tattooLover = JSON.parse(sessionStorage.getItem('tattooLover'));
     //Get slot by date of studio
     inputDate.addEventListener('change', function () {
         var selectedDate = $(this).val();
+        console.log(selectedDate);
         fetchSlots(selectedDate, selectedStudioID); // Call the function to fetch slots for the selected date
+
+        // if(new Date(selectedDate) >= new Date().toISOString().split('T')[0]){
+        //     fetchSlots(selectedDate, selectedStudioID); // Call the function to fetch slots for the selected date
+        // }else{
+        //     inputSlot.innerHTML = "";
+        //     var option = document.createElement('option');
+        //     option.value = "";
+        //     option.text = "Date is not valid to real-time";
+        //     inputSlot.append(option);
+        // }
+
     });
+    inputSlot.addEventListener('change', function(){
+        var selectedOption = this.options[this.selectedIndex];
+        var selectedSlotID = selectedOption.dataset.slotID;
+        console.log(selectedOption);
+        console.log(selectedSlotID);
+        fetchArtist(selectedSlotID, selectedStudioID);
+    })
+    function fetchArtist(selectedSlotID, selectedStudioID) {
+        //Perform AJAX request to fetch slots based on the selected date
+        //Example:
+        $.ajax({
+            url: "/artist/available/" + selectedStudioID + "/" + selectedSlotID,
+            type: "GET",
+            data: 'json',
+            success: function(data) {
+                // Update the time slots in the UI
+                console.log(data.content)
+                updateArtistsUI(data.content);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log("Error: " + errorThrown);
+                // alert("There is no slot available! Please choose another date");
+            }
+        });
+    }
+    function updateArtistsUI(artists) {
+        // Clear the options first
+        inputArtist.innerHTML = "";
+    
+        if (artists === null) {
+            // If no slots are available, add a default option with the message "No slots available"
+            inputArtist.innerHTML = '<option value="" disabled selected>No artist available</option>'
+        } else {
+            // Add the retrieved slots to the combobox
+            inputArtist.innerHTML = '<option value="" disabled selected>Choose your artist</option>'
+            artists.forEach(function (artist) {
+                console.log(artist.fullName);
+                var option = document.createElement('option');
+                option.value = artist.fullName;
+                option.text = artist.fullName;
+                option.dataset.artistEmail = artist.email;
+                inputArtist.append(option);
+            });
+        }
+    }
     function fetchSlots(selectedDate, selectedStudioID) {
         //Perform AJAX request to fetch slots based on the selected date
         //Example:
@@ -36,6 +100,13 @@ document.addEventListener('DOMContentLoaded', function () {
             data: 'json',
             success: function(data) {
                 // Update the time slots in the UI
+                console.log(data)
+                const customTimeSort = (a, b) => {
+                    const timeA = new Date(selectedDate + " " + a.startTime);
+                    const timeB = new Date(selectedDate + " " + b.startTime);
+                    return timeA - timeB;
+                  };
+                data.sort(customTimeSort);
                 console.log(data)
                 updateSlotsUI(data);
             },
@@ -51,12 +122,10 @@ document.addEventListener('DOMContentLoaded', function () {
     
         if (slots.length === 0) {
             // If no slots are available, add a default option with the message "No slots available"
-            var option = document.createElement('option');
-            option.value = "";
-            option.text = "No slots available";
-            inputSlot.append(option);
+            inputSlot.innerHTML = '<option value="" disabled selected>No slot available</option>'
         } else {
             // Add the retrieved slots to the combobox
+            inputSlot.innerHTML = '<option value="" disabled selected>Choose a slot</option>'
             slots.forEach(function (slot) {
                 console.log(slot.startTime);
                 var option = document.createElement('option');
@@ -77,6 +146,10 @@ document.addEventListener('DOMContentLoaded', function () {
     nextButton1.addEventListener('click', function () {
         outputDate.value = inputDate.value;
         outputSlot.value = inputSlot.value;
+        outputArtist.value = inputArtist.value;
+        if(outputDate.value == null && outputSlot.value == null){
+            console.log("Please input your information");
+        }
     });
 
     nextButton2.addEventListener('click', function () {
@@ -85,23 +158,36 @@ document.addEventListener('DOMContentLoaded', function () {
         outputPhone.value = inputPhone.value;
         outputAddress.value = inputAddress.value;
         outputNote.value = inputNote.value;
-        outputServiceName.value = selectedServiceName;
-        outputStudioName.value = selectedStudioName;
+        outputServiceName.value = serviceNames;
+        outputStudioName.value = studioName;
     });
     submitBtn.addEventListener('click', function() {
         var name = outputName.value;
         var email = outputEmail.value;
         var phone = outputPhone.value;
         var address = outputAddress.value;
-        var description = outputNote.value;
-        var serviceID = selectedServiceID;
-        var price = selectedServicePrice.replace(/[^\d.-]/g, '');
         var loverEmail = tattooLover.content.tattooLoveremail;
         var selectedSlotOption = inputSlot.options[inputSlot.selectedIndex];
         var slotID = selectedSlotOption.dataset.slotID;
-        var artistEmail = "artist1@example.com";
-        var statusID = "status1"
+        var selectedArtistOption = inputArtist.options[inputArtist.selectedIndex];
+        var artistEmail = selectedArtistOption.dataset.artistEmail;   
+        var statusID = "status1" 
         // Prepare data to be sent
+
+        var bookingDetails = []; // Initialize an empty array to hold the booking details
+
+            // Loop through each service in the cart and create a corresponding booking detail
+        cart.forEach(function(service) {
+            var bookingDetail = {
+                description: service.serviceName,
+                serviceID: service.serviceID, 
+                artistEmail: artistEmail,
+                slotID: slotID,
+                price: service.servicePrice.replace(/[^\d.-]/g, ''),
+                statusID: statusID
+            };
+            bookingDetails.push(bookingDetail); // Add the booking detail to the array
+        });
         var bookingData = {
             booking: {
                 // Properties of your Booking object
@@ -112,21 +198,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 customerPhoneNumber: phone,
                 address: address
             },
-            bookingDetails: [
-                // List of your BookingDetail objects
-                // For example:
-                {
-                    description: description,
-                    serviceID: serviceID, 
-                    artistEmail: artistEmail,
-                    slotID: slotID,
-                    price: price,
-                    voucherID: null
-                }
-                // Add more BookingDetail objects as needed
-            ]
+            bookingDetails: bookingDetails 
         };
-
+        event.preventDefault();
         // Send data using AJAX
         $.ajax({
             type: "POST",
@@ -135,9 +209,9 @@ document.addEventListener('DOMContentLoaded', function () {
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (response) {
-                // Handle success
                 console.log("Booking created successfully", response);
                 // Redirect to the order summary page
+                localStorage.removeItem('cart');
                 window.location.href = 'order-summery.html';
             },
             error: function (error) {

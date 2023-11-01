@@ -51,7 +51,6 @@
                                         <li><a href="faqs.html">FAQs</a></li>
                                         <li><a href="blog.html">Blog</a></li>
                                         <li><a href="article.html">Article</a></li>
-                                        <li><a href="product-list.html">Collection</a></li>
                                         <li><a href="contact-us.html">Contact</a></li>
                                     </ul>
                                 </div>
@@ -62,7 +61,7 @@
                             <li><i class="fas fa-search"></i></li>
 
                         </ul>
-                        <ul class="menu-right d-flex">
+                        <ul class="menu-right d-flex justify-content-around">
 
                             <li class="header-appointment" >
                                 <a href="appointment-page.html">
@@ -82,80 +81,37 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="login">
-                            <a href="login.html">Login</a></div>
-                        <div class="mobile-menu mobile-only">
-                            <button class="mobile-menu-button">
-                                <div class="one"></div>
-                                <div class="two"></div>
-                                <div class="three"></div>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header><header class="site-header header-style-one style-two">
-        <div class="main-navigationbar">
-            <div class="container">
-                <div class="navigationbar-row d-flex align-items-center">
-                    <div class="logo-col">
-                        <a href="index.html">
-                            Tattoo
-                        </a>
-                    </div>
-                    <div class="menu-items-col">
                         <ul class="main-nav">
-
-                            <li class="menu-lnk">
-                                <a href="studio-list.html">
-                                    Studio
-                                </a>
-                            </li>
-
-
                             <li class="menu-lnk has-item">
                                 <a href="#">
-                                    Pages
+                                    <i class="fa fa-user" aria-hidden="true"></i>
                                 </a>
                                 <div class="menu-dropdown">
                                     <ul>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="faqs.html">FAQs</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="article.html">Article</a></li>
-                                        <li><a href="contact-us.html">Contact</a></li>
+                                        <li><a href="my-account.html">Setting</a></li>
+                                        <li><a href="index.html" id="logout">Logout</a></li>
+                                        <script>
+                                            document.addEventListener("DOMContentLoaded", function() {
+                                                // Get the "Logout" link by its ID
+                                                var logoutLink = document.getElementById("logout");
+
+                                                // Add a click event listener to the link
+                                                logoutLink.addEventListener("click", function(event) {
+                                                    // Prevent the default behavior of the link (navigating to "index.html")
+                                                    event.preventDefault();
+
+                                                    sessionStorage.removeItem('tattooLover');
+
+                                                    // Optionally, you can also redirect the user to another page (e.g., a login page)
+                                                    window.location.href = 'index.html'; // Replace 'login.html' with your desired URL
+                                                });
+                                            });
+                                        </script>
                                     </ul>
                                 </div>
                             </li>
-                            <li class="menu-lnk">
-                                <input type="text" class="search-input" placeholder="Search...">
-                            </li>
-                            <li><i class="fas fa-search"></i></li>
 
                         </ul>
-                        <ul class="menu-right d-flex">
-
-                            <li class="header-appointment" >
-                                <a href="appointment-page.html">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"
-                                         fill="none">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M13.6 3.2H2.4C1.95817 3.2 1.6 3.55817 1.6 4V13.6C1.6 14.0418 1.95817 14.4 2.4 14.4H13.6C14.0418 14.4 14.4 14.0418 14.4 13.6V8.8V4C14.4 3.55817 14.0418 3.2 13.6 3.2ZM2.4 1.6C1.07452 1.6 0 2.67452 0 4V13.6C0 14.9255 1.07452 16 2.4 16H13.6C14.9255 16 16 14.9255 16 13.6V8.8V4C16 2.67452 14.9255 1.6 13.6 1.6H2.4Z"
-                                              fill="white" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M6.4 8C5.95817 8 5.6 8.35817 5.6 8.8C5.6 9.24183 5.95817 9.6 6.4 9.6H12C12.4418 9.6 12.8 9.24183 12.8 8.8C12.8 8.35817 12.4418 8 12 8H6.4ZM4 11.2C3.55817 11.2 3.2 11.5582 3.2 12C3.2 12.4418 3.55817 12.8 4 12.8H8.8C9.24183 12.8 9.6 12.4418 9.6 12C9.6 11.5582 9.24183 11.2 8.8 11.2H4Z"
-                                              fill="white" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M4 0C3.55817 0 3.2 0.358172 3.2 0.8V4C3.2 4.44183 3.55817 4.8 4 4.8C4.44183 4.8 4.8 4.44183 4.8 4V0.8C4.8 0.358172 4.44183 0 4 0ZM12 0C11.5582 0 11.2 0.358172 11.2 0.8V4C11.2 4.44183 11.5582 4.8 12 4.8C12.4418 4.8 12.8 4.44183 12.8 4V0.8C12.8 0.358172 12.4418 0 12 0Z"
-                                              fill="white" />
-                                    </svg>
-                                    <span class="desk-only"> Book Appointment </span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="login">
-                            <a href="login.html">Login</a></div>
                         <div class="mobile-menu mobile-only">
                             <button class="mobile-menu-button">
                                 <div class="one"></div>
