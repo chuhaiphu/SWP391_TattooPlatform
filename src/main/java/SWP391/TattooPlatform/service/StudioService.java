@@ -94,12 +94,26 @@ public class StudioService {
         return ResponseUtils.get(studioList,HttpStatus.OK);
     }
 
-    public ResponseEntity<?> findAllStudioByStudioName(String studioName) {
-        List<Studio> studioList = studioRepository.findStudiosByStudioName(studioName);
-        if(studioName == null) {
-            return ResponseUtils.get(studioRepository.findAll(),HttpStatus.OK);
+//    public ResponseEntity<?> findAllStudioByStudioName(String studioName) {
+//        List<Studio> studioList = studioRepository.findStudiosByStudioName(studioName);
+//        if(studioName == null) {
+//            return ResponseUtils.get(studioRepository.findAll(),HttpStatus.OK);
+//        }
+//        return ResponseUtils.get(studioList,HttpStatus.OK);
+//    }
+    public ResponseEntity<?> findStudioByStudioName(String name) {
+        List<Studio> studioList = studioRepository.findAll();
+        List<Studio> searchList = new ArrayList<>();
+        for(Studio studio : studioList) {
+            if(studio.getStudioName().contains(name)) {
+                searchList.add(studio);
+            }
         }
-        return ResponseUtils.get(studioList,HttpStatus.OK);
-    }
 
+        if(name.equals("")) {
+            return   ResponseUtils.get( studioRepository.findAll(), HttpStatus.OK);
+        }
+            return   ResponseUtils.get(searchList, HttpStatus.OK);
+
+    }
 }

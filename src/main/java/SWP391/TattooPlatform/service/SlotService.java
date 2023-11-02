@@ -37,14 +37,17 @@ public class SlotService {
     public ResponseEntity<?> addSlot(Slot slot) {
             return ResponseUtils.get(slotRepository.save(slot),HttpStatus. CREATED);
     }
-    public List<Slot> getListSlotByStudioIDAndDate(String id, String date) {
+    public ResponseEntity<?> getListSlotByStudioIDAndDate(String id, String date) {
         if(slotRepository.findSlotsByStudioIDAndDate(id,date).isEmpty()) {
-            return Collections.emptyList();
+
+            return ResponseUtils.get(Collections.emptyList(), HttpStatus.OK);
         }
-        return slotRepository.findSlotsByStudioIDAndDate(id,date);
+//        return slotRepository.findSlotsByStudioIDAndDate(id,date);
+        return ResponseUtils.get(slotRepository.findSlotsByStudioIDAndDate(id,date), HttpStatus.OK);
     }
 
     public List<Slot> getListAvailableSlotByStudioIDAndDate(String id, String date) {
+
         List<Slot> slotList = slotRepository.findSlotsByStudioIDAndDate(id,date);
         if(slotList.isEmpty()) {
             return Collections.emptyList();
@@ -56,6 +59,24 @@ public class SlotService {
             return availableSlots;
         }
     }
+//    public ResponseEntity<?> getListSlotByStudioIDAndDate(String id, String date) {
+//        // Get the current real-time LocalDateTime
+//        LocalDateTime currentTime = LocalDateTime.now();
+//
+//        if (slotRepository.findSlotsByStudioIDAndDate(id, date).isEmpty()) {
+//            return ResponseUtils.error("Not found any slot in this Studio", HttpStatus.FOUND);
+//        }
+//
+//        List<Slot> slots = slotRepository.findSlotsByStudioIDAndDate(id, date);
+//
+//        // Compare the current time with the date from the database
+//        LocalDateTime databaseDate = LocalDateTime.parse(slots.get(0).getDate()); // Replace with your slot date property
+//        if (currentTime.isAfter(databaseDate)) {
+//            return ResponseUtils.error("The slot has already passed", HttpStatus.BAD_REQUEST);
+//        }
+//
+//        return ResponseUtils.get(slots, HttpStatus.OK);
+//    }
 //    public void addNewSlot(String date, String startTime, String studioID) {
 //        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 //

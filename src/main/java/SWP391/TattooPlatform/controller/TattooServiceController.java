@@ -46,7 +46,10 @@ public class TattooServiceController {
     public ResponseEntity<?> saveService(@RequestBody Service ts) {
         return ResponseUtils.get(tattooService.addService(ts),HttpStatus.CREATED);
     }
-
+    @GetMapping("/search")
+    public ResponseEntity<?> getServiceByServiceName(@RequestParam String serviceName) {
+        return tattooService.findServiceByServiceName(serviceName);
+    }
     @PutMapping("/{serviceID}")
     public ResponseEntity<?> updateService(@PathVariable String serviceID,
                                            @RequestParam String serviceName, @RequestParam String description,

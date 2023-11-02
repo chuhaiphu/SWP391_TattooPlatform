@@ -33,17 +33,17 @@ document.addEventListener('DOMContentLoaded', function () {
     inputDate.addEventListener('change', function () {
         var selectedDate = $(this).val();
         console.log(selectedDate);
-        fetchSlots(selectedDate, selectedStudioID); // Call the function to fetch slots for the selected date
-
-        // if(new Date(selectedDate) >= new Date().toISOString().split('T')[0]){
-        //     fetchSlots(selectedDate, selectedStudioID); // Call the function to fetch slots for the selected date
-        // }else{
-        //     inputSlot.innerHTML = "";
-        //     var option = document.createElement('option');
-        //     option.value = "";
-        //     option.text = "Date is not valid to real-time";
-        //     inputSlot.append(option);
-        // }
+        // fetchSlots(selectedDate, selectedStudioID); // Call the function to fetch slots for the selected date
+        console.log(new Date().toISOString());
+        if(selectedDate >= new Date().toISOString().split('T')[0]){
+            fetchSlots(selectedDate, selectedStudioID); // Call the function to fetch slots for the selected date
+        }else{
+            inputSlot.innerHTML = "";
+            var option = document.createElement('option');
+            option.value = "";
+            option.text = "Date is not valid to real-time";
+            inputSlot.append(option);
+        }
 
     });
     inputSlot.addEventListener('change', function(){
@@ -106,9 +106,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     const timeB = new Date(selectedDate + " " + b.startTime);
                     return timeA - timeB;
                   };
-                data.sort(customTimeSort);
-                console.log(data)
-                updateSlotsUI(data);
+                data.content.sort(customTimeSort);
+                console.log(data.content)
+                updateSlotsUI(data.content);
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log("Error: " + errorThrown);

@@ -26,8 +26,8 @@ public class SlotController {
         return slotService.getSlotByID(slotID);
     }
     @GetMapping("/{studioID}/{date}")
-    public List<Slot> getListSlotByStudioIDAndDate(@PathVariable String studioID, @PathVariable String date) {
-        return slotService.getListSlotByStudioIDAndDate(studioID,date);
+    public ResponseEntity<?> getListSlotByStudioIDAndDate(@PathVariable String studioID, @PathVariable String date) {
+        return slotService.getListSlotByStudioIDAndDate(studioID, date);
     }
     @PostMapping()
     public ResponseEntity<?> addSlot(@RequestBody Slot slot ) {

@@ -40,7 +40,10 @@ public class StudioController {
     public ResponseEntity<?> getALlStudio() {
         return service.findAllStudio();
     }
-
+    @GetMapping("/search")
+    public ResponseEntity<?> getServiceByServiceName(@RequestParam String studioName) {
+        return service.findStudioByStudioName(studioName);
+    }
 //    @GetMapping("/service")
 //    public ResponseEntity<?> getAllStudioByServiceName(@RequestParam String serviceName) {
 //        return service.findStudioByServiceName(serviceName);

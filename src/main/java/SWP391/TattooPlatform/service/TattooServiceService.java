@@ -6,10 +6,8 @@ import SWP391.TattooPlatform.repository.TattooServiceRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.util.*;
 import java.util.ArrayList;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 @org.springframework.stereotype.Service
 public class TattooServiceService {
@@ -44,22 +42,41 @@ public class TattooServiceService {
         return list;
     }
 
+//    public ResponseEntity<?> findServiceByServiceName(String name) {
+//        List<Service> serviceList = tattooServiceRepository.findAll();
+//        List<Service> searchList = new ArrayList<>();
+//        for(Service service : serviceList) {
+//            if(service.getServiceName().contains(name)) {
+//                searchList.add(service);
+//            }
+//        }
+//
+//        if(name.equals("")) {
+//            return   ResponseUtils.get(tattooServiceRepository.findAll(), HttpStatus.OK);
+//        }
+//            return   ResponseUtils.get(searchList, HttpStatus.OK);
+//
+//    }
     public ResponseEntity<?> findServiceByServiceName(String name) {
         List<Service> serviceList = tattooServiceRepository.findAll();
         List<Service> searchList = new ArrayList<>();
-        for(Service service : serviceList) {
-            if(service.getServiceName().contains(name)) {
-                searchList.add(service);
+        Set<String> encounteredServiceNames = new HashSet<>(); // To track encountered service names
+
+        for (Service service : serviceList) {
+            if (service.getServiceName().contains(name)) {
+                if (!encounteredServiceNames.contains(service.getServiceName())) {
+                    searchList.add(service);
+                    encounteredServiceNames.add(service.getServiceName());
+                }
             }
         }
 
-        if(name.equals("")) {
-            return   ResponseUtils.get(tattooServiceRepository.findAll(), HttpStatus.OK);
+        if (name.equals("")) {
+            return ResponseUtils.get(tattooServiceRepository.findAll(), HttpStatus.OK);
         }
-            return   ResponseUtils.get(searchList, HttpStatus.OK);
 
+        return ResponseUtils.get(searchList, HttpStatus.OK);
     }
-
     public Service addService(Service s) {
         return tattooServiceRepository.save(s);
     }
