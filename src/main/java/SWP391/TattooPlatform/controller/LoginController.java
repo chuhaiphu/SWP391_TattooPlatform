@@ -32,7 +32,6 @@ public class LoginController {
         // Load the HTML file as a string
         Resource resource = new ClassPathResource("static/login.html");
         String htmlContent = new String(Files.readAllBytes(Paths.get(resource.getURI())));
-
         return htmlContent;
     }
 
@@ -40,7 +39,6 @@ public class LoginController {
     public ResponseEntity<String> login(@RequestParam String email, @RequestParam String password) throws IOException {
         try {
             Admin admin = adminService.getAdminFromJsonFile();
-
             if (admin.getAdminEmail().equals(email) && admin.getPassword().equals(password)) {
                 // Admin login successful
                 return ResponseEntity.ok("AdminLogin");

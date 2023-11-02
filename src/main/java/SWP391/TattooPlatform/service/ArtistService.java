@@ -26,6 +26,12 @@ public class ArtistService {
         return artistRepository.findAll();
     }
 
+    public List<Artist> getAvailableArtistsBySlotIDAndStudioID(String slotID,String studioID) {
+        if(artistRepository.findAvailableArtistsBySlotIDAndStudioID(slotID, studioID).isEmpty()) {
+            return null;
+        }
+        return artistRepository.findAvailableArtistsBySlotIDAndStudioID(slotID, studioID);
+    }
     public Artist addArtist(Artist artist)
     {
         if(artistRepository.findArtistByEmail(artist.getEmail()) == null){

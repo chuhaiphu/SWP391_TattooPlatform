@@ -32,6 +32,10 @@ public class ArtistController {
     public Object getAllRoles () {
         return  ResponseUtils.get(artistService.getListArtist(),HttpStatus.OK);
     }
+    @GetMapping("/available/{studioID}/{slotID}")
+    public Object getAvailableArtistsBySlotID (@PathVariable String slotID,@PathVariable String studioID ) {
+        return  ResponseUtils.get(artistService.getAvailableArtistsBySlotIDAndStudioID(slotID, studioID),HttpStatus.OK);
+    }
 
     //-------------------------------POST/ADD-------------------------------
     @PostMapping("/addArtist")

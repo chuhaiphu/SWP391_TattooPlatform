@@ -1,3 +1,11 @@
+var cart = [];
+localStorage.setItem('cart', JSON.stringify(cart));
+// var existedCart = JSON.parse(localStorage.getItem('cart'));
+// if(existCart == null){
+//     localStorage.setItem('cart', JSON.stringify(cart));
+// }else{
+//     var existedCartConfirm = confirm("You are in booking a service")
+// }
 //Get service list
 $(document).ready(function () {
     // Send an AJAX request
@@ -5,12 +13,10 @@ $(document).ready(function () {
         type: "GET",
         url: "/service/list", // Replace with the actual URL to your endpoint
         dataType: "json",
-        success: function (data) {
-            for (var service of data){
+        success: function (response) {
+            for (var service of response.content){
                 renderService(service);
             }
-
-
             // Add event listeners to each button
             $(document).on('click', '#selectServiceBtn', function () {
                 var serviceName = $(this).closest('.product-card-content').find('h4').text().trim();
