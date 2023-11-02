@@ -34,6 +34,11 @@ public class TattooServiceController {
         return tattooService.tattooServiceList();
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<?> getServiceByServiceName(@RequestParam String serviceName) {
+        return tattooService.findServiceByServiceName(serviceName);
+    }
+
     @GetMapping("")
     public String loadServiceHtml() throws IOException {
         // Load the HTML file as a string

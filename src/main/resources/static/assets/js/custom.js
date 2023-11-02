@@ -492,6 +492,101 @@ $(".step-container").on("click", ".back", function() {
   $(".steps li").eq($(this).parents(".step-container").index() - totalSteps).removeClass("active"); 
   $(this).parents(".step-container").removeClass("active").prev().addClass("active"); 
   $('.right-slider').slick('refresh');
-}); 
+});
+
+// Add a click event listener to the icon
+document.getElementById("search-button-service").addEventListener("click", function() {
+  // Get the input element
+  const inputElement = document.querySelector(".search-input");
+
+  let searchValue = inputElement.value;
+  if (searchValue === null || searchValue.trim() === "") {
+    searchValue = "";
+  }
+  console.log(searchValue);
+
+// Clear existing service cards
+  const serviceContainer = document.getElementById("service-card");
+  serviceContainer.innerHTML = ''; // Remove all child elements
+  $.ajax({
+    type: "GET",
+    url: "/service/search?serviceName=" + searchValue, // Replace with the actual URL to your endpoint
+    dataType: "json",
+    success: function (data) {
+      for (var service of data.content){
+        console.log(service);
+        renderService(service);
+      }
+
+      // Add event listeners to each button
+      $(document).on('click', '#selectServiceBtn', function () {
+        var serviceName = $(this).closest('.product-card-content').find('h4').text().trim();
+        sessionStorage.setItem('selectedServiceName', serviceName);
+        var serviceID = $(this).closest('.product-card-content').find('.service-id').text().trim(); // Get serviceID
+        sessionStorage.setItem('selectedServiceID', serviceID); // Save serviceID to sessionStorage
+        window.location.href = "/studio";
+      });
+    },
+    error: function (xhr, status, error) {
+      console.error("Error fetching service: " + error);
+    }
+  });
+});
+function renderService(search_service) {
+  var service_template = $("#service-card_template").html();
+  service_template = service_template.replace("{{imgSrc}}", search_service.linkImage);
+  service_template = service_template.replace("{{serviceName}}", search_service.serviceName);
+  service_template = service_template.replace("{{serviceID}}", search_service.serviceID);
+  var added_service = $("#service-card");
+  $(service_template).appendTo(added_service);
+}
+
+
+document.getElementById("search-button-studio").addEventListener("click", function() {
+  // Get the input element
+  const inputElement = document.querySelector(".search-input");
+
+  let searchValue = inputElement.value;
+  if (searchValue === null || searchValue.trim() === "") {
+    searchValue = "";
+  }
+  console.log(searchValue);
+
+// Clear existing service cards
+  const studioContainer = document.getElementById("studio-card");
+  studioContainer.innerHTML = ''; // Remove all child elements
+  $.ajax({
+    type: "GET",
+    url: "/service/search?studioName=" + searchValue, // Replace with the actual URL to your endpoint
+    dataType: "json",
+    success: function (data) {
+      for (var studio of data.content){
+        console.log(studio);
+        renderStudio(studio);
+      }
+
+      // Add event listeners to each button
+      $(document).on('click', '#view-studio-btn', function () {
+        var studioName = $(this).closest('.product-card-content').find('h4').text().trim();
+        var studioID = $(this).closest('.product-card-content').find('.studio-id').text().trim(); // Get studioID
+        sessionStorage.setItem('selectedStudioID', studioID); // Save studioID to sessionStorage
+        sessionStorage.setItem('selectedStudioName', studioName);
+        window.location.href = 'view-studio.html';
+      });
+    },
+    error: function (xhr, status, error) {
+      console.error("Error fetching service: " + error);
+    }
+  });
+});
+function renderStudio(search_studio) {
+  var studio_template = $("#studio-card_template").html();
+  studio_template = studio_template.replace("{{imgSrc}}", search_studio.bannerImg);
+  studio_template = studio_template.replace("{{studioName}}", search_studio.studioName);
+  studio_template = studio_template.replace("{{briefInfo}}", search_studio.briefInfo);
+  studio_template = studio_template.replace("{{studioID}}", search_studio.studioID); // Add studioID
+  var added_studio = $("#studio-card");
+  $(studio_template).appendTo(added_studio);
+}
 /******  STEPPY FORM  CSS  End******/
 

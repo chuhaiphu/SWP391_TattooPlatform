@@ -21,7 +21,7 @@ public interface StudioRepository extends JpaRepository<Studio, String> {
 
 
     Studio findStudioByManagerEmail(String managerEmail);
-
+    List<Studio> findStudiosByStudioName(String studioName);
     Studio findStudioByStudioName(String studioName);
     Studio save(Studio studio);
 

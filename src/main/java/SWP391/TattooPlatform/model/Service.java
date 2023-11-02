@@ -44,8 +44,6 @@ public class Service {
     @Column(name = "tattoo_Manager_email")
     private String tattooManagerEmail;
 
-
-
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "tattoo_Manager_email", insertable=false, updatable=false)

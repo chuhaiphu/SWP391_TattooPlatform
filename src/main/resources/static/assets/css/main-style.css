@@ -5791,6 +5791,11 @@ table tr td {
     .footer-bottom .policy-links a:hover {
         text-decoration: underline;
     }
+
+    .main-nav{
+        font-size: x-large;
+    }
+
     .login {
         display: flex;
         justify-content: center;
@@ -5799,8 +5804,7 @@ table tr td {
         color: white;
         text-decoration: none;
         transition: color 0.01s;
-        font-size: large;
-
+        font-size: xx-large;
     }
 
     .login:hover {
@@ -5822,6 +5826,32 @@ table tr td {
     }
     .search-input {
         padding-right: 30px!important;
+    }
+
+    #search-button-service {
+        cursor: pointer; /* Change the cursor to a pointer on hover */
+
+    }
+
+    #search-button-studio {
+        cursor: pointer; /* Change the cursor to a pointer on hover */
+
+    }
+
+    #search-button-service {
+        color: #C4B087; /* Set the initial color (can be overridden with JavaScript) */
+    }
+
+    #search-button-studio {
+        color: #C4B087; /* Set the initial color (can be overridden with JavaScript) */
+    }
+
+    #search-button-service:hover {
+        color: whitesmoke; /* Change the button icon color on hover */
+    }
+
+    #search-button-studio:hover {
+        color: whitesmoke; /* Change the button icon color on hover */
     }
 }
 

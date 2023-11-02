@@ -47,7 +47,7 @@ public class StudioController {
 //    }
 
     @GetMapping("/{serviceName}")
-    public ResponseEntity<?> getAllStudioByServiceName(@PathVariable String serviceName) {
+    public ResponseEntity<?> getAllStudioByServiceName(@RequestParam String serviceName) {
         return service.findStudioByServiceName(serviceName);
     }
 
@@ -55,10 +55,17 @@ public class StudioController {
     public Studio getStudioByID(@PathVariable String studioID) {
         return service.findStudioByStudioID(studioID);
     }
+
     @GetMapping("/service-list")
     public List<Studio> getAllStudioByServiceNameList(@RequestParam String serviceName) {
         return service.getStudioByServiceNameList(serviceName);
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<?> getAllStudioByStudioName(@RequestParam String studioName) {
+        return service.findAllStudioByStudioName(studioName);
+    }
+
     @GetMapping("/studioService/{studioID}")
     public ResponseEntity<?> getServiceByStudioID(@PathVariable String studioID) {
         return service.findStudioByID(studioID);

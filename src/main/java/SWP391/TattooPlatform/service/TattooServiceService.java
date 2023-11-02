@@ -1,7 +1,10 @@
 package SWP391.TattooPlatform.service;
 
+import SWP391.TattooPlatform.config.ResponseUtils;
 import SWP391.TattooPlatform.model.Service;
 import SWP391.TattooPlatform.repository.TattooServiceRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
 import java.util.ArrayList;
@@ -39,6 +42,22 @@ public class TattooServiceService {
             }
         }
         return list;
+    }
+
+    public ResponseEntity<?> findServiceByServiceName(String name) {
+        List<Service> serviceList = tattooServiceRepository.findAll();
+        List<Service> searchList = new ArrayList<>();
+        for(Service service : serviceList) {
+            if(service.getServiceName().contains(name)) {
+                searchList.add(service);
+            }
+        }
+
+        if(name.equals("")) {
+            return   ResponseUtils.get(tattooServiceRepository.findAll(), HttpStatus.OK);
+        }
+            return   ResponseUtils.get(searchList, HttpStatus.OK);
+
     }
 
     public Service addService(Service s) {

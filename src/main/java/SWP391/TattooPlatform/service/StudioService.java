@@ -94,6 +94,12 @@ public class StudioService {
         return ResponseUtils.get(studioList,HttpStatus.OK);
     }
 
-
+    public ResponseEntity<?> findAllStudioByStudioName(String studioName) {
+        List<Studio> studioList = studioRepository.findStudiosByStudioName(studioName);
+        if(studioName == null) {
+            return ResponseUtils.get(studioRepository.findAll(),HttpStatus.OK);
+        }
+        return ResponseUtils.get(studioList,HttpStatus.OK);
+    }
 
 }

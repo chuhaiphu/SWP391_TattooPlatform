@@ -13,7 +13,6 @@ $(document).ready(function () {
 
             // Add event listeners to each button
             $(document).on('click', '#selectServiceBtn', function () {
-                var serviceID
                 var serviceName = $(this).closest('.product-card-content').find('h4').text().trim();
                 sessionStorage.setItem('selectedServiceName', serviceName);
                 var serviceID = $(this).closest('.product-card-content').find('.service-id').text().trim(); // Get serviceID
