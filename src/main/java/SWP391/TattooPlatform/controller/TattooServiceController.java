@@ -42,7 +42,7 @@ public class TattooServiceController {
 
         return htmlContent;
     }
-    @PostMapping()
+    @PostMapping("/add-service")
     public ResponseEntity<?> saveService(@RequestBody Service ts) {
         return ResponseUtils.get(tattooService.addService(ts),HttpStatus.CREATED);
     }

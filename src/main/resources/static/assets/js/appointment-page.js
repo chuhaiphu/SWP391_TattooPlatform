@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Loop through each service in the cart and create a corresponding booking detail
         cart.forEach(function(service) {
             var bookingDetail = {
-                description: service.serviceName,
+                description: outputNote.value,
                 serviceID: service.serviceID,
                 artistEmail: artistEmail,
                 slotID: slotID,

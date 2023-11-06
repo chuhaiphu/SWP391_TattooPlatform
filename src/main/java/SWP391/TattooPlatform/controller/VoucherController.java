@@ -25,7 +25,7 @@ public class VoucherController {
 
 
     //-------------------------------GET-------------------------------
-    @GetMapping("/allVoucher")
+    @GetMapping("/list")
     public Object getAllFeedback () {
         return  ResponseUtils.get(voucherService.getVoucherList(), HttpStatus.OK);
     }
@@ -53,7 +53,7 @@ public class VoucherController {
     }
 
     //-------------------------------POST/ADD-------------------------------
-    @PostMapping("/addVoucher")
+    @PostMapping("/add-voucher")
     public ResponseEntity<?> saveRole(@RequestBody Voucher voucher) {
         return ResponseUtils.get(voucherService.addVoucher(voucher), HttpStatus.CREATED);
     }

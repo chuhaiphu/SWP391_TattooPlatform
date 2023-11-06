@@ -10,22 +10,22 @@
             rel="icon"
             type="image/png"
             sizes="16x16"
-            href="assets/plugins/images/favicon.png"
+            href="studiomanager/assets/plugins/images/favicon.png"
     />
-    <title>Studiomanager</title>
+    <title>Studiomanagerr</title>
     <!-- Bootstrap Core CSS -->
-    <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="studiomanager/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Menu CSS -->
     <link
-            href="assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
+            href="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
             rel="stylesheet"
     />
     <!-- animation CSS -->
-    <link href="assets/css/animate.css" rel="stylesheet" />
+    <link href="studiomanager/assets/css/animate.css" rel="stylesheet" />
     <!-- Custom CSS -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="studiomanager/assets/css/style.css" rel="stylesheet" />
     <!-- color CSS -->
-    <link href="assets/css/colors/blue-dark.css" id="theme" rel="stylesheet" />
+    <link href="studiomanager/assets/css/colors/blue-dark.css" id="theme" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -52,12 +52,12 @@
                 <i class="fa fa-bars"></i>
             </a>
             <div class="top-left-part">
-                <a class="logo" href="artist.html">
+                <a class="logo" href="view-artist.html">
                     <b>
-                        <img src="assets/plugins/images/pixeladmin-logo.png" alt="home" />
+                        <img src="studiomanager/assets/plugins/images/pixeladmin-logo.png" alt="home" />
                     </b>
                     <span class="hidden-xs">
-                <img src="assets/plugins/images/pixeladmin-text.png" alt="home" />
+                <img src="studiomanager/assets/plugins/images/pixeladmin-text.png" alt="home" />
               </span>
                 </a>
             </div>
@@ -84,14 +84,15 @@
                                 href="#"
                         >
                             <img
-                                    src="assets/plugins/images/users/varun.jpg"
+                                    src="studiomanager/assets/plugins/images/users/varun.jpg"
                                     alt="user-img"
                                     width="36"
                                     class="img-circle"
                             />
-                            <b class="hidden-xs">Studiomanager</b>
+                            <b class="hidden-xs">System staff</b>
                         </a>
                         <ul class="dropdown-menu">
+
                             <li class="divider"></li>
                             <li><a href="#">Logout</a></li>
                         </ul>
@@ -108,25 +109,32 @@
         <div class="sidebar-nav navbar-collapse slimscrollsidebar">
             <ul class="nav" id="side-menu">
                 <li>
-                    <a href="artist.html" class="waves-effect"
+                    <a href="view-artist.html" class="waves-effect"
                     ><i class="fa fa-user fa-fw" aria-hidden="true"></i
                     ><span class="hide-menu">Artist</span></a
                     >
                 </li>
                 <li>
-                    <a href="service.html" class="waves-effect"
+                    <a href="view-lover.html" class="waves-effect"
+                    ><i class="fa fa-user fa-fw" aria-hidden="true"></i
+                    ><span class="hide-menu">Lover</span></a
+                    >
+                </li>
+
+                <li>
+                    <a href="view-service.html" class="waves-effect"
                     ><i class="fa fa-modx fa-fw" aria-hidden="true"></i
                     ><span class="hide-menu">Service </span></a
                     >
                 </li>
                 <li>
-                    <a href="booking.html" class="waves-effect"
+                    <a href="view-booking.html" class="waves-effect"
                     ><i class="fa fa-table fa-fw" aria-hidden="true"></i
                     ><span class="hide-menu">Booking </span></a
                     >
                 </li>
                 <li>
-                    <a href="voucher.html" class="waves-effect"
+                    <a href="view-voucher.html" class="waves-effect"
                     ><i class="fa fa-ticket fa-fw" aria-hidden="true"></i
                     ><span class="hide-menu">Voucher </span></a
                     >
@@ -141,7 +149,7 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Update service</h4>
+                    <h4 class="page-title">Update booking</h4>
                 </div>
             </div>
             <!-- /.row -->
@@ -151,58 +159,41 @@
                 <div class="col-md-8 col-xs-12">
                     <div class="white-box">
                         <div class="form-horizontal form-material">
+
+
+
+
                             <div class="form-group">
-                                <label class="col-md-12">Name</label>
+                                <label class="col-md-12">Date</label>
                                 <div class="col-md-12">
                                     <input
                                             type="text"
-                                            placeholder="Name"
-                                            id="serviceName"
+                                            id="dateBooking"
+                                            placeholder="dd/MM/yyyy"
                                             class="form-control form-control-line"
+
                                     />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Description</label>
+                                <label class="col-md-12">Time</label>
                                 <div class="col-md-12">
                                     <input
-                                            type="text"
-                                            placeholder="Description"
-                                            id="descriptionService"
+                                            type="time"
+                                            id="timeBooking"
+                                            placeholder=""
                                             class="form-control form-control-line"
+
                                     />
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Price</label>
-                                <div class="col-md-12">
-                                    <input
-                                            type="text"
-                                            placeholder="Price"
-                                            id="priceService"
-                                            class="form-control form-control-line"
-                                    />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Image</label>
-                                <div class="col-md-12">
-                                    <input
-                                            type="text"
-                                            placeholder="URL"
-                                            id="imageService"
-                                            class="form-control form-control-line"
-                                    />
-                                </div>
-                            </div>
+
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <button id="btn-save-service" class="btn btn-success">
-                                        Update service
+                                    <button class="btn btn-success" id="btn-save-task">
+                                        Update
                                     </button>
-                                    <a href="service.html" class="btn btn-primary"
-                                    >Back</a
-                                    >
+                                    <a href="view-voucher.html" class="btn btn-primary">Back</a>
                                 </div>
                             </div>
                         </div>
@@ -219,19 +210,18 @@
 </div>
 <!-- /#wrapper -->
 <!-- jQuery -->
-<script src="assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="studiomanager/assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
-
+<script src="studiomanager/assets/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Menu Plugin JavaScript -->
-<script src="assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+<script src="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
 <!--slimscroll JavaScript -->
-<script src="assets/js/jquery.slimscroll.js"></script>
+<script src="studiomanager/assets/js/jquery.slimscroll.js"></script>
 <!--Wave Effects -->
-<script src="assets/js/waves.js"></script>
+<script src="studiomanager/assets/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
-<script src="assets/js/custom.min.js"></script>
-<script src="assets/js/role.js"></script>
+<script src="studiomanager/assets/js/custom.min.js"></script>
+<script src="js/task.js"></script>
 </body>
 </html>

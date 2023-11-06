@@ -10,22 +10,22 @@
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="assets/plugins/images/favicon.png"
+      href="studiomanager/assets/plugins/images/favicon.png"
     />
     <title>Studiomanager</title>
     <!-- Bootstrap Core CSS -->
-    <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="studiomanager/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Menu CSS -->
     <link
-      href="assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
+      href="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
       rel="stylesheet"
     />
     <!-- animation CSS -->
-    <link href="assets/css/animate.css" rel="stylesheet" />
+    <link href="studiomanager/assets/css/animate.css" rel="stylesheet" />
     <!-- Custom CSS -->
-    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="studiomanager/assets/css/style.css" rel="stylesheet" />
     <!-- color CSS -->
-    <link href="assets/css/colors/blue-dark.css" id="theme" rel="stylesheet" />
+    <link href="studiomanager/assets/css/colors/blue-dark.css" id="theme" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -52,12 +52,12 @@
             <i class="fa fa-bars"></i>
           </a>
           <div class="top-left-part">
-            <a class="logo" href="artist.html">
+            <a class="logo" href="view-artist.html">
               <b>
-                <img src="assets/plugins/images/pixeladmin-logo.png" alt="home" />
+                <img src="studiomanager/assets/plugins/images/pixeladmin-logo.png" alt="home" />
               </b>
               <span class="hidden-xs">
-                <img src="assets/plugins/images/pixeladmin-text.png" alt="home" />
+                <img src="studiomanager/assets/plugins/images/pixeladmin-text.png" alt="home" />
               </span>
             </a>
           </div>
@@ -84,7 +84,7 @@
                   href="#"
                 >
                   <img
-                    src="assets/plugins/images/users/varun.jpg"
+                    src="studiomanager/assets/plugins/images/users/varun.jpg"
                     alt="user-img"
                     width="36"
                     class="img-circle"
@@ -109,25 +109,32 @@
         <div class="sidebar-nav navbar-collapse slimscrollsidebar">
           <ul class="nav" id="side-menu">
             <li>
-              <a href="artist.html" class="waves-effect"
+              <a href="view-artist.html" class="waves-effect"
               ><i class="fa fa-user fa-fw" aria-hidden="true"></i
               ><span class="hide-menu">Artist</span></a
               >
             </li>
             <li>
-              <a href="service.html" class="waves-effect"
+              <a href="view-lover.html" class="waves-effect"
+              ><i class="fa fa-user fa-fw" aria-hidden="true"></i
+              ><span class="hide-menu">Lover</span></a
+              >
+            </li>
+
+            <li>
+              <a href="view-service.html" class="waves-effect"
               ><i class="fa fa-modx fa-fw" aria-hidden="true"></i
               ><span class="hide-menu">Service </span></a
               >
             </li>
             <li>
-              <a href="booking.html" class="waves-effect"
+              <a href="view-booking.html" class="waves-effect"
               ><i class="fa fa-table fa-fw" aria-hidden="true"></i
               ><span class="hide-menu">Booking </span></a
               >
             </li>
             <li>
-              <a href="voucher.html" class="waves-effect"
+              <a href="view-voucher.html" class="waves-effect"
               ><i class="fa fa-ticket fa-fw" aria-hidden="true"></i
               ><span class="hide-menu">Voucher </span></a
               >
@@ -142,7 +149,7 @@
         <div class="container-fluid">
           <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-              <h4 class="page-title">Add voucher</h4>
+              <h4 class="page-title">Sửa Thông Tin</h4>
             </div>
           </div>
           <!-- /.row -->
@@ -152,62 +159,58 @@
             <div class="col-md-8 col-xs-12">
               <div class="white-box">
                 <div class="form-horizontal form-material">
-
                   <div class="form-group">
-                    <label class="col-md-12">Name</label>
+                    <label for="emailArtist" class="col-md-12">Email</label>
                     <div class="col-md-12">
                       <input
-                        type="text"
-                        id="nameVoucher"
-                        placeholder="Name"
-                        class="form-control form-control-line"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="col-md-12">Start</label>
-                    <div class="col-md-12">
-                      <input
-                        type="text"
-                        id="addStartDateVoucher"
-                        placeholder="dd/MM/yyyy"
-                        class="form-control form-control-line"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-12">End</label>
-                    <div class="col-md-12">
-                      <input
-                        type="text"
-                        id="addEndDateVoucher"
-                        placeholder="dd/MM/yyyy"
-                        class="form-control form-control-line"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-12">Description</label>
-                    <div class="col-md-12">
-                      <input
-                              type="text"
-                              id="descriptionVoucher"
-                              placeholder="Description"
+                              type="email"
+                              placeholder="johnathan@admin.com"
                               class="form-control form-control-line"
+                              id="emailArtist"
+                      />
+                    </div>
+                  <div class="form-group">
+                    <label class="col-md-12">Full Name</label>
+                    <div class="col-md-12">
+                      <input
+                        type="text"
+                        id="updateNameArtist"
+                        placeholder="Johnathan Doe"
+                        class="form-control form-control-line"
+                      />
+                    </div>
+                  </div>
 
+                  <div class="form-group">
+                    <label class="col-md-12">Phone</label>
+                    <div class="col-md-12">
+                      <input
+                        type="text"
+                        id="updatePhoneArtist"
+                        placeholder="Phonenumber"
+                        class="form-control form-control-line"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-12">Address</label>
+                    <div class="col-md-12">
+                      <input
+                        type="text"
+                        id="updateAddressArtist"
+                        placeholder="Adress"
+                        class="form-control form-control-line"
                       />
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="col-sm-12">
-                      <button class="btn btn-success" id="btn-save-voucher">
-                        Add
+                      <button class="btn btn-success" id="update-artist">
+                        Update artist
                       </button>
-                      <a href="voucher.html" class="btn btn-primary">Back</a>
+                      <a href="view-artist.html" class="btn btn-primary"
+                        >Quay lại</a
+                      >
                     </div>
                   </div>
                 </div>
@@ -224,18 +227,19 @@
     </div>
     <!-- /#wrapper -->
     <!-- jQuery -->
-    <script src="assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="studiomanager/assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="studiomanager/assets/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Menu Plugin JavaScript -->
-    <script src="assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <script src="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
     <!--slimscroll JavaScript -->
-    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="studiomanager/assets/js/jquery.slimscroll.js"></script>
     <!--Wave Effects -->
-    <script src="assets/js/waves.js"></script>
+    <script src="studiomanager/assets/js/waves.js"></script>
+      <script src="studiomanager/assets/js/update-artistpro.js"></script>
     <!-- Custom Theme JavaScript -->
-    <script src="assets/js/custom.min.js"></script>
-    <script src="assets/js/task.js"></script>
+    <script src="studiomanager/assets/js/custom.min.js"></script>
+<!--    <script src="js/user.js"></script>-->
   </body>
 </html>
