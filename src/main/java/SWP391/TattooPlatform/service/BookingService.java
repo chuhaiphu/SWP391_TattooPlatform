@@ -1,19 +1,7 @@
 package SWP391.TattooPlatform.service;
 
-import SWP391.TattooPlatform.config.ResponseUtils;
-import SWP391.TattooPlatform.model.BookingDetail;
-import SWP391.TattooPlatform.model.BookingStatus;
-import SWP391.TattooPlatform.model.Voucher;
-import SWP391.TattooPlatform.repository.BookingDetailRepository;
-import SWP391.TattooPlatform.repository.BookingRepository;
-import SWP391.TattooPlatform.model.Booking;
-import SWP391.TattooPlatform.repository.BookingStatusRepository;
-import SWP391.TattooPlatform.repository.VoucherRepository;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import SWP391.TattooPlatform.model.*;
+import SWP391.TattooPlatform.repository.*;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -28,27 +16,50 @@ public class BookingService {
 
     final VoucherRepository voucherRepository;
 
+    final SlotRepository slotRepository;
+
     public BookingService(BookingRepository bookingRepository, BookingDetailRepository bookingDetailRepository,
-                           BookingStatusRepository bookingStatusRepository, VoucherRepository voucherRepository) {
+                          BookingStatusRepository bookingStatusRepository, VoucherRepository voucherRepository, SlotRepository slotRepository) {
         this.bookingRepository = bookingRepository;
         this.bookingDetailRepository = bookingDetailRepository;
         this.bookingStatusRepository = bookingStatusRepository;
         this.voucherRepository = voucherRepository;
+        this.slotRepository = slotRepository;
     }
 
+
+    public List<Booking> findall() {
+        return bookingRepository.findAll();
+    }
+
+//    public ResponseEntity<?> getBookingByTattooLoverEmail(String email) {
+//        List<Booking> bookingList = bookingRepository.findBookingByTattooLoverEmail(email);
+//        if(bookingList.isEmpty()) {
+//            return ResponseUtils.error(new RuntimeException(),HttpStatus.BAD_REQUEST);
+//        }
+//        return ResponseUtils.get(bookingList,HttpStatus.OK);
+//    }
+
+    public List<Booking> getBookingByTattooLoverEmail(String email) {
+        List<Booking> bookingList = bookingRepository.findBookingByTattooLoverEmail(email);
+            return bookingList;
+    }
+//    public ResponseEntity<?> getBookingData(String id) {
+//        Booking booking = bookingRepository.findBookingByBookingID(id);
+//        List<BookingDetail> bookingDetails = new ArrayList<>();
+//        for(BookingDetail b : bookingDetailRepository.findAll()) {
+//            if(b.getBookingID().equals(id)) {
+//                bookingDetails.add(b);
+//            }
+//        }
+//        return ResponseUtils.get(new BookingRequest(booking,bookingDetails),HttpStatus.OK);
+//    }
     public Booking getBookingByID(String bookingID) {
         if(bookingRepository.findBookingByBookingID(bookingID) == null) {
             return null;
         }
         return bookingRepository.findBookingByBookingID(bookingID);
     }
-
-    public List<Booking> findall() {
-        return bookingRepository.findAll();
-    }
-
-
-
     public Booking findBookingByBookingIDAndArtistEmailAndTattooLoverEmail ( String bookingID,
                                                                            String artistEmail,
                                                                              String tattooLoverEmail) {
@@ -63,27 +74,34 @@ public class BookingService {
 
     public Booking addBooking(Booking b) {
             b.setTotalPrice((float) 0);
-             bookingRepository.save(b);
+            bookingRepository.save(b);
             return b;
         }
+
     public void addBookingDetail( List<BookingDetail> bookingDetails , String id) {
         float totalPrice = 0;
-        BookingStatus status = bookingStatusRepository.findBookingStatusByStatusName("IN PROCESS");
+        BookingStatus status = bookingStatusRepository.findBookingStatusByStatusName("Pending");
         for(BookingDetail bookingDetail : bookingDetails) {
 
             bookingDetail.setBookingID(id);
             bookingDetail.setStatusID(status.getStatusID());
 
+            slotRepository.updateSlotStatus(bookingDetail.getSlotID(),1);
+
+
             if(bookingDetail.getVoucherID()!=null) {
                 Voucher voucher = voucherRepository.findVoucherByVoucherID(bookingDetail.getVoucherID());
-                float actualPrice = (bookingDetail.getPrice()*voucher.getDiscount())/100;
+                float actualPrice = (bookingDetail.getPrice()*(100 - voucher.getDiscount()))/100;
                 bookingDetail.setPrice(actualPrice);
             }
             bookingDetailRepository.save(bookingDetail);
             totalPrice += bookingDetail.getPrice();
+
         }
-        Booking booking = bookingRepository.findBookingByBookingID(id);
-        booking.setTotalPrice(totalPrice);
+//        Booking booking = bookingRepository.findBookingByBookingID(id);
+        bookingRepository.updatePrice(totalPrice,id);
+        bookingRepository.deleteWhenPrice0();
+
 
     }
 

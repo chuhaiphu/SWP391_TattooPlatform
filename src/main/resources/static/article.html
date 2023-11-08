@@ -60,7 +60,7 @@
                             <li><i class="fas fa-search"></i></li>
 
                         </ul>
-                        <ul class="menu-right d-flex">
+                        <ul class="menu-right d-flex justify-content-around">
 
                             <li class="header-appointment" >
                                 <a href="appointment-page.html">
@@ -80,8 +80,37 @@
                                 </a>
                             </li>
                         </ul>
-                        <div class="login">
-                            <a href="login.html">Login</a></div>
+                        <ul class="main-nav">
+                            <li class="menu-lnk has-item">
+                                <a href="#">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>
+                                <div class="menu-dropdown">
+                                    <ul>
+                                        <li><a href="my-account.html">Setting</a></li>
+                                        <li><a href="index.html" id="logout">Logout</a></li>
+                                        <script>
+                                            document.addEventListener("DOMContentLoaded", function() {
+                                                // Get the "Logout" link by its ID
+                                                var logoutLink = document.getElementById("logout");
+
+                                                // Add a click event listener to the link
+                                                logoutLink.addEventListener("click", function(event) {
+                                                    // Prevent the default behavior of the link (navigating to "index.html")
+                                                    event.preventDefault();
+
+                                                    sessionStorage.removeItem('tattooLover');
+
+                                                    // Optionally, you can also redirect the user to another page (e.g., a login page)
+                                                    window.location.href = 'index.html'; // Replace 'login.html' with your desired URL
+                                                });
+                                            });
+                                        </script>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
                         <div class="mobile-menu mobile-only">
                             <button class="mobile-menu-button">
                                 <div class="one"></div>
@@ -94,7 +123,7 @@
             </div>
         </div>
     </header>
-    <!--header end here-->
+    <!--header start end-->
     <!--wrapper start here-->
     <div class="wrapper"> 
         <section class="blog-page-banner common-banner-section" style="background-image:url(platform/assets/images/blog-banner.png);">

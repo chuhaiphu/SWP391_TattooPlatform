@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
 
 
 @RestController
@@ -31,17 +30,6 @@ public class ArtistController {
         this.artistService = artistService;
     }
 
-
-    //-------------------------------GET-------------------------------
-//    @GetMapping("/allArtist")
-//    public Object getAllRoles () {
-//        return  ResponseUtils.get(artistService.getListArtist(),HttpStatus.OK);
-//    }
-
-    @GetMapping("/view-list")
-    public List<Artist> getArtists(){
-        return artistService.getListArtist();
-    }
     @GetMapping("")
     public String loadServiceHtml() throws IOException {
         // Load the HTML file as a string
@@ -51,7 +39,15 @@ public class ArtistController {
         return htmlContent;
     }
 
-
+    //-------------------------------GET-------------------------------
+    @GetMapping("/list")
+    public Object getAllRoles () {
+        return  ResponseUtils.get(artistService.getListArtist(),HttpStatus.OK);
+    }
+    @GetMapping("/available/{studioID}/{slotID}")
+    public Object getAvailableArtistsBySlotID (@PathVariable String slotID,@PathVariable String studioID ) {
+        return  ResponseUtils.get(artistService.getAvailableArtistsBySlotIDAndStudioID(slotID, studioID),HttpStatus.OK);
+    }
 
     //-------------------------------POST/ADD-------------------------------
     @PostMapping("/add-artist")
@@ -60,14 +56,11 @@ public class ArtistController {
     }
 
     //-------------------------------UPDATE/PUT-------------------------------
+
     @PutMapping("/update-artist/{email}")
     public ResponseEntity<?> updateRole(@PathVariable String email, @RequestParam String fullName,
                                         @RequestParam String phoneNumber, @RequestParam String address) throws Exception {
         return ResponseUtils.get(artistService.updateArtistInformation(email, fullName, phoneNumber, address),HttpStatus.OK);
-    }
-    @PutMapping("/updateArtistAccount/")
-    public ResponseEntity<?> updateRole(@RequestParam String email, @RequestParam String username, @RequestParam String password  ) throws Exception {
-        return ResponseUtils.get(artistService.updateArtistAccount(email, username, password),HttpStatus.OK);
     }
 
     //-------------------------------DELETE-------------------------------
@@ -76,4 +69,3 @@ public class ArtistController {
         return ResponseUtils.get(artistService.deleteArtist(email), HttpStatus.OK);
     }
 }
-

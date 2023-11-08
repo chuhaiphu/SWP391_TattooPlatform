@@ -4,9 +4,11 @@ import SWP391.TattooPlatform.config.ResponseUtils;
 import SWP391.TattooPlatform.model.Booking;
 import SWP391.TattooPlatform.model.BookingDetail;
 import SWP391.TattooPlatform.model.BookingRequest;
+import SWP391.TattooPlatform.model.Slot;
 import SWP391.TattooPlatform.service.BookingService;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import SWP391.TattooPlatform.service.SlotService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,11 +23,22 @@ import java.util.List;
 @RequestMapping("/booking")
 public class BookingController {
     final BookingService bookingService;
+    final SlotService slotService;
 
-    public BookingController(BookingService bookingService) {
+    public BookingController(BookingService bookingService , SlotService slotService) {
         this.bookingService = bookingService;
+        this.slotService = slotService;
     }
 
+    @GetMapping("/{bookingID}")
+    public ResponseEntity<?> getBookingByID(@PathVariable(name = "bookingID") String bookingID) {
+        return ResponseUtils.get(bookingService.getBookingByID(bookingID),HttpStatus.OK);
+    }
+
+
+//    @GetMapping()
+//    public ResponseEntity<?> getBooking() {
+//        return ResponseUtils.get(bookingService.findall(), HttpStatus.OK);
 //    @GetMapping("/{bookingID}")
 //    public ResponseEntity<?> getBookingByID(@PathVariable(name = "bookingID") String bookingID) {
 //        return ResponseUtils.get(bookingService.getBookingByID(bookingID), HttpStatus.OK);
@@ -34,33 +47,44 @@ public class BookingController {
 //    public ResponseEntity<?> getBooking() {
 //        return ResponseUtils.get(bookingService.findall(), HttpStatus.OK);
 //    }
-@GetMapping("/view-list")
-public List<Booking> getBookingList(){
-    return bookingService.findall();
-}
+    @GetMapping("/list")
+    public List<Booking> getBookingList(){
+        return bookingService.findall();
+    }
     @GetMapping("")
-    public String loadServiceHtml() throws IOException {
+    public String loadBookingPageHtml() throws IOException {
         // Load the HTML file as a string
-        Resource resource = new ClassPathResource("static/view-booking.html");
+        Resource resource = new ClassPathResource("static/appointment-page.html");
         String htmlContent = new String(Files.readAllBytes(Paths.get(resource.getURI())));
 
         return htmlContent;
     }
 
-    @PostMapping()
+//    @GetMapping("list/{tattooLoverEmail}")
+//    public ResponseEntity<?> getBookingByTattooLoverEmail(@PathVariable String tattooLoverEmail) {
+//        return bookingService.getBookingByTattooLoverEmail(tattooLoverEmail);
+//    }
+
+    @GetMapping("list/{tattooLoverEmail}")
+    public List<Booking> getBookingByTattooLoverEmail(@PathVariable String tattooLoverEmail) {
+        return bookingService.getBookingByTattooLoverEmail(tattooLoverEmail);
+    }
+
+    @PostMapping("/add")
     public ResponseEntity<?> addBooking(@RequestBody BookingRequest bookingRequest ) {
         Booking booking = bookingRequest.getBooking();
         bookingService.addBooking(booking);
         String id = booking.getBookingID();
         addBookingDetail(bookingRequest.getBookingDetails(),id);
-       return  new ResponseEntity<>("Bookings created successfully", HttpStatus.CREATED);
+
+    //    setSlotForBookingDetail(bookingRequest.getDate(), bookingRequest.getStart_time(),"check");
+
+       return  ResponseUtils.get(bookingService.getBookingByID(booking.getBookingID()), HttpStatus.CREATED);
     }
 
 
     public void addBookingDetail(@RequestBody List<BookingDetail> bookingDetails, String id ) {
         bookingService.addBookingDetail(bookingDetails,id);
-
-
 
     }
 

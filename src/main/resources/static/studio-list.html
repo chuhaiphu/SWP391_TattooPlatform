@@ -9,95 +9,111 @@
     <title>Tattoo Lover</title>
     <meta name="description" content="spa and beauty - Workdo.">
     <meta name="keywords" content="spa and beauty - Workdo.">
-    <link rel="shortcut icon" href="platform/assets/images/favicon.png">
+    <link rel="shortcut icon" href="assets/images/favicon.png">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="assets/css/main-style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="platform/assets/css/main-style.css">
-    <link rel="stylesheet" href="platform/assets/css/responsive.css">
 </head>
 
 <body>
-    <!--header start here-->
-    <header class="site-header header-style-one style-two">
-        <div class="main-navigationbar">
-            <div class="container">
-                <div class="navigationbar-row d-flex align-items-center">
-                    <div class="logo-col">
-                        <a href="index.html">
-                            Tattoo
-                        </a>
-                    </div>
-                    <div class="menu-items-col">
-                        <ul class="main-nav">
-                            <li class="menu-lnk">
-                                <a href="service-list.html">
-                                    Service
-                                </a>
-                            </li>
+<!--header start here-->
+<header class="site-header header-style-one style-two">
+    <div class="main-navigationbar">
+        <div class="container">
+            <div class="navigationbar-row d-flex align-items-center">
+                <div class="logo-col">
+                    <a href="index.html">
+                        Tattoo
+                    </a>
+                </div>
+                <div class="menu-items-col">
+                    <ul class="main-nav">
+                        <li class="menu-lnk">
+                            <a href="/service">
+                                Service
+                            </a>
+                        </li>
 
-                            <li class="menu-lnk">
-                                <a href="studio-list.html">
-                                    Studio
-                                </a>
-                            </li>
+                        <li class="menu-lnk">
+                            <a href="/studio">
+                                Studio
+                            </a>
+                        </li>
 
 
-                            <li class="menu-lnk has-item">
-                                <a href="#">
-                                    Pages
-                                </a>
-                                <div class="menu-dropdown">
-                                    <ul>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="faqs.html">FAQs</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="article.html">Article</a></li>
-                                        <li><a href="contact-us.html">Contact</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="menu-lnk">
-                                <input type="text" class="search-input" placeholder="Search...">
-                            </li>
-                            <li><i class="fas fa-search"></i></li>
+                        <li class="menu-lnk has-item">
+                            <a href="#">
+                                Pages
+                            </a>
+                            <div class="menu-dropdown">
+                                <ul>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="faqs.html">FAQs</a></li>
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="article.html">Article</a></li>
+                                    <li><a href="contact-us.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="menu-lnk">
+                            <input type="text" class="search-input" placeholder="Search studio">
+                        </li>
+                        <li>
+                            <i id="search-button-studio" class="fas fa-search icon-button"></i>
+                        </li>
 
-                        </ul>
-                        <ul class="menu-right d-flex">
+                    </ul>
+                    <ul class="menu-right d-flex justify-content-around">
 
-                            <li class="header-appointment" >
-                                <a href="appointment-page.html">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"
-                                         fill="none">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M13.6 3.2H2.4C1.95817 3.2 1.6 3.55817 1.6 4V13.6C1.6 14.0418 1.95817 14.4 2.4 14.4H13.6C14.0418 14.4 14.4 14.0418 14.4 13.6V8.8V4C14.4 3.55817 14.0418 3.2 13.6 3.2ZM2.4 1.6C1.07452 1.6 0 2.67452 0 4V13.6C0 14.9255 1.07452 16 2.4 16H13.6C14.9255 16 16 14.9255 16 13.6V8.8V4C16 2.67452 14.9255 1.6 13.6 1.6H2.4Z"
-                                              fill="white" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M6.4 8C5.95817 8 5.6 8.35817 5.6 8.8C5.6 9.24183 5.95817 9.6 6.4 9.6H12C12.4418 9.6 12.8 9.24183 12.8 8.8C12.8 8.35817 12.4418 8 12 8H6.4ZM4 11.2C3.55817 11.2 3.2 11.5582 3.2 12C3.2 12.4418 3.55817 12.8 4 12.8H8.8C9.24183 12.8 9.6 12.4418 9.6 12C9.6 11.5582 9.24183 11.2 8.8 11.2H4Z"
-                                              fill="white" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M4 0C3.55817 0 3.2 0.358172 3.2 0.8V4C3.2 4.44183 3.55817 4.8 4 4.8C4.44183 4.8 4.8 4.44183 4.8 4V0.8C4.8 0.358172 4.44183 0 4 0ZM12 0C11.5582 0 11.2 0.358172 11.2 0.8V4C11.2 4.44183 11.5582 4.8 12 4.8C12.4418 4.8 12.8 4.44183 12.8 4V0.8C12.8 0.358172 12.4418 0 12 0Z"
-                                              fill="white" />
-                                    </svg>
-                                    <span class="desk-only"> Book Appointment </span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="login">
-                            <a href="login.html">Login</a></div>
-                        <div class="mobile-menu mobile-only">
-                            <button class="mobile-menu-button">
-                                <div class="one"></div>
-                                <div class="two"></div>
-                                <div class="three"></div>
-                            </button>
-                        </div>
+                        <li class="header-appointment" >
+                        </li>
+                    </ul>
+                    <ul class="main-nav">
+                        <li class="menu-lnk has-item">
+                            <a href="#">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </a>
+                            <div class="menu-dropdown">
+                                <ul>
+                                    <li><a href="my-account.html">Setting</a></li>
+                                    <li><a href="index.html" id="logout">Logout</a></li>
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function() {
+                                            // Get the "Logout" link by its ID
+                                            var logoutLink = document.getElementById("logout");
+
+                                            // Add a click event listener to the link
+                                            logoutLink.addEventListener("click", function(event) {
+                                                // Prevent the default behavior of the link (navigating to "index.html")
+                                                event.preventDefault();
+
+                                                sessionStorage.removeItem('tattooLover');
+
+                                                // Optionally, you can also redirect the user to another page (e.g., a login page)
+                                                window.location.href = 'index.html'; // Replace 'login.html' with your desired URL
+                                            });
+                                        });
+                                    </script>
+                                </ul>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <div class="mobile-menu mobile-only">
+                        <button class="mobile-menu-button">
+                            <div class="one"></div>
+                            <div class="two"></div>
+                            <div class="three"></div>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
-    <!--header end here-->
+    </div>
+</header>
+<!--header start end-->
     <!--wrapper start here-->
     <div class="wrapper">
         <section class="common-banner-section">
@@ -105,14 +121,14 @@
                 <div class="row">
                     <div class="col-lg-6 col-12"> 
                         <div class="common-banner-content">
-<!--                            <a href="studio-list.html" class="back-btn">-->
-<!--                                <span class="svg-ic">-->
-<!--                                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="5" viewBox="0 0 11 5" fill="none">-->
-<!--                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5791 2.28954C10.5791 2.53299 10.3818 2.73035 10.1383 2.73035L1.52698 2.73048L2.5628 3.73673C2.73742 3.90636 2.74146 4.18544 2.57183 4.36005C2.40219 4.53467 2.12312 4.53871 1.9485 4.36908L0.133482 2.60587C0.0480403 2.52287 -0.000171489 2.40882 -0.000171488 2.2897C-0.000171486 2.17058 0.0480403 2.05653 0.133482 1.97353L1.9485 0.210321C2.12312 0.0406877 2.40219 0.044729 2.57183 0.219347C2.74146 0.393966 2.73742 0.673036 2.5628 0.842669L1.52702 1.84888L10.1383 1.84875C10.3817 1.84874 10.5791 2.04609 10.5791 2.28954Z" fill="white"></path>-->
-<!--                                    </svg>-->
-<!--                                </span>-->
-<!--                                Back -->
-<!--                            </a>-->
+                            <a href="#" class="back-btn">
+                                <span class="svg-ic">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="5" viewBox="0 0 11 5" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5791 2.28954C10.5791 2.53299 10.3818 2.73035 10.1383 2.73035L1.52698 2.73048L2.5628 3.73673C2.73742 3.90636 2.74146 4.18544 2.57183 4.36005C2.40219 4.53467 2.12312 4.53871 1.9485 4.36908L0.133482 2.60587C0.0480403 2.52287 -0.000171489 2.40882 -0.000171488 2.2897C-0.000171486 2.17058 0.0480403 2.05653 0.133482 1.97353L1.9485 0.210321C2.12312 0.0406877 2.40219 0.044729 2.57183 0.219347C2.74146 0.393966 2.73742 0.673036 2.5628 0.842669L1.52702 1.84888L10.1383 1.84875C10.3817 1.84874 10.5791 2.04609 10.5791 2.28954Z" fill="white"></path>
+                                    </svg>
+                                </span>
+                                Back to category
+                            </a> 
                             <div class="section-title">
                                 <h2>Listing  studios </h2>
                             </div>
@@ -235,45 +251,33 @@
                         </div>
                     </div>
                     <div class="product-filter-right-column col-lg-9 col-md-8 col-12">
-                        <div class="row"> 
+                        <div id="studio-card_template" style="display: none" class="row">
                             <div class="col-lg-4 col-md-6 col-sm-6 col-12 product-card pro-light theme-colored-card">
                                 <div class="product-card-inner">
                                     <div class="product-card-image">
                                         <a href="view-studio.html">
-                                           <img src="https://morgansinktattoo.com/wp-content/uploads/2023/03/banner8.jpg" class="default-img">
+                                           <img src="{{imgSrc}}" class="default-img">
                                         </a>
                                      </div>
                                      <div class="product-card-content">
-<!--                                         <div class="sub-heading" style="font-size: large; color : rgb(179, 32, 32); font-weight: 200;">-->
-<!--                                            30$  -->
-<!--                                         </div>-->
-<!--                                         <br>-->
                                         <h4>
                                     
                                            <a href="view-studio.html">
-                                            Morgan's Ink Tattoo <Studio></Studio>
+                                            {{studioName}}
                                            </a>
                                         </h4>
-                                      <br>
-                                        
-                                        <a href="view-studio.html" class=" btn">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 20 19" fill="none">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.21319 9.49935C4.96859 9.49935 4.78253 9.71898 4.82274 9.96026L5.58097 14.5096C5.70822 15.2731 6.36877 15.8327 7.14276 15.8327H12.861C13.635 15.8327 14.2955 15.2731 14.4228 14.5096L15.181 9.96026C15.2212 9.71898 15.0351 9.49935 14.7905 9.49935H5.21319ZM3.81139 7.91602C3.32219 7.91602 2.95007 8.35529 3.0305 8.83783L4.01918 14.7699C4.27367 16.2969 5.59477 17.416 7.14276 17.416H12.861C14.409 17.416 15.7301 16.2969 15.9845 14.7699L16.9732 8.83783C17.0537 8.35529 16.6815 7.91602 16.1923 7.91602H3.81139Z" fill="#C4B087"/>
-                                                <path d="M8.41667 11.084C7.97944 11.084 7.625 11.4384 7.625 11.8757V13.459C7.625 13.8962 7.97944 14.2507 8.41667 14.2507C8.85389 14.2507 9.20833 13.8962 9.20833 13.459V11.8757C9.20833 11.4384 8.85389 11.084 8.41667 11.084Z" fill="#C4B087"/>
-                                                <path d="M11.5833 11.084C11.1461 11.084 10.7917 11.4384 10.7917 11.8757V13.459C10.7917 13.8962 11.1461 14.2507 11.5833 14.2507C12.0206 14.2507 12.375 13.8962 12.375 13.459V11.8757C12.375 11.4384 12.0206 11.084 11.5833 11.084Z" fill="#C4B087"/>
-                                                <path d="M8.97516 2.93544C9.28432 2.62628 9.28432 2.12502 8.97516 1.81586C8.66599 1.50669 8.16474 1.50669 7.85557 1.81586L4.68891 4.98253C4.37974 5.29169 4.37974 5.79295 4.68891 6.10211C4.99807 6.41128 5.49933 6.41128 5.80849 6.10211L8.97516 2.93544Z" fill="#C4B087"/>
-                                                <path d="M11.0222 2.93544C10.7131 2.62628 10.7131 2.12502 11.0222 1.81586C11.3314 1.50669 11.8327 1.50669 12.1418 1.81586L15.3085 4.98253C15.6177 5.29169 15.6177 5.79295 15.3085 6.10211C14.9993 6.41128 14.4981 6.41128 14.1889 6.10211L11.0222 2.93544Z" fill="#C4B087"/>
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5404 6.33333H4.45703C4.01981 6.33333 3.66536 6.68777 3.66536 7.125C3.66536 7.56223 4.01981 7.91667 4.45703 7.91667H15.5404C15.9776 7.91667 16.332 7.56223 16.332 7.125C16.332 6.68777 15.9776 6.33333 15.5404 6.33333ZM4.45703 4.75C3.14536 4.75 2.08203 5.81332 2.08203 7.125C2.08203 8.43668 3.14535 9.5 4.45703 9.5H15.5404C16.852 9.5 17.9154 8.43668 17.9154 7.125C17.9154 5.81332 16.852 4.75 15.5404 4.75H4.45703Z" fill="#C4B087"/>
-                                            </svg>
-                                            View Studios
+                                         <!-- Add this line for studioID -->
+                                    <div class="studio-id" style="display: none;">{{studioID}}</div>
+                                        <br>
+                                        <p style="font-size: 11px">{{briefInfo}}</p>
+                                        <a id="view-studio-btn" href="#" class=" btn">
+                                            Book now
                                         </a>
                                      </div>
                                 </div>
                             </div>
-
-
-                           
                         </div>
+                        <div id="studio-card" class="row"></div>
                     </div>
                 </div>
             </div>
@@ -292,7 +296,6 @@
                             <li><a href="my-account.html">Order status</a></li>
                             <li><a href="checkout.html">Shipping & Delivery</a></li>
                             <!--                   <li><a href="privacy-policy.html">Returns</a></li>-->
-                            <li><a href="checkout.html">Payment Options</a></li>
                             <li><a href="contact-us.html">Contact Us</a></li>
                         </ul>
                     </div>
@@ -301,10 +304,8 @@
                     <div class="footer-widget">
                         <h3> Account</h3>
                         <ul>
-                            <li><a href="product-list.html">Products</a></li>
                             <li><a href="cart.html">My Cart</a></li>
-                            <li><a href="my-account.html">My Profile</a></li>
-                            <li><a href="order-summery.html">Order summery</a></li>
+                            <li><a href="/tattoolovers">My Profile</a></li>
                             <!--                   <li><a href="wishlist.html">Wishlist</a></li>-->
                         </ul>
                     </div>
@@ -608,10 +609,11 @@
     </div>
     <!-- Mobile menu end here -->
     <!--scripts start here-->
-    <script src="platform/assets/js/jquery.min.js"></script>
-    <script src="platform/assets/js/slick.min.js" defer="defer"></script>
-    <script src='platform/assets/js/custom.js' defer="defer"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/slick.min.js" defer="defer"></script>
+    <script src='assets/js/custom.js' defer="defer"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="assets/js/studio.js" defer="defer"></script>
     <script>
         // Range slider - gravity forms
         $(function () {

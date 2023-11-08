@@ -8,14 +8,13 @@
     <title>Tattoo Lover</title>
     <meta name="description" content="spa and beauty - Workdo.">
     <meta name="keywords" content="spa and beauty - Workdo.">
-    <link rel="shortcut icon" href="platform/assets/images/favicon.png">
-    <link rel="stylesheet" href="platform/assets/css/main-style.css">
-    <link rel="stylesheet" href="platform/assets/css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="assets/css/main-style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 </head>
 <body>
+    <!--header start here-->
     <!--header start here-->
     <header class="site-header header-style-one style-two">
         <div class="main-navigationbar">
@@ -33,7 +32,6 @@
                                     Service
                                 </a>
                             </li>
-
 
                             <li class="menu-lnk">
                                 <a href="studio-list.html">
@@ -62,28 +60,42 @@
                             <li><i class="fas fa-search"></i></li>
 
                         </ul>
-                        <ul class="menu-right d-flex">
+                        <ul class="menu-right d-flex justify-content-around">
 
                             <li class="header-appointment" >
-                                <a href="appointment-page.html">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"
-                                         fill="none">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M13.6 3.2H2.4C1.95817 3.2 1.6 3.55817 1.6 4V13.6C1.6 14.0418 1.95817 14.4 2.4 14.4H13.6C14.0418 14.4 14.4 14.0418 14.4 13.6V8.8V4C14.4 3.55817 14.0418 3.2 13.6 3.2ZM2.4 1.6C1.07452 1.6 0 2.67452 0 4V13.6C0 14.9255 1.07452 16 2.4 16H13.6C14.9255 16 16 14.9255 16 13.6V8.8V4C16 2.67452 14.9255 1.6 13.6 1.6H2.4Z"
-                                              fill="white" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M6.4 8C5.95817 8 5.6 8.35817 5.6 8.8C5.6 9.24183 5.95817 9.6 6.4 9.6H12C12.4418 9.6 12.8 9.24183 12.8 8.8C12.8 8.35817 12.4418 8 12 8H6.4ZM4 11.2C3.55817 11.2 3.2 11.5582 3.2 12C3.2 12.4418 3.55817 12.8 4 12.8H8.8C9.24183 12.8 9.6 12.4418 9.6 12C9.6 11.5582 9.24183 11.2 8.8 11.2H4Z"
-                                              fill="white" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                              d="M4 0C3.55817 0 3.2 0.358172 3.2 0.8V4C3.2 4.44183 3.55817 4.8 4 4.8C4.44183 4.8 4.8 4.44183 4.8 4V0.8C4.8 0.358172 4.44183 0 4 0ZM12 0C11.5582 0 11.2 0.358172 11.2 0.8V4C11.2 4.44183 11.5582 4.8 12 4.8C12.4418 4.8 12.8 4.44183 12.8 4V0.8C12.8 0.358172 12.4418 0 12 0Z"
-                                              fill="white" />
-                                    </svg>
-                                    <span class="desk-only"> Book Appointment </span>
-                                </a>
                             </li>
                         </ul>
-                        <div class="login">
-                            <a href="login.html">Login</a></div>
+                        <ul class="main-nav">
+                            <li class="menu-lnk has-item">
+                                <a href="#">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>
+                                <div class="menu-dropdown">
+                                    <ul>
+                                        <li><a href="my-account.html">Setting</a></li>
+                                        <li><a href="index.html" id="logout">Logout</a></li>
+                                        <script>
+                                            document.addEventListener("DOMContentLoaded", function() {
+                                                // Get the "Logout" link by its ID
+                                                var logoutLink = document.getElementById("logout");
+
+                                                // Add a click event listener to the link
+                                                logoutLink.addEventListener("click", function(event) {
+                                                    // Prevent the default behavior of the link (navigating to "index.html")
+                                                    event.preventDefault();
+
+                                                    sessionStorage.removeItem('tattooLover');
+
+                                                    // Optionally, you can also redirect the user to another page (e.g., a login page)
+                                                    window.location.href = 'index.html'; // Replace 'login.html' with your desired URL
+                                                });
+                                            });
+                                        </script>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
                         <div class="mobile-menu mobile-only">
                             <button class="mobile-menu-button">
                                 <div class="one"></div>
@@ -96,6 +108,7 @@
             </div>
         </div>
     </header>
+    <!--header start end-->
     <!--header end here-->
     <!--wrapper start here-->
     <div class="wrapper">   
@@ -171,91 +184,39 @@
                                 <form class="appoint-form-common">
                                     <div class="section-title">
 <!--                                        <div class="sub-title">Step 1</div>-->
-                                        <h2>Select Date and Hour</h2>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry been the industry's standard dummy text ever since the 1500s, when an unknown.</p>
+                                        <h2>Select Date, Slot and Artist</h2>
+                                        <p>
+                                                Welcome to our booking platform! Here, you can easily select your preferred date, time slot, and artist for your upcoming appointment. 
+                                            Our team of talented professionals is dedicated to providing you with an exceptional experience that caters to your unique needs. 
+                                            Take the first step towards your next beauty or wellness session with us. We look forward to serving you!
+                                        </p>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>Date</label>
-                                                <input type="date" style="color: white" class="ser-date" placeholder="">
+                                                <input id="input_date" type="date" style="color: white" class="ser-date" placeholder="">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>Time</label>
-                                                <input type="time" style="color: white"  class=" ser-time" placeholder="">
+                                                <select id="input_slot" style="color: white;" class="select-slot">
+                                                    <option value="" disabled selected >Please choose a date</option>
+                                                </select>              
                                             </div>
                                         </div>
-<!--                                        <div class="col-lg-6 col-12">-->
-<!--                                            <div class="form-group">-->
-<!--                                                <div class="year-lbl-wrp d-flex align-items-center justify-content-between">-->
-<!--                                                    <label>Date:</label>-->
-<!--                                                    <div class="date-years d-flex align-items-center">-->
-<!--                                                        <div class="prev-year">-->
-<!--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">-->
-<!--                                                                <path d="M6 9L2 5L6 1" stroke="#C4B087" stroke-width="1.5" stroke-linecap="round"/>-->
-<!--                                                            </svg>-->
-<!--                                                        </div>-->
-<!--                                                        <div class="years-wrp">-->
-<!--                                                            30 Mar, 2022 - 30 Apr, 2022-->
-<!--                                                        </div>-->
-<!--                                                        <div class="next-year">-->
-<!--                                                            <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">-->
-<!--                                                                <path d="M1 9L5 5L1 1" stroke="#C4B087" stroke-width="1.5" stroke-linecap="round"/>-->
-<!--                                                            </svg>-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                                <ul class="date-labls d-flex">-->
-<!--                                                    <li class="active">12 May</li>-->
-<!--                                                    <li>13 May</li>-->
-<!--                                                    <li>14 May</li>-->
-<!--                                                    <li>15 May</li>-->
-<!--                                                    <li>16 May</li>-->
-<!--                                                    <li>17 May</li>-->
-<!--                                                    <li>18 May</li>-->
-<!--                                                    <li>19 May</li>-->
-<!--                                                    <li>20 May</li>-->
-<!--                                                    <li>21 May</li>-->
-<!--                                                    <li>22 May</li>-->
-<!--                                                    <li>23 May</li>-->
-<!--                                                    <li>24 May</li>-->
-<!--                                                    <li>25 May</li>-->
-<!--                                                    <li>26 May</li>-->
-<!--                                                    <li>27 May</li>-->
-<!--                                                    <li>28 May</li>-->
-<!--                                                    <li>29 May</li>-->
-<!--                                                    <li>30 May</li>-->
-<!--                                                </ul>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                        <div class="col-lg-6 col-12">-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label>Delivery hour:</label>-->
-<!--                                                <ul class="time-labls d-flex">-->
-<!--                                                    <li class="active">11:00-12:00</li>-->
-<!--                                                    <li>09:00-10:00</li>-->
-<!--                                                    <li>11:00-12:00</li>-->
-<!--                                                    <li>11:00-12:00</li>-->
-<!--                                                    <li>11:00-12:00</li>-->
-<!--                                                    <li>11:00-12:00</li>-->
-<!--                                                    <li>11:00-12:00</li>-->
-<!--                                                    <li>11:00-12:00</li>-->
-<!--                                                    <li>11:00-12:00</li>-->
-<!--                                                    <li>11:00-12:00</li>-->
-<!--                                                </ul>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
+                                        <div class="col-md-12 col-12">
+                                            <div class="form-group">
+                                                <label>Artist</label>
+                                                <select id="input_artist" style="color: white;" class="select-slot">
+                                                    <option value="" disabled selected ></option>
+                                                </select>              
+                                            </div>
+                                        </div>
                                         <div class="col-md-12 col-12">
                                             <div class="form-group d-flex step-btns">
-<!--                                                <button type="button" name="BACK" class="action-button back btn">-->
-<!--                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="8" viewBox="0 0 16 8" fill="none">-->
-<!--                                                        <path d="M15.3536 4.35355C15.5488 4.15829 15.5488 3.84171 15.3536 3.64645L12.1716 0.464467C11.9763 0.269205 11.6597 0.269205 11.4645 0.464467C11.2692 0.659729 11.2692 0.976312 11.4645 1.17157L14.2929 4L11.4645 6.82843C11.2692 7.02369 11.2692 7.34027 11.4645 7.53553C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553L15.3536 4.35355ZM-4.37114e-08 4.5L15 4.5L15 3.5L4.37114e-08 3.5L-4.37114e-08 4.5Z" fill="#30383D"></path>-->
-<!--                                                    </svg>-->
-<!--                                                    Previous step-->
-<!--                                                </button>-->
-                                                <button type="button" name="next" class="next action-button btn">
+                                                <button id="next_date_hour" type="button" name="next" class="next action-button btn">
                                                     Next step
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="8" viewBox="0 0 16 8" fill="none">
                                                         <path d="M15.3536 4.35355C15.5488 4.15829 15.5488 3.84171 15.3536 3.64645L12.1716 0.464467C11.9763 0.269205 11.6597 0.269205 11.4645 0.464467C11.2692 0.659729 11.2692 0.976312 11.4645 1.17157L14.2929 4L11.4645 6.82843C11.2692 7.02369 11.2692 7.34027 11.4645 7.53553C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553L15.3536 4.35355ZM-4.37114e-08 4.5L15 4.5L15 3.5L4.37114e-08 3.5L-4.37114e-08 4.5Z" fill="#30383D"></path>
@@ -292,39 +253,37 @@
                                             <div class="checkbox-container">
                                                 <input type="checkbox" id="myCheckbox1" name="myCheckbox1">
                                                 <label for="myCheckbox1">Use your personal information:</label>
-
-
                                             </div>
                                         </div>
 
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label>First Name:</label>
-                                                <input style="display: inline-block" type="text" class="form-control" placeholder="First Name">
+                                                <label>Full Name:</label>
+                                                <input id="input_full_name" name="input_full_name" style="display: inline-block" type="text" class="form-control" placeholder="Input your Full Name">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label>Last Name:</label>
-                                                <input type="text" class="form-control" placeholder="Last Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label>Email address:</label>
-                                                <input type="email" class="form-control" placeholder="johndoe@domain.com">
+                                                <label>Email:</label>
+                                                <input id="input_email" name="input_email" type="email" class="form-control" placeholder="Input your Email">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>Phone number:</label>
-                                                <input type="email" class="form-control" placeholder="+41 886-233-122">
+                                                <input id="input_phone" name="input_phone" type="email" class="form-control" placeholder="Input your Phonenumber">
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-12">
                                             <div class="form-group">
-                                                <label>Additional informations:</label>
-                                                <textarea type="text" class="form-control" placeholder="Street / Number, City, Country"></textarea>
+                                                <label>Address:</label>
+                                                <textarea id="input_address" name="input_address" type="text" class="form-control" placeholder="District, City, Country"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-12">
+                                            <div class="form-group">
+                                                <label>Note</label>
+                                                <textarea id="input_note" name="input_note" type="text" class="form-control" placeholder="Give some note to the studio/artist (optional)"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-12">
@@ -335,7 +294,7 @@
                                                     </svg>
                                                     Previous step
                                                 </button>
-                                                <button type="button" name="next" class="next action-button btn">
+                                                <button id="next_info" type="button" name="next" class="next action-button btn">
                                                     Next step 
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="8" viewBox="0 0 16 8" fill="none">
                                                         <path d="M15.3536 4.35355C15.5488 4.15829 15.5488 3.84171 15.3536 3.64645L12.1716 0.464467C11.9763 0.269205 11.6597 0.269205 11.4645 0.464467C11.2692 0.659729 11.2692 0.976312 11.4645 1.17157L14.2929 4L11.4645 6.82843C11.2692 7.02369 11.2692 7.34027 11.4645 7.53553C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553L15.3536 4.35355ZM-4.37114e-08 4.5L15 4.5L15 3.5L4.37114e-08 3.5L-4.37114e-08 4.5Z" fill="#30383D"></path>
@@ -370,56 +329,62 @@
                                     <div class="row">
                                         <div class="col-md-12 col-12">
                                             <div class="form-group">
-                                                <label>Service:</label>
-                                                <input readonly style="display: inline-block" type="text" class="form-control" placeholder="Service name">
+                                                <label>Service(s):</label>
+                                                <input id="serviceName" readonly style="display: inline-block" type="text" class="form-control" placeholder="Service name">
                                             </div>
                                         </div>
-                                        <div class="col-md-12 col-12">
+                                        <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>Studio:</label>
-                                                <input readonly style="display: inline-block" type="text" class="form-control" placeholder="Studio name">
+                                                <input id="studioName" readonly style="display: inline-block" type="text" class="form-control" placeholder="Studio name">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label>First Name:</label>
-                                                <input readonly style="display: inline-block" type="text" class="form-control" placeholder="First Name">
+                                                <label>Artist:</label>
+                                                <input id="output_artist" readonly style="display: inline-block" type="text" class="form-control" placeholder="Artist name">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label>Last Name:</label>
-                                                <input readonly type="text" class="form-control" placeholder="Last Name">
+                                                <label>Full Name:</label>
+                                                <input id="output_full_name" name="output_full_name" readonly style="display: inline-block" type="text" class="form-control" placeholder="First Name">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
-                                                <label>Email address:</label>
-                                                <input readonly type="email" class="form-control" placeholder="johndoe@domain.com">
+                                                <label>Email:</label>
+                                                <input id="output_email" name="output_email" readonly type="email" class="form-control" placeholder="johndoe@domain.com">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>Phone number:</label>
-                                                <input readonly type="email" class="form-control" placeholder="+41 886-233-122">
+                                                <input id="output_phone" name="output_phone" readonly type="email" class="form-control" placeholder="+41 886-233-122">
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-12">
                                             <div class="form-group">
-                                                <label>Additional informations:</label>
-                                                <textarea readonly type="text" class="form-control" placeholder="Street / Number, City, Country"></textarea>
+                                                <label>Address:</label>
+                                                <textarea id="output_address" readonly type="text" class="form-control" placeholder="District, City, Country"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-12">
+                                            <div class="form-group">
+                                                <label>Note:</label>
+                                                <textarea id="output_note" readonly type="text" class="form-control" placeholder="Give some note to the studio/artist (optional)"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>Date</label>
-                                                <input readonly type="date" style="color: white" class="ser-date" placeholder="">
+                                                <input id="output_date" readonly type="date" style="color: white" class="ser-date" placeholder="">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label>Time</label>
-                                                <input readonly type="time" style="color: white"  class=" ser-time" placeholder="">
+                                                <input id="output_time" readonly style="color: white"  class=" ser-time" placeholder="">
                                             </div>
                                         </div>
 <!--                                        <div class="col-md-6 col-12">-->
@@ -458,13 +423,13 @@
                                                     Previous step
                                                 </button>
                                                 <!-- Test thử UI chuyển trang-->
-                                                <a href="order-summery.html"> Make an appointment </a>
-                                                <button type="button" name="SUBMIT" class="submit action-button btn">
+                                                <button id="submit-btn" type="button" name="SUBMIT" class="submit action-button btn">
                                                     Make an appointment
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="8" viewBox="0 0 16 8" fill="none">
                                                         <path d="M15.3536 4.35355C15.5488 4.15829 15.5488 3.84171 15.3536 3.64645L12.1716 0.464467C11.9763 0.269205 11.6597 0.269205 11.4645 0.464467C11.2692 0.659729 11.2692 0.976312 11.4645 1.17157L14.2929 4L11.4645 6.82843C11.2692 7.02369 11.2692 7.34027 11.4645 7.53553C11.6597 7.7308 11.9763 7.7308 12.1716 7.53553L15.3536 4.35355ZM-4.37114e-08 4.5L15 4.5L15 3.5L4.37114e-08 3.5L-4.37114e-08 4.5Z" fill="#30383D"></path>
                                                     </svg>
                                                 </button>
+                                                
                                             </div>
                                         </div> 
                                     </div> 
@@ -815,9 +780,10 @@
     </div>
     <!-- Mobile menu end here -->
     <!--scripts start here-->
-    <script src="platform/assets/js/jquery.min.js"></script>
-    <script src="platform/assets/js/slick.min.js" defer="defer"></script>
-    <script src='platform/assets/js/custom.js' defer="defer"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/slick.min.js" defer="defer"></script>
+    <script src='assets/js/custom.js' defer="defer"></script>
+    <script src='assets/js/appointment-page.js' defer="defer"></script>
     <!--scripts end here-->
 </body>
 </html>

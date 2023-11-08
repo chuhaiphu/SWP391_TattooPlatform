@@ -8,9 +8,9 @@
     <title>Tattoo Lover</title>
     <meta name="description" content="spa and beauty - Workdo.">
     <meta name="keywords" content="spa and beauty - Workdo.">
-    <link rel="shortcut icon" href="platform/assets/images/favicon.png">
-    <link rel="stylesheet" href="platform/assets/css/main-style.css">
-    <link rel="stylesheet" href="platform/assets/css/responsive.css">
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="assets/css/main-style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -57,7 +57,9 @@
                             <li class="menu-lnk">
                                 <input type="text" class="search-input" placeholder="Search...">
                             </li>
-                            <li><i class="fas fa-search"></i></li>
+                            <li>
+                                <i id="search-button" class="fas fa-search icon-button"></i>
+                            </li>
 
                         </ul>
                         <ul class="menu-right d-flex justify-content-around">
@@ -88,7 +90,7 @@
                                 <div class="menu-dropdown">
                                     <ul>
                                         <li><a href="my-account.html">Setting</a></li>
-                                        <li><a href="index.html">Logout</a></li>
+                                        <li><a href="index.html" id="logout">Logout</a></li>
 
                                     </ul>
                                 </div>
@@ -178,38 +180,27 @@
                                             <path d="M11 1H13V4C13 4.55228 12.5523 5 12 5C11.4477 5 11 4.55228 11 4V1Z" fill="#67898F"/>
                                         </svg>
                                         <span>
-                                            <b>View Order History</b>
+                                            <b>View Booking History</b>
                                         </span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#tab-7" data-scroll="tab-7">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.52275 8.93361C9.42172 9.17558 9.19391 9.3408 8.93252 9.36167L4.18325 9.74094C3.56183 9.79057 3.31039 10.5666 3.78461 10.9712L7.39904 14.0554C7.59925 14.2262 7.68672 14.4949 7.62542 14.7509L6.52045 19.3652C6.37552 19.9704 7.03337 20.4497 7.56505 20.1262L11.6365 17.649C11.86 17.5131 12.1406 17.5131 12.3642 17.649L16.4356 20.1262C16.9672 20.4497 17.6251 19.9704 17.4802 19.3652L16.3752 14.7509C16.3139 14.4949 16.4014 14.2262 16.6016 14.0554L20.216 10.9712C20.6902 10.5666 20.4388 9.79057 19.8174 9.74094L15.0681 9.36167C14.8067 9.3408 14.5789 9.17558 14.4779 8.93361L12.6463 4.54699C12.4067 3.97327 11.5939 3.97327 11.3544 4.54699L9.52275 8.93361ZM16.0179 7.43115L14.4918 3.77638C13.5679 1.56346 10.4328 1.56348 9.50877 3.77638L7.98275 7.43115L4.02404 7.74729C1.62712 7.9387 0.65727 10.9318 2.48641 12.4926L5.49492 15.0597L4.57544 18.8994C4.0164 21.234 6.55383 23.0826 8.60461 21.8348L12.0003 19.7688L15.396 21.8348C17.4468 23.0826 19.9842 21.2339 19.4252 18.8994L18.5057 15.0597L21.5142 12.4926C23.3434 10.9318 22.3735 7.9387 19.9766 7.74729L16.0179 7.43115Z" fill="#67898F"/>
-                                        </svg>
-                                        <span>
-                                            <b>Your Reward Points</b>
-                                                Count Reward Point
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#tab-10" data-scroll="tab-10">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4C2.89543 6 2 6.89543 2 8V16C2 17.1046 2.89543 18 4 18H20C21.1046 18 22 17.1046 22 16V8C22 6.89543 21.1046 6 20 6ZM4 4C1.79086 4 0 5.79086 0 8V16C0 18.2091 1.79086 20 4 20H20C22.2091 20 24 18.2091 24 16V8C24 5.79086 22.2091 4 20 4H4Z" fill="#67898F"/>
-                                            <path d="M23 10C23 10.5523 22.5523 11 22 11C19.2386 11 17 8.76142 17 6C17 5.44772 17.4477 5 18 5C18.5523 5 19 5.44772 19 6C19 7.65685 20.3431 9 22 9C22.5523 9 23 9.44772 23 10Z" fill="#67898F"/>
-                                            <path d="M2 13C1.44772 13 1 13.4477 1 14C1 14.5523 1.44772 15 2 15C3.65685 15 5 16.3431 5 18C5 18.5523 5.44772 19 6 19C6.55228 19 7 18.5523 7 18C7 15.2386 4.76142 13 2 13Z" fill="#67898F"/>
-                                            <path d="M22 13C22.5523 13 23 13.4477 23 14C23 14.5523 22.5523 15 22 15C20.3431 15 19 16.3431 19 18C19 18.5523 18.5523 19 18 19C17.4477 19 17 18.5523 17 18C17 15.2386 19.2386 13 22 13Z" fill="#67898F"/>
-                                            <path d="M2 11C1.44772 11 1 10.5523 1 10C1 9.44772 1.44772 9 2 9C3.65685 9 5 7.65685 5 6C5 5.44772 5.44772 5 6 5C6.55228 5 7 5.44772 7 6C7 8.76142 4.76142 11 2 11Z" fill="#67898F"/>
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="#67898F"/>
-                                        </svg>
-                                        <span>
-                                            <b>Update Payment Methods </b> 
-                                        </span>
-                                    </a>
-                                </li>
+<!--                                <li>-->
+<!--                                    <a href="#tab-10" data-scroll="tab-10">-->
+<!--                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">-->
+<!--                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4C2.89543 6 2 6.89543 2 8V16C2 17.1046 2.89543 18 4 18H20C21.1046 18 22 17.1046 22 16V8C22 6.89543 21.1046 6 20 6ZM4 4C1.79086 4 0 5.79086 0 8V16C0 18.2091 1.79086 20 4 20H20C22.2091 20 24 18.2091 24 16V8C24 5.79086 22.2091 4 20 4H4Z" fill="#67898F"/>-->
+<!--                                            <path d="M23 10C23 10.5523 22.5523 11 22 11C19.2386 11 17 8.76142 17 6C17 5.44772 17.4477 5 18 5C18.5523 5 19 5.44772 19 6C19 7.65685 20.3431 9 22 9C22.5523 9 23 9.44772 23 10Z" fill="#67898F"/>-->
+<!--                                            <path d="M2 13C1.44772 13 1 13.4477 1 14C1 14.5523 1.44772 15 2 15C3.65685 15 5 16.3431 5 18C5 18.5523 5.44772 19 6 19C6.55228 19 7 18.5523 7 18C7 15.2386 4.76142 13 2 13Z" fill="#67898F"/>-->
+<!--                                            <path d="M22 13C22.5523 13 23 13.4477 23 14C23 14.5523 22.5523 15 22 15C20.3431 15 19 16.3431 19 18C19 18.5523 18.5523 19 18 19C17.4477 19 17 18.5523 17 18C17 15.2386 19.2386 13 22 13Z" fill="#67898F"/>-->
+<!--                                            <path d="M2 11C1.44772 11 1 10.5523 1 10C1 9.44772 1.44772 9 2 9C3.65685 9 5 7.65685 5 6C5 5.44772 5.44772 5 6 5C6.55228 5 7 5.44772 7 6C7 8.76142 4.76142 11 2 11Z" fill="#67898F"/>-->
+<!--                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="#67898F"/>-->
+<!--                                        </svg>-->
+<!--                                        <span>-->
+<!--                                            <b>Update Payment Methods </b> -->
+<!--                                        </span>-->
+<!--                                    </a>-->
+<!--                                </li>-->
                                 <li class="ogout-link">
-                                    <a href="login.html">
+                                    <a href="login.html" id="logout">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M10.1096 13.7506C10.6155 13.7315 11.0411 14.1261 11.0602 14.632C11.1033 15.7725 11.1638 16.605 11.2232 17.2018C11.2818 17.7895 11.6366 18.1432 12.1312 18.2036C12.7144 18.2749 13.5372 18.3333 14.6662 18.3333C15.7953 18.3333 16.618 18.2749 17.2012 18.2036C17.6956 18.1432 18.0506 17.7894 18.1092 17.2015C18.2195 16.0937 18.3329 14.1797 18.3329 11C18.3329 7.82021 18.2195 5.90623 18.1092 4.79841C18.0506 4.21051 17.6956 3.85671 17.2012 3.79627C16.618 3.72498 15.7953 3.66662 14.6662 3.66662C13.5372 3.66662 12.7144 3.72497 12.1312 3.79627C11.6366 3.85673 11.2818 4.21037 11.2232 4.79813C11.1638 5.39495 11.1033 6.22737 11.0602 7.36787C11.0411 7.87377 10.6155 8.2684 10.1096 8.24931C9.60374 8.23021 9.20911 7.80461 9.2282 7.29871C9.2724 6.1281 9.33505 5.25743 9.39891 4.61639C9.53316 3.26874 10.4728 2.15202 11.9088 1.97648C12.5772 1.89477 13.4753 1.83329 14.6662 1.83329C15.8572 1.83329 16.7552 1.89477 17.4237 1.97649C18.8598 2.15205 19.7992 3.26929 19.9335 4.61668C20.0517 5.80308 20.1662 7.78106 20.1662 11C20.1662 14.2189 20.0516 16.1968 19.9335 17.3832C19.7992 18.7306 18.8598 19.8479 17.4237 20.0234C16.7552 20.1051 15.8572 20.1666 14.6662 20.1666C13.4753 20.1666 12.5772 20.1051 11.9088 20.0234C10.4728 19.8479 9.53316 18.7312 9.39891 17.3835C9.33505 16.7425 9.2724 15.8718 9.2282 14.7012C9.20911 14.1953 9.60374 13.7697 10.1096 13.7506Z" fill="#FE4D4D"/>
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M6.60652 13.5602C6.96451 13.9181 6.96451 14.4985 6.60652 14.8565C6.24854 15.2145 5.66814 15.2145 5.31016 14.8565L2.10183 11.6482C1.74385 11.2902 1.74385 10.7098 2.10183 10.3518L5.31016 7.14349C5.66814 6.7855 6.24854 6.7855 6.60652 7.14349C6.96451 7.50147 6.96451 8.08187 6.60652 8.43985L4.96304 10.0833H13.75C14.2563 10.0833 14.6667 10.4937 14.6667 11C14.6667 11.5063 14.2563 11.9167 13.75 11.9167L4.96304 11.9167L6.60652 13.5602Z" fill="#FE4D4D"/>
@@ -371,50 +362,49 @@
                             <div id="tab-2" class="my-acc-right-content">
                                 <div class="section-title">
                                     <h2>Your Personal Details</h2>
+                                    <br>
+                                    <h3 id="email" type="email" style="margin-left: 3%; font-family: 'Playpen Sans', cursive; color: darkred; font-size: large"></h3>
                                 </div>
                                 <div class="form-wrapper">
-                                    <form> 
+                                    <form id="form_info">
                                         <div class="form-container">
                                             <div class="row">
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
-                                                        <label>First Name<sup aria-hidden="true">*</sup>:</label>
-                                                        <input type="text" class="form-control" placeholder="John" required="">
+                                                        <label>Username<sup aria-hidden="true">*</sup>:</label>
+                                                        <input id="username" type="text" class="form-control" readonly required="" style="background-color: #f0f0f0; font-weight: bolder">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
-                                                        <label>Last Name<sup aria-hidden="true">*</sup>:</label>
-                                                        <input type="text" class="form-control" placeholder="Doe" required="">
+                                                        <label>Full Name<sup aria-hidden="true">*</sup>:</label>
+                                                        <input id="full_name" type="text" class="form-control" readonly required="" style="background-color: #f0f0f0; font-weight: bolder">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
-                                                        <label>E-mail<sup aria-hidden="true">*</sup>:</label>
-                                                        <input type="email" class="form-control" placeholder="shop@company.com" required="">
+                                                        <label>Address<sup aria-hidden="true">*</sup>:</label>
+                                                        <input id="address" type="text" class="form-control" readonly required="" style="background-color: #f0f0f0; font-weight: bolder">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
                                                         <label>Telephone<sup aria-hidden="true">*</sup>:</label>
-                                                        <input type="number" class="form-control" placeholder="1234567890" required="">
+                                                        <input id="phone" type="text" class="form-control" readonly required="" style="background-color: #f0f0f0; font-weight: bolder">
                                                     </div>
                                                 </div> 
                                             </div> 
                                         </div> 
                                         <div class="form-container">   
                                             <div class="d-flex acc-back-btn-wrp align-items-center justify-content-end">
-                                                <button class="btn back-btn-acc" type="submit">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="14" viewBox="0 0 35 14" fill="none">
-                                                        <path d="M25.0749 14L35 7L25.0805 0L29.12 6.06667H0V7.93333H29.12L25.0749 14Z"></path>
-                                                    </svg>
-                                                    Back 
-                                                </button> 
-                                                <button class="btn continue-btn" type="submit">
-                                                    Continue
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="14" viewBox="0 0 35 14" fill="none">
-                                                        <path d="M25.0749 14L35 7L25.0805 0L29.12 6.06667H0V7.93333H29.12L25.0749 14Z"></path>
-                                                    </svg>
+                                                <button id="updateButton" class="btn back-btn-acc" type="submit">
+                                                    Update
+                                                </button>
+                                                <button id="confirm_updateButton" class="btn back-btn-acc" type="submit" style="display: none">
+                                                    Confirm Update
+                                                </button>
+                                                <button id="cancelButton" class="btn continue-btn" type="submit" style="display: none">
+                                                    Cancel
                                                 </button> 
                                             </div> 
                                         </div>
@@ -423,39 +413,36 @@
                             </div>
                             <div id="tab-3" class="my-acc-right-content">
                                 <div class="section-title">
-                                    <h2>Change Password</h2>
+                                    <h2>Account Security</h2>
                                 </div>
                                 <div class="form-wrapper">
-                                    <form> 
+                                    <form id="form_password">
                                         <div class="form-container">
                                             <div class="row"> 
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
                                                         <label>Password<sup aria-hidden="true">*</sup>:</label>
-                                                        <input type="text" class="form-control" placeholder="**********" required="">
+                                                        <input id="password" type="password" class="form-control"  readonly placeholder="**********" required="" style="background-color: #f0f0f0; font-weight: bolder">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
                                                         <label>Confirm password<sup aria-hidden="true">*</sup>:</label>
-                                                        <input type="text" class="form-control" placeholder="***********" required="">
+                                                        <input id="confirm_password" type="password" class="form-control" readonly placeholder="***********" required="" style="background-color: #f0f0f0; font-weight: bolder">
                                                     </div>
                                                 </div> 
                                             </div> 
                                         </div> 
                                         <div class="form-container">   
                                             <div class="d-flex acc-back-btn-wrp align-items-center justify-content-end">
-                                                <button class="btn back-btn-acc" type="submit">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="14" viewBox="0 0 35 14" fill="none">
-                                                        <path d="M25.0749 14L35 7L25.0805 0L29.12 6.06667H0V7.93333H29.12L25.0749 14Z"></path>
-                                                    </svg>
-                                                    Back 
-                                                </button> 
-                                                <button class="btn continue-btn" type="submit">
-                                                    Continue
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="14" viewBox="0 0 35 14" fill="none">
-                                                        <path d="M25.0749 14L35 7L25.0805 0L29.12 6.06667H0V7.93333H29.12L25.0749 14Z"></path>
-                                                    </svg>
+                                                <button id="updatePassword_btn" class="btn back-btn-acc" type="submit" >
+                                                    Change Password
+                                                </button>
+                                                    <button id="confirm_updatePassword_btn" class="btn back-btn-acc" type="submit" style="display: none">
+                                                    Confirm Change
+                                                </button>
+                                                <button id="cancelPassword_btn" class="btn continue-btn" type="submit" style="display: none">
+                                                    Cancel
                                                 </button> 
                                             </div> 
                                         </div>
@@ -576,186 +563,35 @@
                             </div> -->
                             <div id="tab-5" class="my-acc-right-content">
                                 <div class="section-title">
-                                    <h2>Order History</h2>
+                                    <h2>Booking History</h2>
                                 </div>
                                 <div class="order-history-frame">
                                     <table class="order-history-tbl"> 
                                         <thead>
                                             <tr>
-                                            <th scope="col">Order ID</th>
-                                            <th scope="col">Customer</th>
-                                            <th scope="col">No. of Products</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Total</th> 
-                                            <th scope="col">Date Added</th>
-                                            <th scope="col"> Action</th>
-                                            </tr>
+                                                <th scope="col">Booking ID</th>
+                                                 <th scope="col">Customer Email</th>
+                                                  <th scope="col">Customer Name</th>
+                                                 <th scope="col">Total Price</th>
+                                                  <th scope="col">Action</th>
+                                           </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                            <td data-label="Order ID">
-                                                <a href="product.html">
-                                                    #10
-                                                </a>
-                                            </td> 
-                                            <td data-label="Customer">
-                                                John Doe 
-                                            </td>
-                                            <td data-label="No. of Products">
-                                                1
-                                            </td>
-                                            <td data-label="Status"> 
-                                                Pending
-                                            </td>
-                                            <td data-label="Total"> 
-                                                $545.00
-                                            </td> 
-                                            <td data-label="Date Added">
-                                                21 Feb, 2022
-                                            </td>
-                                            <td data-label="Action">
-                                                <a href="#" class="action">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.50007 14.2498C12.7661 14.2498 15.0886 12.1975 16.4487 10.4883C16.9205 9.89553 16.9205 9.10415 16.4487 8.51133C15.0886 6.80214 12.7661 4.74984 9.50007 4.74984C6.23405 4.74984 3.91153 6.80214 2.5514 8.51133C2.07965 9.10415 2.07965 9.89553 2.5514 10.4883C3.91153 12.1975 6.23405 14.2498 9.50007 14.2498ZM17.6877 11.4743C18.6186 10.3044 18.6186 8.6953 17.6877 7.52542C16.2086 5.66679 13.4794 3.1665 9.50007 3.1665C5.52073 3.1665 2.79153 5.66679 1.31248 7.52542C0.381517 8.6953 0.381517 10.3044 1.31248 11.4743C2.79153 13.3329 5.52073 15.8332 9.50007 15.8332C13.4794 15.8332 16.2086 13.3329 17.6877 11.4743Z" fill="#183A40"/>
-                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.083 9.50016C11.083 10.3746 10.3741 11.0835 9.49967 11.0835C8.62522 11.0835 7.91634 10.3746 7.91634 9.50016C7.91634 9.47769 7.91681 9.45533 7.91774 9.43308C8.04115 9.47653 8.1739 9.50016 8.31217 9.50016C8.96801 9.50016 9.49967 8.9685 9.49967 8.31266C9.49967 8.17439 9.47604 8.04164 9.4326 7.91822C9.45484 7.9173 9.4772 7.91683 9.49967 7.91683C10.3741 7.91683 11.083 8.62571 11.083 9.50016ZM12.6663 9.50016C12.6663 11.2491 11.2486 12.6668 9.49967 12.6668C7.75077 12.6668 6.33301 11.2491 6.33301 9.50016C6.33301 7.75126 7.75077 6.3335 9.49967 6.3335C11.2486 6.3335 12.6663 7.75126 12.6663 9.50016Z" fill="#183A40"/>
-                                                    </svg>
-                                                </a>
-                                            </td> 
-                                            </tr>  
-                                            <tr>
-                                            <td data-label="Order ID">
-                                                <a href="product.html">
-                                                    #10
-                                                </a>
-                                            </td> 
-                                            <td data-label="Customer">
-                                                John Doe 
-                                            </td>
-                                            <td data-label="No. of Products">
-                                                1
-                                            </td>
-                                            <td data-label="Status"> 
-                                                Pending
-                                            </td>
-                                            <td data-label="Total"> 
-                                                $545.00
-                                            </td> 
-                                            <td data-label="Date Added">
-                                                21 Feb, 2022
-                                            </td>
-                                            <td data-label="Action">
-                                                <a href="#" class="action">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.50007 14.2498C12.7661 14.2498 15.0886 12.1975 16.4487 10.4883C16.9205 9.89553 16.9205 9.10415 16.4487 8.51133C15.0886 6.80214 12.7661 4.74984 9.50007 4.74984C6.23405 4.74984 3.91153 6.80214 2.5514 8.51133C2.07965 9.10415 2.07965 9.89553 2.5514 10.4883C3.91153 12.1975 6.23405 14.2498 9.50007 14.2498ZM17.6877 11.4743C18.6186 10.3044 18.6186 8.6953 17.6877 7.52542C16.2086 5.66679 13.4794 3.1665 9.50007 3.1665C5.52073 3.1665 2.79153 5.66679 1.31248 7.52542C0.381517 8.6953 0.381517 10.3044 1.31248 11.4743C2.79153 13.3329 5.52073 15.8332 9.50007 15.8332C13.4794 15.8332 16.2086 13.3329 17.6877 11.4743Z" fill="#183A40"/>
-                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.083 9.50016C11.083 10.3746 10.3741 11.0835 9.49967 11.0835C8.62522 11.0835 7.91634 10.3746 7.91634 9.50016C7.91634 9.47769 7.91681 9.45533 7.91774 9.43308C8.04115 9.47653 8.1739 9.50016 8.31217 9.50016C8.96801 9.50016 9.49967 8.9685 9.49967 8.31266C9.49967 8.17439 9.47604 8.04164 9.4326 7.91822C9.45484 7.9173 9.4772 7.91683 9.49967 7.91683C10.3741 7.91683 11.083 8.62571 11.083 9.50016ZM12.6663 9.50016C12.6663 11.2491 11.2486 12.6668 9.49967 12.6668C7.75077 12.6668 6.33301 11.2491 6.33301 9.50016C6.33301 7.75126 7.75077 6.3335 9.49967 6.3335C11.2486 6.3335 12.6663 7.75126 12.6663 9.50016Z" fill="#183A40"/>
-                                                    </svg>
-                                                </a>
-                                            </td> 
-                                            </tr>  
-                                            <tr>
-                                            <td data-label="Order ID">
-                                                <a href="product.html">
-                                                    #10
-                                                </a>
-                                            </td> 
-                                            <td data-label="Customer">
-                                                John Doe 
-                                            </td>
-                                            <td data-label="No. of Products">
-                                                1
-                                            </td>
-                                            <td data-label="Status"> 
-                                                Pending
-                                            </td>
-                                            <td data-label="Total"> 
-                                                $545.00
-                                            </td> 
-                                            <td data-label="Date Added">
-                                                21 Feb, 2022
-                                            </td>
-                                            <td data-label="Action">
-                                                <a href="#" class="action">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.50007 14.2498C12.7661 14.2498 15.0886 12.1975 16.4487 10.4883C16.9205 9.89553 16.9205 9.10415 16.4487 8.51133C15.0886 6.80214 12.7661 4.74984 9.50007 4.74984C6.23405 4.74984 3.91153 6.80214 2.5514 8.51133C2.07965 9.10415 2.07965 9.89553 2.5514 10.4883C3.91153 12.1975 6.23405 14.2498 9.50007 14.2498ZM17.6877 11.4743C18.6186 10.3044 18.6186 8.6953 17.6877 7.52542C16.2086 5.66679 13.4794 3.1665 9.50007 3.1665C5.52073 3.1665 2.79153 5.66679 1.31248 7.52542C0.381517 8.6953 0.381517 10.3044 1.31248 11.4743C2.79153 13.3329 5.52073 15.8332 9.50007 15.8332C13.4794 15.8332 16.2086 13.3329 17.6877 11.4743Z" fill="#183A40"/>
-                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.083 9.50016C11.083 10.3746 10.3741 11.0835 9.49967 11.0835C8.62522 11.0835 7.91634 10.3746 7.91634 9.50016C7.91634 9.47769 7.91681 9.45533 7.91774 9.43308C8.04115 9.47653 8.1739 9.50016 8.31217 9.50016C8.96801 9.50016 9.49967 8.9685 9.49967 8.31266C9.49967 8.17439 9.47604 8.04164 9.4326 7.91822C9.45484 7.9173 9.4772 7.91683 9.49967 7.91683C10.3741 7.91683 11.083 8.62571 11.083 9.50016ZM12.6663 9.50016C12.6663 11.2491 11.2486 12.6668 9.49967 12.6668C7.75077 12.6668 6.33301 11.2491 6.33301 9.50016C6.33301 7.75126 7.75077 6.3335 9.49967 6.3335C11.2486 6.3335 12.6663 7.75126 12.6663 9.50016Z" fill="#183A40"/>
-                                                    </svg>
-                                                </a>
-                                            </td> 
-                                            </tr>  
-                                            <tr>
-                                            <td data-label="Order ID">
-                                                <a href="product.html">
-                                                    #10
-                                                </a>
-                                            </td> 
-                                            <td data-label="Customer">
-                                                John Doe 
-                                            </td>
-                                            <td data-label="No. of Products">
-                                                1
-                                            </td>
-                                            <td data-label="Status"> 
-                                                Pending
-                                            </td>
-                                            <td data-label="Total"> 
-                                                $545.00
-                                            </td> 
-                                            <td data-label="Date Added">
-                                                21 Feb, 2022
-                                            </td>
-                                            <td data-label="Action">
-                                                <a href="#" class="action">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.50007 14.2498C12.7661 14.2498 15.0886 12.1975 16.4487 10.4883C16.9205 9.89553 16.9205 9.10415 16.4487 8.51133C15.0886 6.80214 12.7661 4.74984 9.50007 4.74984C6.23405 4.74984 3.91153 6.80214 2.5514 8.51133C2.07965 9.10415 2.07965 9.89553 2.5514 10.4883C3.91153 12.1975 6.23405 14.2498 9.50007 14.2498ZM17.6877 11.4743C18.6186 10.3044 18.6186 8.6953 17.6877 7.52542C16.2086 5.66679 13.4794 3.1665 9.50007 3.1665C5.52073 3.1665 2.79153 5.66679 1.31248 7.52542C0.381517 8.6953 0.381517 10.3044 1.31248 11.4743C2.79153 13.3329 5.52073 15.8332 9.50007 15.8332C13.4794 15.8332 16.2086 13.3329 17.6877 11.4743Z" fill="#183A40"/>
-                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.083 9.50016C11.083 10.3746 10.3741 11.0835 9.49967 11.0835C8.62522 11.0835 7.91634 10.3746 7.91634 9.50016C7.91634 9.47769 7.91681 9.45533 7.91774 9.43308C8.04115 9.47653 8.1739 9.50016 8.31217 9.50016C8.96801 9.50016 9.49967 8.9685 9.49967 8.31266C9.49967 8.17439 9.47604 8.04164 9.4326 7.91822C9.45484 7.9173 9.4772 7.91683 9.49967 7.91683C10.3741 7.91683 11.083 8.62571 11.083 9.50016ZM12.6663 9.50016C12.6663 11.2491 11.2486 12.6668 9.49967 12.6668C7.75077 12.6668 6.33301 11.2491 6.33301 9.50016C6.33301 7.75126 7.75077 6.3335 9.49967 6.3335C11.2486 6.3335 12.6663 7.75126 12.6663 9.50016Z" fill="#183A40"/>
-                                                    </svg>
-                                                </a>
-                                            </td> 
-                                            </tr>  
-                                            <tr>
-                                            <td data-label="Order ID">
-                                                <a href="product.html">
-                                                    #10
-                                                </a>
-                                            </td> 
-                                            <td data-label="Customer">
-                                                John Doe 
-                                            </td>
-                                            <td data-label="No. of Products">
-                                                1
-                                            </td>
-                                            <td data-label="Status"> 
-                                                Pending
-                                            </td>
-                                            <td data-label="Total"> 
-                                                $545.00
-                                            </td> 
-                                            <td data-label="Date Added">
-                                                21 Feb, 2022
-                                            </td>
-                                            <td data-label="Action">
-                                                <a href="#" class="action">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.50007 14.2498C12.7661 14.2498 15.0886 12.1975 16.4487 10.4883C16.9205 9.89553 16.9205 9.10415 16.4487 8.51133C15.0886 6.80214 12.7661 4.74984 9.50007 4.74984C6.23405 4.74984 3.91153 6.80214 2.5514 8.51133C2.07965 9.10415 2.07965 9.89553 2.5514 10.4883C3.91153 12.1975 6.23405 14.2498 9.50007 14.2498ZM17.6877 11.4743C18.6186 10.3044 18.6186 8.6953 17.6877 7.52542C16.2086 5.66679 13.4794 3.1665 9.50007 3.1665C5.52073 3.1665 2.79153 5.66679 1.31248 7.52542C0.381517 8.6953 0.381517 10.3044 1.31248 11.4743C2.79153 13.3329 5.52073 15.8332 9.50007 15.8332C13.4794 15.8332 16.2086 13.3329 17.6877 11.4743Z" fill="#183A40"/>
-                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.083 9.50016C11.083 10.3746 10.3741 11.0835 9.49967 11.0835C8.62522 11.0835 7.91634 10.3746 7.91634 9.50016C7.91634 9.47769 7.91681 9.45533 7.91774 9.43308C8.04115 9.47653 8.1739 9.50016 8.31217 9.50016C8.96801 9.50016 9.49967 8.9685 9.49967 8.31266C9.49967 8.17439 9.47604 8.04164 9.4326 7.91822C9.45484 7.9173 9.4772 7.91683 9.49967 7.91683C10.3741 7.91683 11.083 8.62571 11.083 9.50016ZM12.6663 9.50016C12.6663 11.2491 11.2486 12.6668 9.49967 12.6668C7.75077 12.6668 6.33301 11.2491 6.33301 9.50016C6.33301 7.75126 7.75077 6.3335 9.49967 6.3335C11.2486 6.3335 12.6663 7.75126 12.6663 9.50016Z" fill="#183A40"/>
-                                                    </svg>
-                                                </a>
-                                            </td> 
-                                            </tr>  
+                                        <tbody id="booking" >
+
                                         </tbody>
                                     </table>
-                                    <div class="right-result-tbl text-right">
-                                        <b>Showing 1</b> to 1 of 1 (1 Pages)
+                                    <div id="pageInfo" class="right-result-tbl text-right">
+
                                     </div>
                                     <div class="form-container">   
                                         <div class="d-flex acc-back-btn-wrp align-items-center justify-content-end">
-                                            <button class="btn back-btn-acc" type="submit">
+                                            <button id="back-btn" class="btn back-btn-acc" type="submit">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="14" viewBox="0 0 35 14" fill="none">
                                                     <path d="M25.0749 14L35 7L25.0805 0L29.12 6.06667H0V7.93333H29.12L25.0749 14Z"></path>
                                                 </svg>
                                                 Back 
                                             </button> 
-                                            <button class="btn continue-btn" type="submit">
+                                            <button id="continue-btn" class="btn continue-btn" type="submit">
                                                 Continue
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="14" viewBox="0 0 35 14" fill="none">
                                                     <path d="M25.0749 14L35 7L25.0805 0L29.12 6.06667H0V7.93333H29.12L25.0749 14Z"></path>
@@ -765,53 +601,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="tab-7" class="my-acc-right-content"> 
+                            <div id="tab-7" class="my-acc-right-content">
                                 <div class="order-confirmation">
-                                    <h4>Order informations</h4>
+                                    <h3>Booking Details</h3>
                                     <div class="order-confirmation-body">
                                         <div class="row">
                                             <div class="col-sm-6 col-12">
-                                                <div class="order-confirm-details">
-                                                    <h5>Billing informations:</h5>
-                                                    <p>John Doe<br>
-                                                        King Street 30/21<br>
-                                                        00-211 Bridgeshire<br>
-                                                        United Kingdom</p>
- 
-                                                    <div class="link"><a href="tel:000-111-222">Phone: 000-111-222</a></div>
-                                                    <div class="link"><a href="mailto:shop@company.com">Email: shop@company.com</a></div>
+                                                <div id="booking-detail_customer" class="order-confirm-details">
                                                 </div>
                                             </div>
-                                            <div class="col-sm-6 col-12">
-                                                <div class="order-confirm-details">
-                                                    <h5>Delivery informations:</h5>
-                                                    <p>John Doe<br>
-                                                        King Street 30/21<br>
-                                                        00-211 Bridgeshire<br>
-                                                        United Kingdom</p>
- 
-                                                    <div class="link"><a href="tel:000-111-222">Phone: 000-111-222</a></div>
-                                                    <div class="link"><a href="mailto:shop@company.com">Email: shop@company.com</a></div>
+                                            <div class="col-sm-6 col-12" >
+                                                <div id="booking-detail_service" class="order-confirm-details">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-container">   
-                                    <div class="d-flex acc-back-btn-wrp align-items-center justify-content-end">
-                                        <button class="btn back-btn-acc" type="submit">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="14" viewBox="0 0 35 14" fill="none">
-                                                <path d="M25.0749 14L35 7L25.0805 0L29.12 6.06667H0V7.93333H29.12L25.0749 14Z"></path>
-                                            </svg>
-                                            Back 
-                                        </button> 
-                                        <button class="btn continue-btn" type="submit">
-                                            Continue
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="14" viewBox="0 0 35 14" fill="none">
-                                                <path d="M25.0749 14L35 7L25.0805 0L29.12 6.06667H0V7.93333H29.12L25.0749 14Z"></path>
-                                            </svg>
-                                        </button> 
-                                    </div> 
                                 </div>
                             </div> 
                             <div id="tab-9" class="my-acc-right-content"></div>
@@ -1150,9 +954,30 @@
 </div>
 <!-- Mobile menu end here -->
 <!--scripts start here-->
-<script src="platform/assets/js/jquery.min.js"></script>
-<script src="platform/assets/js/slick.min.js" defer="defer"></script>
-<script src='platform/assets/js/custom.js' defer="defer"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/slick.min.js" defer="defer"></script>
+<script src='assets/js/custom.js' defer="defer"></script>
+    <script src='assets/js/my-account.js' defer="defer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js" integrity="sha512-emSwuKiMyYedRwflbZB2ghzX8Cw8fmNVgZ6yQNNXXagFzFOaQmbvQ1vmDkddHjm5AITcBIZfC7k4ShQSjgPAmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get the "Logout" link by its ID
+                var logoutLink = document.querySelectorAll("#logout");
+
+            // Add a click event listener to the link
+            logoutLink.forEach(logoutLink => {
+                logoutLink.addEventListener("click", function (event) {
+                    // Prevent the default behavior of the link (navigating to "index.html")
+                    event.preventDefault();
+
+                    sessionStorage.clear();
+
+                    // Optionally, you can also redirect the user to another page (e.g., a login page)
+                    window.location.href = 'index.html'; // Replace 'login.html' with your desired URL
+                });
+            });
+        });
+    </script>
 <!--scripts end here-->
 </body>
 </html>

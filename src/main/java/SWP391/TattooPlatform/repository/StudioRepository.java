@@ -17,12 +17,12 @@ public interface StudioRepository extends JpaRepository<Studio, String> {
 
     List<Studio> findAll();
 
-    Studio findStudioByStudioID(String StudioID);
+    Studio findStudioByStudioID(String id);
 
 
     Studio findStudioByManagerEmail(String managerEmail);
-
-
+    List<Studio> findStudiosByStudioName(String studioName);
+    Studio findStudioByStudioName(String studioName);
     Studio save(Studio studio);
 
 

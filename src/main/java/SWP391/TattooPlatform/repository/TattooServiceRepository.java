@@ -17,8 +17,7 @@ public interface TattooServiceRepository extends JpaRepository<Service, Long> {
     List<Service> findAll();
 
     Service findServiceByServiceID(String service_ID);
-
-
+    List<Service> findServicesByServiceName(String serviceName);
 
     Service save(Service service);
 
@@ -26,10 +25,10 @@ public interface TattooServiceRepository extends JpaRepository<Service, Long> {
     @Modifying
     @Transactional
     @Query(value = "UPDATE Service s SET s.serviceName = :serviceName, s.description = :description" +
-            ", s.linkImage = :linkImage WHERE s.serviceID = :serviceID "
-            )
+            ", s.linkImage = :linkImage, s.price = :price WHERE s.serviceID = :serviceID and " +
+            " s.studioTattooManager = :studioManagerEmail ")
     void updateService(@Param("serviceID") String serviceID, @Param("serviceName") String serviceName, @Param("description") String description
-                         , @Param("linkImage") String linkImage );
+                         , @Param("linkImage") String linkImage, @Param("studioManagerEmail") String email ,@Param("price") float price );
 
     //DELETE
     @Modifying

@@ -24,7 +24,7 @@ $(document).ready(function () {
         // Send an AJAX POST request to update the artist
         $.ajax({
             type: "PUT",
-            url: "/view-artist/update-artist/" + email + "?fullName=" + fullName + "&phoneNumber=" + phoneNumber + "&address=" + address,
+            url: "/artist/update-artist/" + email + "?fullName=" + fullName + "&phoneNumber=" + phoneNumber + "&address=" + address,
             contentType: "application/json; charset-utf-8",
             data: JSON.stringify(data),
             success: function (data) {

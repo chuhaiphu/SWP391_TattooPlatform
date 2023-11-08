@@ -35,7 +35,6 @@ public class Studio_Tattoo_Manager {
 
     @Column(name = "password")
     private String password;
-
     @JsonIgnore
     @OneToMany(mappedBy = "studioTattooManager", cascade = CascadeType.ALL)
     private Collection<Studio_Certificate> certificates;

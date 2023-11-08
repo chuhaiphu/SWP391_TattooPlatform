@@ -5,7 +5,7 @@ $(document).ready(function () {
         url: "/service/view-list", // Replace with the actual API endpoint
         dataType: "json",
         success: function (data) {
-            for( var service of data) {
+            for( var service of data.content) {
                 renderserviceData(service);
             }
         },

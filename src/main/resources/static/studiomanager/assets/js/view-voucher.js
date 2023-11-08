@@ -5,7 +5,7 @@ $(document).ready(function () {
         url: "/vouchers/view-list", // Replace with the actual API endpoint
         dataType: "json",
         success: function (data) {
-            for( var voucher of data) {
+            for( var voucher of data.content) {
                 rendervoucherData(voucher);
             }
         },

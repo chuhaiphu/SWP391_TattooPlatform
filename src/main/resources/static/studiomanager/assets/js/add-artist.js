@@ -16,7 +16,7 @@ $(document).ready(function () {
         // Send an AJAX POST request to add the voucher
         $.ajax({
             type: "POST",
-            url: "/view-artist/add-artist", // Replace with the actual API endpoint
+            url: "/artist/add-artist", // Replace with the actual API endpoint
             contentType: "application/json; charset-utf-8",
             data: JSON.stringify(artistData),
             success: function (data) {

@@ -25,10 +25,6 @@ public class Service {
     @Column(name = "service_ID",length = 15,updatable = false,nullable = false )
     private String serviceID;
 
-
-
-
-
     @Column(name = "service_name")
     @Size(min = 1, max = 20, message = "Service must have length between {min} and {max}")
     private String serviceName;
@@ -47,8 +43,6 @@ public class Service {
 
     @Column(name = "tattoo_Manager_email")
     private String tattooManagerEmail;
-
-
 
     @JsonIgnore
     @ManyToOne
