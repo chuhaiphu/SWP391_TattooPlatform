@@ -44,8 +44,17 @@ public class TattooServiceController {
     }
     @PostMapping("/add-service")
     public ResponseEntity<?> saveService(@RequestBody Service ts) {
-        return ResponseUtils.get(tattooService.addService(ts),HttpStatus.CREATED);
+        Service addedService = tattooService.addService(ts);
+
+        if (addedService == null) {
+            // Service name already exists, return an error response
+            return ResponseUtils.error("Service name already exists.", HttpStatus.BAD_REQUEST);
+        }
+
+        // Service added successfully
+        return ResponseUtils.get(addedService, HttpStatus.CREATED);
     }
+
     @GetMapping("/search")
     public ResponseEntity<?> getServiceByServiceName(@RequestParam String serviceName) {
         return tattooService.findServiceByServiceName(serviceName);
@@ -55,6 +64,11 @@ public class TattooServiceController {
                                            @RequestParam String serviceName, @RequestParam String description,
                                            @RequestParam float price, @RequestParam String linkImage,  @RequestParam String StudioManagerEmail) throws Exception {
         return ResponseUtils.get(tattooService.updateService(serviceID,serviceName ,description,price,linkImage,StudioManagerEmail), HttpStatus.OK);
+    }
+    @GetMapping("/check-name/{name}")
+    public ResponseEntity<Boolean> nameServiceExist(@PathVariable String name) {
+        boolean nameExists = tattooService.nameServiceExist(name);
+        return new ResponseEntity<>(nameExists, HttpStatus.OK);
     }
 
     @DeleteMapping("/{serviceID}")

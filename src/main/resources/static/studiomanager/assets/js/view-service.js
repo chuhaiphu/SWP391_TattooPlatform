@@ -2,7 +2,7 @@ $(document).ready(function () {
     // Send an AJAX request to fetch artist data
     $.ajax({
         type: "GET",
-        url: "/service/view-list", // Replace with the actual API endpoint
+        url: "/service/list", // Replace with the actual API endpoint
         dataType: "json",
         success: function (data) {
             for( var service of data.content) {

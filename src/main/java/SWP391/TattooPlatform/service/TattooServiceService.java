@@ -98,6 +98,10 @@ public class TattooServiceService {
         }
 
     }
+    public boolean nameServiceExist(String serviceName){
+        Service service = tattooServiceRepository.findServicesByServiceName(serviceName);
+        return service != null;
+    }
 
 
 

@@ -48,6 +48,11 @@ public class ArtistController {
     public Object getAvailableArtistsBySlotID (@PathVariable String slotID,@PathVariable String studioID ) {
         return  ResponseUtils.get(artistService.getAvailableArtistsBySlotIDAndStudioID(slotID, studioID),HttpStatus.OK);
     }
+    @GetMapping("/check-email/{email}")
+    public ResponseEntity<Boolean> checkArtistEmail(@PathVariable String email) {
+        boolean emailExists = artistService.emailExists(email);
+        return new ResponseEntity<>(emailExists, HttpStatus.OK);
+    }
 
     //-------------------------------POST/ADD-------------------------------
     @PostMapping("/add-artist")
