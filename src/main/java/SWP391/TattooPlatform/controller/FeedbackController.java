@@ -54,9 +54,11 @@ public class FeedbackController {
     }
 
     @PutMapping("/{feedbackID}")
-    public ResponseEntity<String> updateFeedback(@PathVariable String feedbackID, @RequestParam String description,
+    public ResponseEntity<?> updateFeedback(@PathVariable String feedbackID, @RequestParam String description,
                                             @RequestParam int artistRating) {
         feedbackService.updateFeedback(feedbackID,description,artistRating);
+
+     //   return feedbackService.getFeedbackByFeedbackID(feedbackID);
         return new ResponseEntity("Your feedback have been updated successfully", HttpStatus.OK);
     }
 

@@ -64,6 +64,14 @@ public class BookingDetailService {
         return bookingDetails;
     }
 
+    public ResponseEntity<?> getBookingDetailByBookingDetailID(String id) {
+        BookingDetail bookingDetail = bookingDetailRepository.findBookingDetailByBookingDetailID(id);
+        if(bookingDetail != null) {
+            return ResponseUtils.get(bookingDetail, HttpStatus.OK);
+        }
+        return new ResponseEntity("Not found any booking detail ", HttpStatus.NOT_FOUND);
+    }
+
 
 
 

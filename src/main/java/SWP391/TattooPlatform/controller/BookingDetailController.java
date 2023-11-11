@@ -34,6 +34,11 @@ public class BookingDetailController {
         return bookingDetailService.getBookingDetailByBookingID(bookingID);
     }
 
+    @GetMapping("/get/{bookingDetailID}")
+    public ResponseEntity<?> getBookingDetailByBookingDetailID(@PathVariable String bookingDetailID) {
+        return bookingDetailService.getBookingDetailByBookingDetailID(bookingDetailID);
+    }
+
 
     @GetMapping()
     public ResponseEntity<?> listOfDetail() {

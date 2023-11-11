@@ -20,6 +20,8 @@ public interface BookingDetailRepository extends JpaRepository<BookingDetail,Lon
 
     BookingDetail save(BookingDetail bookingDetail);
 
+
+
     BookingDetail findBookingDetailByBookingDetailID(String bookingDetailID);
 
     @Modifying
