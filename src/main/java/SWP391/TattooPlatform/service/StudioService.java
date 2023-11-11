@@ -41,6 +41,9 @@ public class StudioService {
         if(studioRepository.findAll().isEmpty()) return null;
         return studioRepository.findAll();
     }
+
+
+
     public Studio findStudioByStudioID(String id){
         return studioRepository.findStudioByStudioID(id);
     }
