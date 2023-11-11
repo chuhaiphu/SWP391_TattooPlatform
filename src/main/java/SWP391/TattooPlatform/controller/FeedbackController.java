@@ -42,10 +42,22 @@ public class FeedbackController {
         return  ResponseUtils.get(feedbackService.getFeedbackByBookingDetailID(id), HttpStatus.OK);
     }
 
+    @GetMapping("/{feedbackID}")
+    public ResponseEntity<?> getFeedbackByFeedbackID(@PathVariable String feedbackID) {
+        return feedbackService.getFeedbackByFeedbackID(feedbackID);
+    }
+
     //-------------------------------POST/ADD-------------------------------
     @PostMapping("/addFeedback")
     public ResponseEntity<?> saveRole(@RequestBody Feedback feedback) {
         return ResponseUtils.get(feedbackService.addFeedback(feedback), HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{feedbackID}")
+    public ResponseEntity<String> updateFeedback(@PathVariable String feedbackID, @RequestParam String description,
+                                            @RequestParam int artistRating) {
+        feedbackService.updateFeedback(feedbackID,description,artistRating);
+        return new ResponseEntity("Your feedback have been updated successfully", HttpStatus.OK);
     }
 
 }
