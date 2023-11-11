@@ -53,8 +53,13 @@ public class TattooServiceController {
     @PutMapping("/{serviceID}")
     public ResponseEntity<?> updateService(@PathVariable String serviceID,
                                            @RequestParam String serviceName, @RequestParam String description,
-                                           @RequestParam float price, @RequestParam String linkImage,  @RequestParam String StudioManagerEmail) throws Exception {
-        return ResponseUtils.get(tattooService.updateService(serviceID,serviceName ,description,price,linkImage,StudioManagerEmail), HttpStatus.OK);
+                                           @RequestParam float price, @RequestParam String linkImage)  {
+        try{
+        return ResponseUtils.get(tattooService.updateService(serviceID,serviceName ,description,price,linkImage), HttpStatus.OK);
+        }catch (Exception e) {
+            return ResponseUtils.error("some wrong at here", HttpStatus.BAD_REQUEST);
+        }
+
     }
 
     @DeleteMapping("/{serviceID}")

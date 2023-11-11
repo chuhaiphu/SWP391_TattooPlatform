@@ -3,9 +3,11 @@ package SWP391.TattooPlatform.service;
 import SWP391.TattooPlatform.config.ResponseUtils;
 import SWP391.TattooPlatform.model.Booking;
 import SWP391.TattooPlatform.model.BookingDetail;
+import SWP391.TattooPlatform.model.Feedback;
 import SWP391.TattooPlatform.model.Studio;
 import SWP391.TattooPlatform.repository.BookingDetailRepository;
 import SWP391.TattooPlatform.repository.BookingRepository;
+import SWP391.TattooPlatform.repository.FeedbackRepository;
 import SWP391.TattooPlatform.repository.StudioRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,11 +23,14 @@ public class BookingDetailService {
     final BookingRepository bookingRepository;
 
     final StudioRepository studioRepository;
+
+    final FeedbackRepository feedbackRepository;
     public BookingDetailService(BookingDetailRepository bookingDetailRepository, BookingRepository bookingRepository
-                                , StudioRepository studioRepository) {
+                                , StudioRepository studioRepository , FeedbackRepository feedbackRepository) {
         this.bookingDetailRepository = bookingDetailRepository;
         this.bookingRepository = bookingRepository;
         this.studioRepository = studioRepository;
+        this.feedbackRepository = feedbackRepository;
 
     }
 
@@ -58,6 +63,8 @@ public class BookingDetailService {
         }
         return bookingDetails;
     }
+
+
 
 
     public ResponseEntity<?> getAllDetail() {

@@ -82,9 +82,9 @@ public class TattooServiceService {
     }
 
     public Service updateService(String serviceID
-            , String name , String description, float price, String linkImage, String email)  {
+            , String serviceName , String description, float price, String linkImage)  {
 
-       tattooServiceRepository.updateService(serviceID,name,description, linkImage,email, price);
+       tattooServiceRepository.updateService(serviceID,serviceName,description, linkImage, price);
         return tattooServiceRepository.findServiceByServiceID(serviceID);
     }
 
