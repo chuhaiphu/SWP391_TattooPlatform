@@ -82,9 +82,8 @@ public class TattooServiceService {
     }
 
     public Service updateService(String serviceID
-            , String name , String description, float price, String linkImage, String email)  {
-
-       tattooServiceRepository.updateService(serviceID,name,description, linkImage,email, price);
+            , String serviceName , String description, String linkImage, float price)  {
+       tattooServiceRepository.updateService(serviceID,serviceName,description, linkImage, price);
         return tattooServiceRepository.findServiceByServiceID(serviceID);
     }
 
@@ -98,10 +97,11 @@ public class TattooServiceService {
         }
 
     }
-    public boolean nameServiceExist(String serviceName){
-        Service service = tattooServiceRepository.findServicesByServiceName(serviceName);
-        return service != null;
+    public boolean checkDuplicateServiceName(String serviceName) {
+        List<Service> serviceList = tattooServiceRepository.findServicesByServiceName(serviceName);
+        return !serviceList.isEmpty();
     }
+
 
 
 

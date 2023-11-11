@@ -161,6 +161,7 @@
                               placeholder="johnathan@admin.com"
                               class="form-control form-control-line"
                               id="emailArtist"
+                              readonly
                       />
                     </div>
                   <div class="form-group">
@@ -197,16 +198,28 @@
                       />
                     </div>
                   </div>
+                    <div class="form-group">
+                      <label class="col-md-12">Rate</label>
+                      <div class="col-md-12">
+                        <input
+                                type="text"
+                                id="updateRate"
+                                placeholder="Rate"
+                                class="form-control form-control-line"
+                        />
+                      </div>
+                    </div>
                   <div class="form-group">
                     <div class="col-sm-12">
                       <button class="btn btn-success" id="update-artist">
                         Update artist
                       </button>
+                      <button class="btn btn-danger" id="delete-artist">
+                        Delete artist
+                      </button>
                       <a href="view-artist.html" class="btn btn-primary"
-                        >Quay lại</a
-                      >
+                        >Back</a>
                     </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -232,6 +245,7 @@
     <!--Wave Effects -->
     <script src="studiomanager/assets/js/waves.js"></script>
       <script src="studiomanager/assets/js/update-artistpro.js"></script>
+        <script src="studiomanager/assets/js/delete-artistpro.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="studiomanager/assets/js/custom.min.js"></script>
 <!--    <script src="js/user.js"></script>-->

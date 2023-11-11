@@ -44,31 +44,26 @@ public class TattooServiceController {
     }
     @PostMapping("/add-service")
     public ResponseEntity<?> saveService(@RequestBody Service ts) {
-        Service addedService = tattooService.addService(ts);
-
-        if (addedService == null) {
-            // Service name already exists, return an error response
-            return ResponseUtils.error("Service name already exists.", HttpStatus.BAD_REQUEST);
-        }
-
-        // Service added successfully
-        return ResponseUtils.get(addedService, HttpStatus.CREATED);
+        return ResponseUtils.get(tattooService.addService(ts),HttpStatus.CREATED);
     }
 
     @GetMapping("/search")
     public ResponseEntity<?> getServiceByServiceName(@RequestParam String serviceName) {
         return tattooService.findServiceByServiceName(serviceName);
     }
-    @PutMapping("/{serviceID}")
-    public ResponseEntity<?> updateService(@PathVariable String serviceID,
-                                           @RequestParam String serviceName, @RequestParam String description,
-                                           @RequestParam float price, @RequestParam String linkImage,  @RequestParam String StudioManagerEmail) throws Exception {
-        return ResponseUtils.get(tattooService.updateService(serviceID,serviceName ,description,price,linkImage,StudioManagerEmail), HttpStatus.OK);
+    @PutMapping("/update-service/{serviceID}")
+    public ResponseEntity<?> updateServiceupdateService(
+            @PathVariable String serviceID,
+            @RequestParam String serviceName,
+            @RequestParam String description,
+            @RequestParam String linkImage,
+            @RequestParam float price) throws Exception {
+        return ResponseUtils.get(tattooService.updateService(serviceID,serviceName ,description,linkImage,price), HttpStatus.OK);
     }
-    @GetMapping("/check-name/{name}")
-    public ResponseEntity<Boolean> nameServiceExist(@PathVariable String name) {
-        boolean nameExists = tattooService.nameServiceExist(name);
-        return new ResponseEntity<>(nameExists, HttpStatus.OK);
+    @GetMapping("/check-duplicate")
+    public ResponseEntity<?> checkDuplicateServiceName(@RequestParam String serviceName) {
+        boolean isDuplicate = tattooService.checkDuplicateServiceName(serviceName);
+        return ResponseEntity.ok(isDuplicate);
     }
 
     @DeleteMapping("/{serviceID}")
