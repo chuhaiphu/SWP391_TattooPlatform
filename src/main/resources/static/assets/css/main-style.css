@@ -22,6 +22,7 @@
 /* !!!!         VARIABLES STYLE CSS         !!!! */
 /* ============================================= */
 @import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Pinyon+Script|Rochester');
 :root {
     --first-font: 'Outfit', sans-serif;
     --second-font: 'Cardo', serif;
@@ -5850,5 +5851,6 @@ table tr td {
         color: #000;
         text-shadow: 0 0 5px #efde23;
     }
+
 
 }
