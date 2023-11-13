@@ -172,8 +172,39 @@ function renderBookingDetail(bookingDetailData) {
         Performed by: <span style=" margin-left:10px; font-family: 'Playpen Sans', cursive; color: saddlebrown; font-size: medium">${bookingDetailData.artist.fullName}</span><br>
         Price:        <span style=" margin-left:22px; font-family: 'Playpen Sans', cursive; color: saddlebrown; font-size: medium">${bookingDetailData.price} $</span><br>
         Status:       <span style=" margin-left:14px; font-family: 'Playpen Sans', cursive; color: red; font-size: medium">${bookingDetailData.bookingStatus.statusName}</span><br>
-
     `
+    if (bookingDetailData.bookingStatus.statusName === "Completed") {
+        axios.get(`/feedback/${bookingDetailData.bookingDetailID}`)
+            .then(response => {
+                var feedback = response.data;
+                console.log(feedback);
+                if (feedback.content == null){
+                    added_bookingDetail.innerHTML += `<button id="feedbackButton" class="button-28" role="button">Add Feedback</button>`;
+                    var feedbackButton = document.getElementById("feedbackButton");
+                    feedbackButton.addEventListener("click", function () {
+                        sessionStorage.setItem('bookingDetailId', bookingDetailData.bookingDetailID);
+                        window.location.href = "/feedback"; // replace with your target page URL
+                    });
+                }
+                else if (feedback.content != null){
+                    added_bookingDetail.innerHTML += `<button id="feedbackButton" class="button-28" role="button">View Feedback</button>`;
+                    var feedbackButton = document.getElementById("feedbackButton");
+                    feedbackButton.addEventListener("click", function () {
+                        sessionStorage.setItem('bookingDetailId', bookingDetailData.bookingDetailID);
+                        window.location.href = "/feedback"; // replace with your target page URL
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching feedback:', error);
+                throw error; // Rethrow the error to be caught later
+            })
+
+
+    }
+    else{
+        added_bookingDetail.innerHTML += `<br><br>`;
+    }
 }
 
 function handleBookingDetail(bookingID) {

@@ -45,12 +45,6 @@ public class FeedbackService {
         }
         return feedbackRepository.findAllByArtistEmail(email);
     }
-    public List<Feedback> getFeedbackListByTattooLoverEmail(String email){
-        if(feedbackRepository.findAllByTattooLoverEmail(email).isEmpty()) {
-            return null;
-        }
-        return feedbackRepository.findAllByTattooLoverEmail(email);
-    }
     public Feedback getFeedbackByBookingDetailID(String id) {
         if (feedbackRepository.findByBookingDetailID(id) == null) {
             return null;

@@ -23,17 +23,24 @@ public class BookingDetailController {
 //    public ResponseEntity<?> getBookingDetailByBookingID(@PathVariable String bookingID) {
 //        return bookingDetailService.getBookingDetailByBookingID(bookingID);
 //    }
+    @GetMapping("/get/{bookingDetailID}")
+    public ResponseEntity<?> getBookingDetailByBookingDetailID(@PathVariable String bookingDetailID) {
+        return bookingDetailService.getBookingDetailByBookingDetailID(bookingDetailID);
+    }
 
     @GetMapping("/{bookingID}")
     public List<BookingDetail> getBookingDetailByBookingID(@PathVariable String bookingID) {
         return bookingDetailService.getBookingDetailByBookingID(bookingID);
     }
 
+    @GetMapping("/studio/{bookingDetailId}")
+    public ResponseEntity<?> getStudioByBookingDetailID(@PathVariable String bookingDetailId) {
+        return bookingDetailService.getStudioByBookingDetailID(bookingDetailId);
+    }
 
     @GetMapping()
     public ResponseEntity<?> listOfDetail() {
         return bookingDetailService.getAllDetail();
     }
-
 
 }

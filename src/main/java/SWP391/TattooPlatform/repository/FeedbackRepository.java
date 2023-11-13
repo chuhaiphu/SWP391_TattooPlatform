@@ -18,7 +18,6 @@ public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
     Feedback save(Feedback fb);
     List<Feedback> findAll();
     List<Feedback> findAllByArtistEmail(String email);
-    List<Feedback> findAllByTattooLoverEmail(String email);
     Feedback findByBookingDetailID(String id);
     @Query(value = "SELECT f FROM Feedback f JOIN Artist a ON f.artistEmail = a.email WHERE a.email = :email")
     List<Feedback> findAllByStudioManagerEmail(@Param("email") String email);

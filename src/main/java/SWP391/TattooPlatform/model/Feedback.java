@@ -26,12 +26,8 @@ public class Feedback {
     private String description;
     @Column (name = "artist_rating")
     private float artistRating;
-    @Column (name = "service_rating")
-    private float serviceRating;
     @Column (name = "booking_date")
     private String bookingDate;
-    @Column (name = "tattoo_Lover_Email")
-    private String tattooLoverEmail;
     @Column (name = "service_ID")
     private String serviceID;
     @Column (name = "artist_email")

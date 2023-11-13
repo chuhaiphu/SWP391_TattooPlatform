@@ -30,6 +30,4 @@ public interface BookingDetailRepository extends JpaRepository<BookingDetail,Lon
 
 
 
-
-
 }
