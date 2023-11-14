@@ -24,10 +24,9 @@ public interface BookingDetailRepository extends JpaRepository<BookingDetail,Lon
 
     @Modifying
     @Transactional
-    @Query("UPDATE  BookingDetail b set  b.bookingID = :bookingID where b.bookingDetailID = :bookingDetailID" )
+    @Query("UPDATE  BookingDetail b set  b.statusID = :statusID where b.bookingDetailID = :bookingDetailID" )
 
-    void updateBookingDetail( String bookingID, String bookingDetailID );
-
+    void updateBookingDetail( String bookingDetailID, String statusID );
 
 
 }

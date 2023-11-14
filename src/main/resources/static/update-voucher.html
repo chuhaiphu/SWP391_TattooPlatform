@@ -130,14 +130,17 @@
         <li>
           <a href="view-booking.html" class="waves-effect"
           ><i class="fa fa-table fa-fw" aria-hidden="true"></i
-          ><span class="hide-menu">Booking </span></a
-          >
+          ><span class="hide-menu">Booking </span></a>
+        </li>
+        <li>
+          <a href="view-feedback.html" class="waves-effect"
+          ><i class="fa fa-table fa-fw" aria-hidden="true"></i
+          ><span class="hide-menu"> Feedback </span></a>
         </li>
         <li>
           <a href="view-voucher.html" class="waves-effect"
           ><i class="fa fa-ticket fa-fw" aria-hidden="true"></i
-          ><span class="hide-menu">Voucher </span></a
-          >
+          ><span class="hide-menu">Voucher </span></a>
         </li>
 
       </ul>
@@ -159,15 +162,29 @@
         <div class="col-md-8 col-xs-12">
           <div class="white-box">
             <div class="form-horizontal form-material">
+              <div class="form-group">
+                <label class="col-md-12">ID</label>
+                <div class="col-md-12">
+                  <input
+                          type="text"
+                          id="updateIdVoucher"
+                          placeholder="Name"
+                          class="form-control form-control-line"
+                          readonly
+
+                  />
+                </div>
+              </div>
 
               <div class="form-group">
                 <label class="col-md-12">Name</label>
                 <div class="col-md-12">
                   <input
                           type="text"
-                          id="nameVoucher"
+                          id="updateNameVoucher"
                           placeholder="Name"
                           class="form-control form-control-line"
+                          readonly
 
                   />
                 </div>
@@ -177,10 +194,10 @@
                 <label class="col-md-12">Start</label>
                 <div class="col-md-12">
                   <input
-                          type="text"
-                          id="addStartDateVoucher"
-                          placeholder="dd/MM/yyyy"
+                          type="date"
+                          id="updateStartDateVoucher"
                           class="form-control form-control-line"
+                          readonly
 
                   />
                 </div>
@@ -189,10 +206,10 @@
                 <label class="col-md-12">End</label>
                 <div class="col-md-12">
                   <input
-                          type="text"
-                          id="addEndDateVoucher"
-                          placeholder="dd/MM/yyyy"
+                          type="date"
+                          id="updateEndDateVoucher"
                           class="form-control form-control-line"
+                          readonly
 
                   />
                 </div>
@@ -202,17 +219,44 @@
                 <div class="col-md-12">
                   <input
                           type="text"
-                          id="descriptionVoucher"
+                          id="updateDescriptionVoucher"
                           placeholder="Description"
                           class="form-control form-control-line"
+                          readonly
+
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-12">ManagerEmail</label>
+                <div class="col-md-12">
+                  <input
+                          type="text"
+                          id="updateManagerEmail"
+                          placeholder="ManagerEmail"
+                          class="form-control form-control-line"
+                          readonly
+
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-12">Discount</label>
+                <div class="col-md-12">
+                  <input
+                          type="text"
+                          id="updateDiscount"
+                          placeholder="Discount"
+                          class="form-control form-control-line"
+                          readonly
 
                   />
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-12">
-                  <button class="btn btn-success" id="btn-save-task">
-                    Update
+                  <button class="btn btn-danger" id="delete-voucher">
+                    Delete voucher
                   </button>
                   <a href="view-voucher.html" class="btn btn-primary">Back</a>
                 </div>
@@ -244,5 +288,7 @@
 <!-- Custom Theme JavaScript -->
 <script src="studiomanager/assets/js/custom.min.js"></script>
 <script src="js/task.js"></script>
+<script src="studiomanager/assets/js/delete-voucherpro.js"></script>
+
 </body>
 </html>

@@ -15,36 +15,27 @@ $(document).ready(function () {
     });
 });
 
+
 function renderserviceData(serviceData) {
-    var serviceTable = $("#serviceList_template").html();
-    serviceTable = serviceTable.replace("{{serviceID}}", serviceData.serviceID );
-    serviceTable = serviceTable.replace("{{serviceName}}", serviceData.serviceName );
-    serviceTable = serviceTable.replace("{{description}}", serviceData.description );
-    serviceTable = serviceTable.replace("{{linkImage}}", serviceData.linkImage );
-    serviceTable = serviceTable.replace("{{tattooManagerEmail}}", serviceData.tattooManagerEmail );
-    serviceTable = serviceTable.replace("{{price}}", serviceData.price );
 
 
-    var added_service = $("#service");
-    $(serviceTable).appendTo(added_service);
-
+    var added_service = document.getElementById("service");
+    console.log("30" + added_service.innerHTML);
+    var serviceId = serviceData.serviceID;
+    added_service.innerHTML =
+        added_service.innerHTML +
+        `
+  <tr>
+  <td class="serviceID" data-service-id="${serviceId}">${serviceData.serviceID}</td>
+  <td class="serviceName" data-service-id="${serviceId}">${serviceData.serviceName}</td>
+  <td class="description" data-service-id="${serviceId}">${serviceData.description}</td>
+  <td class="linkImage1" data-service-id="${serviceId}"><img src="${serviceData.linkImage}" style="height: 100px; width: 100px"></td>
+  <td style="display: none" class="linkImage" data-service-id="${serviceId}">${serviceData.linkImage} </td>
+  <td class="tattooManagerEmail" data-service-id="${serviceId}">${serviceData.tattooManagerEmail}</td>
+  <td class="price" data-service-id="${serviceId}">${serviceData.price}</td>
+  <td><button onClick="handleUpdate('${serviceId}')">Update</button></td>
+</tr>
+`
 }
 
-function deleteService(serviceID) {
-    if (confirm("Are you sure you want to delete this service?")) {
-        $.ajax({
-            type: "DELETE",
-            url: "/service/" + serviceID, // Replace with the actual API endpoint
-            success: function (data) {
-                console.log("Service deleted:", data);
-                // Handle success, e.g., remove the service row from the table
-                $(`#${serviceID}`).remove();
-                // Optionally, you can display a success message to the user.
-            },
-            error: function (xhr, status, error) {
-                console.error("Error deleting service: " + error);
-                // Handle the error, e.g., display an error message to the user.
-            }
-        });
-    }
-}
+
