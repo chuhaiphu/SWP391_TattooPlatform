@@ -81,11 +81,15 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             // Add the retrieved slots to the combobox
             inputArtist.innerHTML = '<option value="" disabled selected>Choose your artist</option>'
+            artists.sort(function (a, b) {
+                return b.rate - a.rate; // Descending order (highest rating first)
+                // If you want ascending order (lowest rating first), use: return a.rating - b.rating;
+            });
             artists.forEach(function (artist) {
                 console.log(artist.fullName);
                 var option = document.createElement('option');
                 option.value = artist.fullName;
-                option.text = artist.fullName;
+                option.text = artist.fullName + ' - Rating: ' + artist.rate;
                 option.dataset.artistEmail = artist.email;
                 inputArtist.append(option);
             });

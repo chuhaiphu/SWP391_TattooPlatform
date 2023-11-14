@@ -136,30 +136,31 @@ $(document).ready(function () {
     ],
   });
   // testimonials-main
-  $('.testimonials-main').slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    speed: 1200,
-    dots: false,
-    loop: true,
-    infinite: true,
-    centerMode: true,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 1,
-        },
-      }
-    ],
-  });
+  
+  // $('.testimonials-main').slick({
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   arrows: true,
+  //   speed: 1200,
+  //   dots: true,
+  //   loop: true,
+  //   infinite: true,
+  //   centerMode: true,
+  //   responsive: [
+  //     {
+  //       breakpoint: 768,
+  //       settings: {
+  //         slidesToShow: 2,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 500,
+  //       settings: {
+  //         slidesToShow: 1,
+  //       },
+  //     }
+  //   ],
+  // });
   // blog-slider
   $('.blog-slider').slick({
     slidesToShow: 3,

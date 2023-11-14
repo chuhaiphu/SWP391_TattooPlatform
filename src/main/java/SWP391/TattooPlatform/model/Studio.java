@@ -47,7 +47,6 @@ public class Studio {
     @JoinColumn(name = "manager_email",insertable = false,updatable = false)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @JsonIgnore
     private Studio_Tattoo_Manager studioTattooManager;
 
     @OneToMany(mappedBy = "studio")

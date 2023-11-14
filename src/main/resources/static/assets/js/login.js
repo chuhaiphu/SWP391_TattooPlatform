@@ -65,15 +65,13 @@
                     type: "GET",
                     url: "/tattoolovers/" + tattooLoverEmail
                 });
-
-
-
                 if (response === "lovers") {
                     const tattooLover = userData;
                     sessionStorage.setItem('tattooLover', JSON.stringify(tattooLover));
                     window.location.href = "/index.html";
                 } else if (response === "AdminLogin") {
                     window.location.href = "/admin-page.html";
+               
                 } else {
                     // Handle the error
                     alert(JSON.stringify(response));

@@ -12,7 +12,7 @@
             sizes="16x16"
             href="studiomanager/assets/plugins/images/favicon.png"
     />
-    <title>Studiomanagerr</title>
+    <title>Studiomanager</title>
     <!-- Bootstrap Core CSS -->
     <link href="studiomanager/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Menu CSS -->
@@ -20,12 +20,17 @@
             href="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
             rel="stylesheet"
     />
+    <link
+            rel="stylesheet"
+            href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"
+    />
     <!-- animation CSS -->
     <link href="studiomanager/assets/css/animate.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="studiomanager/assets/css/style.css" rel="stylesheet" />
     <!-- color CSS -->
     <link href="studiomanager/assets/css/colors/blue-dark.css" id="theme" rel="stylesheet" />
+    <link rel="stylesheet" href="studiomanager/assets/css/custom.css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -89,12 +94,12 @@
                                     width="36"
                                     class="img-circle"
                             />
-                            <b class="hidden-xs">System staff</b>
+                            <b class="hidden-xs">Studio manager</b>
                         </a>
                         <ul class="dropdown-menu">
 
                             <li class="divider"></li>
-                            <li><a href="#">Logout</a></li>
+                            <li><a href="#">Log out</a></li>
                         </ul>
                     </div>
                 </li>
@@ -152,57 +157,37 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Update booking</h4>
+                    <h4 class="page-title">Booking detail list</h4>
                 </div>
+                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
-            <!-- .row -->
+            <!-- /row -->
             <div class="row">
-                <div class="col-md-2 col-12"></div>
-                <div class="col-md-8 col-xs-12">
+                <div class="col-sm-12">
                     <div class="white-box">
-                        <div class="form-horizontal form-material">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Booking detail ID</th>
+                                    <th>Booking ID</th>
+                                    <th>Status</th>
+                                    <th>Description</th>
+                                    <th>Slot</th>
+                                    <th>ServiceID</th>
+                                    <th>Artist email</th>
+                                    <th>VoucherID</th>
+                                    <th>Price</th>
+                                    <th>Update</th>
 
-
-
-
-                            <div class="form-group">
-                                <label class="col-md-12">Date</label>
-                                <div class="col-md-12">
-                                    <input
-                                            type="text"
-                                            id="dateBooking"
-                                            placeholder="dd/MM/yyyy"
-                                            class="form-control form-control-line"
-
-                                    />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-12">Time</label>
-                                <div class="col-md-12">
-                                    <input
-                                            type="time"
-                                            id="timeBooking"
-                                            placeholder=""
-                                            class="form-control form-control-line"
-
-                                    />
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <button class="btn btn-success" id="btn-save-task">
-                                        Update
-                                    </button>
-                                    <a href="view-voucher.html" class="btn btn-primary">Back</a>
-                                </div>
-                            </div>
+                                </tr>
+                                </thead>
+                                <tbody id = "bookingDetail">
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 col-12"></div>
             </div>
             <!-- /.row -->
         </div>
@@ -221,10 +206,19 @@
 <script src="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
 <!--slimscroll JavaScript -->
 <script src="studiomanager/assets/js/jquery.slimscroll.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <!--Wave Effects -->
 <script src="studiomanager/assets/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
+
 <script src="studiomanager/assets/js/custom.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#example").DataTable();
+    });
+</script>
 <script src="js/task.js"></script>
+<script src="studiomanager/assets/js/view-bookingDetail.js"></script>
+<script src="studiomanager/assets/js/update-status.js"></script>
 </body>
 </html>

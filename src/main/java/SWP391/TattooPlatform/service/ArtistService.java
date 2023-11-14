@@ -7,6 +7,7 @@ import SWP391.TattooPlatform.repository.FeedbackRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -25,7 +26,12 @@ public class ArtistService {
         }
         return artistRepository.findAll();
     }
-
+    public List<Artist> findAllArtistByStudioID(String studioID){
+        if(artistRepository.findAllArtistByStudioID(studioID).isEmpty()){
+            return Collections.emptyList();
+        }
+        return artistRepository.findAllArtistByStudioID(studioID);
+    }
     public List<Artist> getAvailableArtistsBySlotIDAndStudioID(String slotID,String studioID) {
         if(artistRepository.findAvailableArtistsBySlotIDAndStudioID(slotID, studioID).isEmpty()) {
             return null;

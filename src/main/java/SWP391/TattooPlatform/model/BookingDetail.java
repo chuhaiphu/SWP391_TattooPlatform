@@ -50,23 +50,22 @@ public class BookingDetail {
     private String slotID;
 
 
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "status_ID",insertable = false,updatable = false   )
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private BookingStatus bookingStatus;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "slot_ID",insertable = false,updatable = false   )
     @EqualsAndHashCode.Exclude
-    @JsonIgnore
     @ToString.Exclude
     private Slot slot;
 
     @ManyToOne
     @JoinColumn(name = "booking_ID",insertable = false,updatable = false   )
     @EqualsAndHashCode.Exclude
-    @JsonIgnore
     @ToString.Exclude
     private Booking booking;
 

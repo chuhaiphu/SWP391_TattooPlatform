@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 @Repository
@@ -20,6 +21,9 @@ public interface ArtistRepository extends JpaRepository<Artist,Long> {
     Artist findArtistByEmail(String email);
     @Query("SELECT a FROM Artist a JOIN Studio s ON a.studioManagerEmail = s.managerEmail WHERE a.email NOT IN (SELECT bd.artist.email FROM BookingDetail bd WHERE bd.slotID = :slotID) AND s.studioID = :studioID")
     List<Artist> findAvailableArtistsBySlotIDAndStudioID(@Param("slotID") String slotID, @Param("studioID") String studioID);
+
+    @Query("SELECT a FROM Artist a JOIN Studio s ON a.studioManagerEmail = s.managerEmail WHERE s.studioID = :studioID")
+    List<Artist> findAllArtistByStudioID(@Param("studioID") String studioID);
     //INSERT
     Artist save(Artist artist);
     //UPDATE
