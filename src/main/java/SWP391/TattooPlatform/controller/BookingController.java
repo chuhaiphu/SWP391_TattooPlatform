@@ -51,6 +51,11 @@ public class BookingController {
     public List<Booking> getBookingList(){
         return bookingService.findall();
     }
+
+    @GetMapping("/listBooking")
+    public ResponseEntity<?> getBookingByStudioManagerEmail(@RequestParam String studioManagerEmail) {
+       return bookingService.getBookingByStudioManagerEmail(studioManagerEmail);
+    }
     @GetMapping("")
     public String loadBookingPageHtml() throws IOException {
         // Load the HTML file as a string
