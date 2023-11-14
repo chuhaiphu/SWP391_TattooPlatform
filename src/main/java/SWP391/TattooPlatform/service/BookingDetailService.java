@@ -71,4 +71,10 @@ public class BookingDetailService {
         }
         return new ResponseEntity("Not found any booking detail ", HttpStatus.NOT_FOUND);
     }
+    public BookingDetail updateStatus(String bookingDetailID
+            , String statusID ) throws Exception {
+
+        bookingDetailRepository.updateBookingDetail(bookingDetailID, statusID);
+        return bookingDetailRepository.findBookingDetailByBookingDetailID(bookingDetailID);
+    }
 }
