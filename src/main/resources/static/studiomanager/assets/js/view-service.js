@@ -29,7 +29,8 @@ function renderserviceData(serviceData) {
   <td class="serviceID" data-service-id="${serviceId}">${serviceData.serviceID}</td>
   <td class="serviceName" data-service-id="${serviceId}">${serviceData.serviceName}</td>
   <td class="description" data-service-id="${serviceId}">${serviceData.description}</td>
-  <td data-service-id="${serviceId}"><img src="${serviceData.linkImage}" alt="Service Image" style="width: 100px; height: 100px;"></td>
+  <td class="linkImage1" data-service-id="${serviceId}"><img src="${serviceData.linkImage}" style="height: 100px; width: 100px"></td>
+  <td style="display: none" class="linkImage" data-service-id="${serviceId}">${serviceData.linkImage} </td>
   <td class="tattooManagerEmail" data-service-id="${serviceId}">${serviceData.tattooManagerEmail}</td>
   <td class="price" data-service-id="${serviceId}">${serviceData.price}</td>
   <td><button onClick="handleUpdate('${serviceId}')">Update</button></td>

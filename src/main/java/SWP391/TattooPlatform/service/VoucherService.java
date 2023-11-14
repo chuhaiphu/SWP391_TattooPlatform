@@ -49,4 +49,15 @@ public class VoucherService {
         Voucher voucher = voucherRepository.findVoucherByVoucherName(name);
         return voucher != null;
     }
+    public Voucher deleteVoucher(String voucherID) throws Exception{
+        voucherRepository.deleteVoucher(voucherID);
+        Voucher voucher = voucherRepository.findVoucherByVoucherID(voucherID);
+        if(voucher == null){
+            return null;
+        }
+        else {
+            throw new Exception();
+        }
+    }
+
 }

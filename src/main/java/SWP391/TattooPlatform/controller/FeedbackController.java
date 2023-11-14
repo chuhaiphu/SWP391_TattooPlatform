@@ -6,9 +6,15 @@ import SWP391.TattooPlatform.model.Feedback;
 import SWP391.TattooPlatform.service.ArtistService;
 import SWP391.TattooPlatform.service.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 @RestController
 @RequestMapping("/feedback")

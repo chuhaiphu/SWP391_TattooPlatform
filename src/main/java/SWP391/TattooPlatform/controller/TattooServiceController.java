@@ -52,13 +52,15 @@ public class TattooServiceController {
         return tattooService.findServiceByServiceName(serviceName);
     }
     @PutMapping("/update-service/{serviceID}")
-    public ResponseEntity<?> updateServiceupdateService(
-            @PathVariable String serviceID,
-            @RequestParam String serviceName,
-            @RequestParam String description,
-            @RequestParam String linkImage,
-            @RequestParam float price) throws Exception {
-        return ResponseUtils.get(tattooService.updateService(serviceID,serviceName ,description,linkImage,price), HttpStatus.OK);
+    public ResponseEntity<?> updateService(@PathVariable String serviceID,
+                                           @RequestParam String serviceName, @RequestParam String description,
+                                           @RequestParam float price, @RequestParam String linkImage)  {
+        try{
+            return ResponseUtils.get(tattooService.updateService(serviceID,serviceName ,description,price,linkImage), HttpStatus.OK);
+        }catch (Exception e) {
+            return ResponseUtils.error("some wrong at here", HttpStatus.BAD_REQUEST);
+        }
+
     }
     @GetMapping("/check-duplicate")
     public ResponseEntity<?> checkDuplicateServiceName(@RequestParam String serviceName) {

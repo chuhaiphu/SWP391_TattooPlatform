@@ -62,4 +62,8 @@ public class VoucherController {
     public ResponseEntity<?> saveRole(@RequestBody Voucher voucher) {
         return ResponseUtils.get(voucherService.addVoucher(voucher), HttpStatus.CREATED);
     }
+    @DeleteMapping("/{voucherID}")
+    public ResponseEntity<?> deleteVoucher(@PathVariable String voucherID) throws Exception {
+        return ResponseUtils.get(voucherService.deleteVoucher(voucherID),HttpStatus.OK);
+    }
 }

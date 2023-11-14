@@ -113,6 +113,12 @@
                     ><span class="hide-menu">Artist</span></a
                     >
                 </li>
+                <li>
+                    <a href="view-lover.html" class="waves-effect"
+                    ><i class="fa fa-user fa-fw" aria-hidden="true"></i
+                    ><span class="hide-menu">Lover</span></a
+                    >
+                </li>
 
                 <li>
                     <a href="view-service.html" class="waves-effect"
@@ -123,14 +129,17 @@
                 <li>
                     <a href="view-booking.html" class="waves-effect"
                     ><i class="fa fa-table fa-fw" aria-hidden="true"></i
-                    ><span class="hide-menu">Booking </span></a
-                    >
+                    ><span class="hide-menu">Booking </span></a>
+                </li>
+                <li>
+                    <a href="view-feedback.html" class="waves-effect"
+                    ><i class="fa fa-table fa-fw" aria-hidden="true"></i
+                    ><span class="hide-menu"> Feedback </span></a>
                 </li>
                 <li>
                     <a href="view-voucher.html" class="waves-effect"
                     ><i class="fa fa-ticket fa-fw" aria-hidden="true"></i
-                    ><span class="hide-menu">Voucher </span></a
-                    >
+                    ><span class="hide-menu">Voucher </span></a>
                 </li>
 
             </ul>
@@ -152,6 +161,18 @@
                 <div class="col-md-8 col-xs-12">
                     <div class="white-box">
                         <div class="form-horizontal form-material">
+                            <div class="form-group">
+                                <label class="col-md-12">ServiceID</label>
+                                <div class="col-md-12">
+                                    <input
+                                            type="text"
+                                            placeholder="ID"
+                                            id="serviceID"
+                                            class="form-control form-control-line"
+                                            readonly
+                                    />
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-md-12">Name</label>
                                 <div class="col-md-12">
@@ -198,7 +219,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <button id="btn-save-service" class="btn btn-success">
+                                    <button id="update-service" class="btn btn-success">
                                         Update service
                                     </button>
                                     <a href="view-service.html" class="btn btn-primary"
@@ -233,6 +254,7 @@
 <script src="studiomanager/assets/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="studiomanager/assets/js/custom.min.js"></script>
+<script src="studiomanager/assets/js/update-servicepro.js"></script>
 <script src="js/role.js"></script>
 
 </body>

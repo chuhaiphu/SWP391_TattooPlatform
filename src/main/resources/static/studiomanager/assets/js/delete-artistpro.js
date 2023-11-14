@@ -13,10 +13,13 @@ $(document).ready(function () {
             url: "/artist/deleteArtist/" + email,
             success: function (data) {
                 console.log("Artist deleted successfully:", data);
+                alert("Artist deleted successfully");
                 window.location.href = "view-artist.html"; // Redirect to the artist list page
             },
             error: function (xhr, status, error) {
                 console.error("Error deleting artist: " + error);
+                alert("Error deleting artist");
+
                 // Optionally, display an error message to the user
             }
         });

@@ -118,6 +118,12 @@
               ><span class="hide-menu">Artist</span></a
               >
             </li>
+            <li>
+              <a href="view-lover.html" class="waves-effect"
+              ><i class="fa fa-user fa-fw" aria-hidden="true"></i
+              ><span class="hide-menu">Lover</span></a
+              >
+            </li>
 
             <li>
               <a href="view-service.html" class="waves-effect"
@@ -128,14 +134,17 @@
             <li>
               <a href="view-booking.html" class="waves-effect"
               ><i class="fa fa-table fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu">Booking </span></a
-              >
+              ><span class="hide-menu">Booking </span></a>
+            </li>
+            <li>
+              <a href="view-feedback.html" class="waves-effect"
+              ><i class="fa fa-table fa-fw" aria-hidden="true"></i
+              ><span class="hide-menu"> Feedback </span></a>
             </li>
             <li>
               <a href="view-voucher.html" class="waves-effect"
               ><i class="fa fa-ticket fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu">Voucher </span></a
-              >
+              ><span class="hide-menu">Voucher </span></a>
             </li>
 
           </ul>
@@ -169,24 +178,12 @@
                         <th>Start</th>
                         <th>End</th>
                         <th>Description</th>
+                        <th>Manager Email</th>
                         <th>Discount(%)</th>
-                        <th>Update</th>
                         <th>Delete</th>
                       </tr>
                     </thead>
-                    <tbody id="voucherList_template" style="display: none">
-                    <tr>
-                      <td>{{voucherID}}</td>
-                      <td>{{voucherName}}</td>
-                      <td>{{startDate}}</td>
-                      <td>{{endDate}}</td>
-                      <td>{{description}}</td>
-                      <td>{{discount}}</td>
-                      <td><button >Update</button></td>
-                      <td><button>Delete</button></td>
 
-                    </tr>
-                    </tbody>
                     <tbody id="voucher"></tbody>
                   </table>
                 </div>
@@ -223,5 +220,6 @@
     </script>
     <script src="js/showUser.js"></script>
     <script src="js/user.js"></script>
+    <script src="studiomanager/assets/js/delete-voucher.js"></script>
   </body>
 </html>
