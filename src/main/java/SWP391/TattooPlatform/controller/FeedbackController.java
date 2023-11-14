@@ -43,6 +43,10 @@ public class FeedbackController {
         return  ResponseUtils.get(feedbackService.getFeedbackList(), HttpStatus.OK);
     }
 
+    @GetMapping("/allFeedback/{studioID}")
+    public Object getAllFeedbackByStudioID(@PathVariable String studioID) {
+        return  ResponseUtils.get(feedbackService.findAllFeedbackByStudioID(studioID), HttpStatus.OK);
+    }
     @GetMapping("/allFeedback/Artist")
     public Object getAllFeedbackByArtistEmail (@RequestParam String email) {
         return  ResponseUtils.get(feedbackService.getFeedbackListByArtistEmail(email), HttpStatus.OK);

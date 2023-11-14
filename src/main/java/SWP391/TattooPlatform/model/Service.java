@@ -52,7 +52,7 @@ public class Service {
     @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @JsonIgnore
+
     private Set<BookingDetail> bookingDetails;
 
 

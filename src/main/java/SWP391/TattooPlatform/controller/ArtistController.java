@@ -44,6 +44,11 @@ public class ArtistController {
     public Object getAllRoles () {
         return  ResponseUtils.get(artistService.getListArtist(),HttpStatus.OK);
     }
+
+    @GetMapping("/allArtist/{studioID}")
+    public Object getAllArtistByStudioID (@PathVariable String studioID) {
+        return  ResponseUtils.get(artistService.findAllArtistByStudioID(studioID),HttpStatus.OK);
+    }
     @GetMapping("/available/{studioID}/{slotID}")
     public Object getAvailableArtistsBySlotID (@PathVariable String slotID,@PathVariable String studioID ) {
         return  ResponseUtils.get(artistService.getAvailableArtistsBySlotIDAndStudioID(slotID, studioID),HttpStatus.OK);

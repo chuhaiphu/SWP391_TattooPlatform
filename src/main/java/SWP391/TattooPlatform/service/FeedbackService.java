@@ -6,6 +6,8 @@ import SWP391.TattooPlatform.repository.ArtistRepository;
 import SWP391.TattooPlatform.repository.FeedbackRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -38,7 +40,12 @@ public class FeedbackService {
         artistRepository.save(artist);
         return feedbackRepository.save(feedback);
     }
-
+    public List<Feedback> findAllFeedbackByStudioID(String id){
+        if(feedbackRepository.findAllFeedbackByStudioID(id) == null){
+            return Collections.emptyList();
+        }
+        return feedbackRepository.findAllFeedbackByStudioID(id);
+    }
     public List<Feedback> getFeedbackListByArtistEmail(String email){
         if(feedbackRepository.findAllByArtistEmail(email).isEmpty()) {
             return null;
