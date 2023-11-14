@@ -73,6 +73,7 @@ public class BookingDetail {
     @ManyToOne
     @JoinColumn(name = "service_ID", insertable = false,updatable = false)
     @EqualsAndHashCode.Exclude
+    @JsonIgnore
     @ToString.Exclude
     private Service service;
 
