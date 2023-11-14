@@ -46,26 +46,15 @@ public class TattooServiceController {
     public ResponseEntity<?> saveService(@RequestBody Service ts) {
         return ResponseUtils.get(tattooService.addService(ts),HttpStatus.CREATED);
     }
-
     @GetMapping("/search")
     public ResponseEntity<?> getServiceByServiceName(@RequestParam String serviceName) {
         return tattooService.findServiceByServiceName(serviceName);
     }
-    @PutMapping("/update-service/{serviceID}")
+    @PutMapping("/{serviceID}")
     public ResponseEntity<?> updateService(@PathVariable String serviceID,
                                            @RequestParam String serviceName, @RequestParam String description,
-                                           @RequestParam float price, @RequestParam String linkImage)  {
-        try{
-            return ResponseUtils.get(tattooService.updateService(serviceID,serviceName ,description,price,linkImage), HttpStatus.OK);
-        }catch (Exception e) {
-            return ResponseUtils.error("some wrong at here", HttpStatus.BAD_REQUEST);
-        }
-
-    }
-    @GetMapping("/check-duplicate")
-    public ResponseEntity<?> checkDuplicateServiceName(@RequestParam String serviceName) {
-        boolean isDuplicate = tattooService.checkDuplicateServiceName(serviceName);
-        return ResponseEntity.ok(isDuplicate);
+                                           @RequestParam float price, @RequestParam String linkImage,  @RequestParam String StudioManagerEmail) throws Exception {
+        return ResponseUtils.get(tattooService.updateService(serviceID,serviceName ,description,price,linkImage,StudioManagerEmail), HttpStatus.OK);
     }
 
     @DeleteMapping("/{serviceID}")

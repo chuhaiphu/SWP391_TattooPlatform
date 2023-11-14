@@ -10,52 +10,40 @@ $(document).ready(function () {
             discount: $("#discount").val()
         };
 
-
-        // Check if start date is later than end date
-        if (new Date(voucherData.startDate) > new Date(voucherData.endDate)) {
-            alert("Start date cannot be later than end date.");
-            $("#addStartDateVoucher").val("");
-            $("#addEndDateVoucher").val("");
-            return;
-        }
-
-        // Check if the voucher's name already exists
-        $.ajax({
-            type: "GET",
-            url: "/vouchers/check-name/" + voucherData.voucherName,
-            success: function (nameExists) {
-                if (nameExists) {
-                    // If the name exists, show an error message
-                    alert("Voucher name is already in use.");
-                    console.log("Voucher name is already in use.");
-                    $("#nameVoucher").val("");
-                } else {
-                    addVoucher(voucherData);
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error("Error checking Voucher: " + error);
-                alert("Error checking Voucher.");
-            }
-        });
-    });
-
-    // Function to add the voucher
-    function addVoucher(voucherData) {
+        // Send an AJAX POST request to add the voucher
         $.ajax({
             type: "POST",
-            url: "/vouchers/add-voucher",
+            url: "/vouchers/add-voucher", // Replace with the actual API endpoint
             contentType: "application/json; charset-utf-8",
             data: JSON.stringify(voucherData),
             success: function (data) {
+                // Handle the success response
                 console.log("Voucher added successfully:", data);
-                alert("Voucher added successfully.")
-                window.location.href = "/view-voucher.html";
+
+                // Clear the input fields
+                $("#nameVoucher").val("");
+                $("#addStartDateVoucher").val("");
+                $("#addEndDateVoucher").val("");
+                $("#descriptionVoucher").val("");
+                $("#managerEmail").val("");
+                $("#discount").val("");
+
+                // Display a success message (you can customize this part)
+                $("#successMessage").text("Voucher added successfully!");
+                $("#successMessage").show();
+
+                // Optionally, you can redirect the user or perform other actions.
             },
             error: function (xhr, status, error) {
-                console.error("Error adding Voucher: " + error);
-                alert("Error adding Voucher.");
+                // Handle the error
+                console.error("Error adding voucher: " + error);
+
+                // Display an error message (you can customize this part)
+                $("#errorMessage").text("Error adding voucher!");
+                $("#errorMessage").show();
+
+                // Optionally, you can provide error feedback to the user.
             }
         });
-    }
+    });
 });

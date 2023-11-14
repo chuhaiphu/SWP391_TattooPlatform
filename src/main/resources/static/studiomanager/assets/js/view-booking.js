@@ -15,39 +15,17 @@ $(document).ready(function () {
     });
 });
 
-
-
-
-
 function renderBookingData(bookingData) {
+    var bookingTable = $("#bookingList_template").html();
+    bookingTable = bookingTable.replace("{{bookingID}}", bookingData.bookingID );
+    bookingTable = bookingTable.replace("{{customerName}}", bookingData.customerName );
+    bookingTable = bookingTable.replace("{{tattooLoverEmail}}", bookingData.tattooLoverEmail );
+    bookingTable = bookingTable.replace("{{customerPhoneNumber}}", bookingData.customerPhoneNumber );
+    bookingTable = bookingTable.replace("{{address}}", bookingData.address );
+    bookingTable = bookingTable.replace("{{totalPrice}}", bookingData.totalPrice);
 
 
-    var added_booking = document.getElementById("booking");
+    var added_booking = $("#booking");
+    $(bookingTable).appendTo(added_booking);
 
-    var bookingId = bookingData.bookingID;
-    added_booking.innerHTML =
-        added_booking.innerHTML +
-        `
-  <tr>
-  <td class="bookingId" data-booking-id="${bookingId}">${bookingData.bookingID}</td>
-  <td class="customerName" data-booking-id="${bookingId}">${bookingData.customerName}</td>
-  <td class="tattooLoverEmail" data-booking-id="${bookingId}">${bookingData.tattooLoverEmail}</td>
-  <td class="customerPhoneNumber" data-booking-id="${bookingId}">${bookingData.customerPhoneNumber}</td>
-  <td class="address" data-booking-id="${bookingId}">${bookingData.address}</td>
-  <td class="totalPrice" data-booking-id="${bookingId}">${bookingData.totalPrice}</td>
-  <td><button onClick="handleDetail('${bookingId}')">Update</button></td>
-</tr>
-`
 }
-function handleDetail(bookingId) {
-    let bookingID = document.querySelector(`.bookingId[data-booking-id="${bookingId}"]`).textContent;
-
-
-
-    sessionStorage.setItem('BookingID', bookingID);
-    window.location.href = "/view-bookingDetail.html";
-}
-
-
-
-

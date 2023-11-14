@@ -16,23 +16,16 @@ $(document).ready(function () {
 });
 
 function rendervoucherData(voucherData) {
+    var voucherTable = $("#voucherList_template").html();
+    voucherTable = voucherTable.replace("{{voucherID}}", voucherData.voucherID );
+    voucherTable = voucherTable.replace("{{voucherName}}", voucherData.voucherName );
+    voucherTable = voucherTable.replace("{{startDate}}", voucherData.startDate );
+    voucherTable = voucherTable.replace("{{endDate}}", voucherData.endDate );
+    voucherTable = voucherTable.replace("{{description}}", voucherData.description );
+    voucherTable = voucherTable.replace("{{discount}}", voucherData.discount );
 
 
-    var added_voucher = document.getElementById("voucher");
-    console.log("30" + added_voucher.innerHTML);
-    var voucherId = voucherData.voucherID;
-    added_voucher.innerHTML =
-        added_voucher.innerHTML +
-        `
-  <tr>
-  <td class="voucherID" data-voucher-id="${voucherId}">${voucherData.voucherID}</td>
-  <td class="voucherName" data-voucher-id="${voucherId}">${voucherData.voucherName}</td>
-  <td class="startDate" data-voucher-id="${voucherId}">${voucherData.startDate}</td>
-  <td class="endDate" data-voucher-id="${voucherId}">${voucherData.endDate}</td>
-  <td class="description" data-voucher-id="${voucherId}">${voucherData.description}</td>
-  <td class="managerEmail" data-voucher-id="${voucherId}">${voucherData.managerEmail}</td>
-  <td class="discount" data-voucher-id="${voucherId}">${voucherData.discount}</td>
-  <td><button onClick="handleUpdate('${voucherId}')">Delete</button></td>
-</tr>
-`
+    var added_voucher = $("#voucher");
+    $(voucherTable).appendTo(added_voucher);
+
 }

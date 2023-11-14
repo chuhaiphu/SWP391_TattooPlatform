@@ -4,7 +4,6 @@ $(document).ready(function () {
     document.getElementById('updateNameArtist').value = Artist.fullname;
     document.getElementById('updateAddressArtist').value = Artist.address;
     document.getElementById('updatePhoneArtist').value = Artist.phoneNumber;
-    document.getElementById('updateRate').value = Artist.rate;
 
     $("#update-artist").click(function () {
 
@@ -13,21 +12,19 @@ $(document).ready(function () {
         var fullName = $("#updateNameArtist").val();
         var phoneNumber = $("#updatePhoneArtist").val();
         var address = $("#updateAddressArtist").val();
-        var rate = $("#updateRate").val();
 
         // Create a data object to send via AJAX
         var data = {
             email: email,
             fullName: fullName,
             phoneNumber: phoneNumber,
-            address: address,
-            rate : rate,
+            address: address
         };
 
         // Send an AJAX POST request to update the artist
         $.ajax({
             type: "PUT",
-            url: "/artist/update-artist/" + email + "?fullName=" + fullName + "&phoneNumber=" + phoneNumber + "&address=" + address + "&rate=" + rate,
+            url: "/artist/update-artist/" + email + "?fullName=" + fullName + "&phoneNumber=" + phoneNumber + "&address=" + address,
             contentType: "application/json; charset-utf-8",
             data: JSON.stringify(data),
             success: function (data) {
