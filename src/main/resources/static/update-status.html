@@ -12,7 +12,7 @@
             sizes="16x16"
             href="studiomanager/assets/plugins/images/favicon.png"
     />
-    <title>Studiomanagerr</title>
+    <title>Studiomanager</title>
     <!-- Bootstrap Core CSS -->
     <link href="studiomanager/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Menu CSS -->
@@ -89,10 +89,9 @@
                                     width="36"
                                     class="img-circle"
                             />
-                            <b class="hidden-xs">System staff</b>
+                            <b class="hidden-xs">Studiomanager</b>
                         </a>
                         <ul class="dropdown-menu">
-
                             <li class="divider"></li>
                             <li><a href="#">Logout</a></li>
                         </ul>
@@ -152,7 +151,7 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Update booking</h4>
+                    <h4 class="page-title">Update status</h4>
                 </div>
             </div>
             <!-- /.row -->
@@ -162,44 +161,38 @@
                 <div class="col-md-8 col-xs-12">
                     <div class="white-box">
                         <div class="form-horizontal form-material">
-
-
-
-
                             <div class="form-group">
-                                <label class="col-md-12">Date</label>
+                                <label class="col-md-12">Booking Detail ID</label>
                                 <div class="col-md-12">
                                     <input
                                             type="text"
-                                            id="dateBooking"
-                                            placeholder="dd/MM/yyyy"
+                                            placeholder="ID"
+                                            id="bookingDetailID"
                                             class="form-control form-control-line"
-
+                                            readonly
                                     />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12">Time</label>
-                                <div class="col-md-12">
-                                    <input
-                                            type="time"
-                                            id="timeBooking"
-                                            placeholder=""
-                                            class="form-control form-control-line"
-
-                                    />
-                                </div>
+                                <label for="selectOption">Select an option:</label>
+                                <select id="selectOption">
+                                    <option value="status1"> Pending</option>
+                                    <option value="status2">Completed</option>
+                                </select>
                             </div>
-
                             <div class="form-group">
                                 <div class="col-sm-12">
-                                    <button class="btn btn-success" id="btn-save-task">
+                                    <button id="update-status" class="btn btn-success">
                                         Update
                                     </button>
-                                    <a href="view-voucher.html" class="btn btn-primary">Back</a>
+                                    <a href="view-bookingDetail.html" class="btn btn-primary"
+                                    >Back</a
+                                    >
                                 </div>
                             </div>
+
                         </div>
+
                     </div>
                 </div>
                 <div class="col-md-2 col-12"></div>
@@ -217,6 +210,7 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="studiomanager/assets/bootstrap/dist/js/bootstrap.min.js"></script>
+
 <!-- Menu Plugin JavaScript -->
 <script src="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
 <!--slimscroll JavaScript -->
@@ -225,6 +219,8 @@
 <script src="studiomanager/assets/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="studiomanager/assets/js/custom.min.js"></script>
-<script src="js/task.js"></script>
+<script src="js/role.js"></script>
+<script src="studiomanager/assets/js/update-statuspro.js"></script>
+
 </body>
 </html>

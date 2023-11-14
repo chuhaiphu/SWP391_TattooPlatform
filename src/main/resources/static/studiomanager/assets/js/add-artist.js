@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
     $("#add-artist").click(function () {
         // Capture form data
@@ -10,10 +12,34 @@ $(document).ready(function () {
             username: $("#username").val(),
             password: $("#password").val(),
             statusID: $("#statusID").val()
-
         };
 
-        // Send an AJAX POST request to add the voucher
+        // Check if the artist's email already exists
+        $.ajax({
+            type: "GET",
+            url: "/artist/check-email/" + artistData.email, // Replace with the actual API endpoint
+            success: function (emailExists) {
+                // If the email exists, show an error message
+                if (emailExists) {
+                   alert("Email is already in use.")
+                    console.log("Email is already in use.");
+                    $("#emailArtist").val("");
+
+                } else {
+                    // If the email is not in use, proceed to add the artist
+                    addArtist(artistData);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("Error checking email: " + error);
+                // Handle the error (e.g., show an error message to the user)
+            }
+        });
+    });
+
+    // Function to add the artist
+    function addArtist(artistData) {
+        // Send an AJAX POST request to add the artist
         $.ajax({
             type: "POST",
             url: "/artist/add-artist", // Replace with the actual API endpoint
@@ -22,34 +48,16 @@ $(document).ready(function () {
             success: function (data) {
                 // Handle the success response
                 console.log("Artist added successfully:", data);
-
-                // Clear the input fields
-                $("#emailArtist").val("");
-                $("#nameArtist").val("");
-                $("#phone").val("");
-                $("#artistAddress").val("");
-                $("#studioManagerEmail").val("");
-                $("#username").val("");
-                $("#password").val("");
-                $("#statusID").val("");
-
-
-                // Display a success message (you can customize this part)
-                $("#successMessage").text("Service added successfully!");
-                $("#successMessage").show();
-
-                // Optionally, you can redirect the user or perform other actions.
+                alert("Artist added successfully!");
+                window.location.href = "/artist";
             },
             error: function (xhr, status, error) {
                 // Handle the error
-                console.error("Error adding Service: " + error);
+                console.error("Error adding Artist: " + error);
 
-                // Display an error message (you can customize this part)
-                $("#errorMessage").text("Error adding service!");
-                $("#errorMessage").show();
+               alert("Error adding Artist");
 
-                // Optionally, you can provide error feedback to the user.
             }
         });
-    });
+    }
 });

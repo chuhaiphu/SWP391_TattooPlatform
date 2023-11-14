@@ -1,8 +1,10 @@
 package SWP391.TattooPlatform.controller;
 
+import SWP391.TattooPlatform.config.ResponseUtils;
 import SWP391.TattooPlatform.model.BookingDetail;
 import SWP391.TattooPlatform.service.BookingDetailService;
 import SWP391.TattooPlatform.service.BookingService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,6 +43,10 @@ public class BookingDetailController {
     @GetMapping()
     public ResponseEntity<?> listOfDetail() {
         return bookingDetailService.getAllDetail();
+    }
+    @PutMapping("/updateStatus/{bookingDetailID}")
+    public  ResponseEntity<?> updateStatus(@PathVariable String bookingDetailID, @RequestParam String statusID) throws Exception {
+        return ResponseUtils.get(bookingDetailService.updateStatus(bookingDetailID, statusID), HttpStatus.OK);
     }
 
 }

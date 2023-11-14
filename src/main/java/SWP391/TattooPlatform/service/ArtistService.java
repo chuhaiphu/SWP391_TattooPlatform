@@ -66,5 +66,10 @@ public class ArtistService {
             throw new Exception();
         }
     }
+    public boolean emailExists(String email) {
+        // Use your JPA repository to check if an artist with the given email exists
+        Artist artist = artistRepository.findArtistByEmail(email);
+        return artist != null;
+    }
 
 }

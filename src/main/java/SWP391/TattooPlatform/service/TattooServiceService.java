@@ -19,7 +19,7 @@ public class TattooServiceService {
 
 
     public List<Service> tattooServiceList() {
-            List<Service> list1 = tattooServiceRepository.findAll();
+        List<Service> list1 = tattooServiceRepository.findAll();
         List<Service> list = new ArrayList<>();
         boolean check;
         for(Service service : list1) {
@@ -42,7 +42,7 @@ public class TattooServiceService {
         return list;
     }
 
-//    public ResponseEntity<?> findServiceByServiceName(String name) {
+    //    public ResponseEntity<?> findServiceByServiceName(String name) {
 //        List<Service> serviceList = tattooServiceRepository.findAll();
 //        List<Service> searchList = new ArrayList<>();
 //        for(Service service : serviceList) {
@@ -82,9 +82,9 @@ public class TattooServiceService {
     }
 
     public Service updateService(String serviceID
-            , String name , String description, float price, String linkImage, String email)  {
+            , String serviceName , String description, float price, String linkImage)  {
 
-       tattooServiceRepository.updateService(serviceID,name,description, linkImage,email, price);
+        tattooServiceRepository.updateService(serviceID,serviceName,description, linkImage, price);
         return tattooServiceRepository.findServiceByServiceID(serviceID);
     }
 
@@ -98,6 +98,11 @@ public class TattooServiceService {
         }
 
     }
+    public boolean checkDuplicateServiceName(String serviceName) {
+        List<Service> serviceList = tattooServiceRepository.findServicesByServiceName(serviceName);
+        return !serviceList.isEmpty();
+    }
+
 
 
 

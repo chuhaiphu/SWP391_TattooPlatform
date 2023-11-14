@@ -1,5 +1,6 @@
 package SWP391.TattooPlatform.service;
 
+import SWP391.TattooPlatform.model.Artist;
 import SWP391.TattooPlatform.model.Feedback;
 import SWP391.TattooPlatform.model.Voucher;
 import SWP391.TattooPlatform.repository.VoucherRepository;
@@ -42,4 +43,21 @@ public class VoucherService {
     public Voucher getVoucherByVoucherID(String name){
         return voucherRepository.findVoucherByVoucherID(name);
     }
+
+    public boolean nameExists(String name) {
+        // Use your JPA repository to check if an artist with the given email exists
+        Voucher voucher = voucherRepository.findVoucherByVoucherName(name);
+        return voucher != null;
+    }
+    public Voucher deleteVoucher(String voucherID) throws Exception{
+        voucherRepository.deleteVoucher(voucherID);
+        Voucher voucher = voucherRepository.findVoucherByVoucherID(voucherID);
+        if(voucher == null){
+            return null;
+        }
+        else {
+            throw new Exception();
+        }
+    }
+
 }
