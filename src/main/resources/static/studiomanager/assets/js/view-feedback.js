@@ -21,9 +21,7 @@ function renderFeedbackData(FeedbackData) {
     feedbackTable = feedbackTable.replace("{{bookingDetailID}}", FeedbackData.bookingDetailID );
     feedbackTable = feedbackTable.replace("{{description}}", FeedbackData.description );
     feedbackTable = feedbackTable.replace("{{artistRating}}", FeedbackData.artistRating );
-    feedbackTable = feedbackTable.replace("{{serviceRating}}", FeedbackData.serviceRating );
     feedbackTable = feedbackTable.replace("{{bookingDate}}", FeedbackData.bookingDate);
-    feedbackTable = feedbackTable.replace("{{tattooLoverEmail}}", FeedbackData.tattooLoverEmail);
     feedbackTable = feedbackTable.replace("{{serviceID}}", FeedbackData.serviceID);
     feedbackTable = feedbackTable.replace("{{artistEmail}}", FeedbackData.artistEmail);
 
