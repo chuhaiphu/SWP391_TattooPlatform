@@ -3533,7 +3533,7 @@ del {
     background: var(--theme-color);
     max-width: 250px;
     width: 100%;
-    position: absolute;
+    
     bottom: 0;
     right: 0;
     display: flex;

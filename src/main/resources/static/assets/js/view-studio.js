@@ -66,15 +66,15 @@ $(document).ready(function () {
                         '<h2>' + feedback.serviceID + '</h2>' +
                         '<p>' + feedback.description + '</p>' +
                         '<div class="bottom-content">' +
-                        '<div class="ratings d-flex justify-content-center align-items-center">' +
-                        '<img src="assets/images/ratings.png" alt="star">' +
-                        '<span>' + feedback.rating + ' / 5.0</span>' +
-                        '</div>' +
                         '<div class="user-name">' +
                         '<div class="testi-img-wrapper">' +
                         '<img src="assets/images/testi-user.png" alt="user">' +
                         '</div>' +
                         '<a href="#">' + feedback.tattooLoverEmail + '</a>' +
+                        '</div>' +
+                        '<div class="ratings d-flex justify-content-center align-items-center">' +
+                        '<img src="assets/images/ratings.png" alt="star">' +
+                        '<span>' + feedback.serviceRating + ' / 5.0</span>' +
                         '</div>' +
                         '</div>' +
                         '</div></div>';
