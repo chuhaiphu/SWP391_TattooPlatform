@@ -33,7 +33,7 @@ public class Feedback {
     @Column (name = "artist_email")
     private String artistEmail;
 
-    @JsonIgnore
+
     @OneToOne
     @JoinColumn(name = "booking_Detail_ID", insertable = false,updatable = false)
     @EqualsAndHashCode.Exclude

@@ -50,6 +50,7 @@ public class BookingDetail {
     private String slotID;
 
 
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "status_ID",insertable = false,updatable = false   )
     @EqualsAndHashCode.Exclude
@@ -65,14 +66,12 @@ public class BookingDetail {
     @ManyToOne
     @JoinColumn(name = "booking_ID",insertable = false,updatable = false   )
     @EqualsAndHashCode.Exclude
-    @JsonIgnore
     @ToString.Exclude
     private Booking booking;
 
     @ManyToOne
     @JoinColumn(name = "service_ID", insertable = false,updatable = false)
     @EqualsAndHashCode.Exclude
-    @JsonIgnore
     @ToString.Exclude
     private Service service;
 

@@ -44,7 +44,7 @@ public class Service {
     @Column(name = "tattoo_Manager_email")
     private String tattooManagerEmail;
 
-    @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name = "tattoo_Manager_email", insertable=false, updatable=false)
     private Studio_Tattoo_Manager studioTattooManager;
@@ -52,7 +52,7 @@ public class Service {
     @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-
+    @JsonIgnore
     private Set<BookingDetail> bookingDetails;
 
 

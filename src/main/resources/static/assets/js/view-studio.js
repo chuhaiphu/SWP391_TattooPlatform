@@ -63,18 +63,18 @@ $(document).ready(function () {
                 $.each(feedbacks, function(index, feedback){
                     // Create a slide element and append it to the slider
                     var slide = '<div class="testi-slides"><div class="testi-inner">' +
-                        '<h2>' + feedback.serviceID + '</h2>' +
+                        '<h2>' + feedback.bookingDetail.service.serviceName + '</h2>' +
                         '<p>' + feedback.description + '</p>' +
                         '<div class="bottom-content">' +
                         '<div class="user-name">' +
                         '<div class="testi-img-wrapper">' +
                         '<img src="assets/images/testi-user.png" alt="user">' +
                         '</div>' +
-                        '<a href="#">' + feedback.tattooLoverEmail + '</a>' +
+                        '<a href="#">' + feedback.bookingDetail.booking.customerName + '</a>' +
                         '</div>' +
                         '<div class="ratings d-flex justify-content-center align-items-center">' +
                         '<img src="assets/images/ratings.png" alt="star">' +
-                        '<span>' + feedback.serviceRating + ' / 5.0</span>' +
+                        '<span>' + feedback.artistRating + ' / 5.0</span>' +
                         '</div>' +
                         '</div>' +
                         '</div></div>';
