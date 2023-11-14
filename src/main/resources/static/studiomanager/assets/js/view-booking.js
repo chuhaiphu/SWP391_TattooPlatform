@@ -23,14 +23,13 @@ function renderBookingData(bookingData) {
 
 
     var added_booking = document.getElementById("booking");
-    console.log("30" + added_booking.innerHTML);
 
     var bookingId = bookingData.bookingID;
     added_booking.innerHTML =
         added_booking.innerHTML +
         `
   <tr>
-  <td class="bookingID" data-booking-id="${bookingId}">${bookingData.bookingID}</td>
+  <td class="bookingId" data-booking-id="${bookingId}">${bookingData.bookingID}</td>
   <td class="customerName" data-booking-id="${bookingId}">${bookingData.customerName}</td>
   <td class="tattooLoverEmail" data-booking-id="${bookingId}">${bookingData.tattooLoverEmail}</td>
   <td class="customerPhoneNumber" data-booking-id="${bookingId}">${bookingData.customerPhoneNumber}</td>
@@ -40,12 +39,12 @@ function renderBookingData(bookingData) {
 </tr>
 `
 }
-function handleDetail(bookingID) {
-    let bookingId = document.querySelector(`.bookingId[data-booking-id="${bookingID}"]`);
+function handleDetail(bookingId) {
+    let bookingID = document.querySelector(`.bookingId[data-booking-id="${bookingId}"]`).textContent;
 
 
 
-    sessionStorage.setItem('BookingID', (bookingId));
+    sessionStorage.setItem('BookingID', bookingID);
     window.location.href = "/view-bookingDetail.html";
 }
 

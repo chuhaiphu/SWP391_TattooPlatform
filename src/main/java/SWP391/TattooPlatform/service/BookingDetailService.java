@@ -1,6 +1,7 @@
 package SWP391.TattooPlatform.service;
 
 import SWP391.TattooPlatform.config.ResponseUtils;
+import SWP391.TattooPlatform.model.Artist;
 import SWP391.TattooPlatform.model.Booking;
 import SWP391.TattooPlatform.model.BookingDetail;
 import SWP391.TattooPlatform.repository.BookingDetailRepository;
@@ -48,5 +49,11 @@ public class BookingDetailService {
             return ResponseUtils.error((RuntimeException) list, HttpStatus.BAD_REQUEST);
         }
         return ResponseUtils.get(list,HttpStatus.OK);
+    }
+    public BookingDetail updateStatus(String bookingDetailID
+            , String statusID ) throws Exception {
+
+        bookingDetailRepository.updateBookingDetail(bookingDetailID, statusID);
+        return bookingDetailRepository.findBookingDetailByBookingDetailID(bookingDetailID);
     }
 }
