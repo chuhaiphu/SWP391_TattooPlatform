@@ -45,7 +45,13 @@ VALUES
 	('artist3@gmail.com', 'Nguyen Viet Hoang', '333-333-3333', '125 Saint Street, District 11', 90.0, 'manager3@gmail.com', 'artist3', '123', '1', 9),
     ('artist4@gmail.com', 'Tran Van Tung', '444-444-4444', '765 Gate Street, District 3', 85.0, 'manager4@gmail.com', 'artist4', '123', '1', 8),
 	('artist5@gmail.com', 'Tran Hai Duy', '555-555-5555', '902 Well St, District 9', 92.0, 'manager5@gmail.com', 'artist5', '123', '1', 7),
-	('artist6@gmail.com', 'Van Thanh Tu', '666-555-8768', '435 Tide St, District 5', 92.0, 'manager6@gmail.com', 'artist6', '123', '1', 7);
+	('artist6@gmail.com', 'Van Thanh Tu', '666-555-8768', '435 Tide St, District 5', 92.0, 'manager6@gmail.com', 'artist6', '123', '1', 7),
+	('artist7@gmail.com', 'Nguyen Van truong', '777-111-1111', '723 Artist Lane, District 1', 75.0, 'manager1@gmail.com', 'artist12', '123', '1', 9),
+    ('artist8@gmail.com', 'Tran Thanh Tam', '888-222-2222', '846 Artist Blvd, District 2', 80.0, 'manager2@gmail.com', 'artist22', '123', '1', 8),
+	('artist9@gmail.com', 'Le Van Viet', '999-333-3333', '952 Saint Street, District 11', 90.0, 'manager3@gmail.com', 'artist32', '123', '1', 9),
+    ('artist10@gmail.com', 'Tran Anh Tuong', '101-444-4444', '710 Gate Street, District 3', 85.0, 'manager4@gmail.com', 'artist42', '123', '1', 7),
+	('artis11@gmail.com', 'Tran Hai Dang', '111-555-5555', '210 Well St, District 9', 92.0, 'manager5@gmail.com', 'artist52', '123', '1', 9),
+	('artist12@gmail.com', 'Van Mai Huong', '122-555-8768', '541 Tide St, District 5', 92.0, 'manager6@gmail.com', 'artist62', '123', '1', 9);
 
 	INSERT INTO [dbo].[Artist_Certificate] ([certificateID], [certificate_name], [artist_email])
 VALUES
@@ -61,7 +67,20 @@ VALUES
 	('cert8', 'First Aid Certificate', 'artist5@gmail.com'),
 	('cert9', 'Body Art Piercing Certification', 'artist6@gmail.com'),
 	('cert10', 'Tattoo Artist License', 'artist6@gmail.com'),
-	('cert11', 'First Aid Certificate', 'artist6@gmail.com');
+	('cert11', 'First Aid Certificate', 'artist6@gmail.com'),
+	('cert14', 'Tattoo Artist License', 'artist7@gmail.com'),
+    ('cert15', 'First Aid Certificate', 'artist7@gmail.com'),
+    ('cert16', 'Tattoo Artist License', 'artist8@gmail.com'),
+    ('cert17', 'Body Art Piercing Certification', 'artist8@gmail.com'),
+	('cert18', 'Tattoo Artist License', 'artist9@gmail.com'),
+	('cert19', 'Body Art Piercing Certification', 'artist9@gmail.com'),
+	('cert20', 'Tattoo Artist License', 'artist10@gmail.com'),
+	('cert21', 'Body Art Piercing Certification', 'artist10@gmail.com'),
+	('cert22', 'Tattoo Artist License', 'artist11@gmail.com'),
+	('cert23', 'First Aid Certificate', 'artist11@gmail.com'),
+	('cert24', 'Body Art Piercing Certification', 'artist12@gmail.com'),
+	('cert25', 'Tattoo Artist License', 'artist12@gmail.com'),
+	('cert26', 'First Aid Certificate', 'artist12@gmail.com');
 
 	INSERT INTO [dbo].[Service] ([service_ID], [service_name], [description], [link_image], [tattoo_Manager_email], [price])
 VALUES
