@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,240 +9,316 @@
     <meta name="description" content="spa and beauty - Workdo.">
     <meta name="keywords" content="spa and beauty - Workdo.">
     <link rel="shortcut icon" href="assets/images/favicon.png">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="assets/css/main-style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-
 <body>
-<!--header start here-->
-<header class="site-header header-style-one style-two">
-    <div class="main-navigationbar">
-        <div class="container">
-            <div class="navigationbar-row d-flex align-items-center">
-                <div class="logo-col">
-                    <a href="index.html">
-                        Tattoo
-                    </a>
-                </div>
-                <div class="menu-items-col">
-                    <ul class="main-nav">
-                        <li class="menu-lnk">
-                            <a href="/service">
-                                Service
-                            </a>
-                        </li>
+    <!--header start here-->
+    <header class="site-header header-style-one style-two">
+        <div class="main-navigationbar">
+            <div class="container">
+                <div class="navigationbar-row d-flex align-items-center">
+                    <div class="logo-col">
+                        <a href="index.html">
+                            Tattoo
+                        </a>
+                    </div>
+                    <div class="menu-items-col">
+                        <ul class="main-nav">
+                            <li class="menu-lnk">
+                                <a href="service-list.html">
+                                    Service
+                                </a>
+                            </li>
 
-                        <li class="menu-lnk">
-                            <a href="/studio">
-                                Studio
-                            </a>
-                        </li>
+                            <li class="menu-lnk">
+                                <a href="studio-list.html">
+                                    Studio
+                                </a>
+                            </li>
 
 
-                        <li class="menu-lnk has-item">
-                            <a href="#">
-                                Pages
-                            </a>
-                            <div class="menu-dropdown">
-                                <ul>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="faqs.html">FAQs</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="article.html">Article</a></li>
-                                    <li><a href="contact-us.html">Contact</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="menu-lnk">
-                            <input type="text" class="search-input" placeholder="Search studio">
-                        </li>
-                        <li>
-                            <i id="search-button-studio" class="fas fa-search icon-button"></i>
-                        </li>
+                            <li class="menu-lnk has-item">
+                                <a href="#">
+                                    Pages
+                                </a>
+                                <div class="menu-dropdown">
+                                    <ul>
+                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="faqs.html">FAQs</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="article.html">Article</a></li>
+                                        <li><a href="contact-us.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="menu-lnk">
+                                <input type="text" class="search-input" placeholder="Search...">
+                            </li>
+                            <li><i class="fas fa-search"></i></li>
 
-                    </ul>
-                    <ul class="menu-right d-flex justify-content-around">
+                        </ul>
+                        <ul class="menu-right d-flex justify-content-around">
 
-                        <li class="header-appointment" >
-                        </li>
-                    </ul>
-                    <ul class="main-nav">
-                        <li class="menu-lnk has-item">
-                            <a href="#">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                            </a>
-                            <div class="menu-dropdown">
-                                <ul>
-                                    <li><a href="my-account.html">Setting</a></li>
-                                    <li><a href="index.html" id="logout">Logout</a></li>
-                                    <script>
-                                        document.addEventListener("DOMContentLoaded", function() {
-                                            // Get the "Logout" link by its ID
-                                            var logoutLink = document.getElementById("logout");
+                            <li class="header-appointment" >
+                                <a href="appointment-page.html">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16"
+                                         fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M13.6 3.2H2.4C1.95817 3.2 1.6 3.55817 1.6 4V13.6C1.6 14.0418 1.95817 14.4 2.4 14.4H13.6C14.0418 14.4 14.4 14.0418 14.4 13.6V8.8V4C14.4 3.55817 14.0418 3.2 13.6 3.2ZM2.4 1.6C1.07452 1.6 0 2.67452 0 4V13.6C0 14.9255 1.07452 16 2.4 16H13.6C14.9255 16 16 14.9255 16 13.6V8.8V4C16 2.67452 14.9255 1.6 13.6 1.6H2.4Z"
+                                              fill="white" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M6.4 8C5.95817 8 5.6 8.35817 5.6 8.8C5.6 9.24183 5.95817 9.6 6.4 9.6H12C12.4418 9.6 12.8 9.24183 12.8 8.8C12.8 8.35817 12.4418 8 12 8H6.4ZM4 11.2C3.55817 11.2 3.2 11.5582 3.2 12C3.2 12.4418 3.55817 12.8 4 12.8H8.8C9.24183 12.8 9.6 12.4418 9.6 12C9.6 11.5582 9.24183 11.2 8.8 11.2H4Z"
+                                              fill="white" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M4 0C3.55817 0 3.2 0.358172 3.2 0.8V4C3.2 4.44183 3.55817 4.8 4 4.8C4.44183 4.8 4.8 4.44183 4.8 4V0.8C4.8 0.358172 4.44183 0 4 0ZM12 0C11.5582 0 11.2 0.358172 11.2 0.8V4C11.2 4.44183 11.5582 4.8 12 4.8C12.4418 4.8 12.8 4.44183 12.8 4V0.8C12.8 0.358172 12.4418 0 12 0Z"
+                                              fill="white" />
+                                    </svg>
+                                    <span class="desk-only"> Book Appointment </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="main-nav">
+                            <li class="menu-lnk has-item">
+                                <a href="#">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </a>
+                                <div class="menu-dropdown">
+                                    <ul>
+                                        <li><a href="my-account.html">Setting</a></li>
+                                        <li><a href="index.html" id="logout">Logout</a></li>
+                                        <script>
+                                            document.addEventListener("DOMContentLoaded", function() {
+                                                // Get the "Logout" link by its ID
+                                                var logoutLink = document.getElementById("logout");
 
-                                            // Add a click event listener to the link
-                                            logoutLink.addEventListener("click", function(event) {
-                                                // Prevent the default behavior of the link (navigating to "index.html")
-                                                event.preventDefault();
+                                                // Add a click event listener to the link
+                                                logoutLink.addEventListener("click", function(event) {
+                                                    // Prevent the default behavior of the link (navigating to "index.html")
+                                                    event.preventDefault();
 
-                                                sessionStorage.removeItem('tattooLover');
+                                                    sessionStorage.removeItem('tattooLover');
 
-                                                // Optionally, you can also redirect the user to another page (e.g., a login page)
-                                                window.location.href = 'index.html'; // Replace 'login.html' with your desired URL
+                                                    // Optionally, you can also redirect the user to another page (e.g., a login page)
+                                                    window.location.href = 'index.html'; // Replace 'login.html' with your desired URL
+                                                });
                                             });
-                                        });
-                                    </script>
-                                </ul>
-                            </div>
-                        </li>
+                                        </script>
+                                    </ul>
+                                </div>
+                            </li>
 
-                    </ul>
-                    <div class="mobile-menu mobile-only">
-                        <button class="mobile-menu-button">
-                            <div class="one"></div>
-                            <div class="two"></div>
-                            <div class="three"></div>
-                        </button>
+                        </ul>
+                        <div class="mobile-menu mobile-only">
+                            <button class="mobile-menu-button">
+                                <div class="one"></div>
+                                <div class="two"></div>
+                                <div class="three"></div>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</header>
-<!--header start end-->
+    </header>
+    <!--header start end-->
     <!--wrapper start here-->
-    <div class="wrapper">
-        <section class="common-banner-section">
+    <div class="wrapper product-wrapper">
+        <section class="pdp-main-section padding-bottom ">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-12"> 
-                        <div class="common-banner-content">
-                            <a href="#" class="back-btn">
-                                <span class="svg-ic">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="5" viewBox="0 0 11 5" fill="none">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5791 2.28954C10.5791 2.53299 10.3818 2.73035 10.1383 2.73035L1.52698 2.73048L2.5628 3.73673C2.73742 3.90636 2.74146 4.18544 2.57183 4.36005C2.40219 4.53467 2.12312 4.53871 1.9485 4.36908L0.133482 2.60587C0.0480403 2.52287 -0.000171489 2.40882 -0.000171488 2.2897C-0.000171486 2.17058 0.0480403 2.05653 0.133482 1.97353L1.9485 0.210321C2.12312 0.0406877 2.40219 0.044729 2.57183 0.219347C2.74146 0.393966 2.73742 0.673036 2.5628 0.842669L1.52702 1.84888L10.1383 1.84875C10.3817 1.84874 10.5791 2.04609 10.5791 2.28954Z" fill="white"></path>
-                                    </svg>
-                                </span>
-                                Back to category
-                            </a> 
+                <div class="top-row d-flex justify-content-between align-items-center ">
+                    <a href="#" class="back-btn">
+                        <span class="svg-ic">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="5" viewBox="0 0 11 5"
+                                fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M10.5791 2.28954C10.5791 2.53299 10.3818 2.73035 10.1383 2.73035L1.52698 2.73048L2.5628 3.73673C2.73742 3.90636 2.74146 4.18544 2.57183 4.36005C2.40219 4.53467 2.12312 4.53871 1.9485 4.36908L0.133482 2.60587C0.0480403 2.52287 -0.000171489 2.40882 -0.000171488 2.2897C-0.000171486 2.17058 0.0480403 2.05653 0.133482 1.97353L1.9485 0.210321C2.12312 0.0406877 2.40219 0.044729 2.57183 0.219347C2.74146 0.393966 2.73742 0.673036 2.5628 0.842669L1.52702 1.84888L10.1383 1.84875C10.3817 1.84874 10.5791 2.04609 10.5791 2.28954Z"
+                                    fill="white"></path>
+                            </svg>
+                        </span>
+                        Back
+                    </a>
+                    <div class="social-icons d-flex align-items-center">
+                        <h5> Studio ratings: </h5>
+                        
+                    </div>
+                </div>
+                <div class="pdp-slider-main">
+                    <div class="pdp-slider-inner">
+                        <div class="pdp-img-wrapper">
+                            <img src="{{bannerImg}}" alt="img">
+                            <div id="studio-rate" class="ratings">
+                                <span>4.5</span>
+                                <div class="rating-review">
+                                    <img src="assets/images/rating.svg" alt="start">
+                                    <p>6,980 reviews from satisfied customers</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pdp-img-wrapper">
+                            <img src="{{bannerImg}}" alt="img">
+                            <div id="studio-rate" class="ratings">
+                                <span>4.5</span>
+                                <div class="rating-review">
+                                    <img src="assets/images/rating.svg" alt="start">
+                                    <p>6,980 reviews from satisfied customers</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="slider-controller">
+                        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100"> </div>
+                    </div> -->
+                </div>
+            </div>
+            <div id="studio-name" class="studio-name">
+                <h2>{{studioName}}</h2>
+            </div>
+        </section>
+        <section class="description-section">
+            <div class="container">
+                <div id="content" class="description-box">
+                    <h3>ABOUT OUR STUDIO</h3>
+                    <p>{{content}}</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="best-service-sec">
+                <div class="row no-gutters align-items-center ">
+                    <div class="col-md-6 col-12">
+                        <div class="img-wrapper">
+                            <img src="https://r.rp-static.com/r/catalog/public/ce4b88ce4b6d6f4497e9f6e0bf5d00c6cd02d346/420/desktop.jpeg?lang=en" alt="img">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div class="banner-content-inner">
                             <div class="section-title">
-                                <h2>Listing  studios </h2>
+                                <span class="sub-title">
+                                    <img src="assets/images/subtitle.png" alt="subtitle">
+                                </span>
+                                <h2 class="h1"><b>TEMPORY </b> TATOO</h2>
                             </div>
 
                         </div>
                     </div>
                 </div>
-            </div>
-        </section> 
-        <section class="product-listing-section padding-bottom"> 
-            <div class="product-heading-row">
-                <div class="container">
-                    <div class=" row no-gutters">
-                        <div class="product-heading-column col-lg-3 col-md-4 col-1">
 
+            <div class="row no-gutters align-items-center row-reverse ">
+                <div class="col-md-6 col-12">
+                    <div class="img-wrapper">
+                        <img src="https://i.etsystatic.com/24707769/r/il/733007/3067677551/il_570xN.3067677551_mv93.jpg" alt="img">
+                       
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="banner-content-inner">
+                        <div class="section-title">
+                            <span class="sub-title">
+                                <img src="assets/images/subtitle.png" alt="subtitle">
+                            </span>
+                            <h2 class="h1"><b>CUSTOMIZED ART </b> TATOO</h2>
                         </div>
-                        <div class="product-heading-right-column col-lg-9 col-md-8 col-11">
-                            <div class="product-sorting-row d-flex align-items-center justify-content-between">
-                                <ul class="produdt-filter-cat d-flex align-items-center">
-                                    <li><a href="index.html">Home</a></li>
 
-                                    <li><a href="studio-list.html">Studios</a></li>
-                                    
-                                </ul>
-
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="product-list-row row no-gutters">
-                    <div class="product-filter-column col-lg-3 col-md-4 col-12"> 
-                        <div class="product-filter-body">
-                            <div class="mobile-only close-filter">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none">
-                                    <path  d="M27.7618 25.0008L49.4275 3.33503C50.1903 2.57224 50.1903 1.33552 49.4275 0.572826C48.6647 -0.189868 47.428 -0.189965 46.6653 0.572826L24.9995 22.2386L3.33381 0.572826C2.57102 -0.189965 1.3343 -0.189965 0.571605 0.572826C-0.191089 1.33562 -0.191186 2.57233 0.571605 3.33503L22.2373 25.0007L0.571605 46.6665C-0.191186 47.4293 -0.191186 48.666 0.571605 49.4287C0.952952 49.81 1.45285 50.0007 1.95275 50.0007C2.45266 50.0007 2.95246 49.81 3.3339 49.4287L24.9995 27.763L46.6652 49.4287C47.0465 49.81 47.5464 50.0007 48.0463 50.0007C48.5462 50.0007 49.046 49.81 49.4275 49.4287C50.1903 48.6659 50.1903 47.4292 49.4275 46.6665L27.7618 25.0008Z" fill="white"></path>
-                                </svg>
-                            </div>
-<!--                            <div class="product-widget product-cat-widget"> -->
-<!--                                <div class="pro-itm has-children">-->
-<!--                                    <a href="javascript:;" class="acnav-label">-->
-<!--                                        Service-->
-<!--                                    </a>-->
-<!--                                    <ul class="pro-itm-inner acnav-list">-->
-<!--                                        <li class="filter-listing">-->
-<!--                                            <ul>-->
-<!--                                                    -->
-<!--                                                        <li>-->
-<!--                                                            <a href="#">Remove Hair</a>-->
-<!--                                                        </li>-->
-<!--                                                        <li>-->
-<!--                                                            <a href="#">Ear Piecing</a>-->
-<!--                                                        </li>-->
-<!--                                                        <li>-->
-<!--                                                            <a href="#">Nose Piecing</a>-->
-<!--                                                        </li>-->
-<!--                                                        <li>-->
-<!--                                                            <a href="#">Tempory Tattoo</a>-->
-<!--                                                        </li>-->
-<!--                                                        <li>-->
-<!--                                                            <a href="#">Tattoo Customized (ART)</a>-->
-<!--                                                        </li>-->
-<!--                                                        -->
-<!--                                                    -->
-<!--                                            </ul>-->
-<!--                                        </li> -->
-<!--                                    </ul>-->
-<!--                                </div> -->
-<!--                            </div>-->
-                          
-                            <div class="product-widget product-price-widget"> 
-                                <div class="pro-itm has-children">
-                                    <a href="javascript:;" class="acnav-label">
-                                        Studios
-                                    </a>
+        </section>
 
+        <br> <br>
+        <div class="container">
+            <div id="service-booking-card_template" style="display: none;" class="service-row">
+                <div class="section-title">
+                    <span class="sub-title">Tattoo</span> <h3 style="display: none;">{{serviceID}}</h3>
+                    <h4 style="display: none;">{{imgSrc}}</h4>
+                    <h2 class="service-card-name">{{serviceName}} </h2>
+                
+                    <p style="float: right; font-size: 18px">{{price}} <span>$</span></p>
+                    <a id="booking-btn" href="#" class="btn" style="padding: 10px;"> Book appointment now </a>
+                    <a id="add-to-cart-btn" href="#" class="btn" style="padding: 10px;"> Add to cart</a>
+                    <span id="cart-noti"></span>
+                </div>
+            </div>
+            <div id="service-booking-card" class="service-row"></div>
+        </div>
+
+
+        <section class="testimonials-section padding-bottom">
+            <div class="container-fluid">
+                <div class="section-title">
+                    <span class="sub-title">
+                        <img src="assets/images/subtitle.png" alt="subtitle">
+                    </span>
+                    <h2><b>Smart</b>  with beauty lies in tattooing</h2>
+                </div>
+                <div class="testimonials-main">
+                    <!-- <div id="feedback-tab" class="testi-slides">
+                        <div class="testi-inner">
+                            <h2>Excellent Services</h2>
+                            <p>
+                                 Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                            </p>
+                            <div class="bottom-content">
+                                <div class="ratings d-flex justify-content-center align-items-center">
+                                    <img src="assets/images/ratings.png" alt="start">
+                                    <span>4.5 / 5.0</span>
                                 </div>
-                            </div>
-                           
-                        </div>
-                    </div>
-                    <div class="product-filter-right-column col-lg-9 col-md-8 col-12">
-                        <div id="studio-card_template" style="display: none" class="row">
-                            <div class="col-lg-4 col-md-6 col-sm-6 col-12 product-card pro-light theme-colored-card">
-                                <div class="product-card-inner">
-                                    <div class="product-card-image">
-                                        <a href="#">
-                                           <img src="{{imgSrc}}" class="default-img">
-                                        </a>
-                                     </div>
-                                     <div class="product-card-content">
-                                        <h4>
-                                    
-                                           <a href="view-studio.html">
-                                            {{studioName}}
-                                           </a>
-                                        </h4>
-                                         <!-- Add this line for studioID -->
-                                    <div class="studio-id" style="display: none;">{{studioID}}</div>
-                                        <br>
-                                        <p style="font-size: 11px">{{briefInfo}}</p>
-                                        <a id="view-studio-btn" href="#" class=" btn">
-                                            Book now
-                                        </a>
-                                     </div>
+                                <div class="user-name">
+                                    <div class="testi-img-wrapper">
+                                        <img src="assets/images/testi-user.png" alt="user">
+                                    </div>
+                                    <a href="#">John Doe, Client</a>
                                 </div>
                             </div>
                         </div>
-                        <div id="studio-card" class="row"></div>
                     </div>
-                </div>
+                    <div id="feedback-tab" class="testi-slides">
+                        <div class="testi-inner">
+                            <h2>Excellent Services</h2>
+                            <p>
+                                 Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                            </p>
+                            <div class="bottom-content">
+                                <div class="ratings d-flex justify-content-center align-items-center">
+                                    <img src="assets/images/ratings.png" alt="start">
+                                    <span>4.5 / 5.0</span>
+                                 </div>
+                                 <div class="user-name">
+                                     <div class="testi-img-wrapper">
+                                         <img src="assets/images/testi-user.png" alt="user">
+                                     </div>
+                                     <a href="#">John Doe, Client</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="feedback-tab" class="testi-slides">
+                        <div class="testi-inner">
+                            <h2>Excellent Services</h2>
+                            <p>
+                                 Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                            </p>
+                            <div class="bottom-content">
+                                <div class="ratings d-flex justify-content-center align-items-center">
+                                    <img src="assets/images/ratings.png" alt="start">
+                                    <span>4.5 / 5.0</span>
+                                 </div>
+                                 <div class="user-name">
+                                     <div class="testi-img-wrapper">
+                                         <img src="assets/images/testi-user.png" alt="user">
+                                     </div>
+                                     <a href="#">John Doe, Client</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div> 
             </div>
-        </section>   
-       
+
+        </section>
+        
     </div>
     <!---wrapper end here-->
     <!--footer start here-->
@@ -257,6 +332,7 @@
                             <li><a href="my-account.html">Order status</a></li>
                             <li><a href="checkout.html">Shipping & Delivery</a></li>
                             <!--                   <li><a href="privacy-policy.html">Returns</a></li>-->
+                            <li><a href="checkout.html">Payment Options</a></li>
                             <li><a href="contact-us.html">Contact Us</a></li>
                         </ul>
                     </div>
@@ -265,8 +341,10 @@
                     <div class="footer-widget">
                         <h3> Account</h3>
                         <ul>
+                            <li><a href="product-list.html">Products</a></li>
                             <li><a href="cart.html">My Cart</a></li>
-                            <li><a href="/tattoolovers">My Profile</a></li>
+                            <li><a href="my-account.html">My Profile</a></li>
+                            <li><a href="order-summery.html">Order summery</a></li>
                             <!--                   <li><a href="wishlist.html">Wishlist</a></li>-->
                         </ul>
                     </div>
@@ -573,25 +651,7 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/slick.min.js" defer="defer"></script>
     <script src='assets/js/custom.js' defer="defer"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="assets/js/studio.js" defer="defer"></script>
-    <script>
-        // Range slider - gravity forms
-        $(function () {
-            $("#slider-range").slider({
-                range: true,
-                min: 1500,
-                max: 10000,
-                step: 100,
-                values: [3000, 6000],
-                slide: function (event, ui) {
-                    $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-                }
-            });
-            $("#amount").val("$" + $("#slider-range").slider("values", 0) +
-                " - $" + $("#slider-range").slider("values", 1));
-        }); 
-    </script> 
+    <script src="assets/js/view-studio.js" defer="defer"></script>
     <!--scripts end here-->
 </body>
 </html>
