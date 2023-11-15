@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function () {
             error: function (error) {
                 // Handle error
                 console.error("Error creating booking", error);
-
+                alert("Booking failed!!! Please check your infomation");
                 if (error.status === 400) {
                     console.error("Bad request. Please check your inputs.");
                 } else if (error.status === 404) {
