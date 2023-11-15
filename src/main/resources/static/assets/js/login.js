@@ -75,7 +75,7 @@
                 } else if (response.toString() === "AdminLogin") {
 
 
-                    window.location.href = "/adminpage/staff.html";
+                    window.location.href = "/view-lover.html";
 
                 } else if (response.toString() === "artist") {
                     const artistEmail = form.find('[name="email"]').val();

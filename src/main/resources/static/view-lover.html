@@ -98,7 +98,7 @@
             </a>
             <ul class="dropdown-menu">
               <li class="divider"></li>
-              <li><a href="#">Log out</a></li>
+              <li><a href="index.html"  id="logout">Log out</a></li>
             </ul>
           </div>
         </li>
@@ -112,12 +112,7 @@
   <div class="navbar-default sidebar" role="navigation">
     <div class="sidebar-nav navbar-collapse slimscrollsidebar">
       <ul class="nav" id="side-menu">
-        <li>
-          <a href="view-artist.html" class="waves-effect"
-          ><i class="fa fa-user fa-fw" aria-hidden="true"></i
-          ><span class="hide-menu">Artist</span></a
-          >
-        </li>
+
         <li>
           <a href="view-lover.html" class="waves-effect"
           ><i class="fa fa-user fa-fw" aria-hidden="true"></i
@@ -125,27 +120,6 @@
           >
         </li>
 
-        <li>
-          <a href="view-service.html" class="waves-effect"
-          ><i class="fa fa-modx fa-fw" aria-hidden="true"></i
-          ><span class="hide-menu">Service </span></a
-          >
-        </li>
-        <li>
-          <a href="view-booking.html" class="waves-effect"
-          ><i class="fa fa-table fa-fw" aria-hidden="true"></i
-          ><span class="hide-menu">Booking </span></a>
-        </li>
-        <li>
-          <a href="view-feedback.html" class="waves-effect"
-          ><i class="fa fa-table fa-fw" aria-hidden="true"></i
-          ><span class="hide-menu"> Feedback </span></a>
-        </li>
-        <li>
-          <a href="view-voucher.html" class="waves-effect"
-          ><i class="fa fa-ticket fa-fw" aria-hidden="true"></i
-          ><span class="hide-menu">Voucher </span></a>
-        </li>
 
       </ul>
     </div>
@@ -211,6 +185,20 @@
 <script>
   $(document).ready(function () {
     $("#example").DataTable();
+  });
+  var logoutLink = document.querySelectorAll("#logout");
+
+  // Add a click event listener to the link
+  logoutLink.forEach(logoutLink => {
+    logoutLink.addEventListener("click", function (event) {
+      // Prevent the default behavior of the link (navigating to "index.html")
+      event.preventDefault();
+
+      sessionStorage.clear();
+
+      // Optionally, you can also redirect the user to another page (e.g., a login page)
+      window.location.href = 'index.html'; // Replace 'login.html' with your desired URL
+    });
   });
 
 </script>

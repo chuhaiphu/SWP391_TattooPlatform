@@ -35,6 +35,7 @@ public interface ArtistCertificateRepository extends JpaRepository<Artist_Certif
 
     //ADD
     Artist_Certificate save(Artist_Certificate artistCertificate);
+    boolean existsByCertificateNameAndArtistEmail(String certificateName, String artistEmail);
 
 
 

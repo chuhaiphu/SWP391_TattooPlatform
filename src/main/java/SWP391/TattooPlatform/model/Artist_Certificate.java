@@ -13,14 +13,13 @@ import org.hibernate.annotations.GenericGenerator;
 @NoArgsConstructor
 @Table (name = "Artist_Certificate")
 public class Artist_Certificate {
-
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
             name = "UUID",
             strategy = "SWP391.TattooPlatform.model.CustomUUIDGenerator"
     )
-    @Column(name = "certificate_ID")
+    @Column(name = "certificateID")
     private String certificateID;
 
     @Column(name = "certificate_name")

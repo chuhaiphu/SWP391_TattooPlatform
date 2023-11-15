@@ -57,11 +57,6 @@ public class FeedbackController {
         return  ResponseUtils.get(feedbackService.getFeedbackByBookingDetailID(bookingDetailId), HttpStatus.OK);
     }
 
-    @GetMapping("/{feedbackID}")
-    public ResponseEntity<?> getFeedbackByFeedbackID(@PathVariable String feedbackID) {
-        return feedbackService.getFeedbackByFeedbackID(feedbackID);
-    }
-
     //-------------------------------POST/ADD-------------------------------
     @PostMapping("/addFeedback")
     public ResponseEntity<?> saveRole(@RequestBody Feedback feedback) {
