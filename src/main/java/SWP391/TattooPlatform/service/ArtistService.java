@@ -1,9 +1,12 @@
 package SWP391.TattooPlatform.service;
 
+import SWP391.TattooPlatform.config.ResponseUtils;
 import SWP391.TattooPlatform.model.Artist;
 import SWP391.TattooPlatform.model.Feedback;
 import SWP391.TattooPlatform.repository.ArtistRepository;
 import SWP391.TattooPlatform.repository.FeedbackRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -20,6 +23,13 @@ public class ArtistService {
     }
 
 
+    public ResponseEntity<?> getArtistByEmail(String email) {
+        Artist artist = artistRepository.findArtistByEmail(email);
+        if(artist == null) {
+            return (ResponseEntity<?>) ResponseEntity.badRequest();
+        }
+        return ResponseUtils.get(artist, HttpStatus.OK);
+    }
     public List<Artist> getListArtist() {
         if(artistRepository.findAll().isEmpty()) {
             return null;

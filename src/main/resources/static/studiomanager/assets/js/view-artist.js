@@ -1,29 +1,50 @@
+
 $(document).ready(function () {
     // Send an AJAX request to fetch artist data
-    $.ajax({
-        type: "GET",
-        url: "/artist/list", // Replace with the actual API endpoint
-        dataType: "json",
-        success: function (data) {
-            for( var artist of data.content) {
-                renderArtistData(artist);
+
+    const managerUser = JSON.parse(sessionStorage.getItem('manager'));
+    const artistUser = JSON.parse(sessionStorage.getItem('artist'));
+    if (managerUser !== null) {
+        $.ajax({
+            type: "GET",
+            url: "/artist/list", // Replace with the actual API endpoint
+            dataType: "json",
+            success: function (data) {
+                for(const artist of data.content) {
+                    renderArtistData(artist);
+                }
+
+            },
+            error: function (xhr, status, error) {
+                console.error("Error fetching artist data: " + error);
             }
-        },
-        error: function (xhr, status, error) {
-            console.error("Error fetching artist data: " + error);
-        }
-    });
-});
+        });
+    }
+    if (artistUser !== null) {
+        $.ajax({
+            type: "GET",
+            url: "/artist/" + artistUser.content.email, // Replace with the actual API endpoint
+            dataType: "json",
+            success: function (data) {
+                var artist = data.content;
+                    renderArtistData(artist);
 
-function renderArtistData(artistData) {
+            },
+            error: function (xhr, status, error) {
+                console.error("Error fetching artist data: " + error);
+            }
+        });
+    }
+
+    function renderArtistData(artistData) {
 
 
-    var added_artist = document.getElementById("artist");
-    console.log("30" + added_artist.innerHTML);
-    var artistId = artistData.email;
-    added_artist.innerHTML =
-        added_artist.innerHTML +
-        `
+        var added_artist = document.getElementById("artist");
+        console.log("30" + added_artist.innerHTML);
+        var artistId = artistData.email;
+        added_artist.innerHTML =
+            added_artist.innerHTML +
+            `
   <tr>
   <td class="email" data-artist-id="${artistId}">${artistData.email}</td>
   <td class="fullName" data-artist-id="${artistId}">${artistData.fullName}</td>
@@ -35,5 +56,6 @@ function renderArtistData(artistData) {
   <td><button onClick="handleUpdate('${artistId}')">Update</button></td>
 </tr>
 `
-}
+    }
+})
 

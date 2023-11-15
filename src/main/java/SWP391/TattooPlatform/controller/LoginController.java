@@ -39,11 +39,12 @@ public class LoginController {
     public ResponseEntity<String> login(@RequestParam String email, @RequestParam String password) throws IOException {
         try {
             Admin admin = adminService.getAdminFromJsonFile();
-            if (admin.getAdminEmail().equals(email) && admin.getPassword().equals(password)) {
+            if (admin.getAdminEmail().equals(email.trim()) && admin.getPassword().equals(password.trim()))  {
                 // Admin login successful
                 return ResponseEntity.ok("AdminLogin");
+            }else {
+                return loginService.login(email, password);
             }
-            return loginService.login(email, password);
         }catch (IOException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Can not find any account");
         }
