@@ -102,11 +102,9 @@ CREATE TABLE [dbo].[Feedback](
     [feedback_ID] [varchar](20) NOT NULL,
     [booking_Detail_ID] [varchar](20) NOT NULL,
     [description] [text] NULL,
-    [tattoo_Lover_email] [varchar](50) NOT NULL,
     [service_ID] [varchar](20) NOT NULL,
     [artist_email] [varchar](50) NOT NULL,
     [artist_rating] [int] NOT NULL,
-    [service_rating] [int] NOT NULL,
     [booking_date] [date] NOT NULL,
     PRIMARY KEY CLUSTERED
 (
