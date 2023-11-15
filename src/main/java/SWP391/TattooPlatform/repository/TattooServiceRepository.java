@@ -17,6 +17,8 @@ public interface TattooServiceRepository extends JpaRepository<Service, Long> {
     List<Service> findAll();
 
     Service findServiceByServiceID(String service_ID);
+
+    List<Service> findServicesByTattooManagerEmail(String email);
     List<Service> findServicesByServiceName(String serviceName);
 
     Service save(Service service);

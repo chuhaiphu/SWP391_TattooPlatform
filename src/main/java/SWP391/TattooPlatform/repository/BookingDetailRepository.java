@@ -1,6 +1,7 @@
 package SWP391.TattooPlatform.repository;
 
 import SWP391.TattooPlatform.model.BookingDetail;
+import SWP391.TattooPlatform.model.Service;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -19,6 +20,14 @@ public interface BookingDetailRepository extends JpaRepository<BookingDetail,Lon
     List<BookingDetail> findAll();
 
     BookingDetail save(BookingDetail bookingDetail);
+
+
+    List<BookingDetail> findBookingDetailsByArtistEmail(String email);
+
+    List<BookingDetail> findBookingDetailsByBookingID(String bookingID);
+
+    List<BookingDetail> findBookingDetailsByServiceID(String id);
+
 
     BookingDetail findBookingDetailByBookingDetailID(String bookingDetailID);
 

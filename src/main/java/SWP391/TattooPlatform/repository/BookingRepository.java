@@ -1,6 +1,7 @@
 package SWP391.TattooPlatform.repository;
 
 import SWP391.TattooPlatform.model.Booking;
+import SWP391.TattooPlatform.model.BookingDetail;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

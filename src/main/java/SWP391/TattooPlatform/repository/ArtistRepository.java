@@ -24,6 +24,9 @@ public interface ArtistRepository extends JpaRepository<Artist,Long> {
 
     @Query("SELECT a FROM Artist a JOIN Studio s ON a.studioManagerEmail = s.managerEmail WHERE s.studioID = :studioID")
     List<Artist> findAllArtistByStudioID(@Param("studioID") String studioID);
+
+
+
     //INSERT
     Artist save(Artist artist);
     //UPDATE

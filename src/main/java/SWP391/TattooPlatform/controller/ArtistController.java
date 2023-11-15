@@ -53,6 +53,10 @@ public class ArtistController {
     public Object getAvailableArtistsBySlotID (@PathVariable String slotID,@PathVariable String studioID ) {
         return  ResponseUtils.get(artistService.getAvailableArtistsBySlotIDAndStudioID(slotID, studioID),HttpStatus.OK);
     }
+    @GetMapping("/{email}")
+    public ResponseEntity<?> getAristByEmail(@PathVariable String email) {
+        return artistService.getArtistByEmail(email);
+    }
 
     //-------------------------------POST/ADD-------------------------------
     @PostMapping("/add-artist")

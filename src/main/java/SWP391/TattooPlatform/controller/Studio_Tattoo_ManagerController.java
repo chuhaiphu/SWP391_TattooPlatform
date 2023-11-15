@@ -25,6 +25,11 @@ public class Studio_Tattoo_ManagerController {
         return ResponseUtils.get(studioTattooManagerService.getManagerList(), HttpStatus.OK);
     }
 
+    @GetMapping("/{email}")
+    public ResponseEntity<?> getManagerByEmail(@PathVariable String email){
+        return studioTattooManagerService.getManagerByEmail(email);
+    }
+
     @PostMapping()
     public ResponseEntity<?> addStudioTattooManager(@RequestBody Studio_Tattoo_Manager manager){
         return ResponseUtils.get(studioTattooManagerService.addStudioTattooManager(manager),HttpStatus.CREATED);

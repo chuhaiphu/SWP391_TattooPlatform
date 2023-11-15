@@ -98,7 +98,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li class="divider"></li>
-                  <li><a href="#">Log out</a></li>
+                    <li><a href="index.html" id="logout">Logout</a></li>
                 </ul>
               </div>
             </li>
@@ -113,36 +113,36 @@
         <div class="sidebar-nav navbar-collapse slimscrollsidebar">
           <ul class="nav" id="side-menu">
             <li>
-              <a href="view-artist.html" class="waves-effect"
-              ><i class="fa fa-user fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu">Artist</span></a
-              >
+              <a href="view-artist.html" class="waves-effect artist-menu">
+                <i class="fa fa-user fa-fw" aria-hidden="true"></i>
+                <span class="hide-menu">Artist</span>
+              </a>
             </li>
             <li>
-              <a href="view-lover.html" class="waves-effect"
-              ><i class="fa fa-user fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu">Lover</span></a
-              >
+              <a href="artistSchedule.html" class="waves-effect artist-menu">
+                <i class="fa fa-user fa-fw" aria-hidden="true"></i>
+                <span class="hide-menu">Schedule</span>
+              </a>
             </li>
-
             <li>
-              <a href="view-service.html" class="waves-effect"
+              <a href="view-service.html" class="waves-effect manager-menu"
               ><i class="fa fa-modx fa-fw" aria-hidden="true"></i
               ><span class="hide-menu">Service </span></a
               >
             </li>
             <li>
-              <a href="view-booking.html" class="waves-effect"
+              <a href="view-booking.html" class="waves-effect manager-menu"
               ><i class="fa fa-table fa-fw" aria-hidden="true"></i
               ><span class="hide-menu">Booking </span></a>
             </li>
             <li>
-              <a href="view-feedback.html" class="waves-effect"
-              ><i class="fa fa-table fa-fw" aria-hidden="true"></i
-              ><span class="hide-menu"> Feedback </span></a>
+              <a href="view-feedback.html" class="waves-effect manager-menu">
+                <i class="fa fa-table fa-fw" aria-hidden="true"></i>
+                <span class="hide-menu"> Feedback </span>
+              </a>
             </li>
             <li>
-              <a href="view-voucher.html" class="waves-effect"
+              <a href="view-voucher.html" class="waves-effect manager-menu"
               ><i class="fa fa-ticket fa-fw" aria-hidden="true"></i
               ><span class="hide-menu">Voucher </span></a>
             </li>
@@ -200,6 +200,7 @@
       <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
+    <script src="studiomanager/assets/js/sideMenu.js"></script>
     <!-- jQuery -->
     <script src="studiomanager/assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
@@ -219,6 +220,32 @@
     <script>
       $(document).ready(function () {
         $("#example").DataTable();
+        var artist = sessionStorage.getItem('artist');
+        var manager = sessionStorage.getItem('manager');
+        $('.artist-menu, .manager-menu').hide();
+
+        // Show menu items based on user role
+        if (artist !== null) {
+          $('.artist-menu').show();
+        } else if (manager !== null) {
+          $('.manager-menu').show();
+          $('.artist-menu').show();
+        }
+      });
+
+      var logoutLink = document.querySelectorAll("#logout");
+
+      // Add a click event listener to the link
+      logoutLink.forEach(logoutLink => {
+        logoutLink.addEventListener("click", function (event) {
+          // Prevent the default behavior of the link (navigating to "index.html")
+          event.preventDefault();
+
+          sessionStorage.clear();
+
+          // Optionally, you can also redirect the user to another page (e.g., a login page)
+          window.location.href = 'index.html'; // Replace 'login.html' with your desired URL
+        });
       });
 
     </script>

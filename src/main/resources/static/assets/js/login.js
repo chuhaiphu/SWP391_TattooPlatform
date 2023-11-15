@@ -52,33 +52,67 @@
         form.submit(async function (event) {
             event.preventDefault();
             const formData = form.serialize();
-
             try {
                 const response = await $.ajax({
                     type: "POST",
-                    url: "", // Replace with your REST endpoint URL
+                    url: "/login",
                     data: formData
                 });
 
-                const tattooLoverEmail = form.find('[name="email"]').val();
-                const userData = await $.ajax({
-                    type: "GET",
-                    url: "/tattoolovers/" + tattooLoverEmail
-                });
-                if (response === "lovers") {
+                if (response.toString() === "lovers") {
+                    const tattooLoverEmail = form.find('[name="email"]').val();
+                    const userData = await $.ajax({
+                        type: "GET",
+                        url: "/tattoolovers/" + tattooLoverEmail,
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.error('Error in GET request to /tattoolovers/', errorThrown);
+                        }
+                    });
+
                     const tattooLover = userData;
                     sessionStorage.setItem('tattooLover', JSON.stringify(tattooLover));
                     window.location.href = "/index.html";
-                } else if (response === "AdminLogin") {
-                    window.location.href = "/admin-page.html";
-               
-                } else {
+                } else if (response.toString() === "AdminLogin") {
+
+
+                    window.location.href = "/adminpage/staff.html";
+
+                } else if (response.toString() === "artist") {
+                    const artistEmail = form.find('[name="email"]').val();
+                    const userData = await $.ajax({
+                        type: "GET",
+                        url: "/artist/" + artistEmail,
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.error('Error in GET request to /artist/', errorThrown);
+                        }
+                    });
+
+                    const artist = userData;
+                    sessionStorage.setItem('artist', JSON.stringify(artist));
+                    window.location.href = "/view-artist.html";
+
+
+                } else if (response.toString() === "studioManager") {
+                    const managerEmail = form.find('[name="email"]').val();
+                    const userData = await $.ajax({
+                        type: "GET",
+                        url: "/manager/" + managerEmail,
+                        error: function (jqXHR, textStatus, errorThrown) {
+                        }
+                    });
+
+                    const manager = userData;
+                    sessionStorage.setItem('manager', JSON.stringify(manager));
+                    window.location.href = "/view-artist.html";
+                }
+                else {
                     // Handle the error
                     alert(JSON.stringify(response));
                 }
             } catch (error) {
                 console.error('Error:', error);
             }
+
         });
     });
 

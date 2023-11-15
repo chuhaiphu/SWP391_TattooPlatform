@@ -1,8 +1,11 @@
 package SWP391.TattooPlatform.service;
 
+import SWP391.TattooPlatform.config.ResponseUtils;
 import SWP391.TattooPlatform.model.Studio_Tattoo_Manager;
 import SWP391.TattooPlatform.repository.Studio_Tattoo_ManagerRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +22,14 @@ public class Studio_Tattoo_ManagerService {
             return null;
         }
         return studioTattooManagerRepository.findAll();
+    }
+
+    public ResponseEntity<?> getManagerByEmail(String email) {
+        Studio_Tattoo_Manager s = studioTattooManagerRepository.findStudio_Tattoo_ManagerByStudioManagerEmail(email);
+        if(s == null) {
+            return (ResponseEntity<?>) ResponseEntity.badRequest();
+        }
+        return ResponseUtils.get(s, HttpStatus.OK);
     }
 
     public Studio_Tattoo_Manager addStudioTattooManager(Studio_Tattoo_Manager manager) {

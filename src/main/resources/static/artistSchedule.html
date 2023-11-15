@@ -1,20 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        .schedule-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .schedule-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            transition: background-color 0.3s ease;
+        }
+
+        .schedule-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+
+        .schedule-details {
+            display: none;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .schedule-item:hover .schedule-details {
+            display: block;
+        }
+
+        .schedule-details p {
+            margin: 0;
+            color: #555;
+        }
+
+        /* Additional Styling for Titles and Headings */
+        h1, h3 {
+            color: #333;
+        }
+
+        h3 {
+            margin-bottom: 5px;
+        }
+
+        /* Button Styling */
+        .button {
+            display: inline-block;
+            padding: 8px 12px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
     <link
             rel="icon"
             type="image/png"
@@ -66,7 +140,7 @@
                 <i class="fa fa-bars"></i>
             </a>
             <div class="top-left-part">
-                <a class="logo" href="view-artist.html">
+                <a class="logo" href="view-artist">
                     <b>
                         <img src="studiomanager/assets/plugins/images/pixeladmin-logo.png" alt="home" />
                     </b>
@@ -103,12 +177,11 @@
                                     width="36"
                                     class="img-circle"
                             />
-                            <b class="hidden-xs">Studio manager</b>
+                            <b class="hidden-xs">Manager</b>
                         </a>
                         <ul class="dropdown-menu">
-
                             <li class="divider"></li>
-                            <li><a href="#">Log out</a></li>
+                            <li><a href="index.html" id="logout">Logout</a></li>
                         </ul>
                     </div>
                 </li>
@@ -123,10 +196,10 @@
         <div class="sidebar-nav navbar-collapse slimscrollsidebar">
             <ul class="nav" id="side-menu">
                 <li>
-                    <a href="view-artist.html" class="waves-effect"
-                    ><i class="fa fa-user fa-fw" aria-hidden="true"></i
-                    ><span class="hide-menu">Artist</span></a
-                    >
+                    <a href="view-artist.html" class="waves-effect artist-menu">
+                        <i class="fa fa-user fa-fw" aria-hidden="true"></i>
+                        <span class="hide-menu">Artist</span>
+                    </a>
                 </li>
                 <li>
                     <a href="artistSchedule.html" class="waves-effect artist-menu">
@@ -136,23 +209,25 @@
                 </li>
 
                 <li>
-                    <a href="view-service.html" class="waves-effect"
+                    <a href="view-service.html" class="waves-effect manager-menu"
                     ><i class="fa fa-modx fa-fw" aria-hidden="true"></i
                     ><span class="hide-menu">Service </span></a
                     >
                 </li>
+
                 <li>
-                    <a href="view-booking.html" class="waves-effect"
+                    <a href="view-booking.html" class="waves-effect manager-menu"
                     ><i class="fa fa-table fa-fw" aria-hidden="true"></i
                     ><span class="hide-menu">Booking </span></a>
                 </li>
                 <li>
-                    <a href="view-feedback.html" class="waves-effect"
-                    ><i class="fa fa-table fa-fw" aria-hidden="true"></i
-                    ><span class="hide-menu"> Feedback </span></a>
+                    <a href="view-feedback.html" class="waves-effect manager-menu">
+                        <i class="fa fa-table fa-fw" aria-hidden="true"></i>
+                        <span class="hide-menu"> Feedback </span>
+                    </a>
                 </li>
                 <li>
-                    <a href="view-voucher.html" class="waves-effect"
+                    <a href="view-voucher.html" class="waves-effect manager-menu"
                     ><i class="fa fa-ticket fa-fw" aria-hidden="true"></i
                     ><span class="hide-menu">Voucher </span></a>
                 </li>
@@ -166,47 +241,25 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Feedback list</h4>
+                    <h4 class="page-title">Artist Schedule</h4>
                 </div>
+
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /row -->
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="white-box">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Feedback ID</th>
-                                    <th>Booking Detail ID </th>
-                                    <th>Description</th>
-                                    <th>Service ID</th>
-                                    <th>Artist email</th>
-                                    <th>Artist rating</th>
-                                    <th>Booking date</th>
-                                </tr>
-                                </thead>
-                                <tbody id="feedbackList_template" style="display: none">
-                                <tr>
-                                    <td>{{feedbackID}}</td>
-                                    <td>{{bookingDetailID}}</td>
-                                    <td>{{description}}</td>
-                                    <td>{{serviceID}}</td>
-                                    <td>{{artistEmail}}</td>
-                                    <td>{{artistRating}}</td>
-                                    <td>{{bookingDate}}</td>
 
-                                </tr>
 
-                                </tbody>
-                                <tbody id = "feedback">
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+            <div class="schedule-container" id="schedule">
+
                 </div>
+
+
+
+                <!-- Add more schedule items as needed -->
+
             </div>
+
+
             <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
@@ -215,6 +268,7 @@
     <!-- /#page-wrapper -->
 </div>
 <!-- /#wrapper -->
+<script src="studiomanager/assets/js/sideMenu.js"></script>
 <!-- jQuery -->
 <script src="studiomanager/assets/plugins/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
@@ -224,18 +278,46 @@
 <script src="studiomanager/assets/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
 <!--slimscroll JavaScript -->
 <script src="studiomanager/assets/js/jquery.slimscroll.js"></script>
-<script src="studiomanager/assets/js/view-feedback.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="studiomanager/assets/js/jquery.dataTables.js"></script>
 <!--Wave Effects -->
 <script src="studiomanager/assets/js/waves.js"></script>
 <!-- Custom Theme JavaScript -->
-
 <script src="studiomanager/assets/js/custom.min.js"></script>
+<script src="studiomanager/assets/js/ArtistSchedule.js"></script>
+>
 <script>
     $(document).ready(function () {
         $("#example").DataTable();
+        var artist = sessionStorage.getItem('artist');
+        var manager = sessionStorage.getItem('manager');
+        $('.artist-menu, .manager-menu').hide();
+
+        // Show menu items based on user role
+        if (artist !== null) {
+            $('.artist-menu').show();
+        } else if (manager !== null) {
+            $('.manager-menu').show();
+            $('.artist-menu').show();
+        }
     });
+
+    var logoutLink = document.querySelectorAll("#logout");
+
+    // Add a click event listener to the link
+    logoutLink.forEach(logoutLink => {
+        logoutLink.addEventListener("click", function (event) {
+            // Prevent the default behavior of the link (navigating to "index.html")
+            event.preventDefault();
+
+            sessionStorage.clear();
+
+            // Optionally, you can also redirect the user to another page (e.g., a login page)
+            window.location.href = 'index.html'; // Replace 'login.html' with your desired URL
+        });
+    });
+
 </script>
-<script src="js/task.js"></script>
+
+
 </body>
 </html>

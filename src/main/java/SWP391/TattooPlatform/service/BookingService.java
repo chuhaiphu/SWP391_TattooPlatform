@@ -1,7 +1,11 @@
 package SWP391.TattooPlatform.service;
 
+import SWP391.TattooPlatform.config.ResponseUtils;
 import SWP391.TattooPlatform.model.*;
 import SWP391.TattooPlatform.repository.*;
+import org.apache.coyote.Response;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -12,19 +16,27 @@ public class BookingService {
     final BookingRepository bookingRepository;
     final BookingDetailRepository bookingDetailRepository;
 
+
+
     final BookingStatusRepository bookingStatusRepository;
+    final Studio_Tattoo_ManagerRepository studioTattooManagerRepository;
 
     final VoucherRepository voucherRepository;
+
+    final TattooServiceRepository tattooServiceRepository;
 
     final SlotRepository slotRepository;
 
     public BookingService(BookingRepository bookingRepository, BookingDetailRepository bookingDetailRepository,
-                          BookingStatusRepository bookingStatusRepository, VoucherRepository voucherRepository, SlotRepository slotRepository) {
+                          BookingStatusRepository bookingStatusRepository, VoucherRepository voucherRepository, SlotRepository slotRepository,
+                          Studio_Tattoo_ManagerRepository studioTattooManagerRepository, TattooServiceRepository tattooServiceRepository) {
         this.bookingRepository = bookingRepository;
         this.bookingDetailRepository = bookingDetailRepository;
         this.bookingStatusRepository = bookingStatusRepository;
         this.voucherRepository = voucherRepository;
         this.slotRepository = slotRepository;
+        this.studioTattooManagerRepository = studioTattooManagerRepository;
+        this.tattooServiceRepository = tattooServiceRepository;
     }
 
 
@@ -59,6 +71,54 @@ public class BookingService {
             return null;
         }
         return bookingRepository.findBookingByBookingID(bookingID);
+    }
+
+
+    public ResponseEntity<?> getBookingByStudioManagerEmail(String email) {
+        Studio_Tattoo_Manager studioTattooManager = studioTattooManagerRepository.findStudio_Tattoo_ManagerByStudioManagerEmail(email);
+        if(studioTattooManager == null) {
+            return ResponseUtils.error("Not find this manager", HttpStatus.NOT_FOUND);
+        }else{
+            List<SWP391.TattooPlatform.model.Service> serviceList = tattooServiceRepository.findServicesByTattooManagerEmail(email);
+            List<BookingDetail> listDetail = new ArrayList<>();
+            for(SWP391.TattooPlatform.model.Service service : serviceList) {
+                List<BookingDetail> bookingDetails = bookingDetailRepository.findBookingDetailsByServiceID(service.getServiceID());
+                if(bookingDetails != null) {
+                    listDetail.addAll(bookingDetails);
+                }
+            }
+            List<Booking> bookingList = new ArrayList<>();
+            Set<String> uniqueBookingIds = new HashSet<>();
+
+            for (BookingDetail bookingDetail : listDetail) {
+                String bookingId = bookingDetail.getBookingID();
+
+                if (!uniqueBookingIds.contains(bookingId)) {
+                    uniqueBookingIds.add(bookingId);
+                    bookingList.add(bookingRepository.findBookingByBookingID(bookingId));
+                }
+            }
+
+            return ResponseUtils.get(bookingList,HttpStatus.OK);
+
+
+//            List<Booking> bookingList = new ArrayList<>();
+//            for(int i = 0 ; i< listDetail.size(); i++) {
+//                boolean bookindIdexist = false;
+//                for(int j = 0 ; j <= i;j++) {
+//                    if(listDetail.get(j).getBookingID().equals(listDetail.get(i).getBookingID())) {
+//                        bookindIdexist = true;
+//                        break;
+//                    }
+//                }
+//                if(!bookindIdexist) {
+//                    bookingList.add(bookingRepository.)
+//                }
+//            }
+
+        }
+
+
     }
     public Booking findBookingByBookingIDAndArtistEmailAndTattooLoverEmail ( String bookingID,
                                                                            String artistEmail,
