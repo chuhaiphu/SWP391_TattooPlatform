@@ -80,7 +80,12 @@ public class BookingDetailService {
         return ResponseUtils.get(list,HttpStatus.OK);
     }
 
+    public BookingDetail updateStatus(String bookingDetailID
+            , String statusID ) throws Exception {
 
+        bookingDetailRepository.updateBookingDetail(bookingDetailID, statusID);
+        return bookingDetailRepository.findBookingDetailByBookingDetailID(bookingDetailID);
+    }
     public ResponseEntity<?> getBookingDetailByBookingDetailID(String id) {
         BookingDetail bookingDetail = bookingDetailRepository.findBookingDetailByBookingDetailID(id);
         if(bookingDetail != null) {
