@@ -54,7 +54,4 @@ public class TattooLovers {
     @ToString.Exclude
     private UserStatus userStatus;
 
-
-
-
 }
