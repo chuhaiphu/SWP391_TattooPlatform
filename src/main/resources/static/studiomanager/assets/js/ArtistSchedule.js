@@ -2,6 +2,7 @@ $(document).ready(function () {
     // Send an AJAX request to fetch artist data
 
     const artistUser = JSON.parse(sessionStorage.getItem('artist'));
+    const managerUser = JSON.parse(sessionStorage.getItem('manager'));
     if (artistUser !== null) {
         $.ajax({
             type: "GET",
@@ -19,6 +20,24 @@ $(document).ready(function () {
             }
         });
     }
+    if(managerUser !== null) {
+        $.ajax({
+            type: "GET",
+            url: "/bookingDetail/listAll/" + managerUser.content.studioManagerEmail, // Replace with the actual API endpoint
+            dataType: "json",
+            success: function (data) {
+
+                for (const bookingDetail of data.content) {
+                    renderScheduleData(bookingDetail);
+
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("Error fetching booking detail data: " + error);
+            }
+        });
+    }
+
 
     function renderScheduleData(scheduleData) {
         var added_bd = document.getElementById("schedule");

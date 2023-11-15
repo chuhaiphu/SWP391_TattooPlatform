@@ -1,14 +1,8 @@
 package SWP391.TattooPlatform.service;
 
 import SWP391.TattooPlatform.config.ResponseUtils;
-import SWP391.TattooPlatform.model.Booking;
-import SWP391.TattooPlatform.model.BookingDetail;
-import SWP391.TattooPlatform.model.Feedback;
-import SWP391.TattooPlatform.model.Studio;
-import SWP391.TattooPlatform.repository.BookingDetailRepository;
-import SWP391.TattooPlatform.repository.BookingRepository;
-import SWP391.TattooPlatform.repository.FeedbackRepository;
-import SWP391.TattooPlatform.repository.StudioRepository;
+import SWP391.TattooPlatform.model.*;
+import SWP391.TattooPlatform.repository.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -23,14 +17,20 @@ public class BookingDetailService {
     final BookingRepository bookingRepository;
 
     final StudioRepository studioRepository;
+    final Studio_Tattoo_ManagerRepository studioTattooManagerRepository;
+
+    final TattooServiceRepository tattooServiceRepository;
 
     final FeedbackRepository feedbackRepository;
     public BookingDetailService(BookingDetailRepository bookingDetailRepository, BookingRepository bookingRepository
-                                , StudioRepository studioRepository , FeedbackRepository feedbackRepository) {
+                                , StudioRepository studioRepository , FeedbackRepository feedbackRepository , Studio_Tattoo_ManagerRepository studioTattooManagerRepository
+                                ,TattooServiceRepository tattooServiceRepository) {
         this.bookingDetailRepository = bookingDetailRepository;
         this.bookingRepository = bookingRepository;
         this.studioRepository = studioRepository;
         this.feedbackRepository = feedbackRepository;
+        this.studioTattooManagerRepository = studioTattooManagerRepository;
+        this.tattooServiceRepository = tattooServiceRepository;
 
     }
 
@@ -63,6 +63,23 @@ public class BookingDetailService {
         }
         return bookingDetails;
     }
+
+    public ResponseEntity<?> getBookingDetailByManagerEmail(String email) {
+       List<SWP391.TattooPlatform.model.Service> serviceList = tattooServiceRepository.findServicesByTattooManagerEmail(email);
+        List<BookingDetail> list = new ArrayList<>();
+        if(serviceList == null) {
+            return ResponseUtils.error("asd",HttpStatus.BAD_REQUEST);
+        }
+        for(SWP391.TattooPlatform.model.Service se : serviceList) {
+            List<BookingDetail> b = bookingDetailRepository.findBookingDetailsByServiceID(se.getServiceID());
+            if(b != null) {
+                list.addAll(b);
+            }
+        }
+
+        return ResponseUtils.get(list,HttpStatus.OK);
+    }
+
 
     public ResponseEntity<?> getBookingDetailByBookingDetailID(String id) {
         BookingDetail bookingDetail = bookingDetailRepository.findBookingDetailByBookingDetailID(id);

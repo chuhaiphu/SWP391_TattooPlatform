@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Data
@@ -12,7 +13,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table (name = "Artist_Certificate")
 public class Artist_Certificate {
+
     @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "SWP391.TattooPlatform.model.CustomUUIDGenerator"
+    )
     @Column(name = "certificate_ID")
     private String certificateID;
 
