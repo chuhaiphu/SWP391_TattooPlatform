@@ -102,18 +102,18 @@ VALUES
 	('service16', 'Chest Tattoo', 'Tattoo on right chest', 'https://i.pinimg.com/736x/b0/de/1f/b0de1ff6ec3bf4716f95d73b13ee0f21.jpg', 'manager4@gmail.com', 110.0),
 	('service17', 'Back Tattoo', 'Small wolf tattoo on the back', 'https://www.ohmytat.com/cdn/shop/products/Small-Lone-Wolf-Animal-Temporary-Tattoo-Design-Idea-Back.jpg?v=1567158052&width=1920', 'manager5@gmail.com', 60.0),
 	('service18', 'Shoulder Tattoo', 'Large dark tattoo on the shoulder', 'https://dezayno.b-cdn.net/wp-content/uploads/2023/03/tattoos-on-shoulder-for-guys-46.jpg', 'manager6@gmail.com', 60.0),
-	('service13', 'Forearm Tattoo', 'Blackwork flower tattoo on forearm', 'https://i.pinimg.com/originals/e9/85/a7/e985a75e5eb0bba1b70feccf87e461e1.jpg', 'manager2@gmail.com', 100.0),
-	('service14', 'Guitar Tattoo', 'Guitar tattoo on forearm', 'https://m.media-amazon.com/images/I/61PERG9oBQL._AC_UF1000,1000_QL80_.jpg', 'manager3@gmail.com', 110.0),
-	('service15', 'Neck Tattoo', 'Small tattoo on neck', 'https://i.pinimg.com/736x/39/03/c5/3903c5fee1a886bbfe2e74e0c5dc5eed.jpg', 'manager4@gmail.com', 45.0),
-	('service16', 'Chest Tattoo', 'Tattoo on right chest', 'https://i.pinimg.com/736x/b0/de/1f/b0de1ff6ec3bf4716f95d73b13ee0f21.jpg', 'manager5@gmail.com', 100.0),
-	('service17', 'Back Tattoo', 'Small wolf tattoo on the back', 'https://www.ohmytat.com/cdn/shop/products/Small-Lone-Wolf-Animal-Temporary-Tattoo-Design-Idea-Back.jpg?v=1567158052&width=1920', 'manager6@gmail.com', 50.0),
-	('service18', 'Shoulder Tattoo', 'Large dark tattoo on the shoulder', 'https://dezayno.b-cdn.net/wp-content/uploads/2023/03/tattoos-on-shoulder-for-guys-46.jpg', 'manager1@gmail.com', 65.0),
-	('service19', 'Erase Tattoo', 'Erase an unwanted tattoo', 'https://sp-ao.shortpixel.ai/client/to_webp,q_lossless,ret_img,w_754/https://trungdiatattoo.vn/wp-content/uploads/2023/03/xoa-xam-2.jpg', 'manager1@gmail.com', 105.0),
-	('service20', 'Erase Tattoo', 'Erase an unwanted tattoo', 'https://sp-ao.shortpixel.ai/client/to_webp,q_lossless,ret_img,w_754/https://trungdiatattoo.vn/wp-content/uploads/2023/03/xoa-xam-2.jpg', 'manager2@gmail.com', 110.0),
-	('service21', 'Erase Tattoo', 'Erase an unwanted tattoo', 'https://sp-ao.shortpixel.ai/client/to_webp,q_lossless,ret_img,w_754/https://trungdiatattoo.vn/wp-content/uploads/2023/03/xoa-xam-2.jpg', 'manager3@gmail.com', 90.0),
-	('service22', 'Erase Tattoo', 'Erase an unwanted tattoo', 'https://sp-ao.shortpixel.ai/client/to_webp,q_lossless,ret_img,w_754/https://trungdiatattoo.vn/wp-content/uploads/2023/03/xoa-xam-2.jpg', 'manager4@gmail.com', 95.0),
-	('service23', 'Erase Tattoo', 'Erase an unwanted tattoo', 'https://sp-ao.shortpixel.ai/client/to_webp,q_lossless,ret_img,w_754/https://trungdiatattoo.vn/wp-content/uploads/2023/03/xoa-xam-2.jpg', 'manager5@gmail.com', 100.0),
-	('service24', 'Erase Tattoo', 'Erase an unwanted tattoo', 'https://sp-ao.shortpixel.ai/client/to_webp,q_lossless,ret_img,w_754/https://trungdiatattoo.vn/wp-content/uploads/2023/03/xoa-xam-2.jpg', 'manager6@gmail.com', 110.0);
+	('service19', 'Forearm Tattoo', 'Blackwork flower tattoo on forearm', 'https://i.pinimg.com/originals/e9/85/a7/e985a75e5eb0bba1b70feccf87e461e1.jpg', 'manager2@gmail.com', 100.0),
+	('service20', 'Guitar Tattoo', 'Guitar tattoo on forearm', 'https://m.media-amazon.com/images/I/61PERG9oBQL._AC_UF1000,1000_QL80_.jpg', 'manager3@gmail.com', 110.0),
+	('service21', 'Neck Tattoo', 'Small tattoo on neck', 'https://i.pinimg.com/736x/39/03/c5/3903c5fee1a886bbfe2e74e0c5dc5eed.jpg', 'manager4@gmail.com', 45.0),
+	('service22', 'Chest Tattoo', 'Tattoo on right chest', 'https://i.pinimg.com/736x/b0/de/1f/b0de1ff6ec3bf4716f95d73b13ee0f21.jpg', 'manager5@gmail.com', 100.0),
+	('service23', 'Back Tattoo', 'Small wolf tattoo on the back', 'https://www.ohmytat.com/cdn/shop/products/Small-Lone-Wolf-Animal-Temporary-Tattoo-Design-Idea-Back.jpg?v=1567158052&width=1920', 'manager6@gmail.com', 50.0),
+	('service24', 'Shoulder Tattoo', 'Large dark tattoo on the shoulder', 'https://dezayno.b-cdn.net/wp-content/uploads/2023/03/tattoos-on-shoulder-for-guys-46.jpg', 'manager1@gmail.com', 65.0),
+	('service25', 'Erase Tattoo', 'Erase an unwanted tattoo', 'https://sp-ao.shortpixel.ai/client/to_webp,q_lossless,ret_img,w_754/https://trungdiatattoo.vn/wp-content/uploads/2023/03/xoa-xam-2.jpg', 'manager1@gmail.com', 105.0),
+	('service26', 'Erase Tattoo', 'Erase an unwanted tattoo', 'https://sp-ao.shortpixel.ai/client/to_webp,q_lossless,ret_img,w_754/https://trungdiatattoo.vn/wp-content/uploads/2023/03/xoa-xam-2.jpg', 'manager2@gmail.com', 110.0),
+	('service27', 'Erase Tattoo', 'Erase an unwanted tattoo', 'https://sp-ao.shortpixel.ai/client/to_webp,q_lossless,ret_img,w_754/https://trungdiatattoo.vn/wp-content/uploads/2023/03/xoa-xam-2.jpg', 'manager3@gmail.com', 90.0),
+	('service28', 'Erase Tattoo', 'Erase an unwanted tattoo', 'https://sp-ao.shortpixel.ai/client/to_webp,q_lossless,ret_img,w_754/https://trungdiatattoo.vn/wp-content/uploads/2023/03/xoa-xam-2.jpg', 'manager4@gmail.com', 95.0),
+	('service29', 'Erase Tattoo', 'Erase an unwanted tattoo', 'https://sp-ao.shortpixel.ai/client/to_webp,q_lossless,ret_img,w_754/https://trungdiatattoo.vn/wp-content/uploads/2023/03/xoa-xam-2.jpg', 'manager5@gmail.com', 100.0),
+	('service30', 'Erase Tattoo', 'Erase an unwanted tattoo', 'https://sp-ao.shortpixel.ai/client/to_webp,q_lossless,ret_img,w_754/https://trungdiatattoo.vn/wp-content/uploads/2023/03/xoa-xam-2.jpg', 'manager6@gmail.com', 110.0);
 	
 	INSERT INTO [dbo].[Slot] ([slot_ID], [studio_ID], [start_time], [date], [slot_status])
 VALUES
