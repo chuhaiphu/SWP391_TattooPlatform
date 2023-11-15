@@ -11,6 +11,7 @@ $(document).ready(function () {
         success: function (data) {
             renderStudioPage(data);
             var services = data.content.service;
+            
             services.forEach(function(service) {
                 renderServiceCard(service)
             });
@@ -85,7 +86,7 @@ $(document).ready(function () {
                
 
                 $('.testimonials-main').html('<div class="testi-slides"><div class="testi-inner">' +
-                '<h2>Oops! Looks like this studio has not received any feedback yet!</h2>' +
+                '<h3>Oops! Looks like this studio has not received any feedback yet!</h3>' +
                 '</div></div>');
             }
         },
@@ -185,7 +186,7 @@ function handleBookingBtn(data, tattooLover){
                 window.location.href = "appointment-page.html"
             }
         }else{
-            alert("please login")
+            alert("Please login first to book appointment!!!")
         }
     });
 }
@@ -217,90 +218,21 @@ function renderFeedback(feedback) {
     feedbackContainer.appendChild(feedbackDiv);
     
 }
-function renderStudioPage(data, selectStudioID) {
+function renderStudioPage(data) {
     $('#studio-name').find('h2').text(data.content.studio.studioName);
     $('#content').find('p').text(data.content.studio.content);
-    var averageRates = calculateStudioAverageRate(selectStudioID);
-    console.log(averageRates);
-    if(averageRates == 0){
-        $('#studio-rate').find('span').text("N/A");
-        $('.rating-review').find('p').text("There is not any review yet!");
-    }else{
-        const totalReview = fetchFeedbacks(selectStudioID);
-        console.log(totalReview)
-        $('#studio-rate').find('span').text(averageRates);
-        $('.rating-review').find('p').text(totalReview.length + "statisfied reviews from customers!")
-    }
+    var bannerImgElement2 = document.getElementById('bannerImage2');
+    var bannerImgElement1 = document.getElementById('bannerImage1');
+    bannerImgElement1.src = data.content.studio.bannerImg;
+    bannerImgElement2.src = data.content.studio.bannerImg;
+    console.log(bannerImgElement2.src)
+    
 }
-async function fetchFeedbacks(selectStudioID) {
-    try {
-        const response = await $.ajax({
-            url: '/feedback/allFeedback/' + selectStudioID,
-            method: 'GET',
-            dataType: 'json',
-        });
 
-        return response.content || []; // Return an empty array if there is no content
-    } catch (error) {
-        console.error('Error fetching feedback:', error);
-        throw error; // Propagate the error for further handling
-    }
-}  
-async function fetchArtist(studioID) {
-    try {
-        const response = await $.ajax({
-            type: "GET",
-            url: "/artist/allArtist/" + studioID, // Replace with the actual URL to your endpoint
-            dataType: "json",
-        });
 
-        return response.content || []; // Return an empty array if there is no content
-    } catch (error) {
-        console.error('Error fetching feedback:', error);
-        throw error; // Propagate the error for further handling
-    }
-}
-function calculateStudioAverageRate(studioID) {
-    try {
-        // Replace this with your actual data retrieval logic from the database
-        
-
-        // Check if there are any artists in the studio
-        const artists = fetchArtist(studioID);
-        console.log(artists)
-        if (artists.length === 0) {
-            return 0; // Return 0 if there are no artists in the studio
-        }
-
-        // Calculate the overall average rate
-        if (Array.isArray(artists) && artists.length > 0) {
-            var totalRates = artists.reduce(function (sum, artist) {
-                return sum + artist.rate;
-            }, 0);
-        
-            var overallAverageRate = totalRates / artists.length;
-        
-            console.log('Overall Average Rate:', overallAverageRate);
-        } else {
-            console.error('Invalid or empty array of artists.');
-        }
-
-        // Optionally, you can do something with the artists array here
-        console.log("List of artists:", artists);
-
-        return overallAverageRate;
-    } catch (error) {
-        console.error("Error fetching artists: ", error);
-        throw error; // Propagate the error for further handling
-    }
-}
 
 // Example function to retrieve artist average rates from the database
-function getArtistAverageRates(studioId) {
-    
 
-    return averageRates;
-}
 function renderServiceCard(service){
     var service_card_template = $("#service-booking-card_template").html();
     service_card_template = service_card_template.replace("{{imgSrc}}", service.linkImage);

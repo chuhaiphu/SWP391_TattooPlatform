@@ -70,36 +70,22 @@
                         <li class="header-appointment" >
                         </li>
                     </ul>
-                    <ul class="main-nav">
-                        <li class="menu-lnk has-item">
-                            <a href="#">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                            </a>
-                            <div class="menu-dropdown">
-                                <ul>
-                                    <li><a href="my-account.html">Setting</a></li>
-                                    <li><a href="index.html" id="logout">Logout</a></li>
-                                    <script>
-                                        document.addEventListener("DOMContentLoaded", function() {
-                                            // Get the "Logout" link by its ID
-                                            var logoutLink = document.getElementById("logout");
+                    <div class="login">
+                        <a id="loginStatus" href="login">Login</a>
+                    </div>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const loginStatus = document.getElementById("loginStatus");
 
-                                            // Add a click event listener to the link
-                                            logoutLink.addEventListener("click", function(event) {
-                                                // Prevent the default behavior of the link (navigating to "index.html")
-                                                event.preventDefault();
-
-                                                sessionStorage.removeItem('tattooLover');
-
-                                                // Optionally, you can also redirect the user to another page (e.g., a login page)
-                                                window.location.href = 'index.html'; // Replace 'login.html' with your desired URL
-                                            });
-                                        });
-                                    </script>
-                                </ul>
-                            </div>
-                        </li>
-
+                            // Check if a user is logged in
+                            const tattooLover = JSON.parse(sessionStorage.getItem('tattooLover'));
+                            if (tattooLover && tattooLover.content.username) {
+                                // User is logged in, update the content to show the user's name
+                                loginStatus.innerHTML = `Welcome, ${tattooLover.content.username}`
+                                loginStatus.href = "/tattoolovers";
+                            }
+                        });
+                    </script>
                     </ul>
                     <div class="mobile-menu mobile-only">
                         <button class="mobile-menu-button">
