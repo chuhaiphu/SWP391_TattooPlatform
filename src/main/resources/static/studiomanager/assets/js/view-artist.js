@@ -10,6 +10,7 @@ $(document).ready(function () {
             url: "/artist/list", // Replace with the actual API endpoint
             dataType: "json",
             success: function (data) {
+
                 for(const artist of data.content) {
                     renderArtistData(artist);
                 }

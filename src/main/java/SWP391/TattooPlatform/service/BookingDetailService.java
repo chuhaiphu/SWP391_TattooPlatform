@@ -73,6 +73,19 @@ public class BookingDetailService {
     }
 
 
+    public ResponseEntity<?> getBookingDetailByArtistEmail(String email) {
+            List<BookingDetail> bookingDetails = bookingDetailRepository.findBookingDetailsByArtistEmail(email);
+
+            for(BookingDetail bookingDetail : bookingDetails) {
+                bookingDetail.getSlot().getDate();
+            }
+            if(bookingDetails != null) {
+                return ResponseUtils.get(bookingDetails, HttpStatus.OK);
+            }
+        return new ResponseEntity("Not found any booking detail ", HttpStatus.NOT_FOUND);
+    }
+
+
 
 
     public ResponseEntity<?> getAllDetail() {

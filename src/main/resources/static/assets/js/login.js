@@ -91,6 +91,7 @@
                     sessionStorage.setItem('artist', JSON.stringify(artist));
                     window.location.href = "/view-artist.html";
 
+
                 } else if (response.toString() === "studioManager") {
                     const managerEmail = form.find('[name="email"]').val();
                     const userData = await $.ajax({

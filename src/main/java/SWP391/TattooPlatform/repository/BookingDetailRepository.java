@@ -21,6 +21,9 @@ public interface BookingDetailRepository extends JpaRepository<BookingDetail,Lon
 
     BookingDetail save(BookingDetail bookingDetail);
 
+
+    List<BookingDetail> findBookingDetailsByArtistEmail(String email);
+
     List<BookingDetail> findBookingDetailsByBookingID(String bookingID);
 
     List<BookingDetail> findBookingDetailsByServiceID(String id);
