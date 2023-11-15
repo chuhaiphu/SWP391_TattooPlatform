@@ -43,4 +43,7 @@ public class ArtistCertificateService {
             throw new Exception();
         }
     }
+    public boolean checkCertificate(String certificateName, String artistEmail) {
+        return artistCertificateRepository.existsByCertificateNameAndArtistEmail(certificateName, artistEmail);
+    }
 }

@@ -9,6 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/artistCertificate")
 public class ArtistCertificateManager {
@@ -42,4 +46,17 @@ public class ArtistCertificateManager {
         return ResponseUtils.get(artistCertificateService.deleteArtistCertificates(certificateID), HttpStatus.OK);
 
     }
+    @GetMapping("/checkCertificate")
+    public ResponseEntity<?> checkCertificate(
+            @RequestParam String certificateName,
+            @RequestParam String artistEmail
+    ) {
+        boolean certificateExists = artistCertificateService.checkCertificate(certificateName, artistEmail);
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("exists", certificateExists);
+
+        return ResponseEntity.ok(response);
+    }
+
 }
