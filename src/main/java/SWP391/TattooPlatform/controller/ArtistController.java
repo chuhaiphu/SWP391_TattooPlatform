@@ -57,6 +57,11 @@ public class ArtistController {
     public ResponseEntity<?> getAristByEmail(@PathVariable String email) {
         return artistService.getArtistByEmail(email);
     }
+    @GetMapping("/check-email/{email}")
+    public ResponseEntity<Boolean> checkArtistEmail(@PathVariable String email) {
+        boolean emailExists = artistService.emailExists(email);
+        return new ResponseEntity<>(emailExists, HttpStatus.OK);
+    }
 
     //-------------------------------POST/ADD-------------------------------
     @PostMapping("/add-artist")
@@ -73,8 +78,8 @@ public class ArtistController {
     }
 
     //-------------------------------DELETE-------------------------------
-    @DeleteMapping("/deleteArtist/")
-    public ResponseEntity<?> deleteRole(@RequestParam String email) throws Exception {
+    @DeleteMapping("/deleteArtist/{email}")
+    public ResponseEntity<?> deleteRole(@PathVariable String email) throws Exception {
         return ResponseUtils.get(artistService.deleteArtist(email), HttpStatus.OK);
     }
 }

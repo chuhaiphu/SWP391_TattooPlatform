@@ -5,6 +5,7 @@ $(document).ready(function () {
         url: "/artistCertificate/allCertificates", // Replace with the actual API endpoint
         dataType: "json",
         success: function (data) {
+            console.log(data);
             for( var certificate of data.content) {
                 renderCertificateData(certificate);
             }

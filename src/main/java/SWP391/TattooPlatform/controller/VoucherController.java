@@ -51,10 +51,18 @@ public class VoucherController {
     public Object getAllFeedbackByTattooLoverEmail (@PathVariable String date) {
         return  ResponseUtils.get(voucherService.getVoucherListByEndDate(date), HttpStatus.OK);
     }
-
+    @GetMapping("/check-name/{name}")
+    public ResponseEntity<Boolean> checkNameVoucher(@PathVariable String name) {
+        boolean nameExists = voucherService.nameExists(name);
+        return new ResponseEntity<>(nameExists, HttpStatus.OK);
+    }
     //-------------------------------POST/ADD-------------------------------
     @PostMapping("/add-voucher")
     public ResponseEntity<?> saveRole(@RequestBody Voucher voucher) {
         return ResponseUtils.get(voucherService.addVoucher(voucher), HttpStatus.CREATED);
+    }
+    @DeleteMapping("/{voucherID}")
+    public ResponseEntity<?> deleteVoucher(@PathVariable String voucherID) throws Exception {
+        return ResponseUtils.get(voucherService.deleteVoucher(voucherID),HttpStatus.OK);
     }
 }

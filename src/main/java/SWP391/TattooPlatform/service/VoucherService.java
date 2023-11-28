@@ -42,4 +42,20 @@ public class VoucherService {
     public Voucher getVoucherByVoucherID(String name){
         return voucherRepository.findVoucherByVoucherID(name);
     }
+
+    public boolean nameExists(String name) {
+        // Use your JPA repository to check if an artist with the given email exists
+        Voucher voucher = voucherRepository.findVoucherByVoucherName(name);
+        return voucher != null;
+    }
+    public Voucher deleteVoucher(String voucherID) throws Exception{
+        voucherRepository.deleteVoucher(voucherID);
+        Voucher voucher = voucherRepository.findVoucherByVoucherID(voucherID);
+        if(voucher == null){
+            return null;
+        }
+        else {
+            throw new Exception();
+        }
+    }
 }

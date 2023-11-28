@@ -36,6 +36,12 @@ public class ArtistService {
         }
         return artistRepository.findAll();
     }
+    public boolean emailExists(String email) {
+        // Use your JPA repository to check if an artist with the given email exists
+        Artist artist = artistRepository.findArtistByEmail(email);
+        return artist != null;
+    }
+
     public List<Artist> findAllArtistByStudioID(String studioID){
         if(artistRepository.findAllArtistByStudioID(studioID).isEmpty()){
             return Collections.emptyList();
